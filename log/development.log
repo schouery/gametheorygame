@@ -1,0 +1,1631 @@
+Can't find facebooker config: 'fc078e80530728cee7c1e2630803952f'
+Can't find facebooker config: 'fc078e80530728cee7c1e2630803952f'
+Can't find facebooker config: 'fc078e80530728cee7c1e2630803952f'
+Can't find facebooker config: 'fc078e80530728cee7c1e2630803952f'
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 21:59:41) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"6470938670480f8b5884c3af28705f34", "fb_sig_added"=>true, "fb_sig_expires"=>Sun Apr 11 23:00:00 -0300 2010, "fb_sig_session_key"=>"2.J516dOhmWqnc6V_kpCRLYA__.3600.1271037600-1542875245", "fb_sig_cookie_sig"=>"4868c49b49b31a66c7c5418dd7271336", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"J516dOhmWqnc6V_kpCRLYA__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 21:59:39 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering welcome/index
+Completed in 247ms (View: 31, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271033979.9468&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271037600&fb_sig_user=1542875245&fb_sig_session_key=2.J516dOhmWqnc6V_kpCRLYA__.3600.1271037600-1542875245&fb_sig_ss=J516dOhmWqnc6V_kpCRLYA__&fb_sig_cookie_sig=4868c49b49b31a66c7c5418dd7271336&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=6470938670480f8b5884c3af28705f34]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:00:05) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"9254d369a903f02d82e07763b548fdcf", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:00:04 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering welcome/index
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034004.1242&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=9254d369a903f02d82e07763b548fdcf]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:01:14) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"b4448acc543b0c4483f9ce053f251beb", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:01:12 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering welcome/index
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034072.84&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=b4448acc543b0c4483f9ce053f251beb]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:04:44) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"57a9f5ab55f94ad6ce56feb91c9ad6ab", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:04:43 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 41ms (View: 38, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034283.0841&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=57a9f5ab55f94ad6ce56feb91c9ad6ab]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:09:00) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"d37a68f095e2c7e44e29e0bba0c51750", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:08:58 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034538.4668&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=d37a68f095e2c7e44e29e0bba0c51750]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:10:29) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"023a52c2d5a62cac70fbae433769da05", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:10:27 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034627.7224&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=023a52c2d5a62cac70fbae433769da05]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:11:10) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"4d9139f167f591e098bb2e540ce09bd8", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:11:08 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034668.5952&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=4d9139f167f591e098bb2e540ce09bd8]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:12:03) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"946a041728087cc24d129d374171baee", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:12:02 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034722.2362&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=946a041728087cc24d129d374171baee]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:12:45) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"fa31dc63f1fd3498c270a91dce5b6147", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:12:43 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 21ms (View: 3, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034763.2103&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=fa31dc63f1fd3498c270a91dce5b6147]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:14:21) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"97ed50a0a382b774207c036c338546f2", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:14:19 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034859.525&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=97ed50a0a382b774207c036c338546f2]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:15:17) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"2b3d0eab0b905c5a69db9aed2bbe31a7", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:15:15 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271034915.6702&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=2b3d0eab0b905c5a69db9aed2bbe31a7]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:26:10) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"9274d089fd0397f0e9fbcfc688f19879", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:26:08 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271035568.7302&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=9274d089fd0397f0e9fbcfc688f19879]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:26:11) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:28:36) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"8e2319df432c8a44958b8de2184225ab", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:28:34 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 137ms (View: 131, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271035714.5989&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=8e2319df432c8a44958b8de2184225ab]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:28:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:29:04) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"a79f45292b3f46ddfb7acf98cb88531b", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:29:02 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 69ms (View: 66, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271035742.2429&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=a79f45292b3f46ddfb7acf98cb88531b]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:29:05) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:32:46) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"edf65579613b5a2adf8459389aaa5757", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:32:44 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 32ms (View: 29, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271035964.4344&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=edf65579613b5a2adf8459389aaa5757]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:32:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:33:16) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"1fc9fc40c11c0dfbbd91da4b97cc743b", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:33:14 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 60ms (View: 57, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271035994.4754&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=1fc9fc40c11c0dfbbd91da4b97cc743b]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:33:17) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:33:54) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"5a95158402b38909b3de1626c708b2f2", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:33:52 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036032.2085&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=5a95158402b38909b3de1626c708b2f2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:33:55) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:35:24) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"0b8bbe3f3ef2851e01f2a6baf35cc2c1", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:35:22 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036122.603&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=0b8bbe3f3ef2851e01f2a6baf35cc2c1]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:35:53) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"8686a1a6b563cb5f02313768d6201cdf", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:35:52 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036152.4036&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=8686a1a6b563cb5f02313768d6201cdf]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:35:54) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:36:06) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:37:21) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"551c12f88f7fcadd79ee8d5465ccc3e6", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:37:19 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+
+ActionView::TemplateError (Inconsistent indentation: "\t  " was used for indentation, but the rest of the document was indented using 1 tab.) on line #3 of app/views/layouts/application.html.haml:
+1: %html
+2: 	%head
+3: 	  %link{:href => "http://croata.ime.usp.br/stylesheets/layout.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
+4: 		=javascript_include_tag 'jquery', 'application'
+5: 	%body
+6: 		=yield
+
+    app/views/layouts/application.html.haml:3
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:169:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `instance_eval'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:1007:in `block_opened?'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:758:in `render_tag'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:231:in `process_line'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:195:in `precompile'
+    haml (2.2.22) rails/./lib/haml/engine.rb:114:in `initialize'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `new'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `compile'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/sass/plugin/rails.rb:20:in `process'
+    facebooker (1.0.67) lib/facebooker.rb:95:in `with_application'
+
+Rendered rescues/_trace (341.6ms)
+Rendered rescues/_request_and_response (22.4ms)
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:37:45) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"1b4a4aadf5fae03b5e8fd57d3c2daf96", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:37:43 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+
+ActionView::TemplateError (Inconsistent indentation: 4 spaces were used for indentation, but the rest of the document was indented using 1 tab.) on line #3 of app/views/layouts/application.html.haml:
+1: %html
+2: 	%head
+3:     %link{:href => "http://croata.ime.usp.br/stylesheets/layout.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
+4: 		=javascript_include_tag 'jquery', 'application'
+5: 	%body
+6: 		=yield
+
+    app/views/layouts/application.html.haml:3
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:169:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `instance_eval'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:1007:in `block_opened?'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:758:in `render_tag'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:231:in `process_line'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:195:in `precompile'
+    haml (2.2.22) rails/./lib/haml/engine.rb:114:in `initialize'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `new'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `compile'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/sass/plugin/rails.rb:20:in `process'
+    facebooker (1.0.67) lib/facebooker.rb:95:in `with_application'
+
+Rendered rescues/_trace (68.8ms)
+Rendered rescues/_request_and_response (110.6ms)
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:38:03) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"85bbb4b14c21d82342d9db0fcefc0bb1", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:38:02 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036282.1969&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=85bbb4b14c21d82342d9db0fcefc0bb1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:38:05) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:38:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:38:30) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"463da998defd9fc16ddcbaf1330addc1", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:38:28 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 24ms (View: 21, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036308.3625&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=463da998defd9fc16ddcbaf1330addc1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:38:31) [GET]
+
+ActionController::RoutingError (No route matches "/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:38:40) [GET]
+
+ActionController::RoutingError (No route matches "/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:39:43) [GET]
+
+ActionController::RoutingError (No route matches "/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:39:46) [GET]
+
+ActionController::RoutingError (No route matches "/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:40:25) [GET]
+
+ActionController::RoutingError (No route matches "/layout.html" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:40:53) [GET]
+
+ActionController::RoutingError (No route matches "/create" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:41:00) [GET]
+
+ActionController::RoutingError (No route matches "/create/" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing WelcomeController#create (for 127.0.0.1 at 2010-04-11 22:41:25) [GET]
+  Parameters: {"action"=>"create", "controller"=>"welcome"}
+Redirected to http://www.facebook.com/install.php?api_key=fc078e80530728cee7c1e2630803952f&v=1.0&next=http%3A%2F%2Fcroata.ime.usp.br%2Fwelcome%2Fcreate
+Filter chain halted as [:ensure_application_is_installed_by_facebook_user] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://croata.ime.usp.br/welcome/create/]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#create (for 127.0.0.1 at 2010-04-11 22:41:28) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"create", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"3a91d426c2315fc7faa79ad5ae32f27f", "auth_token"=>"e9131f21698be701d50f3deee19627da", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:41:27 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+
+LoadError (Expected /opt/local/lib/ruby/gems/1.8/gems/haml-2.2.22/lib/sass.rb to define SASS):
+  app/controllers/welcome_controller.rb:6:in `create'
+  app/controllers/welcome_controller.rb:4:in `create'
+  haml (2.2.22) rails/./lib/sass/plugin/rails.rb:20:in `process'
+  facebooker (1.0.67) lib/facebooker.rb:95:in `with_application'
+
+Rendered rescues/_trace (65.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:42:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:42:24) [GET]
+
+ActionController::RoutingError (No route matches "/welcome/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-11 22:42:30) [GET]
+
+ActionController::RoutingError (No route matches "/welcome/layout.css" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#create (for 127.0.0.1 at 2010-04-11 22:43:46) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"create", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"32aa168fb69e3c6a6279c0f5501a21e1", "auth_token"=>"e9131f21698be701d50f3deee19627da", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:43:43 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+
+ActionController::UnknownAction (No action responded to create. Actions: create_facebook_session, create_facebook_session_with_secret, facebook_params, facebook_session, facebook_session_parameters, one_or_true, redirect_to, render_publisher_error, render_publisher_interface, render_publisher_response, set_facebook_session, top_redirect_to, wants_interface?, and zero_or_false):
+  haml (2.2.22) rails/./lib/sass/plugin/rails.rb:20:in `process'
+  facebooker (1.0.67) lib/facebooker.rb:95:in `with_application'
+
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 22:43:52) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"c7b630466290661150f924464720d592", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 00:00:00 -0300 2010, "fb_sig_session_key"=>"2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245", "fb_sig_cookie_sig"=>"b8b65df6fea5ede9f9ea890b2fa5b3d3", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"l_jFsc9Be8W33_QMRN46kg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 22:43:51 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://croata.ime.usp.br/?fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271036631.7042&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271041200&fb_sig_user=1542875245&fb_sig_session_key=2.l_jFsc9Be8W33_QMRN46kg__.3600.1271041200-1542875245&fb_sig_ss=l_jFsc9Be8W33_QMRN46kg__&fb_sig_cookie_sig=b8b65df6fea5ede9f9ea890b2fa5b3d3&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=c7b630466290661150f924464720d592]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 23:00:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Redirected to http://www.facebook.com/install.php?api_key=fc078e80530728cee7c1e2630803952f&v=1.0&next=http%3A%2F%2Fcroata.ime.usp.br%2F
+Filter chain halted as [:ensure_application_is_installed_by_facebook_user] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://croata.ime.usp.br/]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 23:00:39) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"9947e35f2a6784027483d702109ce9ba", "auth_token"=>"d79ad12c1ff182e681b6c08f822c0fe2", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 01:00:00 -0300 2010, "fb_sig_session_key"=>"2.DRiqkF_vjG7Y3C1EbmkbWg__.3600.1271044800-1542875245", "fb_sig_cookie_sig"=>"fc8bee7997a46a56a6fba5a394fd89c6", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"DRiqkF_vjG7Y3C1EbmkbWg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 23:00:37 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+
+ActionView::TemplateError (Inconsistent indentation: 2 spaces were used for indentation, but the rest of the document was indented using 1 tab.) on line #4 of app/views/welcome/index.html.haml:
+1: %p
+2: 	ola
+3: .center
+4:   bla
+5: 	
+
+    app/views/welcome/index.html.haml:4
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:169:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `instance_eval'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:151:in `tabs'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:1007:in `block_opened?'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:758:in `render_tag'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:824:in `render_div'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:227:in `process_line'
+    haml (2.2.22) rails/./lib/haml/precompiler.rb:195:in `precompile'
+    haml (2.2.22) rails/./lib/haml/engine.rb:114:in `initialize'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `new'
+    haml (2.2.22) rails/./lib/haml/template/plugin.rb:27:in `compile'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.22) rails/./lib/sass/plugin/rails.rb:20:in `process'
+    facebooker (1.0.67) lib/facebooker.rb:95:in `with_application'
+
+Rendered rescues/_trace (77.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (200)
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 23:00:56) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"19d4e9020309d397ed67dead19a2434d", "auth_token"=>"d79ad12c1ff182e681b6c08f822c0fe2", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 01:00:00 -0300 2010, "fb_sig_session_key"=>"2.DRiqkF_vjG7Y3C1EbmkbWg__.3600.1271044800-1542875245", "fb_sig_cookie_sig"=>"fc8bee7997a46a56a6fba5a394fd89c6", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"DRiqkF_vjG7Y3C1EbmkbWg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 23:00:55 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://croata.ime.usp.br/?auth_token=d79ad12c1ff182e681b6c08f822c0fe2&fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271037655.1127&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271044800&fb_sig_user=1542875245&fb_sig_session_key=2.DRiqkF_vjG7Y3C1EbmkbWg__.3600.1271044800-1542875245&fb_sig_ss=DRiqkF_vjG7Y3C1EbmkbWg__&fb_sig_cookie_sig=fc8bee7997a46a56a6fba5a394fd89c6&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=19d4e9020309d397ed67dead19a2434d]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-11 23:01:42) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"6512bd43d9caa6e02c990b0a82652dca", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"6e305db814bd5200fe7341c5271996e8", "auth_token"=>"d79ad12c1ff182e681b6c08f822c0fe2", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 01:00:00 -0300 2010, "fb_sig_session_key"=>"2.DRiqkF_vjG7Y3C1EbmkbWg__.3600.1271044800-1542875245", "fb_sig_cookie_sig"=>"fc8bee7997a46a56a6fba5a394fd89c6", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"DRiqkF_vjG7Y3C1EbmkbWg__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Sun Apr 11 23:01:40 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 50ms (View: 43, DB: 0) | 200 OK [http://croata.ime.usp.br/?auth_token=d79ad12c1ff182e681b6c08f822c0fe2&fb_sig_in_iframe=1&fb_sig_iframe_key=6512bd43d9caa6e02c990b0a82652dca&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271037700.4583&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271044800&fb_sig_user=1542875245&fb_sig_session_key=2.DRiqkF_vjG7Y3C1EbmkbWg__.3600.1271044800-1542875245&fb_sig_ss=DRiqkF_vjG7Y3C1EbmkbWg__&fb_sig_cookie_sig=fc8bee7997a46a56a6fba5a394fd89c6&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=6e305db814bd5200fe7341c5271996e8]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrashes (20100412135748)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trashes")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trashes")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (373.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+
+
+Processing ActionController::Base#index (for 127.0.0.1 at 2010-04-12 18:39:50) [GET]
+
+NameError (undefined local variable or method `ensure_application_is_installed_by_facebook_user' for ApplicationController:Class):
+  app/controllers/application_controller.rb:11
+  app/controllers/welcome_controller.rb:1
+
+Rendered rescues/_trace (83.7ms)
+Rendered rescues/_request_and_response (8.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-12 18:40:06) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 43ms (View: 41, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-12 18:42:01) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-12 18:42:15) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 14ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (37.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (770.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (30.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (8.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTrashes (20100412135748)
+Migrating to CreateUsers (20100412231015)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trashes")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (333.3ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (18.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (15.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (50.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (87.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (35.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-12 20:43:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Redirected to http://www.facebook.com/install.php?api_key=fc078e80530728cee7c1e2630803952f&v=1.0&next=http%3A%2F%2Fcroata.ime.usp.br%2F
+Filter chain halted as [:ensure_application_is_installed_by_facebook_user] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://croata.ime.usp.br/]
+Swapping facebooker config: 'fc078e80530728cee7c1e2630803952f'
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-04-12 20:43:46) [GET]
+  Parameters: {"fb_sig_app_id"=>"111685272178126", "fb_sig_iframe_key"=>"c20ad4d76fe97759aa27a0c99bff6710", "action"=>"index", "fb_sig_in_iframe"=>"1", "fb_sig_locale"=>"en_US", "fb_sig_in_new_facebook"=>true, "fb_sig"=>"144873ec21f1456aef5417bceb17d989", "auth_token"=>"7517e191381700fda0b3740f3a73db35", "fb_sig_added"=>true, "fb_sig_expires"=>Mon Apr 12 22:00:00 -0300 2010, "fb_sig_session_key"=>"2.VKyHTi2qjBJpFUQqczKg1A__.3600.1271120400-1542875245", "fb_sig_cookie_sig"=>"b098ea2451d77273ffd856b2ca462d6a", "fb_sig_ext_perms"=>"auto_publish_recent_activity", "controller"=>"welcome", "fb_sig_ss"=>"VKyHTi2qjBJpFUQqczKg1A__", "fb_sig_api_key"=>"fc078e80530728cee7c1e2630803952f", "fb_sig_time"=>Mon Apr 12 20:43:45 -0300 2010, "fb_sig_profile_update_time"=>Tue Feb 23 17:46:46 -0300 2010, "fb_sig_user"=>"1542875245"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 214ms (View: 41, DB: 0) | 200 OK [http://croata.ime.usp.br/?auth_token=7517e191381700fda0b3740f3a73db35&fb_sig_in_iframe=1&fb_sig_iframe_key=c20ad4d76fe97759aa27a0c99bff6710&fb_sig_locale=en_US&fb_sig_in_new_facebook=1&fb_sig_time=1271115825.6556&fb_sig_added=1&fb_sig_profile_update_time=1266958006&fb_sig_expires=1271120400&fb_sig_user=1542875245&fb_sig_session_key=2.VKyHTi2qjBJpFUQqczKg1A__.3600.1271120400-1542875245&fb_sig_ss=VKyHTi2qjBJpFUQqczKg1A__&fb_sig_cookie_sig=b098ea2451d77273ffd856b2ca462d6a&fb_sig_ext_perms=auto_publish_recent_activity&fb_sig_api_key=fc078e80530728cee7c1e2630803952f&fb_sig_app_id=111685272178126&fb_sig=144873ec21f1456aef5417bceb17d989]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (165.4ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (100.9ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (77.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (65.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (51.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (271.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (30.1ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (25.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (66.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (40.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (6.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (459.5ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (42.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (142.8ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (4.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (125.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (7.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.7ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.9ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (6.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (26.2ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (18.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (7.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.9ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (9.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (14.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (19.1ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (6.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (393.7ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (16.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (13.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (9.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (16.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (21.7ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.6ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (7.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (17.6ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (7.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (10.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (94.2ms)[0m   [0;1mCREATE TABLE "trashes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (43.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "facebook_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (69.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (40.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100412231015')[0m
+  [4;35;1mSQL (129.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100412135748')[0m

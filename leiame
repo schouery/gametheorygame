@@ -1,0 +1,38 @@
+sudo port install libffi
+Entender spork
+jquery 1.4.2
+
+Usando o spork:
+  execute spork cuc antes de usar cucumber
+
+Analisar os testes do livro, por causa do mock
+
+Funcionando:
+	Haml
+	Sass
+	Facebooker
+	jQuery 1.4.2
+	CSS (mas não sass)
+	RCov
+	FactoryGirl
+	Spork
+	Cucumber
+	RSpec
+
+
+Instalados:
+	RSpec
+	Cucumber
+	Capybara (ao invés de webrat)
+	Spork
+	FactoryGirl
+	Haml
+	Sass
+	Facebooker
+	jQuery 1.4.2
+	RCov
+	jSpec
+	
+Não Instalados:
+  jSocka
+  capistrano
