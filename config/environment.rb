@@ -27,7 +27,8 @@ Rails::Initializer.run do |config|
   config.gem 'haml', :lib => false, :version => '>= 2.2.22'
   config.gem 'facebooker', :version => '>= 1.0.67'
   config.gem 'javan-whenever', :lib =>false, :soruce => 'http://gems.github.com'
-  
+  config.gem "cancan"
+    
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
