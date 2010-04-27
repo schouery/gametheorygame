@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   
   config.gem 'haml', :lib => false, :version => '>= 2.2.22'
-  # config.gem 'facebooker', :version => '>= 1.0.67'
+  config.gem 'facebooker', :version => '>= 1.0.67'
   config.gem 'javan-whenever', :lib =>false, :soruce => 'http://gems.github.com'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
