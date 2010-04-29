@@ -40,3 +40,12 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
+
+# after "deploy:update_code", "gems:install"
+# 
+# namespace :gems do
+#   desc "Install gems"
+#   task :install, :roles => :app do
+#     run "cd #{current_release} && #{sudo} rake gems:install"
+#   end
+# end
