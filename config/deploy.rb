@@ -5,11 +5,14 @@ set :user, 'schouery'
 
 set :scm, :git
 set :deploy_to, "/Users/schouery/Desktop/deploy"
+set :branch, 'master'
+set :scm_verbose, true
 
 role :web, "127.0.0.1"
 role :app, "127.0.0.1"
 role :db,  "127.0.0.1", :primary => true
 
+set :runner, user
 set :use_sudo, false
 set :scm_command, '/opt/local/bin/git'
 set :local_scm_command, :default

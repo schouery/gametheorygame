@@ -1,8 +1,3 @@
 #!/bin/sh
 
-/Users/schouery/Desktop/deploy/current/script/process/spawner \
-  mongrel \
-  --environment=production \
-  --instances=1 \
-  --address=127.0.0.1 \
-  --port=3000
+/Users/schouery/Desktop/deploy/current/script/server
