@@ -4,7 +4,7 @@ server = '127.0.0.1'
 set :user, 'schouery'
 
 set :scm, :git
-set :deploy_to, "/Users/schouery/Desktop/deploy"
+set :deploy_to, "/Users/schouery/deploy"
 set :branch, 'master'
 set :scm_verbose, true
 set :deploy_via, :remote_cache
