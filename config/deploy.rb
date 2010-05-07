@@ -3,6 +3,10 @@ set :repository,  "git://github.com/schouery/gametheorygame.git"
 server = '127.0.0.1'
 set :user, 'schouery'
 
+
+default_environment['PATH']='/opt/local/bin:/usr/bin:/bin'
+default_environment['GEM_PATH']='/opt/local/lib/ruby/gems/1.8'
+
 set :scm, :git
 set :deploy_to, "/Users/schouery/deploy"
 set :branch, 'master'
