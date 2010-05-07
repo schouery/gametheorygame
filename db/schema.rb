@@ -11,15 +11,10 @@
 
 ActiveRecord::Schema.define(:version => 20100412231015) do
 
-  create_table "trashes", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.integer  "facebook_id", :limit => 20, :null => false
-    t.string   "session_key"
+    t.boolean  "admin"
+    t.boolean  "researcher"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
