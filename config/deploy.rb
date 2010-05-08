@@ -1,26 +1,25 @@
 set :application, "The Game Theory Game"
 set :repository,  "git://github.com/schouery/gametheorygame.git"
-server = '127.0.0.1'
+server = 'croata.ime.usp.br'
 set :user, 'schouery'
 
-
-default_environment['PATH']='/opt/local/bin:/usr/bin:/bin'
-default_environment['GEM_PATH']='/opt/local/lib/ruby/gems/1.8'
+# default_environment['PATH']='/opt/local/bin:/usr/bin:/bin'
+# default_environment['GEM_PATH']='/opt/local/lib/ruby/gems/1.8'
 
 set :scm, :git
-set :deploy_to, "/Users/schouery/deploy"
+set :deploy_to, "/home/schouery/rails/gametheory/"
 set :branch, 'master'
 set :scm_verbose, true
 set :deploy_via, :remote_cache
 
-role :web, "127.0.0.1"
-role :app, "127.0.0.1"
-role :db,  "127.0.0.1", :primary => true
+role :web, "croata.ime.usp.br"
+role :app, "croata.ime.usp.br"
+role :db,  "croata.ime.usp.br", :primary => true
 
 set :runner, user
 set :use_sudo, false
-set :scm_command, '/opt/local/bin/git'
-set :local_scm_command, :default
+# set :scm_command, '/opt/local/bin/git'
+# set :local_scm_command, :default
 
 namespace :deploy do
   desc "Copying database.yml and facebooker.yml"
