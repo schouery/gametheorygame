@@ -1,9 +1,0 @@
-%p
-  %a#cool_link teste JQuery
-/ %p
-/   %fb:profile-pic{:uid=>@current_facebook_user.uid.to_s, :linked=>"true", :size=>"square"}
-/   %fb:name{:uid=>@current_facebook_user.uid.to_s, :useyou=>"false"}
-/ %fb:serverFbml   
-/   %fb:fbml
-/     %fb:request-form{:action=>"/", :method=>"POST", :invite=>"true", :type=>"Karate Poke", :content=>"I added a cool application."}
-/       %fb:multi-friend-selector{:showborder=>"false", :actiontext=>"Invite your friends to use Karate Poke."}

@@ -15,8 +15,7 @@
   #menubar li {
     float: left; }
   #menubar a {
-    display: block;
-    width: 60px; }
+    display: block; }
 
 #content {
   width: !width;
