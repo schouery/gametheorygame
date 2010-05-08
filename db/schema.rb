@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100412231015) do
+ActiveRecord::Schema.define(:version => 20100507202222) do
+
+  create_table "symmetric_function_games", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "number_of_strategies"
+    t.integer  "number_of_players"
+    t.string   "color"
+    t.string   "function"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "facebook_id", :limit => 20, :null => false

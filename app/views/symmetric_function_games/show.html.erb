@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @symmetric_function_game.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @symmetric_function_game.description %>
+</p>
+
+<p>
+  <b>Number of strategies:</b>
+  <%=h @symmetric_function_game.number_of_strategies %>
+</p>
+
+<p>
+  <b>Number of players:</b>
+  <%=h @symmetric_function_game.number_of_players %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%=h @symmetric_function_game.color %>
+</p>
+
+<p>
+  <b>Function:</b>
+  <%=h @symmetric_function_game.function %>
+</p>
+
+
+<%= link_to 'Edit', edit_symmetric_function_game_path(@symmetric_function_game) %> |
+<%= link_to 'Back', symmetric_function_games_path %>
