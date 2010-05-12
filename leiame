@@ -32,10 +32,14 @@ Instalados:
 	RCov
 	jSpec
 	whenever
+	capistrano
 	
 Não Instalados:
   jSocka
-  capistrano
+  
+
+Em 10/05 adicionei o Remarkable para facilitar os testes
+de model.
   
 Licença (em todos os arquivos)
 

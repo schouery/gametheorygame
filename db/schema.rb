@@ -14,8 +14,9 @@ ActiveRecord::Schema.define(:version => 20100507202222) do
   create_table "symmetric_function_games", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "number_of_strategies"
     t.integer  "number_of_players"
+    t.string   "label_1"
+    t.string   "label_2"
     t.string   "color"
     t.string   "function"
     t.datetime "created_at"
