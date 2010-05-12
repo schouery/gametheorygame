@@ -5,10 +5,12 @@
     =javascript_include_tag "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
     =javascript_include_tag 'jquery', 'application'
   %body
+
     #title
       The Game Theory Game
     #menubar
       =render :partial => 'shared/menu'
     #content
+      %p= flash[:notice]
       =yield
   =xfbml_start
