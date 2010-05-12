@@ -11,8 +11,8 @@ Feature: Manage Symmetric Function Games
     And I fill in "Number of players" with "4"
     # Mudar isso
     And I choose "symmetric_function_game_color_red"
-    And I fill in "Label 1" with "Polute"
-    And I fill in "Label 2" with "Not Polute"
+    And I fill in "symmetric_function_game[strategies_attributes][0][label]" with "Polute"
+    And I fill in "symmetric_function_game[strategies_attributes][1][label]" with "Not Polute"
     And I fill in "Function" with "3 + s[1]"  
     And I press "Create"
     Then I should see "Polution Game For Four"

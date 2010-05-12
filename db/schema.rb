@@ -9,14 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100507202222) do
+ActiveRecord::Schema.define(:version => 20100512141138) do
+
+  create_table "symmetric_function_game_strategies", :force => true do |t|
+    t.string   "label"
+    t.integer  "symmetric_function_game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "symmetric_function_games", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "number_of_players"
-    t.string   "label_1"
-    t.string   "label_2"
     t.string   "color"
     t.string   "function"
     t.datetime "created_at"

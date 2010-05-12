@@ -25,7 +25,7 @@ class SymmetricFunctionGamesController < ApplicationController
   # GET /symmetric_function_games/new.xml
   def new
     @symmetric_function_game = SymmetricFunctionGame.new
-
+    2.times { @symmetric_function_game.strategies.build }
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @symmetric_function_game }

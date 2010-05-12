@@ -15,12 +15,10 @@
   =h @symmetric_function_game.color
 
 %p
-  Label_1:
-  =h @symmetric_function_game.label_1
-
-%p
-  Label_2:
-  =h @symmetric_function_game.label_2
+  Strategies:
+  %ul
+  -@symmetric_function_game.strategies.each do |s|
+    %li= s.label
 
 %p
   Function:

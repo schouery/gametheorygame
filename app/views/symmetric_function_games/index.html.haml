@@ -3,21 +3,14 @@
 %table
   %tr
     %th Name
-    %th Description
-    %th Number of strategies
     %th Number of players
     %th Color
-    %th Function
     
 - @symmetric_function_games.each do |symmetric_function_game|
   %tr
     %td=h symmetric_function_game.name
-    %td=h symmetric_function_game.description
     %td=h symmetric_function_game.number_of_players
-    %td=h symmetric_function_game.label_1
-    %td=h symmetric_function_game.label_2
     %td=h symmetric_function_game.color
-    %td=h symmetric_function_game.function
     %td= link_to 'Show', symmetric_function_game
     %td= link_to 'Edit', edit_symmetric_function_game_path(symmetric_function_game)
     %td= link_to 'Destroy', symmetric_function_game, :confirm => 'Are you sure?', :method => :delete

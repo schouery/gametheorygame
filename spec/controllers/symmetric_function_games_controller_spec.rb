@@ -25,6 +25,9 @@ describe SymmetricFunctionGamesController do
   describe "GET new" do
     it "assigns a new symmetric_function_game as @symmetric_function_game" do
       SymmetricFunctionGame.stub(:new).and_return(mock_symmetric_function_game)
+      mocked_array = mock(Array)
+      mock_symmetric_function_game.should_receive(:strategies).twice.and_return(mocked_array)
+      mocked_array.should_receive(:build).twice
       get :new
       assigns[:symmetric_function_game].should equal(mock_symmetric_function_game)
     end

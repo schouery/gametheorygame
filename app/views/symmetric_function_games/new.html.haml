@@ -1,34 +1,5 @@
 %h1 New symmetric_function_game
 
--form_for(@symmetric_function_game) do |f|
-  =f.error_messages
-  %p
-    =f.label :name
-    =f.text_field :name
-  %p 
-    =f.label :description
-    =f.text_area :description
-  %p 
-    =f.label :number_of_players
-    =f.text_field :number_of_players
-  %p 
-    =f.radio_button :color, 'red'
-    =f.label :color, 'red'    
-    =f.radio_button :color, 'yellow'
-    =f.label :color, 'yellow'
-    =f.radio_button :color, 'green'
-    =f.label :color, 'green' 
-  %p 
-    =f.label :label_1
-    =f.text_field :label_1
-  %p
-    =f.label :label_2
-    =f.text_field :label_2
-  %p 
-    =f.label :function
-    =f.text_field :function
-     
-  %p 
-    =f.submit 'Create'
-    
+=render 'form', :submit_label => 'Create'    
+
 =link_to 'Back', symmetric_function_games_path

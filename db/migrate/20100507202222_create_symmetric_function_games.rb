@@ -4,8 +4,6 @@ class CreateSymmetricFunctionGames < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :number_of_players
-      t.string :label_1
-      t.string :label_2
       t.string :color
       t.string :function
       t.timestamps
