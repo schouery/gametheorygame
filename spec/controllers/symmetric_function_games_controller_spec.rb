@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe SymmetricFunctionGamesController do
 
+  before(:each) do
+    controller.stub!(:ensure_application_is_installed_by_facebook_user)
+    @current_user = mock_model(User, :id => 1, :to_i => 1)
+    controller.stub!(:current_user).and_return(@current_user)
+    @session = mock(Facebooker::Session, :user => @current_user)
+    controller.stub!(:facebook_session).and_return @session
+  end
+
   def mock_symmetric_function_game(stubs={})
     @mock_symmetric_function_game ||= mock_model(SymmetricFunctionGame, stubs)
   end
