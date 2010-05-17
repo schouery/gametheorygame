@@ -1,5 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => :cards
+
+  map.resources :cards, :only => [:index, :show, :destroy]
+
   map.resources :symmetric_function_games
+  
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -16,6 +16,8 @@ Spork.prefork do
   # Cucumber com facebooker
   # require 'cucumber/rails/world'
   require 'facebooker/rails/cucumber'
+  # require 'facebooker/rails/integration_session' 
+  # require 'facebooker/mock/session' 
   
   require 'cucumber/rails/active_record'
   require 'cucumber/web/tableish'

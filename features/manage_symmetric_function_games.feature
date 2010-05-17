@@ -4,7 +4,8 @@ Feature: Manage Symmetric Function Games
   wants to manage cards of symmetric function games
   
   Scenario: Register new Symmetric Function Game
-    Given I am admin
+    Given I am logged in as a Facebook user
+    And I am admin
     And I am on the new symmetric_function_game page
     When I fill in "Name" with "Polution Game For Four"
     And I fill in "Description" with "This is the Polution Game for two players. You will pay 3 + p if you choose not to polute and p if you choose to polute, where p is number of players polutting"

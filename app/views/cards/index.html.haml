@@ -1,0 +1,11 @@
+%h1 Listing cards
+
+%table
+  %tr
+    %th Symmetric function games
+
+-@cards.each do |card|
+  %tr
+    %td= h card.symmetric_function_game.name
+    %td= link_to 'Show', card
+    %td= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete

@@ -10,6 +10,9 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
+    when /the new play_a_game page/
+      new_play_a_game_path
+
     when /the new symmetric_function_game page/
       new_symmetric_function_game_path
 

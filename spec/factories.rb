@@ -32,3 +32,6 @@ Factory.define :symmetric_function_game do |game|
   game.function "s[1] + p"  
   # game.symmetric_function_game_strategies {|strategies| [strategies.association(:symmetric_function_game_strategy)]}
 end
+
+Factory.define :card do |card|
+end
