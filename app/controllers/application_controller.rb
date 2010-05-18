@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  ensure_application_is_installed_by_facebook_user
+  ensure_authenticated_to_facebook
+  # ensure_application_is_installed_by_facebook_user
+  
   filter_parameter_logging :fb_sig_friends
 
   attr_accessor :current_user

@@ -33,6 +33,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path(File.join(File.dirname(__FILE__),'..','config','environment'))
 require 'spec/autorun'
 require 'spec/rails'
+require 'webrat'
 require 'remarkable_rails'
 
 # Uncomment the next line to use webrat's matchers
@@ -50,6 +51,7 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
+  config.include Webrat::Matchers, :type => :views
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:
@@ -81,4 +83,13 @@ Spec::Runner.configure do |config|
   # == Notes
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
+end
+
+# Rspec doesn't work with ensure_authenticated_to_facebook and without ensure_application_is_installed_by_facebook_user
+# So we monkey patch the ApplicationController
+class ApplicationController < ActionController::Base
+  ensure_application_is_installed_by_facebook_user
+  
+  def ensure_authenticated_to_facebook 
+  end
 end
