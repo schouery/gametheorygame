@@ -13,8 +13,7 @@ describe CardsController do
     end
     
     it "recognizes and generates #edit" do
-      pending
-      { :get => "/cards/1/edit" }.should_not be_routable
+      { :get => "/cards/1/edit" }.should route_to(:controller => "cards", :action => "edit", :id => "1")
     end
     
     it "recognizes and generates #create" do
@@ -23,12 +22,12 @@ describe CardsController do
     end
     
     it "recognizes and generates #update" do
-      pending
-      { :put => "/cards/1" }.should_not be_routable
+      { :put => "/cards/1" }.should route_to(:controller => "cards", :action => "update", :id => "1")
     end
 
     it "recognizes and generates #show" do
-      { :get => "/cards/1" }.should route_to(:controller => "cards", :action => "show", :id => "1")
+      pending
+      { :get => "/cards/1" }.should_not be_routable
     end
 
     it "recognizes and generates #destroy" do

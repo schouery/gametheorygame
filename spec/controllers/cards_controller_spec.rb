@@ -22,15 +22,52 @@ describe CardsController do
       assigns[:cards].should == [mock_card]
     end
   end
-  
-  describe "GET show" do
+
+  describe "GET edit" do
     it "assigns the requested card as @card" do
       Card.stub(:find).with("37").and_return(mock_card)
-      get :show, :id => "37"
+      get :edit, :id => "37"
       assigns[:card].should equal(mock_card)
     end
   end
+  
+  describe "PUT update" do
 
+    describe "with valid params" do
+      it "updates the requested card" do
+        Card.should_receive(:find).with("37").and_return(mock_card)
+        mock_card.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "37", :card => {:these => 'params'}
+      end
+
+      it "redirects to the symmetric_function_game" do
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true))
+        put :update, :id => "37"
+        response.should redirect_to(cards_url)
+      end
+    end
+
+    describe "with invalid params" do
+      it "updates the requested card" do
+        Card.should_receive(:find).with("37").and_return(mock_card)
+        mock_card.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "37", :card => {:these => 'params'}
+      end
+    
+      it "assigns the card as @card" do
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false))
+        put :update, :id => "37"
+        assigns[:card].should equal(mock_card)
+      end
+    
+      it "re-renders the 'edit' template" do
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false))
+        put :update, :id => "37"
+        response.should render_template('edit')
+      end
+    end
+  end
+    
   describe "DELETE destroy" do
     it "destroys the requested card" do
       Card.should_receive(:find).with("37").and_return(mock_card)
@@ -44,5 +81,6 @@ describe CardsController do
       response.should redirect_to(cards_url)
     end
   end
+
 
 end

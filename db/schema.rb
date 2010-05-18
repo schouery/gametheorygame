@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20100517181525) do
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
     t.integer  "symmetric_function_game_id"
+    t.integer  "symmetric_function_game_strategy_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

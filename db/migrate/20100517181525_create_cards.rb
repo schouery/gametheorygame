@@ -3,7 +3,8 @@ class CreateCards < ActiveRecord::Migration
     create_table :cards do |t|
       t.integer :user_id
       t.integer :symmetric_function_game_id
-
+      t.integer :symmetric_function_game_strategy_id
+      
       t.timestamps
     end
   end
