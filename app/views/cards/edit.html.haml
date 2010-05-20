@@ -7,6 +7,7 @@
   =f.error_messages
   %p 
     -@card.game.strategies.each do |strategy|
+      =f.hidden_field :strategy_type, :value => strategy.class.to_s
       =f.radio_button :strategy_id, strategy.id
       =f.label :strategy_id, strategy.label
   =f.submit 'Update'

@@ -1,5 +1,6 @@
 class SymmetricFunctionGame < ActiveRecord::Base
-  has_many :cards, :foreign_key => :game_id
+  has_many :cards, :as => :game
+  # :foreign_key => :game_id
 
   validates_presence_of :name, :description, :function, :color, :number_of_players
   validates_numericality_of :number_of_players, :only_integer => true, :greater_than => 0

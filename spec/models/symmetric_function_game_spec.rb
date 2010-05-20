@@ -11,7 +11,7 @@ describe SymmetricFunctionGame do
   it "should validate that function is a valid ruby function"
   it { should have_many(:strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id)}
   it { should accept_nested_attributes_for :strategies }
-  it { should have_many(:cards, :foreign_key => :game_id) }
+  it { should have_many(:cards, :as => :game) }
   
   describe "generate payoff for players" do
   
