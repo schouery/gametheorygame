@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration
       t.integer :user_id
       t.integer :symmetric_function_game_id
       t.integer :symmetric_function_game_strategy_id
+      t.integer :payoff
       
       t.timestamps
     end
