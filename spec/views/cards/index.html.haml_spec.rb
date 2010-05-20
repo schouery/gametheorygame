@@ -8,10 +8,10 @@ describe "/cards/index.html.haml" do
     @game2 = stub_model(SymmetricFunctionGame, :name => "Polution Game for 6")
     assigns[:cards] = [
       stub_model(Card,
-        :symmetric_function_game => @game1
+        :game => @game1
       ),
       stub_model(Card,
-        :symmetric_function_game => @game2
+        :game => @game2
       )
     ]
   end

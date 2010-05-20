@@ -20,7 +20,7 @@ class CardDealer
   def create_card_with(user, game)
     card = Card.new
     card.user = user
-    card.symmetric_function_game = game
+    card.game = game
     card.save    
     card
   end

@@ -1,14 +1,14 @@
-%p=h @card.symmetric_function_game.name
-%p=h @card.symmetric_function_game.description
-%p=h @card.symmetric_function_game.number_of_players
-%p=h @card.symmetric_function_game.color
+%p=h @card.game.name
+%p=h @card.game.description
+%p=h @card.game.number_of_players
+%p=h @card.game.color
 
 -form_for(@card) do |f|
   =f.error_messages
   %p 
-    -@card.symmetric_function_game.strategies.each do |strategy|
-      =f.radio_button :symmetric_function_game_strategy_id, strategy.id
-      =f.label :symmetric_function_game_strategy_id, strategy.label
+    -@card.game.strategies.each do |strategy|
+      =f.radio_button :strategy_id, strategy.id
+      =f.label :strategy_id, strategy.label
   =f.submit 'Update'
 
 %p= link_to 'Back', cards_url

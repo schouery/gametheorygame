@@ -59,7 +59,7 @@ describe CardDealer do
     card = mock_model(Card)
     Card.should_receive(:new).and_return(card)
     card.should_receive(:user=).with(user)
-    card.should_receive(:symmetric_function_game=).with(game)
+    card.should_receive(:game=).with(game)
     card.should_receive(:save)    
     card
   end

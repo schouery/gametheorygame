@@ -13,16 +13,18 @@ ActiveRecord::Schema.define(:version => 20100517181525) do
 
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "symmetric_function_game_id"
-    t.integer  "symmetric_function_game_strategy_id"
     t.integer  "payoff"
+    t.integer  "game_id"
+    t.string   "game_type"
+    t.integer  "strategy_id"
+    t.string   "strategy_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "symmetric_function_game_strategies", :force => true do |t|
     t.string   "label"
-    t.integer  "symmetric_function_game_id"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

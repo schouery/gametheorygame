@@ -1,11 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#   
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Major.create(:name => 'Daley', :city => cities.first)
-#<User id: 1, facebook_id: 1542875245, admin: nil, researcher: nil, created_at: "2010-05-17 20:47:39", updated_at: "2010-05-17 20:47:39">
+User.delete_all
+SymmetricFunctionGame.delete_all
+SymmetricFunctionGameStrategy.delete_all
+Card.delete_all
 
 user = User.create(:facebook_id => 1542875245, :admin => true, :researcher => true)
 
@@ -16,10 +12,10 @@ polution_game = SymmetricFunctionGame.create(:name => "Polution Game for 4",
 :function => "np[0] + 3*st[1]"
 )
 
-polute = SymmetricFunctionGameStrategy.create(:label => "Polute", :symmetric_function_game => polution_game)
-not_polute = SymmetricFunctionGameStrategy.create(:label => "Not Polute", :symmetric_function_game => polution_game)
+polute = SymmetricFunctionGameStrategy.create(:label => "Polute", :game => polution_game)
+not_polute = SymmetricFunctionGameStrategy.create(:label => "Not Polute", :game => polution_game)
 
-Card.create(:user => user, :symmetric_function_game => polution_game)
-Card.create(:user => user, :symmetric_function_game => polution_game)
-Card.create(:user => user, :symmetric_function_game => polution_game)
-Card.create(:user => user, :symmetric_function_game => polution_game)
+Card.create(:user => user, :game => polution_game)
+Card.create(:user => user, :game => polution_game)
+Card.create(:user => user, :game => polution_game)
+Card.create(:user => user, :game => polution_game)

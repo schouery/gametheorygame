@@ -1,4 +1,4 @@
 class SymmetricFunctionGameStrategy < ActiveRecord::Base
   validates_presence_of :label
-  belongs_to :symmetric_function_game
+  belongs_to :game, :class_name => "SymmetricFunctionGame", :foreign_key => :game_id
 end

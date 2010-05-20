@@ -2,5 +2,5 @@ require 'spec_helper'
 
 describe SymmetricFunctionGameStrategy do
   it { should validate_presence_of(:label) }
-  it { should belong_to(:symmetric_function_game) }
+  it { should belong_to(:game, :class_name => "SymmetricFunctionGame", :foreign_key => :game_id) }
 end

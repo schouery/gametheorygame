@@ -1,6 +1,5 @@
 class Card < ActiveRecord::Base
   belongs_to :user
-  belongs_to :symmetric_function_game
-  belongs_to :symmetric_function_game_strategy
-  has_one :game_play    
+  belongs_to :game, :class_name => "SymmetricFunctionGame"
+  belongs_to :strategy, :class_name => "SymmetricFunctionGameStrategy"
 end

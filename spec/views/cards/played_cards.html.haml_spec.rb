@@ -10,12 +10,12 @@ describe "/cards/played_cards.html.haml" do
     @strategy2 = stub_model(SymmetricFunctionGameStrategy, :label => "Not Polute")
     assigns[:cards] = [
       stub_model(Card,
-        :symmetric_function_game => @game1,
-        :symmetric_function_game_strategy => @strategy1
+        :game => @game1,
+        :strategy => @strategy1
       ),
       stub_model(Card,
-        :symmetric_function_game => @game2,
-        :symmetric_function_game_strategy => @strategy2,
+        :game => @game2,
+        :strategy => @strategy2,
         :payoff => 10
       )
     ]

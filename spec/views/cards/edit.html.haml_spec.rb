@@ -10,7 +10,7 @@ describe "/cards/edit.html.haml" do
     ]
     @symmetric_function_game = Factory.stub(:symmetric_function_game)
     @symmetric_function_game.stub!(:strategies => @strategies)
-    assigns[:card] = @card = stub_model(Card, :new_record? => false, :symmetric_function_game => @symmetric_function_game)
+    assigns[:card] = @card = stub_model(Card, :new_record? => false, :game => @symmetric_function_game)
   end
 
   it "renders the edit card form" do
@@ -18,8 +18,8 @@ describe "/cards/edit.html.haml" do
 
     response.should have_tag("form[action=#{card_path(@card)}][method=post]") do
       @strategies.each do |strategy|
-        with_tag("input#card_symmetric_function_game_strategy_id_#{strategy.id}[name=?][type=?][value=?]",
-        "card[symmetric_function_game_strategy_id]", "radio", strategy.id)      
+        with_tag("input#card_strategy_id_#{strategy.id}[name=?][type=?][value=?]",
+        "card[strategy_id]", "radio", strategy.id)      
       end
     end
   end
