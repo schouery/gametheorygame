@@ -18,7 +18,7 @@ describe "/cards/index.html.haml" do
 
   it "renders a list of cards" do
     render
-    response.should have_tag("tr>td", "Polution Game for 4", 2)
-    response.should have_tag("tr>td", "Polution Game for 6", 2)
+    response.should contain(@game1.name)
+    response.should contain(@game2.name)
   end
 end

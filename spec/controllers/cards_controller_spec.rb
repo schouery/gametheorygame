@@ -15,11 +15,23 @@ describe CardsController do
     @mock_card ||= mock_model(Card, stubs)
   end
 
+  describe "GET played_cards" do
+    it "assigns all player's played cards as @cards" do
+      card_played = mock_model(Card, :symmetric_function_game_strategy => true)
+      card_not_played = mock_model(Card, :symmetric_function_game_strategy => nil)
+      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([card_played, card_not_played])
+      get :played_cards
+      assigns[:cards].should == [card_played]      
+    end
+  end
+
   describe "GET index" do
-    it "assigns all player's cards as @cards" do
-      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([mock_card])
+    it "assigns all player's not played cards as @cards" do
+      card_played = mock_model(Card, :symmetric_function_game_strategy => true)
+      card_not_played = mock_model(Card, :symmetric_function_game_strategy => nil)
+      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([card_played, card_not_played])
       get :index
-      assigns[:cards].should == [mock_card]
+      assigns[:cards].should == [card_not_played]
     end
   end
 
@@ -39,9 +51,19 @@ describe CardsController do
         mock_card.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :card => {:these => 'params'}
       end
+      
+      it "tell the card's game to play" do
+        card = mock_card(:update_attributes => true)
+        Card.should_receive(:find).with("37").and_return(card)
+        game = mock_model(SymmetricFunctionGame)
+        card.should_receive(:symmetric_function_game).and_return(game)
+        game.should_receive(:play)
+        put :update, :id => "37"
+      end
 
       it "redirects to the symmetric_function_game" do
-        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true))
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true,
+         :symmetric_function_game => mock_model(SymmetricFunctionGame, :play => true)))
         put :update, :id => "37"
         response.should redirect_to(cards_url)
       end

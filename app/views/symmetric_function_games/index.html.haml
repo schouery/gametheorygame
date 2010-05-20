@@ -1,19 +1,21 @@
 %h1 Listing symmetric_function_games
-
-%table
-  %tr
-    %th Name
-    %th Number of players
-    %th Color
     
 - @symmetric_function_games.each do |symmetric_function_game|
-  %tr
-    %td=h symmetric_function_game.name
-    %td=h symmetric_function_game.number_of_players
-    %td=h symmetric_function_game.color
-    %td= link_to 'Show', symmetric_function_game
-    %td= link_to 'Edit', edit_symmetric_function_game_path(symmetric_function_game)
-    %td= link_to 'Destroy', symmetric_function_game, :confirm => 'Are you sure?', :method => :delete
+  %p
+    Name: 
+    =h symmetric_function_game.name
+    %br
+    Number of Players:
+    =h symmetric_function_game.number_of_players
+    %br
+    Color: 
+    =h symmetric_function_game.color
+    %br
+    = link_to 'Show', symmetric_function_game
+    |
+    = link_to 'Edit', edit_symmetric_function_game_path(symmetric_function_game)
+    |
+    = link_to 'Destroy', symmetric_function_game, :confirm => 'Are you sure?', :method => :delete
 
-%br
+%p
 = link_to 'New symmetric_function_game', new_symmetric_function_game_path

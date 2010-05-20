@@ -12,8 +12,8 @@ describe "/symmetric_function_games/index.html.haml" do
 
   it "renders a list of symmetric_function_games" do
     render    
-    response.should have_tag("tr>td", "Polution Game for 4", 2)
-    response.should have_tag("tr>td", 4.to_s, 2)
-    response.should have_tag("tr>td", "red", 2)
+    response.should contain("Polution Game for 4")
+    response.should contain("4")
+    response.should contain("red")
   end
 end

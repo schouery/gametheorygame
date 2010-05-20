@@ -1,0 +1,12 @@
+%h1 Played Cards
+
+-@cards.each do |card|
+  %p
+    Game: 
+    = h card.symmetric_function_game.name
+    %br
+    Strategy:
+    = h card.symmetric_function_game_strategy.label
+    %br
+    Payoff:
+    =h filter_payoff(card)

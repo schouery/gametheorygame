@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe CardsController do
   describe "routing" do
+    
+    it "recognizes and generates #played_cards" do
+      { :get => "/cards/played_cards"}.should route_to(:controller => "cards", :action => "played_cards")
+    end
       
     it "recognizes and generates #index" do
       { :get => "/" }.should route_to(:controller => "cards", :action => "index")
