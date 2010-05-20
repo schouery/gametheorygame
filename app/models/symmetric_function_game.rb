@@ -8,7 +8,7 @@ class SymmetricFunctionGame < ActiveRecord::Base
   accepts_nested_attributes_for :strategies
   
   def played_cards
-    self.cards.find_all { |card| card.symmetric_function_game_strategy }
+    self.cards.find_all { |card| !card.symmetric_function_game_strategy.nil? && card.payoff.nil? }
   end
 
   def play

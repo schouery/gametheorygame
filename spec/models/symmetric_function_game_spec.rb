@@ -34,14 +34,25 @@ describe SymmetricFunctionGame do
     end
   
     it "should do nothing if there is only one card played" do
-      @card1.stub(:symmetric_function_game_strategy => @strategy1)
-      @card2.stub(:symmetric_function_game_strategy => nil)
+      @card1.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
+      @card2.stub(:symmetric_function_game_strategy => nil, :payoff => nil)
       @game.play
     end
   
     it "should calculate payoff if the same number of cards played and the number of players are equal" do
       [@card1, @card2].each do |card|
-        card.stub(:symmetric_function_game_strategy => @strategy1)
+        card.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
+        card.should_receive(:payoff=).with(1)
+        card.should_receive(:save)
+      end
+      @game.play
+    end
+
+    it "should ignore cards with payoff" do
+      card3 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :payoff => 10)
+      @game.cards = [@card1, @card2, card3]  
+      [@card1, @card2].each do |card|
+        card.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
         card.should_receive(:payoff=).with(1)
         card.should_receive(:save)
       end
@@ -50,7 +61,7 @@ describe SymmetricFunctionGame do
 
     it "should work for other constant functions" do
       [@card1, @card2].each do |card|
-        card.stub(:symmetric_function_game_strategy => @strategy1)
+        card.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
         card.should_receive(:payoff=).with(2)
         card.should_receive(:save)
       end
@@ -60,7 +71,7 @@ describe SymmetricFunctionGame do
     
     it "should work for other constant functions" do
       [@card1, @card2].each do |card|
-        card.stub(:symmetric_function_game_strategy => @strategy1)
+        card.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
         card.should_receive(:payoff=).with(2)
         card.should_receive(:save)
       end
@@ -69,10 +80,10 @@ describe SymmetricFunctionGame do
     end
     
     it "should work for function that use the strategy of the player" do
-      @card1.stub(:symmetric_function_game_strategy => @strategy1)
+      @card1.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
       @card1.should_receive(:payoff=).with(1)
       @card1.should_receive(:save)
-      @card2.stub(:symmetric_function_game_strategy => @strategy2)
+      @card2.stub(:symmetric_function_game_strategy => @strategy2, :payoff => nil)
       @card2.should_receive(:payoff=).with(2)
       @card2.should_receive(:save)
       @game.function = "1*st[0] + 2*st[1]"
@@ -80,10 +91,10 @@ describe SymmetricFunctionGame do
     end
 
     it "should work for function that use the number of players who selected the strategy" do
-      @card1.stub(:symmetric_function_game_strategy => @strategy1)
+      @card1.stub(:symmetric_function_game_strategy => @strategy1, :payoff => nil)
       @card1.should_receive(:payoff=).with(3)
       @card1.should_receive(:save)
-      @card2.stub(:symmetric_function_game_strategy => @strategy2)
+      @card2.stub(:symmetric_function_game_strategy => @strategy2, :payoff => nil)
       @card2.should_receive(:payoff=).with(3)
       @card2.should_receive(:save)
       @game.function = "1*np[0] + 2*np[1]"
@@ -91,10 +102,10 @@ describe SymmetricFunctionGame do
     end
     
     it "should work for function that use both st e np" do
-      card1 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game)
-      card2 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game)
-      card3 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game)
-      card4 = mock_model(Card, :symmetric_function_game_strategy => @strategy2, :save => true, :symmetric_function_game => @game)
+      card1 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game, :payoff => nil)
+      card2 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game, :payoff => nil)
+      card3 = mock_model(Card, :symmetric_function_game_strategy => @strategy1, :save => true, :symmetric_function_game => @game, :payoff => nil)
+      card4 = mock_model(Card, :symmetric_function_game_strategy => @strategy2, :save => true, :symmetric_function_game => @game, :payoff => nil)
       game = SymmetricFunctionGame.new
       game.number_of_players = 4
       game.strategies = [@strategy1, @strategy2]
