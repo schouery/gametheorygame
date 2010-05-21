@@ -2,20 +2,16 @@
 %html{:xmlns=>"http://www.w3.org/1999/xhtml", 'xmlns:fb'=>"http://www.facebook.com/2008/fbml"} 
   %head
     =stylesheet_link_tag 'layout'
-    =javascript_include_tag "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
-    =javascript_include_tag 'jquery', 'facebooker', 'application'
+    =fb_connect_javascript_tag
+    =javascript_include_tag 'jquery', 'application'
   %body
     #title
-      %table
-        %tr
-          %td
-            The Game Theory Game
-          %td
-            payoff:
-            = current_user.payoff
+      The Game Theory Game
+      payoff:
+      = current_user.payoff
     #menubar
       =render :partial => 'shared/menu'
     #content
       %p= flash[:notice]
       =yield
-  =xfbml_start
+    =xfbml_start
