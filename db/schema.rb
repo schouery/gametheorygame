@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100517181525) do
+ActiveRecord::Schema.define(:version => 20100521214937) do
 
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20100517181525) do
     t.string   "game_type"
     t.integer  "strategy_id"
     t.string   "strategy_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "facebook_id", :limit => 20, :null => false
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,9 +47,9 @@ ActiveRecord::Schema.define(:version => 20100517181525) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_id", :limit => 20, :null => false
-    t.boolean  "admin"
-    t.boolean  "researcher"
+    t.integer  "facebook_id", :limit => 20,                    :null => false
+    t.boolean  "admin",                     :default => false
+    t.boolean  "researcher",                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
