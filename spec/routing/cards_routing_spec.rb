@@ -8,7 +8,7 @@ describe CardsController do
     end
       
     it "recognizes and generates #index" do
-      { :get => "/" }.should route_to(:controller => "cards", :action => "index")
+      { :get => "/cards" }.should route_to(:controller => "cards", :action => "index")
     end
     
     it "recognizes and generates #new" do
