@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>app/helpers/trashes_helper.rb</title>
+    <title>app/models/two_player_matrix_game_payoff.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Gametheorygame C0 Coverage Information - RCov</h1>
-    <h2>app/helpers/trashes_helper.rb</h2>
+    <h2>app/models/two_player_matrix_game_payoff.rb</h2>
 
     
 
@@ -27,9 +27,9 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="app-helpers-trashes_helper_rb.html">app/helpers/trashes_helper.rb</a></td>
-            <td class='right_align'><tt>2</tt></td>
-            <td class='right_align'><tt>2</tt></td>
+            <td class="left_align"><a href="app-models-two_player_matrix_game_payoff_rb.html">app/models/two_player_matrix_game_payoff.rb</a></td>
+            <td class='right_align'><tt>8</tt></td>
+            <td class='right_align'><tt>8</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -57,19 +57,55 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> module TrashesHelper</pre></td>
+            <td><pre><a name="line1">1</a> class TwoPlayerMatrixGamePayoff &lt; ActiveRecord::Base</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line2">2</a>   attr_accessor :line_position, :column_position</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line3">3</a>   validates_presence_of :payoff_player_1, :payoff_player_2</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line4">4</a>   validates_numericality_of :payoff_player_1, :payoff_player_2, :only_integer =&gt; true</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line5">5</a>   belongs_to :game, :class_name =&gt; &quot;TwoPlayerMatrixGame&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line6">6</a>   belongs_to :strategy1, :class_name =&gt; &quot;TwoPlayerMatrixGameStrategy&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line7">7</a>   belongs_to :strategy2, :class_name =&gt; &quot;TwoPlayerMatrixGameStrategy&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line2">2</a> end</pre></td>
+            <td><pre><a name="line8">8</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Mon Apr 12 10:59:49 -0300 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Mon May 24 17:00:13 -0300 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>app/controllers/application_controller.rb</title>
+    <title>lib/card_dealer.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Gametheorygame C0 Coverage Information - RCov</h1>
-    <h2>app/controllers/application_controller.rb</h2>
+    <h2>lib/card_dealer.rb</h2>
 
     
 
@@ -27,9 +27,9 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="app-controllers-application_controller_rb.html">app/controllers/application_controller.rb</a></td>
-            <td class='right_align'><tt>27</tt></td>
-            <td class='right_align'><tt>14</tt></td>
+            <td class="left_align"><a href="lib-card_dealer_rb.html">lib/card_dealer.rb</a></td>
+            <td class='right_align'><tt>28</tt></td>
+            <td class='right_align'><tt>23</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -56,80 +56,80 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line1">1</a> # Filters added to this controller apply to all controllers in the application.</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line1">1</a> class CardDealer</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line2">2</a> # Likewise, all the methods added will be available for all controllers.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line3">3</a> </pre></td>
+            <td><pre><a name="line2">2</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line4">4</a> class ApplicationController &lt; ActionController::Base</pre></td>
+            <td><pre><a name="line3">3</a>   def deal</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line5">5</a>   helper :all # include all helpers, all the time</pre></td>
+            <td><pre><a name="line4">4</a>     User.find(:all).each do |user|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>   protect_from_forgery # See ActionController::RequestForgeryProtection for details</pre></td>
+            <td><pre><a name="line5">5</a>       deal_for_user(user)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line7">7</a> </pre></td>
+            <td><pre><a name="line6">6</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line8">8</a>   # Scrub sensitive parameters from your log</pre></td>
+            <td><pre><a name="line7">7</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line9">9</a>   # filter_parameter_logging :password</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line10">10</a>   </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line11">11</a>   </pre></td>
+            <td><pre><a name="line8">8</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>   before_filter :set_facebook_session</pre></td>
+            <td><pre><a name="line9">9</a>   def deal_for_user(user)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a>   helper_method :facebook_session</pre></td>
+            <td><pre><a name="line10">10</a>     card = create_card_with(user, select_game)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line11">11</a>     user.cards.push card</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line12">12</a>     user.save    </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a>   end</pre></td>
           </tr>
         
           
@@ -141,79 +141,85 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>   ensure_authenticated_to_facebook</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line16">16</a>   </pre></td>
+            <td><pre><a name="line15">15</a>   def select_game</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line17">17</a>   filter_parameter_logging :fb_sig_friends</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line18">18</a> </pre></td>
+            <td><pre><a name="line16">16</a>     @games ||= SymmetricFunctionGame.find(:all)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>   attr_accessor :current_user</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line20">20</a>   before_filter :set_current_user</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line21">21</a>   helper_attr :current_user</pre></td>
+            <td><pre><a name="line17">17</a>     @games[rand(@games.size)]</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line22">22</a>   </pre></td>
+            <td><pre><a name="line18">18</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line19">19</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line23">23</a>   def set_current_user</pre></td>
+            <td><pre><a name="line20">20</a>   def create_card_with(user, game)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>     self.current_user = User.for(facebook_session.user.to_i)</pre></td>
+            <td><pre><a name="line21">21</a>     card = Card.new</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line22">22</a>     card.user = user</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line23">23</a>     card.game = game</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line24">24</a>     card.save    </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line25">25</a>     card</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line25">25</a>   end</pre></td>
+            <td><pre><a name="line26">26</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line26">26</a> </pre></td>
+            <td><pre><a name="line27">27</a>     </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line27">27</a> end</pre></td>
+            <td><pre><a name="line28">28</a> end</pre></td>
           </tr>
         
       </tbody>
