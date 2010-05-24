@@ -1,0 +1,14 @@
+-form_for(@two_player_matrix_game) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :description
+    = f.text_area :description
+  %p
+    = f.label :color
+    = f.text_field :color
+  = render 'edit_matrix', :f => f
+  %p
+    = f.submit submit_label

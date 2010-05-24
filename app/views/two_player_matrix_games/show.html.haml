@@ -1,0 +1,17 @@
+%p
+  Name:
+  =h @two_player_matrix_game.name
+
+%p
+  Description:
+  =h @two_player_matrix_game.description
+
+%p
+  Color:
+  =h @two_player_matrix_game.color
+
+= render 'matrix'
+  
+= link_to 'Edit', edit_two_player_matrix_game_path(@two_player_matrix_game)
+|
+= link_to 'Back', two_player_matrix_games_path
