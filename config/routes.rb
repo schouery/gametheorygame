@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :two_player_matrix_games
+
   map.resources :invitations
   map.resources :cards, :collection => {:played_cards => :get} 
   map.resources :symmetric_function_games

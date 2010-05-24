@@ -1,5 +1,8 @@
 User.delete_all
 SymmetricFunctionGame.delete_all
+TwoPlayerMatrixGame.delete_all
+TwoPlayerMatrixGameStrategy.delete_all
+TwoPlayerMatrixGamePayoff.delete_all
 SymmetricFunctionGameStrategy.delete_all
 Card.delete_all
 
@@ -19,3 +22,16 @@ Card.create(:user => user, :game => polution_game)
 Card.create(:user => user, :game => polution_game)
 Card.create(:user => user, :game => polution_game)
 Card.create(:user => user, :game => polution_game)
+
+bs = TwoPlayerMatrixGame.create(:name => "Batalha dos Sexos", :description => "BS", :color => "red")
+s1 = TwoPlayerMatrixGameStrategy.create(:label => 'S', :player_number => 1)
+s2 = TwoPlayerMatrixGameStrategy.create(:label => 'M', :player_number => 1)
+s3 = TwoPlayerMatrixGameStrategy.create(:label => 'S', :player_number => 2)
+s4 = TwoPlayerMatrixGameStrategy.create(:label => 'M', :player_number => 2)
+bs.strategies = [s1,s2,s3,s4]
+p1 = TwoPlayerMatrixGamePayoff.create(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 0, :payoff_player_2 => 0)
+p2 = TwoPlayerMatrixGamePayoff.create(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 0, :payoff_player_2 => 0)
+p3 = TwoPlayerMatrixGamePayoff.create(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => 0, :payoff_player_2 => 0)
+p4 = TwoPlayerMatrixGamePayoff.create(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 0, :payoff_player_2 => 0)
+bs.payoffs = [p1,p2,p3,p4]
+bs.save
