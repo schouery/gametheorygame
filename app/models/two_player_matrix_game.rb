@@ -22,6 +22,32 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     end
   end
   
+  def strategies_for_player(i)
+    if i == 1
+      self.lines_strategies
+    elsif i == 2
+      self.columns_strategies
+    else
+      nil
+    end
+  end
+  
+  def played_cards
+    self.cards.find_all { |card| !card.strategy.nil? && card.payoff.nil? }
+  end
+
+  def play
+    cards = played_cards
+    player1 = cards.find {|card| card.player_number == 1}
+    player2 = cards.find {|card| card.player_number == 2}
+    return if player1.nil? || player2.nil?
+    payoff = self.payoffs.find(:first) {|payoff| payoff.strategy1.id == player1.strategy.id && payoff.strategy2.id == player2.strategy.id}
+    player1.payoff = payoff.payoff_player_1
+    player2.payoff = payoff.payoff_player_2
+    player1.save!
+    player2.save!
+  end
+    
   def payoff_matrix
     payoffs = []
     lines, columns = self.lines_strategies, self.columns_strategies

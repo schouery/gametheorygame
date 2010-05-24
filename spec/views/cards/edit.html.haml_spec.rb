@@ -11,6 +11,7 @@ describe "/cards/edit.html.haml" do
     @symmetric_function_game = Factory.stub(:symmetric_function_game)
     @symmetric_function_game.stub!(:strategies => @strategies)
     assigns[:card] = @card = stub_model(Card, :new_record? => false, :game => @symmetric_function_game)
+    assigns[:partial] = "symmetric_function_games/card"
   end
 
   it "renders the edit card form" do

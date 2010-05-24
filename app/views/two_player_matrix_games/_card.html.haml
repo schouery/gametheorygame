@@ -1,0 +1,22 @@
+%p
+  Name:
+  =h @card.game.name
+
+%p
+  Description:
+  =h @card.game.description
+
+%p
+  Color:
+  =h @card.game.color
+
+= render "two_player_matrix_games/matrix", :game => @card.game
+
+-form_for(@card) do |f|
+  =f.error_messages
+  %p 
+    -@card.game.strategies_for_player(@card.player_number).each do |strategy|
+      =f.hidden_field :strategy_type, :value => strategy.class.to_s
+      =f.radio_button :strategy_id, strategy.id
+      =f.label :strategy_id, strategy.label
+  =f.submit 'Update'

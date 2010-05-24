@@ -22,6 +22,7 @@ class CardsController < ApplicationController
   
   def edit
     @card = Card.find(params[:id])
+    @partial = @card.game_type.underscore.pluralize + "/card"
   end
 
   def update

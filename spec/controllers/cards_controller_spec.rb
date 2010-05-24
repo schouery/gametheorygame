@@ -37,9 +37,10 @@ describe CardsController do
 
   describe "GET edit" do
     it "assigns the requested card as @card" do
-      Card.stub(:find).with("37").and_return(mock_card)
+      Card.stub(:find).with("37").and_return(mock_card(:game_type => "SomeGame"))
       get :edit, :id => "37"
       assigns[:card].should equal(mock_card)
+      assigns[:partial].should == "some_games/card"
     end
   end
   
