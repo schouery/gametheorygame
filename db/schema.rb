@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20100522200839) do
     t.string   "game_type"
     t.integer  "strategy_id"
     t.string   "strategy_type"
+    t.integer  "player_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
