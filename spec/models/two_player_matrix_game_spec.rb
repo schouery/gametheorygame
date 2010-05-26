@@ -9,121 +9,164 @@ describe TwoPlayerMatrixGame do
   it { should accept_nested_attributes_for :strategies }
   it { should accept_nested_attributes_for :payoffs }
   it { should have_many(:cards, :as => :game) }
+  it { should have_many(:game_results, :as => :game) }
   it { should have_many(:payoffs, :class_name => "TwoPlayerMatrixGamePayoff", :dependent => :destroy, :foreign_key => :game_id)}
+  
+  before(:each) do
+    @game = TwoPlayerMatrixGame.new
+    @strategies_player_1 = [mock_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>1),
+                            mock_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>2)]
+    @strategies_player_2 = [mock_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>3),
+                            mock_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>4)]
+    @payoffs = [mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[0]),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[1]),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[0]),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[1])]                          
+  end
   
   describe "getting strategies and payoffs" do
     before(:each) do
-      @strategy1 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>1)
-      @strategy2 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>2)
-      @strategy3 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>3)
-      @strategy4 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>4)
-      @payoff1 = stub_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategy1, :strategy2 => @strategy3)
-      @payoff2 = stub_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategy1, :strategy2 => @strategy3)
-      @payoff3 = stub_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategy2, :strategy2 => @strategy4)
-      @payoff4 = stub_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategy2, :strategy2 => @strategy4)            
-      @two_player_matrix_game = TwoPlayerMatrixGame.new
-      @two_player_matrix_game.strategies = [@strategy1,@strategy2,@strategy3,@strategy4]
-      @two_player_matrix_game.payoffs = [@payoff1, @payoff2, @payoff3, @payoff4]
+      @game.strategies = @strategies_player_1 + @strategies_player_2
+      @game.payoffs = @payoffs
     end
     
     it "should respond to columns_strategies" do
-      @two_player_matrix_game.should respond_to :columns_strategies
+      @game.should respond_to :columns_strategies
     end
     
     it "should respond to lines_strategies" do
-      @two_player_matrix_game.should respond_to :lines_strategies
+      @game.should respond_to :lines_strategies
     end
     
     it "should map player one on line strategies" do
-      @two_player_matrix_game.lines_strategies.should == [@strategy1, @strategy2]
+      @game.lines_strategies.should == @strategies_player_1
     end
     
     it "should map player two on columns strategies" do
-      @two_player_matrix_game.columns_strategies.should == [@strategy3, @strategy4]
+      @game.columns_strategies.should == @strategies_player_2
     end
     
     it "should respond to payoff_matrix" do
-      @two_player_matrix_game.should respond_to :payoff_matrix
+      @game.should respond_to :payoff_matrix
     end
     
     it "should map the payoffs correctly" do
-      @two_player_matrix_game.payoff_matrix.should == [[@payoff1, @payoff2],[@payoff3, @payoff4]]
+      @game.payoff_matrix.should == [@payoffs[0..1],@payoffs[2..3]]
     end
   end
   
   it "should be able to associate payoffs to strategies by position" do
-    # pending
-    @strategy1 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>1, :number=>0)
-    @strategy2 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>2, :number=>1)
-    @strategy3 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>3, :number=>0)
-    @strategy4 = stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>4, :number=>1)
-    @payoff1 = stub_model(TwoPlayerMatrixGamePayoff, :line_position => 0, :column_position => 0)
-    @payoff2 = stub_model(TwoPlayerMatrixGamePayoff, :line_position => 0, :column_position => 1)
-    @payoff3 = stub_model(TwoPlayerMatrixGamePayoff, :line_position => 1, :column_position => 0)
-    @payoff4 = stub_model(TwoPlayerMatrixGamePayoff, :line_position => 1, :column_position => 1)            
-    @two_player_matrix_game = TwoPlayerMatrixGame.new
-    @two_player_matrix_game.strategies = [@strategy1,@strategy2,@strategy3,@strategy4]
-    @two_player_matrix_game.payoffs = [@payoff1, @payoff2, @payoff3, @payoff4]
-    @payoff1.should_receive(:strategy1=).with(@strategy1)
-    @payoff1.should_receive(:strategy2=).with(@strategy3)
-    @payoff2.should_receive(:strategy1=).with(@strategy1)
-    @payoff2.should_receive(:strategy2=).with(@strategy4)
-    @payoff3.should_receive(:strategy1=).with(@strategy2)
-    @payoff3.should_receive(:strategy2=).with(@strategy3)
-    @payoff4.should_receive(:strategy1=).with(@strategy2)
-    @payoff4.should_receive(:strategy2=).with(@strategy4)
-    @two_player_matrix_game.associate_payoffs
-    
-    
-    # , :strategy1 => @strategy1, :strategy2 => @strategy3
-    # , :strategy1 => @strategy1, :strategy2 => @strategy3
-    # , :strategy1 => @strategy2, :strategy2 => @strategy4
-    # , :strategy1 => @strategy2, :strategy2 => @strategy4
-  # def associate_payoffs
-  #   self.payoffs.each do |payoff|
-  #     payoff.strategy1 = self.lines_strategies.find {|s| s.number == payoff.line_position }
-  #     payoff.strategy2 = self.columns_strategies.find {|s| s.number == payoff.column_position }
-  #   end
-  # end
+    @strategies_player_1.each_with_index {|strategy, i| strategy.stub(:number => i)}
+    @strategies_player_2.each_with_index {|strategy, i| strategy.stub(:number => i)}
+    (0..1).each do |i|
+      (0..1).each do |j|
+        @payoffs[i*2+j].stub(:line_position => i, :column_position => j)
+      end
+    end
+    @game.strategies = @strategies_player_1 + @strategies_player_2#[@strategy1,@strategy2,@strategy3,@strategy4]
+    @game.payoffs = @payoffs#[@payoff1, @payoff2, @payoff3, @payoff4]
+    @strategies_player_1.each_with_index do |st1, i|
+      @strategies_player_2.each_with_index do |st2, j|
+        @payoffs[i*2 + j].should_receive(:strategy1=).with(st1)
+        @payoffs[i*2 + j].should_receive(:strategy2=).with(st2)
+      end
+    end
+    @game.associate_payoffs
   end
   
-
   describe 'initial setup for strategies and payoffs' do
     
     it "should have correctly assigned strategies after calling setup_strategies" do
-      @two_player_matrix_game = TwoPlayerMatrixGame.new
-      @two_player_matrix_game.should respond_to :setup_strategies
-      @two_player_matrix_game.setup_strategies
-      @two_player_matrix_game.strategies.size.should == 4
-      @two_player_matrix_game.strategies.each_with_index do |strategy, i|
+      @game.should respond_to :setup_strategies
+      @game.setup_strategies
+      @game.strategies.size.should == 4
+      @game.strategies.each_with_index do |strategy, i|
         strategy.player_number.should == 1 + (i/2)
       end
     end
     
     it "should have correctly assigned payoffs related to each strategy" do
-      strategies = [stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1),
-      stub_model(TwoPlayerMatrixGameStrategy, :player_number => 1),
-      stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2),
-      stub_model(TwoPlayerMatrixGameStrategy, :player_number => 2)]
-      @two_player_matrix_game = TwoPlayerMatrixGame.new
-      @two_player_matrix_game.strategies = strategies
-      @two_player_matrix_game.should respond_to :setup_payoffs
-      @two_player_matrix_game.setup_payoffs
-      @two_player_matrix_game.payoffs.each_with_index do |payoff, i|
-        payoff.should_not be_nil
-        payoff.strategy1.should == strategies[i/2]
-        payoff.strategy2.should == strategies[2+(i%2)]
+      @game.strategies = @strategies_player_1 + @strategies_player_2
+      @game.should respond_to :setup_payoffs
+      @game.setup_payoffs
+      @strategies_player_1.each_with_index do |st1, i|
+        @strategies_player_2.each_with_index do |st2, j|
+          @game.payoffs[i*2+j].strategy1.should == st1
+          @game.payoffs[i*2+j].strategy2.should == st2
+        end
       end
     end
 
     it "should call setup_strategies and setup_payoffs on initial_setup" do
-      @two_player_matrix_game = TwoPlayerMatrixGame.new
-      @two_player_matrix_game.should respond_to :initial_setup
-      @two_player_matrix_game.should_receive(:setup_strategies)
-      @two_player_matrix_game.should_receive(:setup_payoffs)
-      @two_player_matrix_game.initial_setup
+      @game.should respond_to :initial_setup
+      @game.should_receive(:setup_strategies)
+      @game.should_receive(:setup_payoffs)
+      @game.initial_setup
+    end    
+  end
+  
+  describe "play" do
+    before(:each) do
+      @cards = [mock_model(Card, :game => @game, :strategy => nil), 
+                mock_model(Card, :game => @game, :strategy => nil)]
     end
-    
+
+    describe "without enough cards" do
+      it "shouldn't generate payoffs if there aren't two players that played" do
+        @game.cards = @cards[0..0]
+        #This is going to fail if save is called in @card1 or @card2
+        @game.play
+      end
+      
+      it "shouldn't generate payoffs if only player one played" do
+        @cards.each do |card|
+          card.stub(:player_number => 1, :strategy => @strategies_player_1[0])
+        end
+        #This is going to fail if save is called in @card1 or @card2
+        @game.play
+      end
+      
+      it "shouldn't generate payoffs if only player two played" do
+        @cards.each do |card|
+          card.stub(:player_number => 2, :strategy => @strategies_player_2[0])
+        end
+        #This is going to fail if save is called in @card1 or @card2
+        @game.play
+      end
+    end
+
+    describe "with enough cards" do
+      before(:each) do
+        @cards[0].stub(:player_number => 1, :strategy => @strategies_player_1[0], :payoff => nil)
+        @cards[1].stub(:player_number => 2, :strategy => @strategies_player_2[0], :payoff => nil)
+        @game.cards = @cards
+        @payoffs[0].stub(:payoff_player_1 => 0, :payoff_player_2 => 1)
+        @game.payoffs.stub(:find => @payoffs[0])        
+        @game_result = mock_model(GameResult)
+        
+      end
+            
+      it "should assign payoff correctly" do
+        @cards.each_with_index do |card, i|
+          card.should_receive(:payoff=).with(i)
+          card.should_receive(:save)
+        end
+        @game_result.stub(:cards= => true, :save => true, :game= => true)
+        GameResult.stub(:new => @game_result)
+        @game.play
+      end
+      
+      it "should create a GameResult correctly" do
+        @cards[0].stub(:payoff= => true, :save => true)
+        @cards[1].stub(:payoff= => true, :save => true)
+        GameResult.should_receive(:new).and_return(@game_result)
+        @game_result.should_receive(:cards=).with(@cards)
+        @game_result.should_receive(:game=).with(@game)
+        @game_result.should_receive(:save)
+        @game.play
+      end
+
+    end
     
   end
   

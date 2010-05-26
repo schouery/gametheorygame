@@ -6,6 +6,7 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   accepts_nested_attributes_for :strategies
   accepts_nested_attributes_for :payoffs
   has_many :cards, :as => :game
+  has_many :game_results, :as => :game
 
   def lines_strategies
     self.strategies.select {|st| st.player_number == 1}
@@ -38,14 +39,21 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
 
   def play
     cards = played_cards
-    player1 = cards.find {|card| card.player_number == 1}
-    player2 = cards.find {|card| card.player_number == 2}
-    return if player1.nil? || player2.nil?
-    payoff = self.payoffs.find(:first) {|payoff| payoff.strategy1.id == player1.strategy.id && payoff.strategy2.id == player2.strategy.id}
-    player1.payoff = payoff.payoff_player_1
-    player2.payoff = payoff.payoff_player_2
-    player1.save!
-    player2.save!
+    players = []
+    2.times do |i|
+      players << cards.find {|card| card.player_number == i+1}
+    end
+    return if players[0].nil? || players[1].nil?
+    payoff = self.payoffs.find(:first) do |payoff|
+      payoff.strategy1.id == players[0].strategy.id && payoff.strategy2.id == players[1].strategy.id
+    end
+    players[0].payoff = payoff.payoff_player_1
+    players[1].payoff = payoff.payoff_player_2
+    players.each {|player| player.save}
+    result = GameResult.new
+    result.cards = players
+    result.game = self
+    result.save
   end
     
   def payoff_matrix
