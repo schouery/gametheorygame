@@ -1,7 +1,7 @@
 class ResearchersController < ApplicationController
   
   def index
-    @researchers = User.find(:all, :conditions => {:admin => nil, :researcher => true})
+    @researchers = User.find(:all, :conditions => {:admin => false, :researcher => true})
   end
 
   def new
@@ -10,13 +10,13 @@ class ResearchersController < ApplicationController
   def create
     @sent_to_ids = params[:ids]
     @sent_to_ids.each do |id|
-      Invitation.create(:facebook_id => id, :type => 'researcher')
+      Invitation.create(:facebook_id => id, :for => 'researcher')
     end
     redirect_to(cards_url)
   end
   
   def confirm
-    invitation = Invitation.find(:first, :conditions => {:facebook_id => current_user.facebook_id, :type => 'researcher'})
+    invitation = Invitation.find(:first, :conditions => {:facebook_id => current_user.facebook_id, :for => 'researcher'})
     if !invitation.nil?
       current_user.researcher = true
       current_user.save

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20100522200839) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "facebook_id", :limit => 20, :null => false
-    t.string   "type"
+    t.string   "for"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

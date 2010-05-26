@@ -2,3 +2,6 @@
 -@researchers .each do |researcher|
   %fb:name{:uid => researcher.facebook_id, :capitalize => 'true'}
   = link_to 'Remove from Researchers',  remove_researcher_path(researcher), :confirm => 'Are you sure?'
+
+%p
+= link_to "Invite", new_researcher_path

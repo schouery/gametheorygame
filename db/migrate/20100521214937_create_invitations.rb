@@ -2,7 +2,7 @@ class CreateInvitations < ActiveRecord::Migration
   def self.up
     create_table :invitations do |t|
       t.integer :facebook_id, :limit => 20, :null => false
-      t.string :type
+      t.string :for
 
       t.timestamps
     end

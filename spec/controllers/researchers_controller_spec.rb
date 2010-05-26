@@ -21,7 +21,7 @@ describe ResearchersController do
   describe "GET index" do
     it "assigns all researcher's that whom are not administrators as @researchers" do
       User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
-      User.should_receive(:find).with(:all, :conditions => {:admin => nil, :researcher => true}).and_return([mock_user])
+      User.should_receive(:find).with(:all, :conditions => {:admin => false, :researcher => true}).and_return([mock_user])
       get :index
       assigns[:researchers].should == [mock_user]
     end
@@ -37,7 +37,7 @@ describe ResearchersController do
     describe "having an invitation" do
     
       it "should search for @current_user invitation" do
-        conditions = {:facebook_id => @current_user.facebook_id, :type => 'researcher'}
+        conditions = {:facebook_id => @current_user.facebook_id, :for => 'researcher'}
         Invitation.should_receive(:find).with(:first, :conditions => conditions).and_return(mock_invitation(:destroy => true))
         @current_user.stub(:researcher= => true, :save => true)
         get :confirm
@@ -93,7 +93,7 @@ describe ResearchersController do
 
   describe "POST create" do
     it "create invitations for confirmation" do
-      Invitation.should_receive(:create).with(:facebook_id => 1, :type => 'researcher')
+      Invitation.should_receive(:create).with(:facebook_id => 1, :for => 'researcher')
       post :create, :ids => [1]
       response.should redirect_to(cards_url)
     end
