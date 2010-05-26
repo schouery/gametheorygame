@@ -12,7 +12,6 @@ describe CardsController do
     end
     
     it "recognizes and generates #new" do
-      pending
       { :get => "/cards/new" }.should_not be_routable
     end
     
@@ -21,7 +20,6 @@ describe CardsController do
     end
     
     it "recognizes and generates #create" do
-      pending
       { :post => "/cards" }.should_not be_routable
     end
     
@@ -30,7 +28,6 @@ describe CardsController do
     end
 
     it "recognizes and generates #show" do
-      pending
       { :get => "/cards/1" }.should_not be_routable
     end
 

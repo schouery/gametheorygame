@@ -20,8 +20,7 @@ describe ResearchersController do
     end
     
     it "recognizes and generates #edit" do
-      pending
-      { :get => "/researchers/1/edit" }.should route_to(:controller => "researchers", :action => "edit", :id => "1")
+      { :get => "/researchers/1/edit" }.should_not be_routable
     end
     
     it "recognizes and generates #create" do
@@ -29,18 +28,15 @@ describe ResearchersController do
     end
     
     it "recognizes and generates #update" do
-      pending
-      { :put => "/researchers/1" }.should route_to(:controller => "researchers", :action => "update", :id => "1")
+      { :put => "/researchers/1" }.should_not be_routable
     end
 
     it "recognizes and generates #show" do
-      pending
       { :get => "/researchers/1" }.should_not be_routable
     end
 
     it "recognizes and generates #destroy" do
-      pending
-      { :delete => "/researchers/1" }.should route_to(:controller => "researchers", :action => "destroy", :id => "1") 
+      { :delete => "/researchers/1" }.should_not be_routable
     end
   end
 end
