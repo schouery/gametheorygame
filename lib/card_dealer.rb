@@ -13,7 +13,7 @@ class CardDealer
   end
   
   def select_game
-    @games ||= SymmetricFunctionGame.find(:all)
+    @games ||= SymmetricFunctionGame.find(:all) + TwoPlayerMatrixGame.find(:all)
     @games[rand(@games.size)]
   end
   
