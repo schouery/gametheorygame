@@ -91,6 +91,20 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
       end
     end
   end
+
+  def results_matrix
+    counter = []
+    lines, columns = self.lines_strategies, self.columns_strategies
+    lines.size.times {counter << Array.new(columns.size, 0)}    
+    sum = self.game_results.size
+    self.game_results.each do |result|
+      i = lines.index(result.cards[0].strategy)
+      j = columns.index(result.cards[1].strategy)
+      counter[i][j] += 1.0/sum
+    end
+    counter
+  end
+
  
  private  
   def sorted_payoffs(lines, columns)

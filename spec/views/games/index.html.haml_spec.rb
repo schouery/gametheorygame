@@ -23,9 +23,11 @@ describe "/games/index.html.haml" do
     end
     (1..2).each do |i|
       response.should have_tag("a[href='/symmetric_function_games/#{i}']", 'Show')
+      response.should have_tag("a[href='/symmetric_function_games/#{i}/statistics']", 'Statistics')
     end
     (3..4).each do |i|
       response.should have_tag("a[href='/two_player_matrix_games/#{i}']", 'Show')
+      response.should have_tag("a[href='/two_player_matrix_games/#{i}/statistics']", 'Statistics')
     end
   end
 end

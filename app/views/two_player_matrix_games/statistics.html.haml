@@ -2,21 +2,13 @@
 %table
   %tr{:id => '1'}
     %td{:id => '1'}
-    %td{:id => '2'}
-      Soccer
-    %td{:id => '3'}
-      Movies
-  %tr{:id => '2'}
-    %td{:id => '1'}
-      Soccer
-    %td{:id => '2'}
-      0.25
-    %td{:id => '3'}  
-      0.25
-  %tr{:id => '3'}
-    %td{:id => '1'}
-      Movies
-    %td{:id => '2'}
-      0.25
-    %td{:id => '3'}  
-      0.25
+    -@two_player_matrix_game.columns_strategies.each_with_index do |strategy, i|
+      %td{:id => (i+2).to_s}
+        =strategy.label
+  -@two_player_matrix_game.results_matrix.each_with_index do |line, i|    
+    %tr{:id => (i+2).to_s}
+      %td{:id => '1'}
+        =@two_player_matrix_game.lines_strategies[i].label
+      -line.each_with_index do |value, j|
+        %td{:id => (j+2).to_s}
+          =value

@@ -24,11 +24,9 @@ describe "/two_player_matrix_games/statistics.html.haml" do
                
     assigns[:two_player_matrix_game] = @two_player_matrix_game = stub_model(TwoPlayerMatrixGame,
       :name => "Battle of Sexes",
-      # :strategies => [soccer_1, movies_1, soccer_2, movies_2],
       :lines_strategies => [soccer_1, movies_1],
-      :columns_strategies => [soccer_2, movies_2]
-      # :payoff_matrix => [[@payoff_1, @payoff_2],[@payoff_3, @payoff_4]],
-      #:game_results => results
+      :columns_strategies => [soccer_2, movies_2],
+      :results_matrix => [[0,0],[0,0]]
     )
   end
 
@@ -38,8 +36,7 @@ describe "/two_player_matrix_games/statistics.html.haml" do
   end
   
   it "should work when we have one occurence of each result" do
-    freq = [1,1,1,1]
-    setup_results_with_frequency(freq)
+    @two_player_matrix_game.stub(:results_matrix => [[0.25,0.25],[0.25,0.25]])    
     render
     response.should have_tag("table") do
       first_line(["Soccer", "Movies"])
@@ -47,12 +44,15 @@ describe "/two_player_matrix_games/statistics.html.haml" do
       line(3, "Movies", [0.25, 0.25])
     end
   end
-  
-  def setup_results_with_frequency(freq)
-    @two_player_matrix_game.stub(:game_results => [[mock_model(GameResult, :cards => [@card1,@card3])]*freq[0],
-                                                   [mock_model(GameResult, :cards => [@card1,@card4])]*freq[1],
-                                                   [mock_model(GameResult, :cards => [@card2,@card3])]*freq[2],
-                                                   [mock_model(GameResult, :cards => [@card2,@card4])]*freq[3]].flatten)    
+
+  it "should work when we have one occurence of each result" do
+    @two_player_matrix_game.stub(:results_matrix => [[0.5,0.2],[0.2,0.1]])    
+    render
+    response.should have_tag("table") do
+      first_line(["Soccer", "Movies"])
+      line(2, "Soccer", [0.5, 0.2])
+      line(3, "Movies", [0.2, 0.1])
+    end
   end
   
   def first_line(labels)

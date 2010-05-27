@@ -38,3 +38,9 @@ bs.save
 
 Card.create(:user => user, :game => bs, :player_number => 1)
 Card.create(:user => user, :game => bs, :player_number => 2)
+Card.create(:user => user, :game => bs, :player_number => 1)
+Card.create(:user => user, :game => bs, :player_number => 2)
+Card.create(:user => user, :game => bs, :player_number => 1)
+Card.create(:user => user, :game => bs, :player_number => 2)
+Card.create(:user => user, :game => bs, :player_number => 1)
+Card.create(:user => user, :game => bs, :player_number => 2)

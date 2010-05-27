@@ -170,4 +170,47 @@ describe TwoPlayerMatrixGame do
     
   end
   
+  describe "getting strategies" do
+
+    before(:each) do
+      @game.strategies = @strategies_player_1 + @strategies_player_2
+    end
+     
+    def simulate_results(freq)
+      card1 = mock_model(Card, :strategy => @strategies_player_1[0])
+      card2 = mock_model(Card, :strategy => @strategies_player_1[1])
+      card3 = mock_model(Card, :strategy => @strategies_player_2[0])
+      card4 = mock_model(Card, :strategy => @strategies_player_2[1])
+      [[mock_model(GameResult, :cards => [card1, card3])]*freq[0],
+      [mock_model(GameResult, :cards => [card1, card4])]*freq[1],
+      [mock_model(GameResult, :cards => [card2, card3])]*freq[2],
+      [mock_model(GameResult, :cards => [card2, card4])]*freq[3]].flatten
+    end
+    
+    it "should respond to results_matrix" do
+      @game.should respond_to :results_matrix
+    end
+    
+    it "should calculate the correctly frequencies when there is no game results" do
+      @game.game_results = []
+      @game.results_matrix.should == [[0,0],[0,0]]
+    end
+    
+    it "should calculate the correctly frquencies when there is only one game result" do
+      @game.game_results = simulate_results([1,0,0,0])
+      @game.results_matrix.should == [[1,0],[0,0]]
+    end
+    
+    it "should calculate the correctly frequencies when there are many results" do
+      @game.game_results = simulate_results([2,6,4,8])
+      results_matrix = @game.results_matrix
+      (results_matrix[0][0] - 0.1).should < 0.001
+      (results_matrix[0][1] - 0.3).should < 0.001
+      (results_matrix[1][0] - 0.2).should < 0.001
+      (results_matrix[1][1] - 0.4).should < 0.001
+    end
+    
+    
+  end
+  
 end
