@@ -42,4 +42,8 @@ class TwoPlayerMatrixGamesController < ApplicationController
     @two_player_matrix_game.destroy
     redirect_to(two_player_matrix_games_url)
   end
+  
+  def statistics
+    @two_player_matrix_game = TwoPlayerMatrixGame.find(params[:id])
+  end
 end

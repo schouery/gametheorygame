@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe SymmetricFunctionGamesController do
   describe "routing" do
+    
+    it "recognizes and generates #statistics" do
+      { :get => "/symmetric_function_games/1/statistics" }.should route_to(:controller => "symmetric_function_games", :action => "statistics", :id => "1")
+    end
+    
     it "recognizes and generates #index" do
       { :get => "/symmetric_function_games" }.should route_to(:controller => "symmetric_function_games", :action => "index")
     end

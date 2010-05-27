@@ -144,4 +144,12 @@ describe TwoPlayerMatrixGamesController do
     end
   end
 
+  describe "GET statistics" do
+    it "assigns the two_player_matrix_game as @two_player_matrix_game" do
+      TwoPlayerMatrixGame.stub(:find).and_return(mock_two_player_matrix_game)
+      get :statistics, :id => "1"
+      assigns[:two_player_matrix_game].should equal(mock_two_player_matrix_game)
+    end
+  end
+
 end

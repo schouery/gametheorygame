@@ -18,7 +18,6 @@ describe "/games/index.html.haml" do
 
   it "renders a list of cards" do
     render
-    puts response.body
     @games.each do |game|
       response.should contain(game.name)
     end
