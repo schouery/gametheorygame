@@ -32,7 +32,7 @@ class ResearchersController < ApplicationController
   
   def remove
     @user = User.find(params[:id])
-    authorize! :delete, @user
+    authorize! :remove_researcher, @user
     @user.researcher = false
     @user.save
     redirect_to(researchers_url)

@@ -5,6 +5,7 @@ describe "/two_player_matrix_games/show.html.haml" do
   include TwoPlayerMatrixGamesHelper
 
   before(:each) do
+    @controller.stub(:can? => true)
     soccer_1 = stub_model(TwoPlayerMatrixGame, :label => "Soccer", :player_number => 1)
     soccer_2 = stub_model(TwoPlayerMatrixGame, :label => "Soccer", :player_number => 2)
     movies_1 = stub_model(TwoPlayerMatrixGame, :label => "Movies", :player_number => 1)

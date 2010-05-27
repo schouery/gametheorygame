@@ -11,7 +11,8 @@
   =h @two_player_matrix_game.color
 
 = render 'matrix', :game => @two_player_matrix_game
-  
-= link_to 'Edit', edit_two_player_matrix_game_path(@two_player_matrix_game)
-|
+
+-if can? :update, @two_player_matrix_game  
+  = link_to 'Edit', edit_two_player_matrix_game_path(@two_player_matrix_game)
+  |
 = link_to 'Back', two_player_matrix_games_path

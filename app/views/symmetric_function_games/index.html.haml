@@ -12,10 +12,12 @@
     =h symmetric_function_game.color
     %br
     = link_to 'Show', symmetric_function_game
-    |
-    = link_to 'Edit', edit_symmetric_function_game_path(symmetric_function_game)
-    |
-    = link_to 'Destroy', symmetric_function_game, :confirm => 'Are you sure?', :method => :delete
+    -if can? :update, symmetric_function_game
+      |
+      = link_to 'Edit', edit_symmetric_function_game_path(symmetric_function_game)
+      |
+    -if can? :destroy, symmetric_function_game  
+      = link_to 'Destroy', symmetric_function_game, :confirm => 'Are you sure?', :method => :delete
 
 %p
-= link_to 'New symmetric_function_game', new_symmetric_function_game_path
+  = link_to 'New symmetric_function_game', new_symmetric_function_game_path

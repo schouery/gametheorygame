@@ -8,6 +8,7 @@ describe "/symmetric_function_games/index.html.haml" do
       Factory.stub(:symmetric_function_game),
       Factory.stub(:symmetric_function_game)
     ]
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of symmetric_function_games" do

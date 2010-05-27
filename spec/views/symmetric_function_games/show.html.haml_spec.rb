@@ -4,6 +4,7 @@ describe "/symmetric_function_games/show.html.haml" do
   include SymmetricFunctionGamesHelper
   
   before(:each) do
+    @controller.stub(:can? => true)
     strategy1 = stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy1")
     strategy2 = stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy2")    
     assigns[:symmetric_function_game] = @symmetric_function_game = Factory.stub(:symmetric_function_game)

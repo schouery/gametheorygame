@@ -4,6 +4,7 @@ describe "/two_player_matrix_games/index.html.haml" do
   include TwoPlayerMatrixGamesHelper
 
   before(:each) do
+    @controller.stub(:can? => true)
     assigns[:two_player_matrix_games] = [
       stub_model(TwoPlayerMatrixGame,
         :name => "Battle of Sexes",

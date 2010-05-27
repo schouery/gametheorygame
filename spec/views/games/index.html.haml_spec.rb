@@ -14,6 +14,7 @@ describe "/games/index.html.haml" do
       @games[2] => "/two_player_matrix_games/",
       @games[3] => "/two_player_matrix_games/"
     }
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of cards" do

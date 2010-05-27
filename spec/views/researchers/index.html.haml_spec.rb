@@ -7,6 +7,7 @@ describe "/researchers/index.html.haml" do
       mock_model(User, :facebook_id => 1, :id => 10),
       mock_model(User, :facebook_id => 2, :id => 20)
     ]
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of symmetric_function_games" do

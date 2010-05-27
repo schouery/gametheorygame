@@ -24,6 +24,7 @@
   Function:
   =h @symmetric_function_game.function
 
-= link_to 'Edit', edit_symmetric_function_game_path(@symmetric_function_game)
-|
+-if can? :update, @symmetric_function_game
+  = link_to 'Edit', edit_symmetric_function_game_path(@symmetric_function_game)
+  |
 = link_to 'Back', symmetric_function_games_path

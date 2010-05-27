@@ -11,6 +11,9 @@ class Ability
       can :statistics, SymmetricFunctionGame
       can :statistics, TwoPlayerMatrixGame
       can :create, Invitation
+      can :remove_researcher, User do |researcher|
+        researcher == user
+      end# researcher
     else
       can :manage, Card
     end
