@@ -1,0 +1,6 @@
+%p= @symmetric_function_game.name
+%table
+  -@symmetric_function_game.strategies.each_with_index do |strategy, i|
+    %tr{:id => i}
+      %td#0=strategy.label
+      %td#1=@symmetric_function_game.strategies_percentages[strategy]

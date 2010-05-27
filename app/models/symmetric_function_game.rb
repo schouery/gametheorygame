@@ -24,6 +24,20 @@ class SymmetricFunctionGame < ActiveRecord::Base
     result.cards = cards
     result.save
   end
+  
+  def strategies_percentages
+    histogram = {}
+    self.strategies.each do |strategy|
+      histogram[strategy] = 0
+    end
+    sum = 2*self.game_results.size
+    self.game_results.each do |result|
+      result.cards.each do |card|
+        histogram[card.strategy] += 1.0/sum
+      end
+    end
+    histogram
+  end
 
  private
 

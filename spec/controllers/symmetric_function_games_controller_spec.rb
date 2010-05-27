@@ -139,4 +139,12 @@ describe SymmetricFunctionGamesController do
     end
   end
 
+  describe "GET statistics" do
+    it "assigns the symmetric_function_game as @symmetric_function_game" do
+      SymmetricFunctionGame.stub(:find).with("37").and_return(mock_symmetric_function_game)
+      get :statistics, :id => "37"
+      assigns[:symmetric_function_game].should equal(mock_symmetric_function_game)
+    end
+  end
+
 end

@@ -41,4 +41,9 @@ class SymmetricFunctionGamesController < ApplicationController
     @symmetric_function_game.destroy
     redirect_to(symmetric_function_games_url)
   end
+  
+  def statistics
+    @symmetric_function_game = SymmetricFunctionGame.find(params[:id])
+  end
+
 end
