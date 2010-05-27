@@ -8,7 +8,8 @@ describe SymmetricFunctionGamesController do
     end
     
     it "recognizes and generates #index" do
-      { :get => "/symmetric_function_games" }.should route_to(:controller => "symmetric_function_games", :action => "index")
+      { :get => "/symmetric_function_games" }.should_not be_routable
+      # { :get => "/symmetric_function_games" }.should route_to(:controller => "symmetric_function_games", :action => "index")
     end
 
     it "recognizes and generates #new" do

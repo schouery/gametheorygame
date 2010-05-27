@@ -8,7 +8,8 @@ describe TwoPlayerMatrixGamesController do
     end
     
     it "recognizes and generates #index" do
-      { :get => "/two_player_matrix_games" }.should route_to(:controller => "two_player_matrix_games", :action => "index")
+      { :get => "/two_player_matrix_games" }.should_not be_routable
+      # { :get => "/two_player_matrix_games" }.should route_to(:controller => "two_player_matrix_games", :action => "index")
     end
 
     it "recognizes and generates #new" do

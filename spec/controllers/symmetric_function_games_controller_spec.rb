@@ -14,13 +14,13 @@ describe SymmetricFunctionGamesController do
     @mock_symmetric_function_game ||= mock_model(SymmetricFunctionGame, stubs)
   end
 
-  describe "GET index" do
-    it "assigns all symmetric_function_games as @symmetric_function_games" do
-      SymmetricFunctionGame.stub(:find).with(:all).and_return([mock_symmetric_function_game])
-      get :index
-      assigns[:symmetric_function_games].should == [mock_symmetric_function_game]
-    end
-  end
+  # describe "GET index" do
+  #   it "assigns all symmetric_function_games as @symmetric_function_games" do
+  #     SymmetricFunctionGame.stub(:find).with(:all).and_return([mock_symmetric_function_game])
+  #     get :index
+  #     assigns[:symmetric_function_games].should == [mock_symmetric_function_game]
+  #   end
+  # end
 
   describe "GET show" do
     it "assigns the requested symmetric_function_game as @symmetric_function_game" do

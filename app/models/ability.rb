@@ -14,8 +14,7 @@ class Ability
       can :remove_researcher, User do |researcher|
         researcher == user
       end# researcher
-    else
-      can :manage, Card
     end
+    can :manage, Card
   end
 end
