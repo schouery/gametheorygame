@@ -1,13 +1,15 @@
 class ResearchersController < ApplicationController
-  
   def index
     @researchers = User.find(:all, :conditions => {:admin => false, :researcher => true})
+    authorize! :read, @researchers
   end
 
   def new
+    authorize! :invite_researcher, User.new
   end
   
   def create
+    authorize! :invite_researcher, User.new
     @sent_to_ids = params[:ids]
     @sent_to_ids.each do |id|
       Invitation.create(:facebook_id => id, :for => 'researcher')
@@ -30,6 +32,7 @@ class ResearchersController < ApplicationController
   
   def remove
     @user = User.find(params[:id])
+    authorize! :delete, @user
     @user.researcher = false
     @user.save
     redirect_to(researchers_url)

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_facebook_session
   helper_method :facebook_session
-  
+    
   ensure_authenticated_to_facebook
   
   filter_parameter_logging :fb_sig_friends

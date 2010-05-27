@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+  load_and_authorize_resource
   def index
     all_cards = Card.find(:all, :conditions => {:user_id => current_user.id})
     @cards = all_cards.find_all do |card|
@@ -15,18 +15,15 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card = Card.find(params[:id])
     @card.destroy
     redirect_to(cards_url)
   end
   
   def edit
-    @card = Card.find(params[:id])
     @partial = @card.game_type.underscore.pluralize + "/card"
   end
 
   def update
-    @card = Card.find(params[:id])
     if @card.update_attributes(params[:card])
       flash[:notice] = 'Card was successfully updated.'
       @card.game.play
