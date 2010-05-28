@@ -12,17 +12,16 @@ class ApplicationController < ActionController::Base
   # before_filter :set_facebook_session
   # helper_method :facebook_session
     
-  # ensure_authenticated_to_facebook
+  ensure_authenticated_to_facebook
   
-  # filter_parameter_logging :fb_sig_friends
+  filter_parameter_logging :fb_sig_friends
 
   attr_accessor :current_user
   before_filter :set_current_user
   helper_attr :current_user
   
   def set_current_user
-    # self.current_user = User.for(facebook_session.user.to_i)
-    self.current_user = User.for(1542875245)
+    self.current_user = User.for(facebook_session.user.to_i)
   end
 
 end

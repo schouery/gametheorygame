@@ -12,7 +12,8 @@ polution_game = SymmetricFunctionGame.create(:name => "Polution Game for 4",
 :description => "This is Polution Game for 4",
 :number_of_players => 4,
 :color => "red",
-:function => "np[0] + 3*st[1]"
+:function => "np[0] + 3*st[1]",
+:user => user
 )
 
 polute = SymmetricFunctionGameStrategy.create(:label => "Polute", :game => polution_game)
@@ -23,7 +24,7 @@ Card.create(:user => user, :game => polution_game)
 Card.create(:user => user, :game => polution_game)
 Card.create(:user => user, :game => polution_game)
 
-bs = TwoPlayerMatrixGame.create(:name => "Batalha dos Sexos", :description => "BS", :color => "red")
+bs = TwoPlayerMatrixGame.create(:name => "Batalha dos Sexos", :description => "BS", :color => "red", :user => user)
 s1 = TwoPlayerMatrixGameStrategy.create(:label => 'S', :player_number => 1)
 s2 = TwoPlayerMatrixGameStrategy.create(:label => 'M', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create(:label => 'S', :player_number => 2)

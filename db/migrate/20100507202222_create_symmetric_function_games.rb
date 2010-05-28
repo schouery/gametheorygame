@@ -7,6 +7,7 @@ class CreateSymmetricFunctionGames < ActiveRecord::Migration
       t.string :color
       t.string :function
       t.boolean :removed, :default => false
+      t.integer :user_id
       t.timestamps
     end
   end

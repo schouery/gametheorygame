@@ -16,6 +16,7 @@ class SymmetricFunctionGamesController < ApplicationController
   end
 
   def create
+    @symmetric_function_game.user = current_user
     if @symmetric_function_game.save
       flash[:notice] = 'SymmetricFunctionGame was successfully created.'
       redirect_to(@symmetric_function_game)
@@ -34,8 +35,10 @@ class SymmetricFunctionGamesController < ApplicationController
   end
 
   def destroy
-    @symmetric_function_game.destroy
-    redirect_to(symmetric_function_games_url)
+    # @symmetric_function_game.destroy
+    @symmetric_function_game.removed = true
+    @symmetric_function_game.save
+    redirect_to(games_url)
   end
   
   def statistics

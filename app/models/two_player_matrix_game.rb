@@ -1,4 +1,5 @@
 class TwoPlayerMatrixGame < ActiveRecord::Base
+  belongs_to :user
   validates_presence_of :name, :description, :color
   validates_inclusion_of :color, :in => %w( red green yellow )
   has_many :strategies, :class_name => "TwoPlayerMatrixGameStrategy", :foreign_key => "game_id", :dependent => :destroy

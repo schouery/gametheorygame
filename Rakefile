@@ -9,3 +9,4 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 require 'tasks/facebooker'
+require 'metric_fu'

@@ -58,17 +58,22 @@ describe TwoPlayerMatrixGame do
   it "should be able to associate payoffs to strategies by position" do
     @strategies_player_1.each_with_index {|strategy, i| strategy.stub(:number => i)}
     @strategies_player_2.each_with_index {|strategy, i| strategy.stub(:number => i)}
+    payoffs = [mock_model(TwoPlayerMatrixGamePayoff,  :strategy1 => nil, :strategy2 => nil),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil)]
     (0..1).each do |i|
       (0..1).each do |j|
-        @payoffs[i*2+j].stub(:line_position => i, :column_position => j)
+        payoffs[i*2+j].stub(:line_position => i, :column_position => j)
       end
     end
+    
     @game.strategies = @strategies_player_1 + @strategies_player_2#[@strategy1,@strategy2,@strategy3,@strategy4]
-    @game.payoffs = @payoffs#[@payoff1, @payoff2, @payoff3, @payoff4]
+    @game.payoffs = payoffs#[@payoff1, @payoff2, @payoff3, @payoff4]
     @strategies_player_1.each_with_index do |st1, i|
       @strategies_player_2.each_with_index do |st2, j|
-        @payoffs[i*2 + j].should_receive(:strategy1=).with(st1)
-        @payoffs[i*2 + j].should_receive(:strategy2=).with(st2)
+        payoffs[i*2 + j].should_receive(:strategy1=).with(st1)
+        payoffs[i*2 + j].should_receive(:strategy2=).with(st2)
       end
     end
     @game.associate_payoffs

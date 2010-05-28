@@ -1,0 +1,9 @@
+%p= @card.game.name
+%p= @card.payoff
+%p= @card.player_number
+%p= @card.strategy.label
+-@card.game_result.sorted_cards.each_with_index do |card, i|
+  %p
+    ="Player #{i+1}"
+    =card.strategy.label
+    =card.payoff

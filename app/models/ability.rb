@@ -14,6 +14,12 @@ class Ability
       can :remove_researcher, User do |researcher|
         researcher == user
       end
+      can :destroy, SymmetricFunctionGame do |game|
+        game.user == user
+      end      
+      can :destroy, TwoPlayerMatrixGame do |game|
+        game.user == user
+      end      
       can :manage, :card
     else
       can :read, Card

@@ -14,8 +14,8 @@ describe GamesController do
     it "assigns all games as @games" do
       matrix_games = [mock_model(TwoPlayerMatrixGame), mock_model(TwoPlayerMatrixGame)]
       function_games = [mock_model(SymmetricFunctionGame), mock_model(SymmetricFunctionGame)]
-      TwoPlayerMatrixGame.should_receive(:find).with(:all).and_return(matrix_games)
-      SymmetricFunctionGame.should_receive(:find).with(:all).and_return(function_games)
+      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions=>{:removed=>false}).and_return(matrix_games)
+      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions=>{:removed=>false}).and_return(function_games)
       get :index
       assigns[:games].should == matrix_games + function_games
     end
@@ -25,8 +25,8 @@ describe GamesController do
       matrix_games = [m1,m2]
       f1, f2 = mock_model(SymmetricFunctionGame), mock_model(SymmetricFunctionGame)
       function_games = [f1, f2]
-      TwoPlayerMatrixGame.should_receive(:find).with(:all).and_return(matrix_games)
-      SymmetricFunctionGame.should_receive(:find).with(:all).and_return(function_games)
+      TwoPlayerMatrixGame.stub(:find => matrix_games)
+      SymmetricFunctionGame.stub(:find => function_games)
       get :index
       assigns[:paths].should == {m1 => '/two_player_matrix_games/', m2 => '/two_player_matrix_games/',
         f1 => '/symmetric_function_games/', f2 => '/symmetric_function_games/'}

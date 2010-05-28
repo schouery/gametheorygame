@@ -10,3 +10,6 @@
     %br
     Payoff:
     =h filter_payoff(card)
+    %br
+    -if !card.game_result.nil?
+      =link_to "Result", result_card_path(card)

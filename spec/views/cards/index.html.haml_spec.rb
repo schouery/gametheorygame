@@ -14,6 +14,7 @@ describe "/cards/index.html.haml" do
         :game => @game2
       )
     ]
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of cards" do

@@ -54,12 +54,13 @@ describe SymmetricFunctionGamesController do
     describe "with valid params" do
       it "assigns a newly created symmetric_function_game as @symmetric_function_game" do
         SymmetricFunctionGame.stub(:new).with({'these' => 'params'}).and_return(mock_symmetric_function_game(:save => true))
+        mock_symmetric_function_game.should_receive(:user=).with(@current_user)
         post :create, :symmetric_function_game => {:these => 'params'}
         assigns[:symmetric_function_game].should equal(mock_symmetric_function_game)
       end
 
       it "redirects to the created symmetric_function_game" do
-        SymmetricFunctionGame.stub(:new).and_return(mock_symmetric_function_game(:save => true))
+        SymmetricFunctionGame.stub(:new).and_return(mock_symmetric_function_game(:save => true, :user= => true))
         post :create, :symmetric_function_game => {}
         response.should redirect_to(symmetric_function_game_url(mock_symmetric_function_game))
       end
@@ -68,12 +69,13 @@ describe SymmetricFunctionGamesController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved symmetric_function_game as @symmetric_function_game" do
         SymmetricFunctionGame.stub(:new).with({'these' => 'params'}).and_return(mock_symmetric_function_game(:save => false))
+        mock_symmetric_function_game.should_receive(:user=).with(@current_user)
         post :create, :symmetric_function_game => {:these => 'params'}
         assigns[:symmetric_function_game].should equal(mock_symmetric_function_game)
       end
 
       it "re-renders the 'new' template" do
-        SymmetricFunctionGame.stub(:new).and_return(mock_symmetric_function_game(:save => false))
+        SymmetricFunctionGame.stub(:new).and_return(mock_symmetric_function_game(:save => false, :user= => true))
         post :create, :symmetric_function_game => {}
         response.should render_template('new')
       end
@@ -126,16 +128,17 @@ describe SymmetricFunctionGamesController do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested symmetric_function_game" do
+    it "marks the requested symmetric_function_game as removed" do
       SymmetricFunctionGame.should_receive(:find).with("37").and_return(mock_symmetric_function_game)
-      mock_symmetric_function_game.should_receive(:destroy)
+      mock_symmetric_function_game.should_receive(:removed=).with(true)
+      mock_symmetric_function_game.should_receive(:save)
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the symmetric_function_games list" do
-      SymmetricFunctionGame.stub(:find).and_return(mock_symmetric_function_game(:destroy => true))
+    it "redirects to the games list" do
+      SymmetricFunctionGame.stub(:find).and_return(mock_symmetric_function_game(:destroy => true, :removed= => true, :save => true))
       delete :destroy, :id => "1"
-      response.should redirect_to(symmetric_function_games_url)
+      response.should redirect_to(games_url)
     end
   end
 

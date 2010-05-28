@@ -5,6 +5,7 @@ class CreateTwoPlayerMatrixGames < ActiveRecord::Migration
       t.text :description
       t.string :color
       t.boolean :removed, :default => false
+      t.integer :user_id
       t.timestamps
     end
   end

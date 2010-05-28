@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20100526130516) do
     t.string   "game_type"
     t.integer  "strategy_id"
     t.string   "strategy_type"
-    t.integer  "player_number"
+    t.integer  "player_number",  :default => 0
     t.integer  "game_result_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20100526130516) do
     t.string   "color"
     t.string   "function"
     t.boolean  "removed",           :default => false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20100526130516) do
     t.text     "description"
     t.string   "color"
     t.boolean  "removed",     :default => false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

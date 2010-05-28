@@ -16,6 +16,7 @@ class TwoPlayerMatrixGamesController < ApplicationController
   end
 
   def create
+    @two_player_matrix_game.user = current_user
     if @two_player_matrix_game.save
       flash[:notice] = 'TwoPlayerMatrixGame was successfully created.'
       redirect_to(@two_player_matrix_game)
@@ -36,8 +37,10 @@ class TwoPlayerMatrixGamesController < ApplicationController
   end
 
   def destroy
-    @two_player_matrix_game.destroy
-    redirect_to(two_player_matrix_games_url)
+    # @two_player_matrix_game.destroy
+    @two_player_matrix_game.removed = true
+    @two_player_matrix_game.save
+    redirect_to(games_url)
   end
   
   def statistics

@@ -1,3 +1,5 @@
 =game.name
 =link_to "Show", two_player_matrix_game_path(game)
 =link_to "Statistics", statistics_two_player_matrix_game_path(game)
+-if can? :destroy, game
+  =link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
