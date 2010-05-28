@@ -26,6 +26,8 @@ class TwoPlayerMatrixGamesController < ApplicationController
 
   def update
     if @two_player_matrix_game.update_attributes(params[:two_player_matrix_game])
+      @two_player_matrix_game.associate_payoffs
+      @two_player_matrix_game.save
       flash[:notice] = 'TwoPlayerMatrixGame was successfully updated.'
       redirect_to(@two_player_matrix_game)
     else

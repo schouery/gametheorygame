@@ -6,7 +6,8 @@ class CreateTwoPlayerMatrixGamePayoffs < ActiveRecord::Migration
       t.integer :strategy2_id
       t.integer :payoff_player_1
       t.integer :payoff_player_2
-
+      t.integer :line_position
+      t.integer :column_position
       t.timestamps
     end
   end

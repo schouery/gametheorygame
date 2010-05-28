@@ -125,7 +125,6 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
  
  private  
   def sorted_payoffs(lines, columns)
-    logger.info "Payoffs: " + payoffs.size.to_s
     self.payoffs.sort do |a, b|
       if lines.index(a.strategy1) < lines.index(b.strategy1)
         -1

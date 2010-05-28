@@ -4,7 +4,7 @@ class CreateTwoPlayerMatrixGameStrategies < ActiveRecord::Migration
       t.string :label
       t.integer :player_number
       t.integer :game_id
-
+      t.integer :number
       t.timestamps
     end
   end
