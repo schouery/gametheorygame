@@ -10,3 +10,8 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 require 'tasks/facebooker'
 require 'metric_fu'
+
+namespace :metrics do
+  TEST_PATHS_FOR_RCOV = ['spec/**/*_spec.rb']
+  RCOV_OPTIONS =  { "--include-files" => "/spec/" }
+end
