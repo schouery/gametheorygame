@@ -4,5 +4,6 @@
   %p
     -name = card.game.name
     =link_to name, edit_card_path(card)
-    |
-    =link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+    -if can? :destroy, card
+      |
+      =link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete

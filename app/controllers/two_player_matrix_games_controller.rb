@@ -12,10 +12,10 @@ class TwoPlayerMatrixGamesController < ApplicationController
   end
 
   def edit
+    @two_player_matrix_game.fill_positions
   end
 
   def create
-    @two_player_matrix_game.associate_payoffs
     if @two_player_matrix_game.save
       flash[:notice] = 'TwoPlayerMatrixGame was successfully created.'
       redirect_to(@two_player_matrix_game)

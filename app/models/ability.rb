@@ -13,8 +13,14 @@ class Ability
       can :create, Invitation
       can :remove_researcher, User do |researcher|
         researcher == user
-      end# researcher
+      end
+      can :manage, :card
+    else
+      can :read, Card
+      can :update, Card
+      can :destroy, Card do |card|
+        card.game.color != "red"
+      end            
     end
-    can :manage, Card
   end
 end
