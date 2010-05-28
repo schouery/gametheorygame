@@ -1,0 +1,6 @@
+%p.fields  
+  = f.label :label, "Strategy"  
+  = f.text_field :label
+  = f.hidden_field :_destroy
+  -if last
+    = link_to_function "remove", "remove_fields(this)"

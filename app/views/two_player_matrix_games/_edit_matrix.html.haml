@@ -1,29 +1,20 @@
+%div.out
 %table
-  %tr{:id => '1'}
+  %tr.master{:id => '1'}
     %td{:id => '1'}
     -@two_player_matrix_game.columns_strategies.each_with_index do |strategy, i|
-      %td{:id => (i+2).to_s}
-        -f.fields_for :strategies, strategy  do |builder|  
-          = builder.text_field :label
-          = builder.hidden_field :number
-          = builder.hidden_field :player_number
-          
+      %td{:id => i+2}
+        -f.fields_for :strategies, strategy  do |builder|
+          = render "strategy_fields", :f => builder  
+    %td= link_to_add_column(f)    
   -@two_player_matrix_game.payoff_matrix.each_with_index do |columns_payoffs, i|
-    %tr{:id => (i+2).to_s}
-      %td{:id => '1'}
-        -f.fields_for :strategies, @two_player_matrix_game.lines_strategies[i]  do |builder|  
-          = builder.text_field :label
-          = builder.hidden_field :number#, :valuer => number
-          = builder.hidden_field :player_number
+    %tr.master{:id => i+2}
+      %td{:id => 1}
+        -f.fields_for :strategies, @two_player_matrix_game.lines_strategies[i]  do |builder|
+          = render "strategy_fields", :f => builder  
       -columns_payoffs.each_with_index do |payoff, j|
-        %td{:id => (j+2).to_s}
+        %td{:id => j+2}
           -f.fields_for :payoffs, payoff  do |builder|
-            =builder.hidden_field :line_position
-            =builder.hidden_field :column_position
-            %table
-              %tr
-                %td
-                %td= builder.text_field :payoff_player_1
-              %tr
-                %td= builder.text_field :payoff_player_2
-                %td
+            = render "payoff_fields", :f => builder
+  %tr.master
+    %td= link_to_add_line(f)

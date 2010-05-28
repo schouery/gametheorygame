@@ -6,8 +6,8 @@ describe "/symmetric_function_games/edit.html.haml" do
   before(:each) do
     strategy1 = stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy1")
     strategy2 = stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy2")
-    assigns[:symmetric_function_game] = @symmetric_function_game = Factory.stub(:symmetric_function_game)
-    @symmetric_function_game.should_receive(:strategies).and_return([strategy1, strategy2])
+    assigns[:symmetric_function_game] = @symmetric_function_game = stub_model(SymmetricFunctionGame, 
+    :strategies => [strategy1, strategy2])
   end
 
   it "renders the edit symmetric_function_game form" do

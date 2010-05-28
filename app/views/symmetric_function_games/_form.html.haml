@@ -18,9 +18,10 @@
     =f.label :color, 'green' 
 
   -f.fields_for :strategies do |builder|  
-    %p  
-      = builder.label :label, "Strategy"  
-      = builder.text_field :label
+    =render "strategy_fields", :f => builder, :last => false
+
+  %p= link_to_add_fields "Add Strategy", f, :strategies
+
   %p 
     =f.label :function
     =f.text_field :function     

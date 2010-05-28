@@ -8,6 +8,8 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   has_many :cards, :as => :game
   has_many :game_results, :as => :game
 
+  before_create :associate_payoffs
+
   def lines_strategies
     self.strategies.select {|st| st.player_number == 1}
   end
@@ -16,10 +18,25 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     self.strategies.select {|st| st.player_number == 2}
   end
   
+  def fill_positions
+    lines, columns = self.lines_strategies, self.columns_strategies
+    s = sorted_payoffs(lines, columns)
+    s.each_with_index do |payoff, k|
+      payoff.line_position = k/columns.size
+      payoff.column_position = k%columns.size
+    end
+    lines.each_with_index do |strategy, i|
+      strategy.number = i
+    end      
+    columns.each_with_index do |strategy, i|
+      strategy.number = i
+    end      
+  end
+  
   def associate_payoffs
     self.payoffs.each do |payoff|
-      payoff.strategy1 = self.lines_strategies.find {|s| s.number == payoff.line_position }
-      payoff.strategy2 = self.columns_strategies.find {|s| s.number == payoff.column_position }
+      payoff.strategy1 = self.lines_strategies.find {|s| s.number == payoff.line_position } if payoff.strategy1.nil?
+      payoff.strategy2 = self.columns_strategies.find {|s| s.number == payoff.column_position } if payoff.strategy2.nil?
     end
   end
   
