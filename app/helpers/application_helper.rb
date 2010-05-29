@@ -2,7 +2,7 @@
 module ApplicationHelper
   def xfbml_start
     "<script type='text/javascript'> 
-      FB_RequireFeatures([\"XFBML\"], function(){FB.Facebook.init(\"77fe2d55843774a0faa0d64f2c0212c5\", \"/xd_receiver.htm\"); });
+      FB_RequireFeatures([\"XFBML\"], function(){FB.Facebook.init(\"#{ENV['FACEBOOK_API_KEY']}\", \"/xd_receiver.htm\"); });
     </script>"
   end
   
@@ -59,8 +59,5 @@ module ApplicationHelper
     end  
     link_to_function(name, h("add_line(this, \"#{escape_javascript(strategy_fields)}\", \"#{escape_javascript(payoff_fields)}\")"))  
   end
-
-
-
   
 end
