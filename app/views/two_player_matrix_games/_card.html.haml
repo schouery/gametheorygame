@@ -4,7 +4,10 @@
   Number of Players: 2
 %p
   =h @card.game.description
-    
+%p
+  You will play as player
+  =h @card.player_number
+  
 = render "two_player_matrix_games/matrix", :game => @card.game
 
 .strategy_chooser 
