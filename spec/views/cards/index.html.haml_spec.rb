@@ -4,8 +4,8 @@ describe "/cards/index.html.haml" do
   include CardsHelper
 
   before(:each) do
-    @game1 = stub_model(SymmetricFunctionGame, :name => "Polution Game for 4")
-    @game2 = stub_model(SymmetricFunctionGame, :name => "Polution Game for 6")
+    @game1 = stub_model(SymmetricFunctionGame, :name => "Polution Game for 4", :color => "red")
+    @game2 = stub_model(SymmetricFunctionGame, :name => "Polution Game for 6", :color => "red")
     assigns[:cards] = [
       stub_model(Card,
         :game => @game1

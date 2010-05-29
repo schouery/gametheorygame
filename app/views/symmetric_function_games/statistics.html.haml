@@ -10,5 +10,4 @@
       %tr{:id => i, :class => (i.odd? ? "odd" : "even")}
         %td#0=strategy.label
         %td#1
-          =@symmetric_function_game.strategies_percentages[strategy] * 100
-          \%
+          ="#{@symmetric_function_game.strategies_percentages[strategy] * 100}%"

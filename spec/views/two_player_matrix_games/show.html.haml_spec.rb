@@ -33,7 +33,7 @@ describe "/two_player_matrix_games/show.html.haml" do
   it "renders attributes in <p>" do
     render
     response.should contain("Battle of Sexes")
-    response.should contain("green")
+    response.should contain("Green")
     response.should contain("Do you want to go to watch soccer or a movie?")
     response.should have_tag("table") do
       first_line(["Soccer", "Movies"])

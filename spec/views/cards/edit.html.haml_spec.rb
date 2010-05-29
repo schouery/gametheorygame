@@ -12,6 +12,7 @@ describe "/cards/edit.html.haml" do
     @symmetric_function_game.stub!(:strategies => @strategies)
     assigns[:card] = @card = stub_model(Card, :new_record? => false, :game => @symmetric_function_game)
     assigns[:partial] = "symmetric_function_games/card"
+    @controller.stub(:can? => true)
   end
 
   it "renders the edit card form" do
@@ -30,7 +31,6 @@ describe "/cards/edit.html.haml" do
     response.should contain(@symmetric_function_game.name)
     response.should contain(@symmetric_function_game.description)
     response.should contain(@symmetric_function_game.number_of_players.to_s)
-    response.should contain(@symmetric_function_game.color)
     @strategies.each do |strategy|
       response.should contain(strategy.label)
     end

@@ -23,11 +23,11 @@ describe "/symmetric_function_games/statistics.html.haml" do
     response.should have_tag("table") do
       with_tag("tr[id='0']") do
         with_tag("td[id='0']", 'Strategy1') 
-        with_tag("td[id='1']", '0')
+        with_tag("td[id='1']", '0%')
       end
       with_tag("tr[id='1']") do
         with_tag("td[id='0']", 'Strategy2') 
-        with_tag("td[id='1']", '0')
+        with_tag("td[id='1']", '0%')
       end
     end    
   end
@@ -38,11 +38,11 @@ describe "/symmetric_function_games/statistics.html.haml" do
     response.should have_tag("table") do
       with_tag("tr[id='0']") do
         with_tag("td[id='0']", 'Strategy1') 
-        with_tag("td[id='1']", '0.3')
+        with_tag("td[id='1']", '30.0%')
       end
       with_tag("tr[id='1']") do
         with_tag("td[id='0']", 'Strategy2') 
-        with_tag("td[id='1']", '0.7')
+        with_tag("td[id='1']", '70.0%')
       end
     end
   end

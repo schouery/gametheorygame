@@ -40,8 +40,8 @@ describe "/two_player_matrix_games/statistics.html.haml" do
     render
     response.should have_tag("table") do
       first_line(["Soccer", "Movies"])
-      line(2, "Soccer", [0.25, 0.25])
-      line(3, "Movies", [0.25, 0.25])
+      line(2, "Soccer", ["25.0%", "25.0%"])
+      line(3, "Movies", ["25.0%", "25.0%"])
     end
   end
 
@@ -50,8 +50,8 @@ describe "/two_player_matrix_games/statistics.html.haml" do
     render
     response.should have_tag("table") do
       first_line(["Soccer", "Movies"])
-      line(2, "Soccer", [0.5, 0.2])
-      line(3, "Movies", [0.2, 0.1])
+      line(2, "Soccer", ["50.0%", "20.0%"])
+      line(3, "Movies", ["20.0%", "10.0%"])
     end
   end
   

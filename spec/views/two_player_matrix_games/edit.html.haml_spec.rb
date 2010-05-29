@@ -33,7 +33,9 @@ describe "/two_player_matrix_games/edit.html.haml" do
     response.should have_tag("form[action=#{two_player_matrix_game_path(@two_player_matrix_game)}][method=post]") do
       with_tag('input#two_player_matrix_game_name[name=?]', "two_player_matrix_game[name]")
       with_tag('textarea#two_player_matrix_game_description[name=?]', "two_player_matrix_game[description]")
-      with_tag('input#two_player_matrix_game_color[name=?]', "two_player_matrix_game[color]")
+      ["red", "green", "yellow"].each do |color|
+        with_tag("input#two_player_matrix_game_color_#{color}[name=?][type=?][value=?]", "two_player_matrix_game[color]", "radio",color)
+      end
       with_tag('table') do
         first_line(["Soccer", "Movies"])
         line(2, "Soccer", [@payoff_1, @payoff_2])
