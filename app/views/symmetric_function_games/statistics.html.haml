@@ -1,6 +1,14 @@
-%p= @symmetric_function_game.name
-%table
-  -@symmetric_function_game.strategies.each_with_index do |strategy, i|
-    %tr{:id => i}
-      %td#0=strategy.label
-      %td#1=@symmetric_function_game.strategies_percentages[strategy]
+%p.title
+  Statistics for 
+  = @symmetric_function_game.name
+.alternating_table
+  %table
+    %tr.odd
+      %th Strategy
+      %th Percentage
+    -@symmetric_function_game.strategies.each_with_index do |strategy, i|
+      %tr{:id => i, :class => (i.odd? ? "odd" : "even")}
+        %td#0=strategy.label
+        %td#1
+          =@symmetric_function_game.strategies_percentages[strategy] * 100
+          \%

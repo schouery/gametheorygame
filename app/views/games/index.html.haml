@@ -2,8 +2,9 @@
   = link_to "New Symmetric Function Game", new_symmetric_function_game_path
   |
   = link_to "New Two Players Matrix Game", new_two_player_matrix_game_path
-  
--@games.each do |game|
-  %p
-    =render @paths[game] + "game", :game => game
 
+.alternating_table
+  %table  
+    -@games.each_with_index do |game, i|
+      %tr{:class => (i.even? ? "odd" : "even")}
+        =render @paths[game] + "game", :game => game

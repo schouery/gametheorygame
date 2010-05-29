@@ -5,25 +5,32 @@
     =f.text_field :name
   %p 
     =f.label :description
+    %br
     =f.text_area :description
   %p 
     =f.label :number_of_players
-    =f.text_field :number_of_players
-  %p 
+    =f.text_field :number_of_players, :size => 5
+  %p
+    Color: 
     =f.radio_button :color, 'red'
-    =f.label :color, 'red'    
+    =f.label :color, 'Red'    
     =f.radio_button :color, 'yellow'
-    =f.label :color, 'yellow'
+    =f.label :color, 'Yellow'
     =f.radio_button :color, 'green'
-    =f.label :color, 'green' 
+    =f.label :color, 'Green' 
 
   -f.fields_for :strategies do |builder|  
     =render "strategy_fields", :f => builder, :last => false
 
   %p= link_to_add_fields "Add Strategy", f, :strategies
 
-  %p 
-    =f.label :function
-    =f.text_field :function     
+  %div
+    %p
+      =f.label :function
+      =f.text_field :function    
+    %p.help
+      You can define the function using any valid Ruby code. You can use two arrays: np[i] contain
+      the number of players that choosed strategy i (starting from zero) and st[i] is one if this
+      player choose strategy i and zero otherwise.         
   %p 
     =f.submit submit_label

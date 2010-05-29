@@ -1,8 +1,166 @@
-#title {
-  font-size: 2.5em;
+.card, .red_card, .yellow_card, .green_card {
+  float: left;
+  padding: 1px;
+  margin: 2px;
+  width: 100px;
+  height: 125px;
+  text-align: center;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px; }
+
+.red_card {
+  background-color: red; }
+
+.yellow_card {
+  background-color: yellow; }
+
+.green_card {
+  background-color: lime; }
+
+.card a, .red_card a, .yellow_card a, .green_card a {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 12px;
+  color: white;
+  text-decoration: none; }
+
+.tdcard {
+  height: 125px;
+  vertical-align: middle; }
+
+input, textarea, select {
+  border: 1px solid #bdc7d8;
+  padding: 3px;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px; }
+
+input:focus, textarea:focus, select:focus {
+  border-color: #687fb0; }
+
+.field {
+  border: 1px solid #bdc7d8;
+  padding: 2px; }
+
+.field:focus {
+  border-color: #687fb0; }
+
+textarea.field {
+  width: 98.5%;
+  height: 100px; }
+
+button {
+  padding: 1px 3px 1px 4px;
+  font-size: 1em;
+  cursor: pointer;
+  background: #3b5998;
+  color: white;
+  border: 1px solid #0e1f5b;
+  border-left-color: #d9dfea;
+  border-top-color: #d9dfea; }
+
+button.next, button.cancel {
+  background: #dddddd;
+  color: #111111;
+  border: 1px solid #666666;
+  border-left-color: #dddddd;
+  border-top-color: #dddddd; }
+
+.two_player_matrix_game table {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse; }
+.two_player_matrix_game td.strategy, .two_player_matrix_game td.column_strategy, .two_player_matrix_game td.line_strategy {
+  font-weight: bold;
+  border-color: #c7cfe0;
+  color: #777777; }
+.two_player_matrix_game td.column_strategy {
+  border-left: 1px solid #e2e6ef;
+  border-top: none; }
+.two_player_matrix_game td.empty_cell {
+  border: none; }
+.two_player_matrix_game td.line_strategy {
+  border-top: 1px solid #e2e6ef;
+  border-left: none; }
+.two_player_matrix_game td {
+  margin: 0;
+  color: #555555;
+  font-size: 15px;
+  vertical-align: middle;
+  border-top: 1px solid #e2e6ef;
+  border-left: 1px solid #e2e6ef;
+  padding: 5px; }
+.two_player_matrix_game p {
+  text-align: center;
+  font-weight: bold;
+  color: #777777;
+  font-size: 13px; }
+
+.two_player_matrix_game_payoff table, .two_player_matrix_game_payoff td, .two_player_matrix_game_payoff tr, .two_player_matrix_game_payoff p {
+  border: none;
+  padding: 1px; }
+
+.alternating_table table {
+  width: 750px;
   text-align: center; }
 
+.alternating_table th.name_heading {
+  color: #333333;
+  font-size: 12px;
+  font-weight: bold; }
+
+.alternating_table table th {
+  border-color: #c7cfe0;
+  border-bottom: 1px solid #e2e6ef;
+  margin: 0;
+  padding: 3px;
+  color: #777777;
+  font-size: 12px; }
+
+.alternating_table td {
+  border-bottom: 1px solid #e2e6ef;
+  margin: 0;
+  padding: 3px;
+  color: #555555;
+  font-size: 11px; }
+
+.alternating_table table .even_colomn {
+  background: #f8f8f8 none repeat scroll 0 0; }
+
+.alternating_table td.action_text {
+  width: 230px; }
+
+.alternating_table a {
+  color: #555555; }
+
+.alternating_table table tr {
+  background-color: white; }
+
+.alternating_table table tr.odd {
+  background-color: #f0f0ff; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+table.title {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  width: 750px;
+  color: #333333; }
+  table.title .name {
+    font-size: 20px;
+    width: 300px; }
+  table.title .info {
+    font-size: 15px;
+    text-align: right; }
+
 #menubar {
+  width: 750px;
   border-style: solid;
   border-width: 1px;
   margin-left: auto;
@@ -13,12 +171,64 @@
     padding: 0;
     overflow: hidden; }
   #menubar li {
-    float: left; }
+    float: left;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 12px; }
   #menubar a {
     display: block;
-    width: 50px; }
+    padding: 5px;
+    color: #0000aa; }
+    #menubar a:link {
+      text-decoration: none; }
+    #menubar a:visited {
+      text-decoration: none; }
+    #menubar a:hover {
+      text-decoration: underline; }
+    #menubar a:active {
+      text-decoration: underline; }
 
 #content {
-  width: !width;
+  padding: 10px;
+  width: 738px;
   margin-left: auto;
   margin-right: auto; }
+
+p, li {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  color: #333333; }
+
+.game_name {
+  text-align: center;
+  font-size: 15px; }
+
+.strategy_chooser {
+  padding: 10px;
+  align: center; }
+
+.title {
+  font-size: 15px;
+  font-weight: bold; }
+
+.help {
+  width: 300px;
+  font-size: 9px;
+  font-color: red;
+  text-align: justify; }
+
+.fbinfobox {
+  width: 750px;
+  background-color: #fff9d7;
+  border: 1px solid #e2c822;
+  color: #333333;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold; }
+
+.fberrorbox {
+  background-color: #ffebe8;
+  border: 1px solid #dd3c10;
+  color: #333333;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold; }

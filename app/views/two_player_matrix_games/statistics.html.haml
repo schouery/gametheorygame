@@ -1,16 +1,24 @@
-%p= @two_player_matrix_game.name
-%table
-  %tr{:id => '1'}
-    %td{:id => '1'}
-    -@two_player_matrix_game.columns_strategies.each_with_index do |strategy, i|
-      %td{:id => (i+2).to_s}
-        =strategy.label
-  -@two_player_matrix_game.results_matrix.each_with_index do |line, i|    
-    %tr{:id => (i+2).to_s}
-      %td{:id => '1'}
-        =@two_player_matrix_game.lines_strategies[i].label
-      -line.each_with_index do |value, j|
-        %td{:id => (j+2).to_s}
-          =value
+%p.title
+  Statistics for
+  = @two_player_matrix_game.name
+
+.two_player_matrix_game
+  %p
+    Result's Percentage
+  %table
+    %tr{:id => '1'}
+      %td{:id => '1', :class => 'empty_cell'}
+      -@two_player_matrix_game.columns_strategies.each_with_index do |strategy, i|
+        %td{:id => i+2, :class => 'column_strategy'}
+          =strategy.label
+    -@two_player_matrix_game.results_matrix.each_with_index do |line, i|    
+      %tr{:id => i+2}
+        %td{:id => '1', :class => 'line_strategy'}
+          =@two_player_matrix_game.lines_strategies[i].label
+        -line.each_with_index do |value, j|
+          .two_player_matrix_game_payoff
+            %td{:id => j+2}
+              =value * 100
+              \%
           
 %p= link_to 'Back', games_path

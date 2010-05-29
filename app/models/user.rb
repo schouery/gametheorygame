@@ -6,9 +6,11 @@ class User < ActiveRecord::Base
   end
 
   def payoff
-    self.cards.inject(0) do |acc, card|
-      (acc += card.payoff) if !card.payoff.nil?
+    p = 0
+    self.cards.each do |card|
+      p += card.payoff if !card.payoff.nil?
     end
+    p
   end
 
 end

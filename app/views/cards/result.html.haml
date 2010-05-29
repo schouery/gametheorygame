@@ -1,9 +1,27 @@
-%p= @card.game.name
-%p= @card.payoff
-%p= @card.player_number
-%p= @card.strategy.label
--@card.game_result.sorted_cards.each_with_index do |card, i|
-  %p
-    ="Player #{i+1}"
-    =card.strategy.label
-    =card.payoff
+%p.title 
+  Result for 
+  = @card.game.name
+  
+%p
+  Your payoff:
+  = @card.payoff
+  
+%p
+  Your Player Number:
+  = @card.player_number
+  
+%p
+  You choose the strategy
+  = @card.strategy.label
+
+.alternating_table
+  %table
+    %tr.odd
+      %th Player
+      %th Strategy
+      %th Payoff
+    -@card.game_result.sorted_cards.each_with_index do |card, i|
+      %tr{:class => (i.odd? ? "odd" : "even")}
+        %td=i+1
+        %td=card.strategy.label
+        %td=card.payoff

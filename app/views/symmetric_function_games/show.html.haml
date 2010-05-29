@@ -1,6 +1,4 @@
-%p
-  Name:
-  =h @symmetric_function_game.name
+%p.title=h @symmetric_function_game.name
 
 %p
   Description:
@@ -17,8 +15,8 @@
 %p
   Strategies:
   %ul
-  -@symmetric_function_game.strategies.each do |s|
-    %li= s.label
+    -@symmetric_function_game.strategies.each do |s|
+      %li= s.label
 
 %p
   Function:

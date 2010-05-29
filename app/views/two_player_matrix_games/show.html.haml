@@ -1,18 +1,17 @@
-%p
-  Name:
+%p.title
   =h @two_player_matrix_game.name
-
+  (
+  -if can? :update, @two_player_matrix_game  
+    = link_to 'Edit', edit_two_player_matrix_game_path(@two_player_matrix_game)
+    |
+  = link_to 'Back', games_path
+  )
 %p
   Description:
   =h @two_player_matrix_game.description
 
 %p
   Color:
-  =h @two_player_matrix_game.color
+  =h @two_player_matrix_game.color.capitalize
 
 = render 'matrix', :game => @two_player_matrix_game
-
--if can? :update, @two_player_matrix_game  
-  = link_to 'Edit', edit_two_player_matrix_game_path(@two_player_matrix_game)
-  |
-= link_to 'Back', games_path

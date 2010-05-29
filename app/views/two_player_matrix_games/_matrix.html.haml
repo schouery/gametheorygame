@@ -1,17 +1,21 @@
-%table
-  %tr{:id => '1'}
-    %td{:id => '1'}
-    -game.columns_strategies.each_with_index do |strategy, i|
-      %td{:id => (i+2).to_s}= strategy.label
-  -game.lines_strategies.each_with_index do |strategy, i|
-    %tr{:id=>(i+2).to_s}
-      %td{:id => 1}= strategy.label
-      -game.payoff_matrix[i].each_with_index do |payoff, j|
-        %td{:id => (j+2).to_s}
-          %table
-            %tr
-              %td
-              %td=payoff.payoff_player_1
-            %tr
-              %td=payoff.payoff_player_2
-              %td
+.two_player_matrix_game
+  %p
+    Payoff Matrix
+  %table
+    %tr{:id => '1'}
+      %td{:id => '1', :class => 'empty_cell'}
+      -game.columns_strategies.each_with_index do |strategy, i|
+        %td{:id => (i+2).to_s, :class => 'column_strategy'}= strategy.label
+    -game.lines_strategies.each_with_index do |strategy, i|
+      %tr{:id=>(i+2).to_s}
+        %td{:id => 1, :class => 'line_strategy'}= strategy.label
+        -game.payoff_matrix[i].each_with_index do |payoff, j|
+          %td{:id => (j+2).to_s}
+            .two_player_matrix_game_payoff
+              %table
+                %tr
+                  %td
+                  %td=payoff.payoff_player_2
+                %tr
+                  %td=payoff.payoff_player_1
+                  %td

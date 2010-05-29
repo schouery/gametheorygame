@@ -1,0 +1,45 @@
+// (loosely based on facebook)
+!border_style = 1px solid #E2E6EF
+.two_player_matrix_game 
+  table
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    border-collapse: collapse
+
+  td.strategy
+    font-weight: bold
+    border-color: #C7CFE0
+    color: #777777      
+
+  td.column_strategy
+    @extend td.strategy
+    border-left: !border_style
+    border-top: none
+
+  td.empty_cell
+    border: none
+
+  td.line_strategy
+    @extend td.strategy
+    border-top: !border_style
+    border-left: none
+  
+  td
+    margin: 0
+    color: #555555
+    font-size: 15px
+    vertical-align: middle
+    border-top: !border_style
+    border-left: !border_style
+    padding: 5px
+  p
+    text-align: center
+    font-weight: bold
+    color: #777777    
+    font-size: 13px
+
+.two_player_matrix_game_payoff      
+  table, td, tr, p
+    border: none
+    padding: 1px

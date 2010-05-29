@@ -5,10 +5,17 @@
     = f.text_field :name
   %p
     = f.label :description
+    %br
     = f.text_area :description
   %p
-    = f.label :color
-    = f.text_field :color
+    Color: 
+    =f.radio_button :color, 'red'
+    =f.label :color, 'Red'    
+    =f.radio_button :color, 'yellow'
+    =f.label :color, 'Yellow'
+    =f.radio_button :color, 'green'
+    =f.label :color, 'Green' 
+
   = render 'edit_matrix', :f => f
   %p
     = f.submit submit_label

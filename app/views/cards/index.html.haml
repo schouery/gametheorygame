@@ -1,9 +1,7 @@
-%h1 Listing cards
-
 -@cards.each do |card|
-  %p
-    -name = card.game.name
-    =link_to name, edit_card_path(card)
-    -if can? :destroy, card
-      |
-      =link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete
+  %div{:class => card.game.color + "_card"}
+    %table
+      %tr
+        %td.tdcard
+          -name = card.game.name
+          =link_to name, edit_card_path(card)

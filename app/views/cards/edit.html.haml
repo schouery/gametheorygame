@@ -1,4 +1,9 @@
 =render @partial
 
-%p= link_to 'Back', cards_url
+%p
+  = link_to 'Back', cards_url
+  -if can? :destroy, @card
+    |
+    =link_to 'Discard', @card, :confirm => 'Are you sure?', :method => :delete
+
 

@@ -1,11 +1,13 @@
 %ul
   %li
-    %a{:href => cards_path} Cards  
+    %a{:href => cards_path} My Cards
   %li
-    %a{:href => games_path} Games
+    %a{:href => played_cards_cards_path} Cards Played
   %li
-    %a{:href => played_cards_cards_path} Played
-  %li
-    %a{:href => new_invitation_path} Inv
-  %li
-    %a{:href => researchers_path} Researchers
+    %a{:href => new_invitation_path} Invite a Friend
+  -if can? :read, TwoPlayerMatrixGame.new      
+    %li
+      %a{:href => games_path} Games
+  -if can? :read, User.new
+    %li
+      %a{:href => researchers_path} Researchers

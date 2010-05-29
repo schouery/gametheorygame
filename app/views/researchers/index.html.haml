@@ -1,9 +1,20 @@
--@researchers .each do |researcher|
-  %p
-    %fb:name{:uid => researcher.facebook_id, :capitalize => 'true'}
-    - if can? :remove_researcher, researcher
-      = link_to 'Stop beeing a Researcher',  remove_researcher_path(researcher), :confirm => 'Are you sure?'
+%p.title
+  Researchers
+  - if can? :invite_researcher, nil
+    (
+    = link_to "Invite", new_researcher_path
+    )
+  
+.alternating_table
+  %table  
+    %tr.odd
+      %th Nome
+      %th         
+    -@researchers.each_with_index do |researcher, i|
+      %tr{:class => (i.odd? ? "odd" : "even")}
+        %td
+          %fb:name{:uid => researcher.facebook_id, :capitalize => 'true'}
+        %td  
+          - if can? :remove_researcher, researcher
+            = link_to 'Remove',  remove_researcher_path(researcher), :confirm => 'Are you sure?'
 
-%p
-- if can? :invite_researcher, nil
-  = link_to "Invite", new_researcher_path

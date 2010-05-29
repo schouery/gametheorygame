@@ -1,8 +1,28 @@
-!width = 750px
-#title
-  font-size: 2.5em
-  text-align: center
+@import "cards"
+@import "forms"
+@import "two_player_matrix_game"
+@import "alternating_table"
+!page_width = 750px
+
+body
+  margin: 0
+  padding: 0
+
+table.title
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif
+  width: !page_width
+  color: #333333
+
+  .name
+    font-size: 20px
+    width: 300px 
+
+  .info
+    font-size: 15px
+    text-align: right
+  
 #menubar
+  width: !page_width
   border-style: solid
   border-width: 1px
   margin-left: auto
@@ -13,14 +33,77 @@
     margin: 0
     padding: 0
     overflow: hidden
+    
   li
     float: left
+    font:
+      family: "lucida grande",tahoma,verdana,arial,sans-serif
+      size: 12px
+    //color: #333333
+
   a
     display: block
-    width: 50px
-    / background-color: #dddddd
+    padding: 5px
+    color: #00a
+    &:link
+      //color: #FF0000
+      text-decoration: none
+    &:visited
+      //color: #00FF00
+      text-decoration: none
+    &:hover
+      //color: #FF00FF
+      text-decoration: underline
+    &:active
+      //color: #0000FF
+      text-decoration: underline
   
 #content
-  width: !width
+  padding: 10px
+  width: !page_width - 12px
   margin-left: auto
   margin-right: auto
+
+// From Facebook    
+p, li
+  font:
+    family: "lucida grande",tahoma,verdana,arial,sans-serif
+    size: 11px
+  color: #333333
+
+.game_name
+  text-align: center
+  font-size: 15px
+
+.strategy_chooser
+  padding: 10px
+  align: center
+  
+.title  
+  font-size: 15px
+  font-weight: bold
+  
+.flash
+
+.help
+  width: 300px
+  font-size: 9px
+  font-color: #f00
+  text-align: justify
+  
+.fbinfobox  
+  width: !page_width  
+  background-color: #fff9d7  
+  border: 1px solid #e2c822  
+  color: #333333
+  padding: 10px  
+  font-size: 13px
+  font-weight: bold
+  
+.fberrorbox  
+  background-color: #ffebe8
+  border: 1px solid #dd3c10
+  color: #333333
+  padding: 10px  
+  font-size: 13px
+  font-weight: bold

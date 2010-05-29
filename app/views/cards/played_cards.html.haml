@@ -1,15 +1,18 @@
-%h1 Played Cards
+%p.title Played Cards
 
--@cards.each do |card|
-  %p
-    Game: 
-    = h card.game.name
-    %br
-    Strategy:
-    = h card.strategy.label
-    %br
-    Payoff:
-    =h filter_payoff(card)
-    %br
-    -if !card.game_result.nil?
-      =link_to "Result", result_card_path(card)
+.alternating_table
+  %table
+    %tr.odd
+      %th.name_heading Game
+      %th Strategy
+      %th Payoff
+    
+    -@cards.each_with_index do |card, i|
+      %tr{:class => (i.odd? ? "odd" : "even")}
+        %td
+          -if !card.game_result.nil?
+            =link_to h(card.game.name), result_card_path(card)
+          -else  
+            = h card.game.name
+        %td= h card.strategy.label
+        %td= h filter_payoff(card)
