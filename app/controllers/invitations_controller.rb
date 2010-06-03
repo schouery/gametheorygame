@@ -1,4 +1,9 @@
 class InvitationsController < ApplicationController
+
+  def index
+    redirect_to(cards_url)
+  end
+
   def new
   end
   
