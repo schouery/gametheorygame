@@ -20,8 +20,16 @@ class ResearchersController < ApplicationController
   def confirm
     invitation = Invitation.find(:first, :conditions => {:facebook_id => current_user.facebook_id, :for => 'researcher'})
     if !invitation.nil?
+      logger.info "\n"*5
+      logger.info current_user.inspect
+      logger.info current_user.researcher
+      logger.info "\n"*5
       current_user.researcher = true
       current_user.save
+      logger.info "\n"*5
+      logger.info current_user.inspect
+      logger.info current_user.researcher
+      logger.info "\n"*5
       invitation.destroy
       flash[:notice] = 'You are now a Researcher!'
     else

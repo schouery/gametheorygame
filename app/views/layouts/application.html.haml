@@ -15,7 +15,6 @@
     #menubar
       =render :partial => 'shared/menu'
     #content
-      /.fbinfobox
-      /%p= flash[:notice]
+      %p= flash[:notice]
       =yield
     =xfbml_start

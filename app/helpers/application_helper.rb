@@ -65,5 +65,9 @@ module ApplicationHelper
       html_options[:target] = "_top"
       super(name, {}, html_options)
   end
+
+  def canvas_url_for(options = {})
+    "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
+  end
   
 end
