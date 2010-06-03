@@ -1,13 +1,18 @@
 %ul
   %li
-    %a{:href => cards_path} My Cards
+    =link_to "My Cards", cards_path
+    / %a{:href => } 
   %li
-    %a{:href => played_cards_cards_path} Cards Played
+    =link_to "Cards Played", played_cards_cards_path
+    / %a{:href => } 
   %li
-    %a{:href => new_invitation_path} Invite a Friend
+    = link_to "Invite a Friend", new_invitation_path
+    / %a{:href => } 
   -if can? :read, TwoPlayerMatrixGame.new      
     %li
-      %a{:href => games_path} Games
+      = link_to "Games", games_path, :canvas => true
+      / %a{:href => } 
   -if can? :read, User.new
     %li
-      %a{:href => researchers_path} Researchers
+      = link_to "Researchers", researchers_path
+      / %a{:href => } 

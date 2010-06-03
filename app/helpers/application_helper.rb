@@ -60,4 +60,10 @@ module ApplicationHelper
     link_to_function(name, h("add_line(this, \"#{escape_javascript(strategy_fields)}\", \"#{escape_javascript(payoff_fields)}\")"))  
   end
   
+  def link_to(name, options = {}, html_options = {})
+      html_options[:href] = "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
+      html_options[:target] = "_top"
+      super(name, {}, html_options)
+  end
+  
 end
