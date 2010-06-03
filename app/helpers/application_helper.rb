@@ -20,7 +20,7 @@ module ApplicationHelper
   end
   
   def friend_defaults
-    @friend_defaults ||= {:showborder => 'true',
+    @friend_defaults ||= {:showborder => 'false',
                           :button => 'Accept',
                           :condensed => 'false',
                           :max => '20'}    

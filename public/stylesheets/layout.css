@@ -150,7 +150,7 @@ body {
 
 table.title {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-  width: 750px;
+  width: 756px;
   color: #333333; }
   table.title .name {
     font-size: 20px;
@@ -160,7 +160,7 @@ table.title {
     text-align: right; }
 
 #menubar {
-  width: 750px;
+  width: 756px;
   border-style: solid;
   border-width: 1px;
   margin-left: auto;
@@ -188,8 +188,8 @@ table.title {
       text-decoration: underline; }
 
 #content {
-  padding: 10px;
-  width: 738px;
+  padding: 0px;
+  width: 756px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -217,7 +217,7 @@ p, li {
   text-align: justify; }
 
 .fbinfobox {
-  width: 750px;
+  width: 756px;
   background-color: #fff9d7;
   border: 1px solid #e2c822;
   color: #333333;
