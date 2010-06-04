@@ -36,6 +36,9 @@ require 'spec/rails'
 require 'webrat'
 require 'remarkable_rails'
 
+Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
+
+
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
 
