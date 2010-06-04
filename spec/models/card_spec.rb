@@ -8,6 +8,13 @@ describe Card do
   it { should have_column(:player_number).type(:integer) }
   it { should belong_to(:game_result)}
   
+  it "should know if it was played" do
+    c = Card.new
+    c.played?.should == false
+    c.strategy = mock_model(SymmetricFunctionGameStrategy)
+    c.played?.should == true
+  end
+  
   it "should change the player's money if payoff is positive" do
     mock_user = mock_model(User, :money => 15)
     c = Card.new(:user => mock_user)

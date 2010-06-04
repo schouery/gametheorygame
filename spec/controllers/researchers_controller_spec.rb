@@ -28,8 +28,6 @@ describe ResearchersController do
   end
   
   describe "GET new" do
-    it "assigns a new symmetric_function_game as @symmetric_function_game" do
-    end
   end
 
   describe "GET confirm" do

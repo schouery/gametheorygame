@@ -12,4 +12,8 @@ class Card < ActiveRecord::Base
     end
   end
   
+  def played?
+    !self.strategy.nil?
+  end
+  
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100526130516) do
+ActiveRecord::Schema.define(:version => 20100604180743) do
 
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20100526130516) do
   create_table "invitations", :force => true do |t|
     t.integer  "facebook_id", :limit => 20, :null => false
     t.string   "for"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "money_gifts", :force => true do |t|
+    t.integer  "facebook_id"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

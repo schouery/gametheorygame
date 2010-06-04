@@ -10,7 +10,7 @@ module ApplicationHelper
     options.reverse_merge!(friend_defaults)
     @options_for_request_form = {:action => options[:next_action],
       :content => options[:content] + fb_req_choice(options[:button], options[:path_for_invitation]),
-      :invite => 'true',
+      :invite => options[:invite],
       :method => 'post',
       :type => options[:button_name]}
     @options_for_selector = {:actiontext => options[:actiontext],
@@ -20,10 +20,12 @@ module ApplicationHelper
   end
   
   def friend_defaults
-    @friend_defaults ||= {:showborder => 'false',
-                          :button => 'Accept',
-                          :condensed => 'false',
-                          :max => '20'}    
+    @friend_defaults = {:showborder => 'false',
+                        :button => 'Accept',
+                        :condensed => 'false',
+                        :max => '20',
+                        :invite => 'true'
+                        }    
   end
 
   def link_to_add_fields(name, f, association)  

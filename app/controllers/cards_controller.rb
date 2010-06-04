@@ -3,14 +3,14 @@ class CardsController < ApplicationController
   def index
     all_cards = Card.find(:all, :conditions => {:user_id => current_user.id})
     @cards = all_cards.find_all do |card|
-      card.strategy.nil?
+      !card.played?
     end
   end
 
   def played_cards
     all_cards = Card.find(:all, :conditions => {:user_id => current_user.id})
     @cards = all_cards.find_all do |card|
-      !card.strategy.nil?
+      card.played?
     end    
   end
 
@@ -24,13 +24,20 @@ class CardsController < ApplicationController
   end
   
   def edit
-    @partial = @card.game_type.underscore.pluralize + "/card"
+    if @card.played?
+      redirect_to(cards_url)
+    else
+      @partial = @card.game_type.underscore.pluralize + "/card"
+    end
   end
 
   def update
-    if @card.update_attributes(params[:card])
+    if !@card.played? && @card.update_attributes(params[:card])
       flash[:notice] = 'Card was successfully updated.'
       @card.game.play
+      redirect_to(cards_url)
+    elsif @card.played?
+      flash[:notice] = 'That card was already played.'
       redirect_to(cards_url)
     else
       render :action => "edit"

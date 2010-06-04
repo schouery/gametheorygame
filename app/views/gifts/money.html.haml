@@ -1,0 +1,7 @@
+= render 'shared/multi_friend_selector', :options => {:next_action => send_money_gifts_url,     |
+  :button_name => 'Send Money',                                                                 |
+  :actiontext => 'Send $100 for your friends',                                                  |
+  :path_for_invitation => canvas_url_for(:controller => "gifts", :action => "receive_money"),   |
+  :content => 'You received a gift from a friend',                                              |
+  :invite => 'false',                                                                           |
+  :max => '2'}  	                                                                              |
