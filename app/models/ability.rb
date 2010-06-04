@@ -20,12 +20,18 @@ class Ability
       can :destroy, TwoPlayerMatrixGame do |game|
         game.user == user
       end      
-      can :manage, :card
+      can :manage, :card do |card|
+        card.user == user
+      end
     else
-      can :read, Card
-      can :update, Card
+      can :read, Card do |card|
+        card.user == user
+      end
+      can :update, Card do |card|
+        card.user == user
+      end
       can :destroy, Card do |card|
-        card.game.color != "red"
+        card.game.color != "red" && card.user == user
       end            
     end
   end
