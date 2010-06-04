@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20100526130516) do
     t.integer  "facebook_id", :limit => 20,                    :null => false
     t.boolean  "admin",                     :default => false
     t.boolean  "researcher",                :default => false
+    t.integer  "money",                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
