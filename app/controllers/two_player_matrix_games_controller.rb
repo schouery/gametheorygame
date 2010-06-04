@@ -1,8 +1,9 @@
 class TwoPlayerMatrixGamesController < ApplicationController
   load_and_authorize_resource
-  def index
-    @two_player_matrix_games = TwoPlayerMatrixGame.all
-  end
+
+  # def index
+  #   @two_player_matrix_games = TwoPlayerMatrixGame.all
+  # end
 
   def show
   end

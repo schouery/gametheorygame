@@ -1,9 +1,9 @@
 class SymmetricFunctionGamesController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @symmetric_function_games = SymmetricFunctionGame.all
-  end
+  # def index
+  #   @symmetric_function_games = SymmetricFunctionGame.all
+  # end
 
   def show
   end
