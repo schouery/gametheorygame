@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20100604180743) do
     t.string   "strategy_type"
     t.integer  "player_number",  :default => 0
     t.integer  "game_result_id"
+    t.integer  "gift_for"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

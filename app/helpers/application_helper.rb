@@ -16,7 +16,8 @@ module ApplicationHelper
     @options_for_selector = {:actiontext => options[:actiontext],
       :condensed => options[:condensed],
       :max => options[:max],
-      :showborder=> options[:showborder]}    
+      :showborder=> options[:showborder],
+      :email_invite => options[:email_invite]}    
   end
   
   def friend_defaults
@@ -24,7 +25,8 @@ module ApplicationHelper
                         :button => 'Accept',
                         :condensed => 'false',
                         :max => '20',
-                        :invite => 'true'
+                        :invite => 'true',
+                        :email_invite => 'false'
                         }    
   end
 

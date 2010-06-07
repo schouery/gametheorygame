@@ -9,6 +9,7 @@ class CreateCards < ActiveRecord::Migration
       t.string  :strategy_type
       t.integer :player_number, :default => 0
       t.integer :game_result_id
+      t.integer :gift_for
       
       t.timestamps
     end

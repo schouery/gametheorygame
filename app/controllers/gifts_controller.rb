@@ -7,12 +7,13 @@ class GiftsController < ApplicationController
   end
   
   def card
+    @card = Card.find(params[:id])
   end
   
   def send_card
-    card = Card.find(params[:card_id])
+    card = Card.find(params[:id])
     card.user = nil
-    card.gift_for = params[:id].to_i
+    card.gift_for = params[:ids][0].to_i
     card.save
     redirect_to(gifts_url)
   end
@@ -20,7 +21,7 @@ class GiftsController < ApplicationController
   def receive_card
     card = Card.find(params[:id])
     if card.gift_for == current_user.facebook_id
-      card.user = current_user.id
+      card.user = current_user
       card.gift_for = nil
       card.save
     end

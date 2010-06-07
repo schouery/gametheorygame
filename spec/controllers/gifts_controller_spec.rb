@@ -118,6 +118,8 @@ describe GiftsController do
 
   describe "GET card" do
     it "respond to card" do
+      mock_card = mock_model(Card)
+      Card.should_receive(:find).with("1").and_return(mock_card)
       get :card, :id => 1
     end
   end
@@ -130,13 +132,13 @@ describe GiftsController do
       mock_card.should_receive(:user=).with(nil)
       mock_card.should_receive(:gift_for=).with(101)
       mock_card.should_receive(:save)
-      post :send_card, :id => 101, :card_id => 10  
+      post :send_card, :id => 10, :ids => [101]
     end
         
     it "redirect to index" do
       mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true)
       Card.stub(:find => mock_card)
-      post :send_card, :id => 1, :card_id => 10
+      post :send_card, :id => 10, :ids => [101]
       response.should redirect_to gifts_url
     end
   end
@@ -147,7 +149,7 @@ describe GiftsController do
       it "gives the player the card if he has this gift" do
         mock_card = mock_model(Card, :gift_for => @current_user.facebook_id)
         Card.should_receive(:find).with("1").and_return(mock_card)
-        mock_card.should_receive(:user=).with(@current_user.id)
+        mock_card.should_receive(:user=).with(@current_user)
         mock_card.should_receive(:gift_for=).with(nil)
         mock_card.should_receive(:save)
         get :receive_card, :id => 1      

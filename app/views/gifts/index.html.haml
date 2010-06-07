@@ -1,1 +1,7 @@
-= link_to "money", money_gifts_path
+-@cards.each do |card|
+  %p
+    = card.game.name
+    = link_to "Send", card_gift_path(card)
+
+%p
+  = link_to "money", money_gifts_path
