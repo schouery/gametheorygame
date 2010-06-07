@@ -25,7 +25,8 @@ class Ability
       end
     else
       can :read, Card do |card|
-        card.user == user
+        #card.user == user  card can be nil
+        true
       end
       can :update, Card do |card|
         card.user == user

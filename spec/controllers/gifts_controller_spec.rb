@@ -12,10 +12,10 @@ describe GiftsController do
 
   describe "GET index" do
     it "lists all player's green cards as @cards" do
-      green_card1 = mock_model(Card, :color => "green", :played? => false)
-      green_card2 = mock_model(Card, :color => "green", :played? => false)
-      green_card3 = mock_model(Card, :color => "green", :played? => true)
-      red_card1 = mock_model(Card, :color => "red", :played? => false)
+      green_card1 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => false)
+      green_card2 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => false)
+      green_card3 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => true)
+      red_card1 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "red"), :played? => false)
       @current_user.stub(:cards => [green_card1, green_card2, green_card3, red_card1])
       get :index
       assigns[:cards].should == [green_card1, green_card2]
@@ -41,8 +41,7 @@ describe GiftsController do
       @current_user.stub(:money => 300)
       @current_user.should_receive(:money=).with(100)
       @current_user.should_receive(:save)
-      post :send_money, :ids => [1, 2]
-      
+      post :send_money, :ids => [1, 2]      
     end
     
     it "redirect to index" do
@@ -57,16 +56,16 @@ describe GiftsController do
     describe "with sucess" do
       it "gives the player the correct amount of money if he has this gift" do
         mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
-        MoneyGift.should_receive(:find).with("1").and_return(mock_gift)
+        MoneyGift.should_receive(:find).with(:first, :conditions => {:facebook_id => @current_user.facebook_id}).and_return(mock_gift)
         @current_user.stub(:money => 100)
         @current_user.should_receive(:money=).with(450)
         @current_user.should_receive(:save)
-        get :receive_money, :id => 1      
+        get :receive_money, :id => @current_user.facebook_id      
       end
       
       it "destroys the gift" do
         mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350)
-        MoneyGift.should_receive(:find).with("1").and_return(mock_gift)
+        MoneyGift.stub(:find => mock_gift)
         @current_user.stub(:money => 100, :money= => true, :save => true)
         mock_gift.should_receive(:destroy)
         get :receive_money, :id => 1            
@@ -75,7 +74,7 @@ describe GiftsController do
     
       it "should redirect to cards_url" do
         mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
-        MoneyGift.should_receive(:find).with("1").and_return(mock_gift)
+        MoneyGift.stub(:find => mock_gift)
         @current_user.stub(:money => 100, :money= => true, :save => true)
         get :receive_money, :id => 1            
         response.should redirect_to cards_url
@@ -84,18 +83,78 @@ describe GiftsController do
     end
     describe "falling" do
       it "shouldn't give the gift if this is not the player who has it" do
-        mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id + 1, :value => 350)
-        MoneyGift.should_receive(:find).with("1").and_return(mock_gift)
+        MoneyGift.should_receive(:find).with(:first, :conditions => {:facebook_id => @current_user.facebook_id}).and_return(nil)
         get :receive_money, :id => 1      
       end
 
       it "should redirect to cards_url" do
-        mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id + 1, :value => 350)
-        MoneyGift.stub(:find => mock_gift)
+        MoneyGift.stub(:find => nil)
         get :receive_money, :id => 1            
         response.should redirect_to cards_url
       end
     end
   end
+
+  describe "GET card" do
+    it "respond to card" do
+      get :card, :id => 1
+    end
+  end
   
+  describe "POST send_card" do
+
+    it "removes the card from current_user and marks as a present to the selected user" do
+      mock_card = mock_model(Card)
+      Card.should_receive(:find).with("10").and_return(mock_card)
+      mock_card.should_receive(:user=).with(nil)
+      mock_card.should_receive(:gift_for=).with(101)
+      mock_card.should_receive(:save)
+      post :send_card, :id => 101, :card_id => 10  
+    end
+        
+    it "redirect to index" do
+      mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true)
+      Card.stub(:find => mock_card)
+      post :send_card, :id => 1, :card_id => 10
+      response.should redirect_to gifts_url
+    end
+  end
+  
+  describe "GET receive_card" do
+    
+    describe "with sucess" do
+      it "gives the player the card if he has this gift" do
+        mock_card = mock_model(Card, :gift_for => @current_user.facebook_id)
+        Card.should_receive(:find).with("1").and_return(mock_card)
+        mock_card.should_receive(:user=).with(@current_user.id)
+        mock_card.should_receive(:gift_for=).with(nil)
+        mock_card.should_receive(:save)
+        get :receive_card, :id => 1      
+      end
+
+      it "should redirect to cards_url" do
+        mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
+        Card.stub(:find => mock_card)
+        get :receive_card, :id => 1      
+        response.should redirect_to cards_url
+      end  
+    end
+
+    describe "falling" do
+      it "shouldn't give the gift if this is not the player who has it" do
+        mock_card = mock_model(Card, :gift_for => @current_user.facebook_id + 1)
+        Card.stub(:find => mock_card)
+        get :receive_card, :id => 1      
+      end
+  
+      it "should redirect to cards_url" do
+        mock_card = mock_model(Card, :gift_for => @current_user.facebook_id + 1)
+        Card.stub(:find => mock_card)
+        get :receive_card, :id => 1      
+        response.should redirect_to cards_url
+      end
+    end
+
+  end
+    
 end

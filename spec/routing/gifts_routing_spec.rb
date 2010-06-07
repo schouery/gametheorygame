@@ -3,6 +3,18 @@ require 'spec_helper'
 describe GiftsController do
   describe "routing" do
 
+    it "recognizes and generates #send_card" do
+      { :post => "/gifts/send_card" }.should route_to({:controller=>"gifts", :action=>"send_card"})
+    end
+  
+    it "recognizes and generates #new_card" do
+      { :get => "/gifts/1/card" }.should route_to( {:controller=>"gifts", :action=>"card", :id => '1'})
+    end
+
+    it "recognizes and generates #receive_card" do
+      { :get => "/gifts/receive_card" }.should route_to(:controller => "gifts", :action => "receive_card") 
+    end
+
     it "recognizes and generates #send_money" do
       { :post => "/gifts/send_money" }.should route_to({:controller=>"gifts", :action=>"send_money"})
     end
