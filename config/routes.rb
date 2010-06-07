@@ -7,8 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :researchers, :member => { :remove => :get }, :collection => { :confirm => :get }, :only => [:index, :new, :create]
   map.resources :gifts, 
     :only => [:index], 
-    :new => { :money => :get}, 
-    :collection => {:send_money => :post, :receive_money => :get, :send_card => :post, :receive_card => :get},
+    :collection => {:send_money => :post, :receive_money => :get, :send_card => :post, :receive_card => :get, :money => :get},
     :member => {:card => :get}
   # Talvez deve ser gifts/1/receive_card, o mesmo para money?    
   map.root :controller => :cards

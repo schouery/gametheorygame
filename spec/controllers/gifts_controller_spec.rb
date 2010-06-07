@@ -29,27 +29,48 @@ describe GiftsController do
   end
   
   describe "POST send_money" do
-    it "creates the gifts" do
-      MoneyGift.should_receive(:create).with(:facebook_id => 1, :value => 100)
-      MoneyGift.should_receive(:create).with(:facebook_id => 2, :value => 100)
-      @current_user.stub(:money => 300, :money= => true, :save => true)
-      post :send_money, :ids => [1, 2]
+    describe "with enough money" do
+      before(:each) do
+        @current_user.stub(:max_money_gifts => 3, :money => 300)
+        @value_for_gift = 150
+        MoneyGift.stub(:value_for_gift => @value_for_gift)
+      end
+      
+      it "creates the gifts" do
+        MoneyGift.should_receive(:create).with(:facebook_id => 1, :value => @value_for_gift)
+        MoneyGift.should_receive(:create).with(:facebook_id => 2, :value => @value_for_gift)
+        @current_user.stub(:money= => true, :save => true)
+        post :send_money, :ids => [1, 2]
+      end
+    
+      it "removes this amount of money from player" do
+        MoneyGift.stub(:create => true)
+        @current_user.should_receive(:money=).with(@current_user.money - 2*@value_for_gift)
+        @current_user.should_receive(:save)
+        post :send_money, :ids => [1, 2]      
+      end
+    
+      it "redirect to index" do
+        MoneyGift.stub(:create => true)
+        @current_user.stub(:money= => true, :save => true)
+        post :send_money, :ids => [1, 2]
+        response.should redirect_to gifts_url
+      end
+      
+    end
+
+    describe "without enough money" do
+      before(:each) do
+        @current_user.stub(:max_money_gifts => 0)
+      end
+
+      it "renders money and flashs a notice" do
+        post :send_money, :ids => [1, 2]
+        response.should render_template('money')
+        flash[:notice].should == "Action failed: You didn't have enough money when creating the requested gifts"
+      end
     end
     
-    it "removes this amount of money from player" do
-      MoneyGift.stub(:create => true)
-      @current_user.stub(:money => 300)
-      @current_user.should_receive(:money=).with(100)
-      @current_user.should_receive(:save)
-      post :send_money, :ids => [1, 2]      
-    end
-    
-    it "redirect to index" do
-      MoneyGift.stub(:create => true)
-      @current_user.stub(:money => 300, :money= => true, :save => true)
-      post :send_money, :ids => [1, 2]
-      response.should redirect_to gifts_url
-    end
   end
 
   describe "GET receive_money" do

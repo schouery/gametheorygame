@@ -20,7 +20,7 @@ describe GiftsController do
     end
     
     it "recognizes and generates #new_money" do
-      { :get => "/gifts/new/money" }.should route_to( {:controller=>"gifts", :action=>"money"})
+      { :get => "/gifts/money" }.should route_to( {:controller=>"gifts", :action=>"money"})
     end
 
     it "recognizes and generates #receive_money" do
