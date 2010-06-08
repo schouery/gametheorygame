@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe GamesController do
   describe "routing" do
+
+    it "recognizes and generates #update_probabilities" do
+      { :post => "/games/update_probabilities" }.should route_to(:controller => "games", :action => "update_probabilities")
+    end
+
+    it "recognizes and generates #probabilities" do
+      { :get => "/games/probabilities" }.should route_to(:controller => "games", :action => "probabilities")
+    end
           
     it "recognizes and generates #index" do
       { :get => "/games" }.should route_to(:controller => "games", :action => "index")

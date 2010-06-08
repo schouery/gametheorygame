@@ -7,6 +7,7 @@ class SymmetricFunctionGame < ActiveRecord::Base
   validates_inclusion_of :color, :in => ["red", "green", "yellow"]
   has_many :strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id
   accepts_nested_attributes_for :strategies
+  validates_numericality_of :weight, :only_integer => true, :greater_than => 0
   
   def played_cards
     self.cards.find_all { |card| !card.strategy.nil? && card.payoff.nil? }

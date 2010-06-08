@@ -8,6 +8,7 @@ class CreateSymmetricFunctionGames < ActiveRecord::Migration
       t.string :function
       t.boolean :removed, :default => false
       t.integer :user_id
+      t.integer :weight, :default => 1
       t.timestamps
     end
   end

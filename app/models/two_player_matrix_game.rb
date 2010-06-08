@@ -8,6 +8,7 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   accepts_nested_attributes_for :payoffs
   has_many :cards, :as => :game
   has_many :game_results, :as => :game
+  validates_numericality_of :weight, :only_integer => true, :greater_than => 0
 
   before_create :associate_payoffs
 

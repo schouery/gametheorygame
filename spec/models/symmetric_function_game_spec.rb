@@ -13,6 +13,8 @@ describe SymmetricFunctionGame do
   it { should accept_nested_attributes_for :strategies }
   it { should have_many(:cards, :as => :game) }
   it { should have_many(:game_results, :as => :game) }  
+  it { should have_column(:weight) }
+  it { should validate_numericality_of(:weight).greater_than(0).only_integer }
 
   before(:each) do
     @game = SymmetricFunctionGame.new

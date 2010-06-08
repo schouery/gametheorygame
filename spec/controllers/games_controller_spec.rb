@@ -32,4 +32,22 @@ describe GamesController do
         f1 => '/symmetric_function_games/', f2 => '/symmetric_function_games/'}
     end
   end
+  
+  describe "GET probabilities" do
+    it "assigns all games as @games" do
+      matrix_games = [mock_model(TwoPlayerMatrixGame), mock_model(TwoPlayerMatrixGame)]
+      function_games = [mock_model(SymmetricFunctionGame), mock_model(SymmetricFunctionGame)]
+      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions=>{:removed=>false}).and_return(matrix_games)
+      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions=>{:removed=>false}).and_return(function_games)
+      get :probabilities
+      assigns[:games].should == matrix_games + function_games
+    end
+  end
+  
+  describe "PUT update_probabilities" do
+    it "saves the games" do
+      pending
+      put :update_probabilities
+    end
+  end
 end
