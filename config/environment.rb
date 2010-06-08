@@ -31,6 +31,7 @@ Rails::Initializer.run do |config|
   config.gem 'facebooker', :version => '>= 1.0.67'
   config.gem 'javan-whenever', :lib =>false, :soruce => 'http://gems.github.com'
   config.gem "cancan"
+  config.gem "acts_as_singleton"
     
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

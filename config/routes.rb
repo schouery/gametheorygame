@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resource :configuration, :only => [:edit, :update, :show]
+  
   map.resources :two_player_matrix_games, :member => {:statistics => :get}, :except => [:index]
   map.resources :games, :only => [:index]
   map.resources :invitations

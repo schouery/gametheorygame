@@ -1,0 +1,12 @@
+%p Editing configuration
+
+-form_for(@configuration) do |f|
+  = f.error_messages
+
+  %p
+    = f.label :money_gift_value
+    = f.text_field :money_gift_value
+  %p
+    = f.submit 'Update'
+
+= link_to 'Show', configuration_path

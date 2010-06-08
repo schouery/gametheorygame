@@ -7,11 +7,11 @@
     =link_to "Invite a Friend", new_invitation_path
   %li
     =link_to "Gifts", gifts_path
-    
+  %li
+    =link_to "Config", configuration_path
   -if can? :read, TwoPlayerMatrixGame.new      
     %li
       = link_to "Games", games_path, :canvas => true
   -if can? :read, User.new
     %li
       = link_to "Researchers", researchers_path
-      / %a{:href => } 
