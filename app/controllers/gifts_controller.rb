@@ -34,7 +34,7 @@ class GiftsController < ApplicationController
   def send_money
     ids = params[:ids]
     user = current_user
-    value = MoneyGift.value_for_gift
+    value = Configuration[:money_gift_value]
     if user.max_money_gifts > ids.size
       ids.each do |id|
         MoneyGift.create(:facebook_id => id, :value => value)

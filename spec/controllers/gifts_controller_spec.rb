@@ -33,7 +33,7 @@ describe GiftsController do
       before(:each) do
         @current_user.stub(:max_money_gifts => 3, :money => 300)
         @value_for_gift = 150
-        MoneyGift.stub(:value_for_gift => @value_for_gift)
+        Configuration.stub(:[]).with(:money_gift_value).and_return(@value_for_gift)
       end
       
       it "creates the gifts" do
