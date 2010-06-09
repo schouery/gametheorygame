@@ -28,6 +28,17 @@ describe ResearchersController do
   end
   
   describe "GET new" do
+    it "assigns all researchers and admins that are friends of the user as @exclude_ids" do
+      @session.user.stub(:friends_with_this_app => [
+        stub(Facebooker::User, :id => 1),
+        stub(Facebooker::User, :id => 2),
+        stub(Facebooker::User, :id => 3)])
+      User.stub(:find).with(:first, :conditions => {:facebook_id => 1}).and_return(mock_model(User, :admin? => false, :researcher? => false))
+      User.stub(:find).with(:first, :conditions => {:facebook_id => 2}).and_return(mock_model(User, :admin? => true, :researcher? => false))
+      User.stub(:find).with(:first, :conditions => {:facebook_id => 3}).and_return(mock_model(User, :admin? => false, :researcher? => true))      
+      get :new
+      assigns[:exclude_ids].should == '2,3'
+    end
   end
 
   describe "GET confirm" do

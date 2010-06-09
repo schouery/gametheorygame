@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
   end
 
   def new
+    @exclude_ids = facebook_session.user.friends_with_this_app.map(&:id).join(",")
   end
   
   def create

@@ -6,6 +6,13 @@ class ResearchersController < ApplicationController
 
   def new
     authorize! :invite_researcher, User.new
+    friends = facebook_session.user.friends_with_this_app.map(&:id)
+    block = []
+    friends.each do |friend|
+      user = User.find(:first, :conditions => {:facebook_id => friend})
+      block << friend if user.admin? || user.researcher?
+    end 
+    @exclude_ids = block.join ','
   end
   
   def create

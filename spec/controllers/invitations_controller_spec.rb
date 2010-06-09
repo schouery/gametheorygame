@@ -17,6 +17,17 @@ describe InvitationsController do
     end
   end
 
+  describe "GET new" do
+    it "assigns the frinds with this app as @exclude_ids " do
+      @session.user.stub(:friends_with_this_app => [stub(Facebooker::User, :id => 1),
+        stub(Facebooker::User, :id => 2),
+        stub(Facebooker::User, :id => 3)])
+      get :new
+      assigns[:exclude_ids].should == "1,2,3"
+    end        
+    
+  end
+
   describe "POST create" do
     it "redirects to card_url" do
       post :create, :ids => [1]

@@ -46,8 +46,19 @@ describe GamesController do
   
   describe "PUT update_probabilities" do
     it "saves the games" do
-      pending
-      put :update_probabilities
+      matrix_game1, matrix_game2 = mock_model(TwoPlayerMatrixGame), mock_model(TwoPlayerMatrixGame)
+      function_game1, function_game3 = mock_model(SymmetricFunctionGame), mock_model(SymmetricFunctionGame)
+      TwoPlayerMatrixGame.should_receive(:find).with("1").and_return(matrix_game1)
+      TwoPlayerMatrixGame.should_receive(:find).with("2").and_return(matrix_game2)
+      SymmetricFunctionGame.should_receive(:find).with("1").and_return(function_game1)
+      SymmetricFunctionGame.should_receive(:find).with("3").and_return(function_game3)
+      matrix_game1.should_receive(:update_attributes).with({"weight" => "1"})
+      matrix_game2.should_receive(:update_attributes).with({"weight" => "3"})
+      function_game1.should_receive(:update_attributes).with({"weight" => "10"})
+      function_game3.should_receive(:update_attributes).with({"weight" => "5"})            
+      put :update_probabilities, :two_player_matrix_game => {"1" => {:weight => "1"}, "2" => {:weight => "3"}},
+      :symmetric_function_game => {"1" => {:weight => "10"}, "3" => {:weight => "5"}}
+      response.should redirect_to games_url
     end
   end
 end

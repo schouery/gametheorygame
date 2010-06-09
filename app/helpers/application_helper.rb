@@ -17,7 +17,8 @@ module ApplicationHelper
       :condensed => options[:condensed],
       :max => options[:max],
       :showborder=> options[:showborder],
-      :email_invite => options[:email_invite]}    
+      :email_invite => options[:email_invite]}
+    @options_for_selector[:exclude_ids] = options[:exclude_ids] if !options[:exclude_ids].nil?
   end
   
   def friend_defaults
