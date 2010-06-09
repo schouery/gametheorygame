@@ -1,15 +1,6 @@
-%p
-  Send a #{@card.game.name} Card
-%p
-  Next Action
-  =send_card_gift_url(@card)
-%p
-  Invitation
-  =canvas_url_for(:controller => "gifts", :action => "receive_card", :id => @card.id)
-  
-= render 'shared/multi_friend_selector', :options => {:next_action => send_card_gift_url(@card),             |
+= render 'shared/multi_friend_selector', :options => {:next_action => send_card_gift_url(@card),              |
   :button_name => 'Send a Card',                                                                              |
-  :actiontext => 'Send a card to your friends',                                                               |
+  :actiontext => "Send a #{@card.game.name} Card",                                                            |
   :path_for_invitation => canvas_url_for(:controller => "gifts", :action => "receive_card", :id => @card.id), |
   :content => 'You gained a new card!',                                                                       |
   :max => '1',                                                                                                |

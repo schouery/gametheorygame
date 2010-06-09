@@ -1,0 +1,10 @@
+%p Change probabilities
+- form_tag :action => 'update_probabilities', :method => :post do
+  %table
+    -@games.each do |@game|
+      %tr
+        %td= @game.name
+        %td= @game.color
+        -fields_for "#{@game.class.to_s.underscore}[]", @game do |f|
+          %td= f.text_field :weight
+  = submit_tag 'Update'

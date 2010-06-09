@@ -2,7 +2,7 @@ class GiftsController < ApplicationController
 
   def index
     @cards = current_user.cards.select do |card|
-      card.game.color == "green" && !card.played?
+      card.can_send?
     end
   end
   
@@ -12,9 +12,13 @@ class GiftsController < ApplicationController
   
   def send_card
     card = Card.find(params[:id])
-    card.user = nil
-    card.gift_for = params[:ids][0].to_i
-    card.save
+    if card.can_send?
+      card.user = nil
+      card.gift_for = params[:ids][0].to_i
+      card.save
+    else
+      flash[:notice] = "You can't send this card!"
+    end
     redirect_to(gifts_url)
   end
   

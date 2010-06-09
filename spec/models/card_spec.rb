@@ -9,6 +9,20 @@ describe Card do
   it { should have_column(:gift_for).type(:integer) }
   it { should belong_to(:game_result)}
   
+  
+  it "should know if is possible to send it" do
+    c = Card.new
+    c.game = mock_model(SymmetricFunctionGame, :color => "green")
+    c.can_send?.should == true
+    c.strategy = mock_model(SymmetricFunctionGameStrategy)
+    c.can_send?.should == false
+    c.game = mock_model(SymmetricFunctionGame, :color => "red")
+    c.strategy = nil
+    c.can_send?.should == false
+    c.strategy = mock_model(SymmetricFunctionGameStrategy)
+    c.can_send?.should == false
+  end
+  
   it "should know if it was played" do
     c = Card.new
     c.played?.should == false

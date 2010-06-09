@@ -12,13 +12,12 @@ describe GiftsController do
 
   describe "GET index" do
     it "lists all player's green cards as @cards" do
-      green_card1 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => false)
-      green_card2 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => false)
-      green_card3 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "green"), :played? => true)
-      red_card1 = mock_model(Card, :game => mock_model(TwoPlayerMatrixGame, :color => "red"), :played? => false)
-      @current_user.stub(:cards => [green_card1, green_card2, green_card3, red_card1])
+      card1 = mock_model(Card, :can_send? => true)
+      card2 = mock_model(Card, :can_send? => true)
+      card3 = mock_model(Card, :can_send? => false)
+      @current_user.stub(:cards => [card1, card2, card3])
       get :index
-      assigns[:cards].should == [green_card1, green_card2]
+      assigns[:cards].should == [card1, card2]
     end
   end
   
@@ -125,21 +124,31 @@ describe GiftsController do
   end
   
   describe "POST send_card" do
-
-    it "removes the card from current_user and marks as a present to the selected user" do
-      mock_card = mock_model(Card)
-      Card.should_receive(:find).with("10").and_return(mock_card)
-      mock_card.should_receive(:user=).with(nil)
-      mock_card.should_receive(:gift_for=).with(101)
-      mock_card.should_receive(:save)
-      post :send_card, :id => 10, :ids => [101]
-    end
+    describe "with a green and not played card" do
+      it "removes the card from current_user and marks as a present to the selected user" do
+        mock_card = mock_model(Card, :can_send? => true)
+        Card.should_receive(:find).with("10").and_return(mock_card)
+        mock_card.should_receive(:user=).with(nil)
+        mock_card.should_receive(:gift_for=).with(101)
+        mock_card.should_receive(:save)
+        post :send_card, :id => 10, :ids => [101]
+      end
         
-    it "redirect to index" do
-      mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true)
-      Card.stub(:find => mock_card)
-      post :send_card, :id => 10, :ids => [101]
-      response.should redirect_to gifts_url
+      it "redirect to index" do
+        mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true, :can_send? => true)
+        Card.stub(:find => mock_card)
+        post :send_card, :id => 10, :ids => [101]
+        response.should redirect_to gifts_url
+      end
+    end
+    describe "with a forbidden card" do
+      it "redirect to index and warns the player for a card that can't be sended" do
+        mock_card = mock_model(Card, :can_send? => false)
+        Card.stub(:find => mock_card)
+        post :send_card, :id => 10, :ids => [101]
+        response.should redirect_to gifts_url
+        flash[:notice].should == "You can't send this card!"        
+      end
     end
   end
   

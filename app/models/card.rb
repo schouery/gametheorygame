@@ -16,4 +16,8 @@ class Card < ActiveRecord::Base
     !self.strategy.nil?
   end
   
+  def can_send?
+    !self.game.nil? && self.game.color == "green" && !played? 
+  end
+  
 end
