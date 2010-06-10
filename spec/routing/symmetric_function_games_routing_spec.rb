@@ -32,8 +32,8 @@ describe SymmetricFunctionGamesController do
       { :put => "/symmetric_function_games/1" }.should route_to(:controller => "symmetric_function_games", :action => "update", :id => "1") 
     end
 
-    it "recognizes and generates #destroy" do
-      { :delete => "/symmetric_function_games/1" }.should route_to(:controller => "symmetric_function_games", :action => "destroy", :id => "1") 
+    it "recognizes and generates #remove" do
+      { :get => "/symmetric_function_games/1/remove" }.should route_to(:controller => "symmetric_function_games", :action => "remove", :id => "1") 
     end
   end
 end

@@ -95,9 +95,7 @@ describe ResearchersController do
         get :confirm
         response.should redirect_to(cards_url)
       end
-
     end
-    
   end
 
   describe "POST create" do
@@ -117,10 +115,17 @@ describe ResearchersController do
       get :remove, :id => "37"
     end
   
-    it "redirects to the researchers list" do
+    it "redirects to the researchers list if the user can see it now" do
       User.stub(:find).and_return(mock_user(:destroy => true, :researcher= => true, :save => true))
-      get :remove, :id => "1"
+      get :remove, :id => @current_user.id + 1
       response.should redirect_to(researchers_url)
+    end
+
+    it "redirects to the card list if the user can't see the researcher's list" do
+      @current_user.stub(:destroy => true, :researcher= => true, :save => true)
+      User.stub(:find).and_return(@current_user)
+      get :remove, :id => @current_user.id
+      response.should redirect_to(cards_url)
     end
   end
 

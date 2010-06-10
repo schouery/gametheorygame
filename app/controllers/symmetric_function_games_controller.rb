@@ -34,15 +34,14 @@ class SymmetricFunctionGamesController < ApplicationController
     end
   end
 
-  def destroy
-    # @symmetric_function_game.destroy
+  def remove  
+    authorize! :remove, @symmetric_function_game
     @symmetric_function_game.removed = true
     @symmetric_function_game.save
     redirect_to(games_url)
   end
   
   def statistics
-    @symmetric_function_game = SymmetricFunctionGame.find(params[:id])
     authorize! :statistics, @symmetric_function_game
   end
 

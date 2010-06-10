@@ -3,4 +3,4 @@
 %td=link_to "Statistics", statistics_symmetric_function_game_path(game)
 %td
   -if can? :destroy, game
-    = link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
+    = link_to 'Destroy', remove_symmetric_function_game_path(game), :confirm => "Are you sure?"

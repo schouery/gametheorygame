@@ -32,7 +32,7 @@ describe CardsController do
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/cards/1" }.should route_to(:controller => "cards", :action => "destroy", :id => "1") 
+      { :get => "/cards/1/discard" }.should route_to(:controller => "cards", :action => "discard", :id => "1") 
     end
   end
 end

@@ -108,16 +108,16 @@ describe CardsController do
     end
   end
     
-  describe "DELETE destroy" do
+  describe "GET discard" do
     it "destroys the requested card" do
       Card.should_receive(:find).with("37").and_return(mock_card)
       mock_card.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      get :discard, :id => "37"
     end
 
     it "redirects to the cards list" do
       Card.stub(:find).and_return(mock_card(:destroy => true))
-      delete :destroy, :id => "1"
+      get :discard, :id => "1"
       response.should redirect_to(cards_url)
     end
   end

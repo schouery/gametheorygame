@@ -1,10 +1,6 @@
 class TwoPlayerMatrixGamesController < ApplicationController
   load_and_authorize_resource
-
-  # def index
-  #   @two_player_matrix_games = TwoPlayerMatrixGame.all
-  # end
-
+  
   def show
   end
 
@@ -37,15 +33,14 @@ class TwoPlayerMatrixGamesController < ApplicationController
     end
   end
 
-  def destroy
-    # @two_player_matrix_game.destroy
+  def remove
+    authorize! :remove, @two_player_matrix_game
     @two_player_matrix_game.removed = true
     @two_player_matrix_game.save
     redirect_to(games_url)
   end
   
   def statistics
-    @two_player_matrix_game = TwoPlayerMatrixGame.find(params[:id])
     authorize! :statistics, @two_player_matrix_game
   end
 end

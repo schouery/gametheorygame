@@ -9,7 +9,6 @@ describe TwoPlayerMatrixGamesController do
     
     it "recognizes and generates #index" do
       { :get => "/two_player_matrix_games" }.should_not be_routable
-      # { :get => "/two_player_matrix_games" }.should route_to(:controller => "two_player_matrix_games", :action => "index")
     end
 
     it "recognizes and generates #new" do
@@ -32,8 +31,8 @@ describe TwoPlayerMatrixGamesController do
       { :put => "/two_player_matrix_games/1" }.should route_to(:controller => "two_player_matrix_games", :action => "update", :id => "1") 
     end
 
-    it "recognizes and generates #destroy" do
-      { :delete => "/two_player_matrix_games/1" }.should route_to(:controller => "two_player_matrix_games", :action => "destroy", :id => "1") 
+    it "recognizes and generates #remove" do
+      { :get => "/two_player_matrix_games/1/remove" }.should route_to(:controller => "two_player_matrix_games", :action => "remove", :id => "1") 
     end
   end
 end

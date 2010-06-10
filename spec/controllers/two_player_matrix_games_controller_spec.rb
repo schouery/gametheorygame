@@ -14,14 +14,6 @@ describe TwoPlayerMatrixGamesController do
     @mock_two_player_matrix_game ||= mock_model(TwoPlayerMatrixGame, stubs)
   end
 
-  # describe "GET index" do
-  #   it "assigns all two_player_matrix_games as @two_player_matrix_games" do
-  #     TwoPlayerMatrixGame.stub(:find).with(:all).and_return([mock_two_player_matrix_game])
-  #     get :index
-  #     assigns[:two_player_matrix_games].should == [mock_two_player_matrix_game]
-  #   end
-  # end
-
   describe "GET show" do    
     it "assigns the requested two_player_matrix_game as @two_player_matrix_game" do
       TwoPlayerMatrixGame.stub(:find).with("37").and_return(mock_two_player_matrix_game)
@@ -134,17 +126,17 @@ describe TwoPlayerMatrixGamesController do
 
   end
 
-  describe "DELETE destroy" do
+  describe "GET remove" do
     it "mark the requested two_player_matrix_game as removed" do
       TwoPlayerMatrixGame.should_receive(:find).with("37").and_return(mock_two_player_matrix_game)
       mock_two_player_matrix_game.should_receive(:removed=).with(true)
       mock_two_player_matrix_game.should_receive(:save)
-      delete :destroy, :id => "37"
+      get :remove, :id => "37"
     end
 
     it "redirects to the games list" do
       TwoPlayerMatrixGame.stub(:find).and_return(mock_two_player_matrix_game(:removed= => true, :save => true))
-      delete :destroy, :id => "1"
+      get :remove, :id => "1"
       response.should redirect_to(games_url)
     end
   end

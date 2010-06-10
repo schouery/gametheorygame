@@ -127,17 +127,17 @@ describe SymmetricFunctionGamesController do
 
   end
 
-  describe "DELETE destroy" do
+  describe "GET remove" do
     it "marks the requested symmetric_function_game as removed" do
       SymmetricFunctionGame.should_receive(:find).with("37").and_return(mock_symmetric_function_game)
       mock_symmetric_function_game.should_receive(:removed=).with(true)
       mock_symmetric_function_game.should_receive(:save)
-      delete :destroy, :id => "37"
+      get :remove, :id => "37"
     end
 
     it "redirects to the games list" do
       SymmetricFunctionGame.stub(:find).and_return(mock_symmetric_function_game(:destroy => true, :removed= => true, :save => true))
-      delete :destroy, :id => "1"
+      get :remove, :id => "1"
       response.should redirect_to(games_url)
     end
   end

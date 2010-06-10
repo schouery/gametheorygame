@@ -42,7 +42,11 @@ class ResearchersController < ApplicationController
     authorize! :remove_researcher, @user
     @user.researcher = false
     @user.save
-    redirect_to(researchers_url)
+    if current_user == @user
+      redirect_to(cards_url)
+    else
+      redirect_to(researchers_url)
+    end
   end
   
 end
