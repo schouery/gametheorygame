@@ -7,7 +7,8 @@ SymmetricFunctionGameStrategy.delete_all
 Card.delete_all
 
 admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
-researcher = User.create!(:facebook_id => 100001128518937, :admin => false, :researcher => false)#schouery@ime.usp.br
+# researcher = User.create!(:facebook_id => 100001128518937, :admin => false, :researcher => false)#schouery@ime.usp.br
+researcher = admin
 
 polution_game = SymmetricFunctionGame.create!(:name => "Polution Game", 
 :description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
@@ -64,8 +65,8 @@ p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payo
 mp.payoffs = [p1,p2,p3,p4]
 mp.save!
 
-Card.create!(:user => admin, :game => mp, :player_number => 1)
-Card.create!(:user => researcher, :game => mp, :player_number => 2)
+# Card.create!(:user => admin, :game => mp, :player_number => 1)
+# Card.create!(:user => researcher, :game => mp, :player_number => 2)
 
 pd = TwoPlayerMatrixGame.create!(:name => "Prisionner's Dilemma",
 :description => "The standard prissioner's dilemma.",

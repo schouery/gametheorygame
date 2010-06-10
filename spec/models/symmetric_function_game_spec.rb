@@ -150,6 +150,7 @@ describe SymmetricFunctionGame do
 
   describe "getting game results" do
     before(:each) do
+      @game.number_of_players = 2
       @game.strategies = [@strategy1, @strategy2]
       @card1.stub(:strategy => @strategy1)
       @card2.stub(:strategy => @strategy2)
@@ -157,18 +158,17 @@ describe SymmetricFunctionGame do
     
     describe "strategies percentages" do
       it "should calculate results table when there is no game results" do
-        @game.strategies_percentages.should == {@strategy1 => 0, @strategy2 => 0}
+        @game.strategies_percentages.should == {}
       end
       it "should calculate results table when there is only one game results" do
         @game.game_results = [mock_model(GameResult, :cards => [@card2, @card2])]
-        @game.strategies_percentages.should == {@strategy1 => 0, @strategy2 => 1}
+        @game.strategies_percentages.should == {@strategy2 => 1}
       end
       it "should calculate results table when there is many games results" do
         @game.game_results = [mock_model(GameResult, :cards => [@card2, @card2]),
                               mock_model(GameResult, :cards => [@card1, @card2]),
                               mock_model(GameResult, :cards => [@card2, @card1]),
-                              mock_model(GameResult, :cards => [@card1, @card2]),                              
-        ]
+                              mock_model(GameResult, :cards => [@card1, @card2])]
         @game.strategies_percentages.should == {@strategy1 => 3.0/8, @strategy2 => 5.0/8}
       end
 

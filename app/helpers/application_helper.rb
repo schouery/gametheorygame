@@ -67,10 +67,10 @@ module ApplicationHelper
   
   def link_to(name, options = {}, html_options = {})
       html_options[:href] = "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
-      html_options[:target] = "_top"
+      html_options[:target] = "_top"      
       super(name, options, html_options)
   end
-
+  
   def canvas_url_for(options = {})
     "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
   end
