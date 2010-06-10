@@ -14,5 +14,16 @@ describe User do
     u.money = 10
     u.max_money_gifts.should == 10
   end
+  
+  it "should be create with correctly starting money" do
+    u = User.new
+    u.facebook_id = 1
+    u.money.should be_nil
+    u.save
+    u.money.should == Configuration[:starting_money]
+    u.money -= 10
+    u.save
+    u.money.should == Configuration[:starting_money] - 10
+  end 
        
 end

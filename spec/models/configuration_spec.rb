@@ -16,6 +16,30 @@ describe Configuration do
       @config.should be_valid
     end
   end
+
+  it "should have boolean field full_permissions_to_researchers" do
+    @config.should respond_to :full_permissions_to_researchers
+  end
+  
+  it "should have boolean field researcher_can_invite_researcher" do
+    @config.should respond_to :researcher_can_invite_researcher
+  end
+  
+  it "should have card sended in a day limit" do
+    @config.should respond_to :card_gift_limit
+  end
+  
+  it "should have money sended in a day limit" do
+    @config.should respond_to :money_gift_limit
+  end
+  
+  it "should have hand limit" do
+    @config.should respond_to :hand_limit
+  end
+  
+  it "should have starting money" do
+    @config.should respond_to :starting_money
+  end
   
   it "should have [] acessor" do
     Configuration.should respond_to :[]

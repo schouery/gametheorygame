@@ -1,6 +1,6 @@
 %p.title
   Researchers
-  - if can? :invite_researcher, nil
+  - if can? :invite_researcher, User.new
     (
     = link_to "Invite", new_researcher_path
     )

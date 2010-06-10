@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :facebook_id, :limit => 20, :null => false
       t.boolean :admin, :default => false
       t.boolean :researcher, :default => false
-      t.integer :money, :default => 0
+      t.integer :money
       t.timestamps
     end
   end

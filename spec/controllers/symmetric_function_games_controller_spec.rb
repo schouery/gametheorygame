@@ -3,6 +3,7 @@ require 'spec_helper'
 describe SymmetricFunctionGamesController do
 
   before(:each) do
+    Configuration.stub(:[]).with(:starting_money).and_return(100)
     controller.stub!(:ensure_application_is_installed_by_facebook_user)
     @current_user = mock_model(User, :id => 1, :to_i => 1, :admin? => true)
     controller.stub!(:current_user).and_return(@current_user)
@@ -13,14 +14,6 @@ describe SymmetricFunctionGamesController do
   def mock_symmetric_function_game(stubs={})
     @mock_symmetric_function_game ||= mock_model(SymmetricFunctionGame, stubs)
   end
-
-  # describe "GET index" do
-  #   it "assigns all symmetric_function_games as @symmetric_function_games" do
-  #     SymmetricFunctionGame.stub(:find).with(:all).and_return([mock_symmetric_function_game])
-  #     get :index
-  #     assigns[:symmetric_function_games].should == [mock_symmetric_function_game]
-  #   end
-  # end
 
   describe "GET show" do
     it "assigns the requested symmetric_function_game as @symmetric_function_game" do

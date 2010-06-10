@@ -4,6 +4,7 @@ describe GiftsController do
 
   before(:each) do
     controller.stub!(:ensure_application_is_installed_by_facebook_user)
+    Configuration.stub(:[]).with(:starting_money).and_return(100)
     @current_user = mock_model(User, :id => 1, :to_i => 1, :facebook_id => 100, :admin? => true)
     controller.stub!(:current_user).and_return(@current_user)
     @session = mock(Facebooker::Session, :user => @current_user)
@@ -32,7 +33,7 @@ describe GiftsController do
       before(:each) do
         @current_user.stub(:max_money_gifts => 3, :money => 300)
         @value_for_gift = 150
-        Configuration.stub(:[]).with(:money_gift_value).and_return(@value_for_gift)
+        Configuration.stub!(:[]).with(:money_gift_value).and_return(@value_for_gift)
       end
       
       it "creates the gifts" do
@@ -60,6 +61,7 @@ describe GiftsController do
 
     describe "without enough money" do
       before(:each) do
+        Configuration.stub!(:[]).with(:money_gift_value).and_return(@value_for_gift)
         @current_user.stub(:max_money_gifts => 0)
       end
 

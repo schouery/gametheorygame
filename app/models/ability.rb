@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.admin?
+    if user.admin? || (user.researcher? && Configuration[:full_permissions_to_researchers])
       can :manage, :all
     elsif user.researcher?
       can :read, :all
@@ -10,7 +10,7 @@ class Ability
       can :create, TwoPlayerMatrixGame
       can :statistics, SymmetricFunctionGame
       can :statistics, TwoPlayerMatrixGame
-      can :create, Invitation
+      can :create, Invitation      
       can :remove_researcher, User do |researcher|
         researcher == user
       end
@@ -23,6 +23,10 @@ class Ability
       can :manage, :card do |card|
         card.user == user
       end
+      if Configuration[:researcher_can_invite_researcher]
+        can :invite_researcher, User
+      end
+      
     else
       can :read, Card do |card|
         #card.user == user  card can be nil

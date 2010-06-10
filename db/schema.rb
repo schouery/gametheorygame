@@ -26,7 +26,13 @@ ActiveRecord::Schema.define(:version => 20100607222236) do
   end
 
   create_table "configurations", :force => true do |t|
-    t.integer  "money_gift_value", :default => 1
+    t.integer  "money_gift_value",                 :default => 1
+    t.boolean  "full_permissions_to_researchers",  :default => false
+    t.boolean  "researcher_can_invite_researcher", :default => false
+    t.integer  "card_gift_limit",                  :default => 10
+    t.integer  "money_gift_limit",                 :default => 10
+    t.integer  "hand_limit",                       :default => 10
+    t.integer  "starting_money",                   :default => 100
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20100607222236) do
     t.integer  "facebook_id", :limit => 20,                    :null => false
     t.boolean  "admin",                     :default => false
     t.boolean  "researcher",                :default => false
-    t.integer  "money",                     :default => 0
+    t.integer  "money"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

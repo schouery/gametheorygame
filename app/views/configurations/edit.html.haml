@@ -6,6 +6,31 @@
   %p
     = f.label :money_gift_value
     = f.text_field :money_gift_value
+  %p  
+    = f.label :full_permissions_to_researchers
+    = f.radio_button :full_permissions_to_researchers, 'true'
+    true
+    = f.radio_button :full_permissions_to_researchers, 'false'
+    false
+  %p  
+    = f.label :researcher_can_invite_researcher
+    = f.radio_button :researcher_can_invite_researcher, 'true'
+    true
+    = f.radio_button :researcher_can_invite_researcher, 'false'
+    false
+  %p
+    = f.label :card_gift_limit
+    = f.text_field :card_gift_limit
+  %p
+    = f.label :money_gift_limit
+    = f.text_field :money_gift_limit
+  %p
+    = f.label :hand_limit
+    = f.text_field :hand_limit
+  %p
+    = f.label :starting_money
+    = f.text_field :starting_money
+    
   %p
     = f.submit 'Update'
 
