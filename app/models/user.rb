@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :cards
+  has_one :gift_log
   before_save :default_money
 
   def default_money
