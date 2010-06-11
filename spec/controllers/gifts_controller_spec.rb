@@ -68,7 +68,7 @@ describe GiftsController do
       it "renders money and flashs a notice" do
         post :send_money, :ids => [1, 2]
         response.should render_template('money')
-        flash[:notice].should == "Action failed: You didn't have enough money when creating the requested gifts"
+        flash[:notice].should == "Action failed: You can't send so many gifts"
       end
     end
     
@@ -118,40 +118,51 @@ describe GiftsController do
   end
 
   describe "GET card" do
-    it "respond to card" do
-      mock_card = mock_model(Card)
+    
+    it "assigns the card as @card if it can be sended" do
+      mock_card = mock_model(Card, :can_send_as_gift? => true)
       Card.should_receive(:find).with("1").and_return(mock_card)
       get :card, :id => 1
+      assigns[:card].should == mock_card
     end
+    
+    it "redirects to gifts_url if it can't send the card and warns the player" do
+      mock_card = mock_model(Card, :can_send_as_gift? => false, :gift_error => "Error")
+      Card.should_receive(:find).with("1").and_return(mock_card)
+      get :card, :id => 1
+      response.should redirect_to gifts_url
+      flash[:notice].should == "Error"
+    end
+    
   end
   
   describe "POST send_card" do
     describe "with a green and not played card" do
-      it "removes the card from current_user and marks as a present to the selected user" do
-        mock_card = mock_model(Card, :can_send? => true)
+      it "sends the card" do
+        mock_card = mock_model(Card)
         Card.should_receive(:find).with("10").and_return(mock_card)
-        mock_card.should_receive(:user=).with(nil)
-        mock_card.should_receive(:gift_for=).with(101)
-        mock_card.should_receive(:save)
+        mock_card.should_receive(:send_as_gift).with(@current_user, 101).and_return(true)
         post :send_card, :id => 10, :ids => [101]
       end
         
       it "redirect to index" do
-        mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true, :can_send? => true)
+        mock_card = mock_model(Card, :send_as_gift => true)
         Card.stub(:find => mock_card)
         post :send_card, :id => 10, :ids => [101]
         response.should redirect_to gifts_url
       end
     end
+    
     describe "with a forbidden card" do
       it "redirect to index and warns the player for a card that can't be sended" do
-        mock_card = mock_model(Card, :can_send? => false)
+        mock_card = mock_model(Card, :send_as_gift => false, :gift_error => "Error")
         Card.stub(:find => mock_card)
         post :send_card, :id => 10, :ids => [101]
         response.should redirect_to gifts_url
-        flash[:notice].should == "You can't send this card!"        
+        flash[:notice].should == "Error"
       end
     end
+    
   end
   
   describe "GET receive_card" do

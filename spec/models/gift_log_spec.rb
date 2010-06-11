@@ -57,4 +57,19 @@ describe GiftLog do
     end
   end
   
+  it "should know how many gifts can be sended today" do
+    g = GiftLog.new
+    g.money_gift_sent_on = Date.today
+    g.card_gift_sent_on = Date.today
+    cases = [[0,5],[3,2],[6,0]]
+    cases.each do |gifts, expected|
+      g.number_of_money_gifts = gifts
+      g.maximum_gifts_today(:money).should == expected
+    end        
+    cases.each do |gifts, expected|
+      g.number_of_card_gifts = gifts
+      g.maximum_gifts_today(:card).should == expected
+    end        
+  end
+  
 end

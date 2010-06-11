@@ -1,23 +1,26 @@
-%p
-  Money gift value:
-  =h @configuration.money_gift_value
-%p
-  Full permissions to Researchers: 
-  =h @configuration.full_permissions_to_researchers
-%p
-  A Researcher can invite another researcher:
-  =h @configuration.researcher_can_invite_researcher
-%p
-  Card Gifts Limit per Day:
-  =h @configuration.card_gift_limit.to_s
-%p
-  Money Gifts Limit per Day:
-  =h @configuration.money_gift_limit.to_s
-%p
-  Player's Hand Size Limit:
-  =h @configuration.hand_limit.to_s
-%p
-  Player's Starting Money:
-  =h @configuration.starting_money.to_s
+%p.title Configurations
+%table.configuration        
+  %tr
+    %td Money gift value:
+    %td=h @configuration.money_gift_value
+  %tr
+    %td Full permissions to Researchers: 
+    %td=h @configuration.full_permissions_to_researchers
+  %tr
+    %td A Researcher can invite another researcher:
+    %td=h @configuration.researcher_can_invite_researcher
+  %tr
+    %td Card Gifts Limit per Day:
+    %td=h @configuration.card_gift_limit
+  %tr
+    %td Money Gifts Limit per Day:
+    %td=h @configuration.money_gift_limit
+  %tr
+    %td Player's Hand Size Limit:
+    %td=h @configuration.hand_limit
+  %tr
+    %td Player's Starting Money:
+    %td=h @configuration.starting_money
 
-= link_to 'Edit', edit_configuration_path
+-if can? :update, @configuration 
+  %p= link_to 'Edit', edit_configuration_path

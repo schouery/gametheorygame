@@ -6,7 +6,7 @@ describe "/gifts/card.html.haml" do
     @card = assigns[:card] = stub_model(Card, :game => stub_model(TwoPlayerMatrixGame, :name => "Game 1"), :id => 1)
   end
 
-  it "renders the friend select form for selecting one friend" do
+  it "renders the friend select form for selecting one friend if you can send a card" do
     render
     response.should contain "Send a Game 1 Card"
     response.body.should have_multi_friend_selector_with(:action => "gifts/1/send_card",
@@ -14,5 +14,4 @@ describe "/gifts/card.html.haml" do
     :invite? => false,
     :max => '1')
   end
-
 end

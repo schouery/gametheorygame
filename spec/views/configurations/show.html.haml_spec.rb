@@ -4,6 +4,7 @@ describe "/configurations/show.html.haml" do
   include ConfigurationsHelper
   before(:each) do
     assigns[:configuration] = @configuration = Configuration.instance
+    @controller.stub(:can? => true)
   end
 
   it "renders attributes in <p>" do

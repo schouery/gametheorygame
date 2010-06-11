@@ -5,15 +5,33 @@ describe User do
   it { should have_many(:cards) }
   it { should have_column(:money).type(:integer) }
   
-  it "should calculate the maximum of gifts that can be given" do
-    u = User.new
-    MoneyGift.stub(:value_for_gift => 1)
-    u.money = 0
-    u.max_money_gifts.should == 0
-    u.money = -10
-    u.max_money_gifts.should == 0
-    u.money = 10
-    u.max_money_gifts.should == 10
+  describe "calculating maximum of money gifts that can be given" do
+    before(:each) do
+      config = Configuration.instance
+      config.money_gift_limit = 20
+      config.money_gift_value = 2
+      config.save      
+      @user = User.new
+      @user.gift_log = @gift_log = mock_model(GiftLog)
+    end
+    
+    it "should work without sended gifts today" do
+      @gift_log.stub(:maximum_gifts_today).with(:money).and_return(10)
+      cases = [[0, 0],[-10,0],[10,5]]
+      cases.each do |money, expected|
+        @user.money = money
+        @user.max_money_gifts.should == expected
+      end
+    end
+    
+    it "should work with sended gifts today" do
+      @gift_log.stub(:maximum_gifts_today).with(:money).and_return(3)
+      cases = [[0, 0],[-10,0],[10,3]]
+      cases.each do |money, expected|
+        @user.money = money
+        @user.max_money_gifts.should == expected
+      end
+    end
   end
   
   it "should be create with correctly starting money" do

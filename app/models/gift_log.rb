@@ -13,4 +13,9 @@ class GiftLog < ActiveRecord::Base
     send("number_of_#{type}_gifts=", gifts_today(type) + number)
   end
   
+  def maximum_gifts_today(type)
+    sended = Configuration["#{type}_gift_limit"] - gifts_today(type)
+    sended < 0 ? 0 : sended
+  end
+
 end

@@ -8,16 +8,16 @@ class GiftsController < ApplicationController
   
   def card
     @card = Card.find(params[:id])
+    if !@card.can_send_as_gift?(current_user)
+      flash[:notice] = @card.gift_error
+      redirect_to(gifts_url)
+    end
   end
   
   def send_card
     card = Card.find(params[:id])
-    if card.can_send?
-      card.user = nil
-      card.gift_for = params[:ids][0].to_i
-      card.save
-    else
-      flash[:notice] = "You can't send this card!"
+    if !card.send_as_gift(current_user, params[:ids][0].to_i)
+      flash[:notice] = card.gift_error
     end
     redirect_to(gifts_url)
   end
@@ -47,7 +47,7 @@ class GiftsController < ApplicationController
       user.save
       redirect_to(gifts_url)
     else
-      flash[:notice] = "Action failed: You didn't have enough money when creating the requested gifts"
+      flash[:notice] = "Action failed: You can't send so many gifts"
       render :money
     end
   end

@@ -1,37 +1,38 @@
-%p Editing configuration
+%p.title Editing configuration
 
 -form_for(@configuration) do |f|
   = f.error_messages
-
-  %p
-    = f.label :money_gift_value
-    = f.text_field :money_gift_value
-  %p  
-    = f.label :full_permissions_to_researchers
-    = f.radio_button :full_permissions_to_researchers, 'true'
-    true
-    = f.radio_button :full_permissions_to_researchers, 'false'
-    false
-  %p  
-    = f.label :researcher_can_invite_researcher
-    = f.radio_button :researcher_can_invite_researcher, 'true'
-    true
-    = f.radio_button :researcher_can_invite_researcher, 'false'
-    false
-  %p
-    = f.label :card_gift_limit
-    = f.text_field :card_gift_limit
-  %p
-    = f.label :money_gift_limit
-    = f.text_field :money_gift_limit
-  %p
-    = f.label :hand_limit
-    = f.text_field :hand_limit
-  %p
-    = f.label :starting_money
-    = f.text_field :starting_money
+  
+  %table.configuration    
+    %tr
+      %td= f.label :money_gift_value, "Money gift value:"
+      %td= f.text_field :money_gift_value
+    %tr  
+      %td= f.label :full_permissions_to_researchers, "Full permissions to Researchers:"
+      %td
+        = f.radio_button :full_permissions_to_researchers, 'true'
+        true
+        = f.radio_button :full_permissions_to_researchers, 'false'
+        false
+    %tr  
+      %td= f.label :researcher_can_invite_researcher, "A Researcher can invite another researcher:"
+      %td
+        = f.radio_button :researcher_can_invite_researcher, 'true'
+        true
+        = f.radio_button :researcher_can_invite_researcher, 'false'
+        false
+    %tr
+      %td= f.label :card_gift_limit, "Card Gifts Limit per Day:"
+      %td= f.text_field :card_gift_limit
+    %tr
+      %td= f.label :money_gift_limit, "Money Gifts Limit per Day:"
+      %td= f.text_field :money_gift_limit
+    %tr
+      %td= f.label :hand_limit, "Player's Hand Size Limit:"
+      %td= f.text_field :hand_limit
+    %tr
+      %td= f.label :starting_money, "Player's Starting Money:"
+      %td= f.text_field :starting_money
     
-  %p
-    = f.submit 'Update'
-
-= link_to 'Show', configuration_path
+    %tr
+      %td= f.submit 'Update'

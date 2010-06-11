@@ -193,7 +193,7 @@ table.title {
   margin-left: auto;
   margin-right: auto; }
 
-p, li {
+p, li, .configuration {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 11px;
   color: #333333; }
