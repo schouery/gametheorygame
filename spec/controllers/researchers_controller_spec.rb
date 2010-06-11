@@ -33,10 +33,12 @@ describe ResearchersController do
       @session.user.stub(:friends_with_this_app => [
         stub(Facebooker::User, :id => 1),
         stub(Facebooker::User, :id => 2),
-        stub(Facebooker::User, :id => 3)])
+        stub(Facebooker::User, :id => 3),
+        stub(Facebooker::User, :id => 4)])
       User.stub(:find).with(:first, :conditions => {:facebook_id => 1}).and_return(mock_model(User, :admin? => false, :researcher? => false))
       User.stub(:find).with(:first, :conditions => {:facebook_id => 2}).and_return(mock_model(User, :admin? => true, :researcher? => false))
       User.stub(:find).with(:first, :conditions => {:facebook_id => 3}).and_return(mock_model(User, :admin? => false, :researcher? => true))      
+      User.stub(:find).with(:first, :conditions => {:facebook_id => 4}).and_return(nil)      
       get :new
       assigns[:exclude_ids].should == '2,3'
     end

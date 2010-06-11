@@ -1,6 +1,6 @@
 %p Change probabilities
 - form_tag :action => 'update_probabilities', :method => :post do
-  %table
+  %table.configuration
     -@games.each do |@game|
       %tr
         %td= @game.name

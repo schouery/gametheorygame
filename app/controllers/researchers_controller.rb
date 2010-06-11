@@ -10,7 +10,7 @@ class ResearchersController < ApplicationController
     block = []
     friends.each do |friend|
       user = User.find(:first, :conditions => {:facebook_id => friend})
-      block << friend if user.admin? || user.researcher?
+      block << friend if !user.nil? && (user.admin? || user.researcher?)
     end 
     @exclude_ids = block.join ','
   end
