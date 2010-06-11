@@ -14,10 +14,15 @@ class ApplicationController < ActionController::Base
   before_filter :url
   
   def url
-    if request.env['HTTP_REFERER'].nil?
-      #redirect_to
-      logger.info "URL will redirect to: http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(params.merge({:only_path => true}))
-    end
+    logger.info "\n"*5 + request.inspect + "\n"*5
+    # matcher = Regexp.new(FACEBOOKER['callback_url'])
+    # if !params['next'].nil? && params['next'] =~ matcher
+    #   params['next'].gsub!(matcher, "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'])
+    # end
+    # if request.env['HTTP_REFERER'].nil?
+    #   #redirect_to
+    #   logger.info "URL will redirect to: http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(params.merge({:only_path => true}))
+    # end
   end
 
 end

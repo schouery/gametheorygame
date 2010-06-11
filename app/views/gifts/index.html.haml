@@ -1,10 +1,17 @@
+%p.title Gifts
+
 -if current_user.gift_log.maximum_gifts_today(:card) > 0
-  -@cards.each do |card|
-    %p
-      = card.game.name
-      = link_to "Send", card_gift_path(card)
+  .alternating_table
+    %table  
+      %tr.odd
+        %td Card
+        %td
+      -@cards.each_with_index do |card, i|
+        %tr{:class => (i.even? ? "even" : "odd")}
+          %td= card.game.name
+          %td= link_to "Send", card_gift_path(card)
 -else
   %p You can't send more cards today.
 
 %p
-  = link_to "money", money_gifts_path
+  = link_to "Send Money to your friends", money_gifts_path
