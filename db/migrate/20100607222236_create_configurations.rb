@@ -8,10 +8,10 @@ class CreateConfigurations < ActiveRecord::Migration
       t.integer :money_gift_limit, :default => 10
       t.integer :hand_limit, :default => 10
       t.integer :starting_money, :default => 100
+      t.integer :starting_cards, :default => 4
       t.timestamps
     end
   end
-
 
   def self.down
     drop_table :configurations

@@ -41,6 +41,10 @@ describe Configuration do
     @config.should respond_to :starting_money
   end
   
+  it "should have starting cards" do
+    @config.should respond_to :starting_cards
+  end
+  
   it "should have [] acessor" do
     Configuration.should respond_to :[]
     @config.money_gift_value = 10

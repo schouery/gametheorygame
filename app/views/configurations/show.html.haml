@@ -21,6 +21,10 @@
   %tr
     %td Player's Starting Money:
     %td=h @configuration.starting_money
+  %tr
+    %td Player's Starting Card:
+    %td=h @configuration.starting_cards
+
 
 -if can? :update, @configuration 
   %p= link_to 'Edit', edit_configuration_path

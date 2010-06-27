@@ -16,5 +16,6 @@ describe "/configurations/show.html.haml" do
     response.should contain(@configuration.money_gift_limit.to_s)
     response.should contain(@configuration.hand_limit.to_s)
     response.should contain(@configuration.starting_money.to_s)
+    response.should contain(@configuration.starting_cards.to_s)
   end
 end

@@ -10,15 +10,4 @@ class ApplicationController < ActionController::Base
   def set_current_user
     self.current_user = User.for(facebook_session.user.to_i)
   end
-  
-  before_filter :url
-  
-  def url
-    matcher = Regexp.new(FACEBOOKER['callback_url'])
-    if !params['next'].nil? && params['next'] =~ matcher
-      params['next'].gsub!(matcher, "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'])
-      redirect_to params
-    end
-  end
-
 end

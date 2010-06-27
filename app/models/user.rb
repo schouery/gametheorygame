@@ -1,8 +1,16 @@
 class User < ActiveRecord::Base
   has_many :cards
   has_one :gift_log
-  before_save :default_money
+  before_create :default_money
   before_save :create_gift_log
+  after_create :receive_cards 
+
+  def receive_cards
+    card_dealer = CardDealer.new
+    Configuration[:starting_cards].times do 
+      card_dealer.deal_for(self)
+    end
+  end
 
   def create_gift_log
     self.gift_log = GiftLog.new if self.gift_log.nil?

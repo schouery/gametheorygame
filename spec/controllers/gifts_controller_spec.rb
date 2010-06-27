@@ -9,6 +9,7 @@ describe GiftsController do
     controller.stub!(:current_user).and_return(@current_user)
     @session = mock(Facebooker::Session, :user => @current_user)
     controller.stub!(:facebook_session).and_return @session
+    controller.stub!(:set_current_user => true)    
   end
 
   describe "GET index" do

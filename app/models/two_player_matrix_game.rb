@@ -12,6 +12,10 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
 
   before_create :associate_payoffs
 
+  def number_of_players
+    2
+  end
+
   def lines_strategies
     self.strategies.select {|st| st.player_number == 1}
   end

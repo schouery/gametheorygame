@@ -6,18 +6,23 @@ TwoPlayerMatrixGamePayoff.delete_all
 SymmetricFunctionGameStrategy.delete_all
 Card.delete_all
 
-admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
-# researcher = User.create!(:facebook_id => 100001128518937, :admin => false, :researcher => false)#schouery@ime.usp.br
-researcher = admin
-
 polution_game = SymmetricFunctionGame.create!(:name => "Polution Game", 
 :description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
 the number of poluting players and a aditional fee of 3 if you choose to not polute.",
 :number_of_players => 4,
 :color => "red",
-:function => "-np[0] - 3*st[1]",
-:user => admin
+:function => "-np[0] - 3*st[1]"
 )
+
+admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
+
+polution_game.user = admin
+polution_game.save
+
+# researcher = User.create!(:facebook_id => 100001128518937, :admin => false, :researcher => false)#schouery@ime.usp.br
+researcher = admin
+
+
 polute = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game)
 not_polute = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game)
 

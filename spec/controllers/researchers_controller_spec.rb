@@ -9,6 +9,7 @@ describe ResearchersController do
     controller.stub!(:current_user).and_return(@current_user)
     @session = mock(Facebooker::Session, :user => @current_user)
     controller.stub!(:facebook_session).and_return @session
+    controller.stub!(:set_current_user => true)    
   end
 
   def mock_user(stubs={})
@@ -21,7 +22,7 @@ describe ResearchersController do
 
   describe "GET index" do
     it "assigns all researcher's that whom are not administrators as @researchers" do
-      User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
+      # User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
       User.should_receive(:find).with(:all, :conditions => {:admin => false, :researcher => true}).and_return([mock_user])
       get :index
       assigns[:researchers].should == [mock_user]
@@ -111,7 +112,7 @@ describe ResearchersController do
 
   describe "GET remove" do
     it "remove researcher permission from user" do
-      User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
+      # User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
       User.should_receive(:find).with("37").and_return(mock_user)
       mock_user.should_receive(:researcher=).with(false)
       mock_user.should_receive(:save)

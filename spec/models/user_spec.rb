@@ -35,7 +35,8 @@ describe User do
   end
   
   it "should be create with correctly starting money" do
-    u = User.new
+    u = User.new  
+    u.stub(:receive_cards => true)
     u.facebook_id = 1
     u.money.should be_nil
     u.save
@@ -44,5 +45,7 @@ describe User do
     u.save
     u.money.should == Configuration[:starting_money] - 10
   end 
+
+  it "should receive initial cards"
        
 end

@@ -2,9 +2,15 @@ class CardDealer
 
   def deal
     User.find(:all).each do |user|
-      Card.create(:user => user, :game => select_game) if user.cards.size < Configuration[:hand_limit]
+      deal_for(user) if user.cards.size < Configuration[:hand_limit]
     end
   end
+  
+  def deal_for(user)
+    game = select_game
+    number = rand(game.number_of_players) + 1
+    Card.create(:user => user, :game => game, :player_number => number)
+  end  
     
   def select_game
     @games ||= SymmetricFunctionGame.find(:all, :conditions => {:removed => false}) + 

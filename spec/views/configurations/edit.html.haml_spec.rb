@@ -19,6 +19,7 @@ describe "/configurations/edit.html.haml" do
       with_tag('input#configuration_money_gift_limit[name=?]', "configuration[money_gift_limit]")
       with_tag('input#configuration_hand_limit[name=?]', "configuration[hand_limit]")
       with_tag('input#configuration_starting_money[name=?]', "configuration[starting_money]")
+      with_tag('input#configuration_starting_cards[name=?]', "configuration[starting_cards]")
     end
   end
 end

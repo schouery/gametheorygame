@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20100610165958) do
     t.integer  "money_gift_limit",                 :default => 10
     t.integer  "hand_limit",                       :default => 10
     t.integer  "starting_money",                   :default => 100
+    t.integer  "starting_cards",                   :default => 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,10 +47,10 @@ ActiveRecord::Schema.define(:version => 20100610165958) do
 
   create_table "gift_logs", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "number_of_money_gifts"
-    t.integer  "number_of_card_gifts"
-    t.date     "money_gift_sent_on"
-    t.date     "card_gift_sent_on"
+    t.integer  "number_of_money_gifts", :default => 0
+    t.integer  "number_of_card_gifts",  :default => 0
+    t.date     "money_gift_sent_on",    :default => '2010-06-27'
+    t.date     "card_gift_sent_on",     :default => '2010-06-27'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
