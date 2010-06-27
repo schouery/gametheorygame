@@ -10,4 +10,9 @@ ActionController::Routing::Routes.draw do |map|
     :collection => {:send_money => :post, :receive_money => :get, :money => :get},
     :member => {:card => :get, :send_card => :post, :receive_card => :get}
   map.root :controller => :cards
+  
+  map.with_options :controller => 'info' do |info|
+    info.manual 'manual', :action => 'manual'
+  end
+    
 end

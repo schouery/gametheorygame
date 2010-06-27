@@ -1,0 +1,73 @@
+%p.title User's Manual
+
+%p
+  This manual will teach you how to play The Game Theory Game. Actually, the game is pretty simple to play
+  and you will learn it really fast.
+  
+%p.title Game Concept
+
+%p
+  The objective of this game is to make money by playing small games. Every hour you will receive a new card
+  with a game to be played with other players. A game has some story and a explanation of how much you can gain
+  or lose with it. You should choose a strategy among many possible ones and the result of the game will depend
+  on your strategy and the other players. It is something like Rock-Paper-Scissors, you can choose one strategy,
+  for example, Rock and another chooses his strategy, like Scissors and then you will win and the other will lose.
+
+%p.title Your Cards
+
+%p
+  Clicking in 
+  %strong My Card
+  in the menubar will take you to your cards. There you can see all of your cards and select
+  one of them to play, by clicking in the name. You will see three types of cards: red, yellow and green. In red
+  cards you will always loose money but accordling to your strategy (and the others) you can loose more or less
+  money. Yellow card represents games were you can both win or lose money by playing. And, finally, in Green cards
+  you always win, but again how much you will win depends on the strategies chosen by everyone playing.
+
+%p
+  Every hour you will receive a new card, but you have a hand-limit of
+  %strong= Configuration[:hand_limit]
+  cards. After have this amount of cards, you will not gain more cards until will play, discard or send as a gift one of them.
+
+%p.title Playing a Card
+
+%p
+  After clicking in a card's name, you will see a page with the game's informations and the possibility of choosing
+  you strategy and play. If this is a green or yellow card you can choose to discard it instead of playing. You can
+  only play a card once, but you can wait to play it whenever you want it.
+
+%p.title Your Played Cards
+
+%p
+  Clinking in
+  %strong Cards Played
+  will show you all the cards that you have played so far, with the strategy that you chosen and the payoff that you received.
+  If you click in the game name of one of this cards, you will see a page with the strategy that every player chosen and their
+  payoffs.
+
+%p.title Invite a Friend
+
+%p
+  If you click in
+  %strong Invite a Friend
+  you will see a page with your friends on Facebook so you can choose which one of them you want to invite to play this game.
+  You can choose up to 20 friends and then click on
+  %strong Send Play The Game Theory Game Invitation.
+  They will receive the invitation and can choose to accept or not.
+
+%p.title Sending Gifts to a Friend
+
+%p
+  Clinking on
+  %strong Gifts
+  will show you all green cards that you have. You can send any of this card to one of your friends but you will lose this card
+  in the process. To send a card, click on it's name and you can send
+  %strong= Configuration[:card_gift_limit]
+  per day.
+    
+%p
+  You can also send money to you friends. Your gift will be of $
+  %strong= Configuration[:money_gift_value]
+  and you can send up to
+  %strong= Configuration[:money_gift_limit]
+  money gifts per day. Note that the number of gifts you can send is limit to how much money you have too.
