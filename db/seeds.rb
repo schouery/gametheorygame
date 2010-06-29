@@ -105,5 +105,5 @@ researcher = admin
 puts "Setting game ownership"
 games.each do |game|
   game.user = admin
-  game.save!git 
+  game.save!
 end
