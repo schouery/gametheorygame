@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 # every 1.hour do
-every 5.minutes do
+every 30.minutes do
   rake "card_dealer"
 end
