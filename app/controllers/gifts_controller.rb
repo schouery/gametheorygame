@@ -63,5 +63,5 @@ class GiftsController < ApplicationController
     end
     redirect_to(cards_url)
   end
-
+  
 end

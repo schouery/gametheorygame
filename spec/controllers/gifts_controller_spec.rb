@@ -7,7 +7,7 @@ describe GiftsController do
     Configuration.stub(:[]).with(:starting_money).and_return(100)
     @current_user = mock_model(User, :id => 1, :to_i => 1, :facebook_id => 100, :admin? => true)
     controller.stub!(:current_user).and_return(@current_user)
-    @session = mock(Facebooker::Session, :user => @current_user)
+    @session = mock(Facebooker::Session, :user => stub(Facebooker::User, :id => 0))
     controller.stub!(:facebook_session).and_return @session
     controller.stub!(:set_current_user => true)    
   end
@@ -20,12 +20,6 @@ describe GiftsController do
       @current_user.stub(:cards => [card1, card2, card3])
       get :index
       assigns[:cards].should == [card1, card2]
-    end
-  end
-  
-  describe "GET money" do
-    it "respond to money" do
-      get :money
     end
   end
   

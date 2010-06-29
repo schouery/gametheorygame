@@ -1,43 +1,51 @@
-User.delete_all
-SymmetricFunctionGame.delete_all
-TwoPlayerMatrixGame.delete_all
-TwoPlayerMatrixGameStrategy.delete_all
-TwoPlayerMatrixGamePayoff.delete_all
-SymmetricFunctionGameStrategy.delete_all
-Card.delete_all
+[User, SymmetricFunctionGame, SymmetricFunctionGameStrategy, TwoPlayerMatrixGame, TwoPlayerMatrixGameStrategy, TwoPlayerMatrixGamePayoff,
+SymmetricFunctionGameStrategy, Card, GameResult, GiftLog, Invitation, MoneyGift].each do |table|
+  puts "Deleting #{table.to_s}"
+  table.delete_all
+end
 
-polution_game = SymmetricFunctionGame.create!(:name => "Polution Game", 
-:description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
-the number of poluting players and a aditional fee of 3 if you choose to not polute.",
-:number_of_players => 4,
-:color => "red",
-:function => "-np[0] - 3*st[1]"
+puts "Creating Games"
+games = []
+
+polution_game4 = SymmetricFunctionGame.create!(
+  :name => "Polution Game for 4 players", 
+  :description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
+  the number of poluting players and a aditional fee of 3 if you choose to not polute. For example, two players
+  decide to polute and the other decide to not polute. Then the players that decided to polute pays 2 and the players
+  that decided to not polute pays 5.",
+  :number_of_players => 4,
+  :color => "red",
+  :function => "-np[0] - 3*st[1]"
 )
 
-admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
+polute4 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game4)
+not_polute4 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game4)
+games << polution_game4
 
-polution_game.user = admin
-polution_game.save
+polution_game6 = SymmetricFunctionGame.create!(
+  :name => "Polution Game for 6 players", 
+  :description => "This is the Polution Game for 6 players, you can choose to polute or not. Every player pays
+  the number of poluting players and a aditional fee of 3 if you choose to not polute. For example, two players
+  decide to polute and the other decide to not polute. Then the players that decided to polute pays 2 and the players
+  that decided to not polute pays 5.",
+  :number_of_players => 6,  
+  :color => "red",
+  :function => "-np[0] - 3*st[1]"
+)
 
-# researcher = User.create!(:facebook_id => 100001128518937, :admin => false, :researcher => false)#schouery@ime.usp.br
-researcher = admin
+polute6 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game6)
+not_polute6 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game6)
+games << polution_game6
 
-
-polute = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game)
-not_polute = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game)
-
-Card.create!(:user => admin, :game => polution_game)
-Card.create!(:user => admin, :game => polution_game)
-Card.create!(:user => admin, :game => polution_game)
-Card.create!(:user => admin, :game => polution_game)
-
-bs = TwoPlayerMatrixGame.create!(:name => "Battle of Sexes",
-:description => "In the Battle of Sexes you have to choose betwen going to watch a soccer game or watch a movie.
-If you are player 1 then you prefer soccer to movie and if you are player 2 you prefer movie to soccer. But you
-would like to go to watch the same thing than the other player.",
-:color => "green", 
-:user => admin)
-
+bs = TwoPlayerMatrixGame.create!(
+  :name => "Battle of Sexes",
+  :description => "In the Battle of Sexes you have to choose betwen going to watch a soccer match or watch a movie.
+  If you are player 1 then you prefer to watch soccer more than watch a movie and 
+  if you are player 2 you prefer to watch a movie to watch soccer. But you don't want to go alone, so you 
+  would like to go to the same thing than the other player. The matrix represents the possible resuts
+  and how much you will gain.",
+  :color => "green"
+)
 s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 1)
 s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 2)
@@ -49,34 +57,34 @@ p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payo
 p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 5, :payoff_player_2 => 6)
 bs.payoffs = [p1,p2,p3,p4]
 bs.save!
+games << bs
 
-Card.create!(:user => admin, :game => bs, :player_number => 1)
-Card.create!(:user => admin, :game => bs, :player_number => 2)
-
-mp = TwoPlayerMatrixGame.create!(:name => "Matching Pennies",
-:description => "As player one, you want both the coins to have the same result, as player two you want that the coins
-have different results.",
-:color => "yellow", 
-:user => researcher)
+mp = TwoPlayerMatrixGame.create!(
+  :name => "Matching Pennies",
+  :description => "You and your opponent will choose between Head or Tail for his coin. Player one wants that both coins
+  have the same result and player two wants that the coins have different results.",
+  :color => "yellow"
+)
 s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head', :player_number => 1)
 s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head', :player_number => 2)
 s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 2)
 mp.strategies = [s1,s2,s3,s4]
-p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 1, :payoff_player_2 => -1)
-p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -1, :payoff_player_2 => 1)
-p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -1, :payoff_player_2 => 1)
-p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 1, :payoff_player_2 => -1)
+p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 10, :payoff_player_2 => -10)
+p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -10, :payoff_player_2 => 10)
+p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -10, :payoff_player_2 => 10)
+p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 10, :payoff_player_2 => -10)
 mp.payoffs = [p1,p2,p3,p4]
 mp.save!
+games << mp
 
-# Card.create!(:user => admin, :game => mp, :player_number => 1)
-# Card.create!(:user => researcher, :game => mp, :player_number => 2)
-
-pd = TwoPlayerMatrixGame.create!(:name => "Prisionner's Dilemma",
-:description => "The standard prissioner's dilemma.",
-:color => "red", 
-:user => researcher)
+pd = TwoPlayerMatrixGame.create!(
+  :name => "Prisionner's Dilemma",
+  :description => "You and another person commit a crime and the police has found out. You are being interrogated by the police
+  and has to choose between confess or not confess. Depending on your strategy and the other player's strategy you will pay a
+  certain amount as a fee.",
+  :color => "red"
+)
 s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 1)
 s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 2)
@@ -88,3 +96,14 @@ p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payo
 p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 3, :payoff_player_2 => 3)
 pd.payoffs = [p1,p2,p3,p4]
 pd.save!
+games << pd
+
+puts "Creating Users"
+admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
+researcher = admin
+
+puts "Setting game ownership"
+games.each do |game|
+  game.user = admin
+  game.save!
+end

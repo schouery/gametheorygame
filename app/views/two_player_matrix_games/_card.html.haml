@@ -7,6 +7,9 @@
 %p
   You will play as player
   =h @card.player_number
+%p
+  Player one chooses a row and player two chooses a column and the payoff of the first player is on the left side of a cell
+  and the payoff for the second player is on the right side of a cell.
   
 = render "two_player_matrix_games/matrix", :game => @card.game
 
