@@ -21,4 +21,19 @@ describe RankingsController do
     end
   end
 
+  describe "GET show" do
+    it "assigns the users ordered by score" do
+      game_scores = [
+        stub_model(GameScore, :game_id => 1, :user_id => 1),
+        stub_model(GameScore, :game_id => 1, :user_id => 2),
+        stub_model(GameScore, :game_id => 1, :user_id => 3)
+      ]
+      GameScore.should_receive(:find).with(:all, 
+        :conditions => {:game_id => "1", :game_type => "symmetric_function_game"},
+        :order => "score DESC").and_return(game_scores)
+      get :show, :id => 1, :game_type => "symmetric_function_game"
+      assigns[:game_scores].should == game_scores
+    end
+  end
+
 end

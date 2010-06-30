@@ -1,5 +1,6 @@
 class SymmetricFunctionGame < ActiveRecord::Base
   has_many :cards, :as => :game
+  has_many :game_scores, :as => :game
   has_many :game_results, :as => :game
   belongs_to :user
   validates_presence_of :name, :description, :function, :color, :number_of_players
@@ -32,8 +33,20 @@ class SymmetricFunctionGame < ActiveRecord::Base
     player = card.user
     player.score += payoff
     player.save
+    update_game_score(payoff, player)
   end
-  
+
+  def update_game_score(payoff, player)
+    game_score = self.game_scores.find_by_user_id(player.id)
+    if game_score.nil?
+      game_score = GameScore.new
+      game_score.user = player
+      game_score.game = self
+    end
+    game_score.score += payoff
+    game_score.save
+  end
+
   def strategies_percentages
     sum = self.number_of_players * self.game_results.size
     histogram = Hash.new(0)

@@ -9,6 +9,7 @@ describe TwoPlayerMatrixGame do
   it { should accept_nested_attributes_for :strategies }
   it { should accept_nested_attributes_for :payoffs }
   it { should have_many(:cards, :as => :game) }
+  it { should have_many(:game_scores, :as => :game) }
   it { should have_many(:game_results, :as => :game) }
   it { should have_many(:payoffs, :class_name => "TwoPlayerMatrixGamePayoff", :dependent => :destroy, :foreign_key => :game_id)}
   it { should have_column(:weight) }
@@ -16,6 +17,7 @@ describe TwoPlayerMatrixGame do
   
   before(:each) do
     @game = TwoPlayerMatrixGame.new
+    @game.stub(:update_game_score => true)
     @strategies_player_1 = [mock_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>1),
                             mock_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>2)]
     @strategies_player_2 = [mock_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>3),
@@ -224,5 +226,6 @@ describe TwoPlayerMatrixGame do
     
     
   end
-  
+
+  it "should test update_game_score"
 end

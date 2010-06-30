@@ -12,12 +12,14 @@ describe SymmetricFunctionGame do
   it { should have_many(:strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id)}
   it { should accept_nested_attributes_for :strategies }
   it { should have_many(:cards, :as => :game) }
+  it { should have_many(:game_scores, :as => :game) }
   it { should have_many(:game_results, :as => :game) }  
   it { should have_column(:weight) }
   it { should validate_numericality_of(:weight).greater_than(0).only_integer }
 
   before(:each) do
     @game = SymmetricFunctionGame.new
+    @game.stub(:update_game_score => true)
     @strategy1 = mock_model(SymmetricFunctionGameStrategy, :id => 1, :label => "s1")
     @strategy2 = mock_model(SymmetricFunctionGameStrategy, :id => 2, :label => "s2")
     @card1 = mock_model(Card, :game => @game)
@@ -140,6 +142,7 @@ describe SymmetricFunctionGame do
         card3 = mock_model(Card, :strategy => @strategy1, :save => true, :game => @game, :payoff => nil)
         card4 = mock_model(Card, :strategy => @strategy2, :save => true, :game => @game, :payoff => nil)
         game = SymmetricFunctionGame.new
+        game.stub(:update_game_score => true)
         game.number_of_players = 4
         game.strategies = [@strategy1, @strategy2]
         game.cards = [card1, card2, card3, card4]
@@ -205,5 +208,5 @@ describe SymmetricFunctionGame do
     
   end
     
-
+  it "should test update_game_score"
 end

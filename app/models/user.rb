@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :cards
+  has_many :game_scores
   has_one :gift_log
   before_create :default_money
   before_save :create_gift_log

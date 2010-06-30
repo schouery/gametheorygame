@@ -7,6 +7,7 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   accepts_nested_attributes_for :strategies
   accepts_nested_attributes_for :payoffs
   has_many :cards, :as => :game
+  has_many :game_scores, :as => :game
   has_many :game_results, :as => :game
   validates_numericality_of :weight, :only_integer => true, :greater_than => 0
 
@@ -84,6 +85,18 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     player = card.user
     player.score += payoff
     player.save
+    update_game_score(payoff, player)
+  end
+
+  def update_game_score(payoff, player)
+    game_score = self.game_scores.find_by_user_id(player.id)
+    if game_score.nil?
+      game_score = GameScore.new
+      game_score.user = player
+      game_score.game = self
+    end
+    game_score.score += payoff
+    game_score.save
   end
     
   def payoff_matrix

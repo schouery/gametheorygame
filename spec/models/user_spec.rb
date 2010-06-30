@@ -5,6 +5,7 @@ describe User do
   it { should have_many(:cards) }
   it { should have_column(:money).type(:integer) }
   it { should have_column(:score).type(:integer)}
+  it { should have_many(:game_scores)}
 
   describe "calculating maximum of money gifts that can be given" do
     before(:each) do
