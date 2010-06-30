@@ -58,6 +58,10 @@ describe SymmetricFunctionGame do
           card.stub(:strategy => @strategy1, :payoff => nil)
           card.should_receive(:payoff=).with(1)
           card.should_receive(:save)
+          user = mock_model(User, :score => 0)
+          card.should_receive(:user).and_return(user)
+          user.should_receive(:score=).with(1)
+          user.should_receive(:save)
         end
         @game.play
       end
@@ -69,6 +73,10 @@ describe SymmetricFunctionGame do
           card.stub(:strategy => @strategy1, :payoff => nil)
           card.should_receive(:payoff=).with(1)
           card.should_receive(:save)
+          user = mock_model(User, :score => 0)
+          card.should_receive(:user).and_return(user)
+          user.should_receive(:score=).with(1)
+          user.should_receive(:save)
         end
         @game.play
       end
@@ -78,28 +86,31 @@ describe SymmetricFunctionGame do
           card.stub(:strategy => @strategy1, :payoff => nil)
           card.should_receive(:payoff=).with(2)
           card.should_receive(:save)
+          user = mock_model(User, :score => 0)
+          card.should_receive(:user).and_return(user)
+          user.should_receive(:score=).with(2)
+          user.should_receive(:save)
         end
         @game.function = "2"
         @game.play
       end
-    
-      it "should work for other constant functions" do
-        [@card1, @card2].each do |card|
-          card.stub(:strategy => @strategy1, :payoff => nil)
-          card.should_receive(:payoff=).with(2)
-          card.should_receive(:save)
-        end
-        @game.function = "2"
-        @game.play
-      end
-    
+        
       it "should work for function that use the strategy of the player" do
         @card1.stub(:strategy => @strategy1, :payoff => nil)
         @card1.should_receive(:payoff=).with(1)
         @card1.should_receive(:save)
+        user1 = mock_model(User, :score => 0)
+        @card1.should_receive(:user).and_return(user1)
+        user1.should_receive(:score=).with(1)
+        user1.should_receive(:save)
+
         @card2.stub(:strategy => @strategy2, :payoff => nil)
         @card2.should_receive(:payoff=).with(2)
         @card2.should_receive(:save)
+        user2 = mock_model(User, :score => 0)
+        @card2.should_receive(:user).and_return(user2)
+        user2.should_receive(:score=).with(2)
+        user2.should_receive(:save)
         @game.function = "1*st[0] + 2*st[1]"
         @game.play
       end
@@ -108,9 +119,17 @@ describe SymmetricFunctionGame do
         @card1.stub(:strategy => @strategy1, :payoff => nil)
         @card1.should_receive(:payoff=).with(3)
         @card1.should_receive(:save)
+        user1 = mock_model(User, :score => 0)
+        @card1.should_receive(:user).and_return(user1)
+        user1.should_receive(:score=).with(3)
+        user1.should_receive(:save)
         @card2.stub(:strategy => @strategy2, :payoff => nil)
         @card2.should_receive(:payoff=).with(3)
         @card2.should_receive(:save)
+        user2 = mock_model(User, :score => 0)
+        @card2.should_receive(:user).and_return(user2)
+        user2.should_receive(:score=).with(3)
+        user2.should_receive(:save)
         @game.function = "1*np[0] + 2*np[1]"
         @game.play
       end
@@ -126,15 +145,24 @@ describe SymmetricFunctionGame do
         game.cards = [card1, card2, card3, card4]
         [card1, card2, card3].each do |card|
           card.should_receive(:payoff=).with(3)
+          user = mock_model(User, :score => 0)
+          card.should_receive(:user).and_return(user)
+          user.should_receive(:score=).with(3)
+          user.should_receive(:save)
         end
         card4.should_receive(:payoff=).with(6)
+        user1 = mock_model(User, :score => 0)
+        card4.should_receive(:user).and_return(user1)
+        user1.should_receive(:score=).with(6)
+        user1.should_receive(:save)
         game.function = "np[0] + 3*st[1]"
         game.play
       end
       
       it "should generate a game result" do
         [@card1, @card2].each do |card|
-          card.stub(:strategy => @strategy1, :payoff => nil, :payoff= => true, :save => true)
+          user = stub_model(User, :score => 0, :score= => true, :save => true)
+          card.stub(:strategy => @strategy1, :payoff => nil, :payoff= => true, :save => true, :user => user)
         end        
         result = mock_model(GameResult)
         GameResult.should_receive(:new).and_return(result)

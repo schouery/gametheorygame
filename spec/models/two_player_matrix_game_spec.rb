@@ -157,6 +157,10 @@ describe TwoPlayerMatrixGame do
         @cards.each_with_index do |card, i|
           card.should_receive(:payoff=).with(i)
           card.should_receive(:save)
+          user = mock_model(User, :score => 0)
+          card.should_receive(:user).and_return(user)
+          user.should_receive(:score=).with(i)
+          user.should_receive(:save)
         end
         @game_result.stub(:cards= => true, :save => true, :game= => true)
         GameResult.stub(:new => @game_result)
@@ -170,6 +174,7 @@ describe TwoPlayerMatrixGame do
         @game_result.should_receive(:cards=).with(@cards)
         @game_result.should_receive(:game=).with(@game)
         @game_result.should_receive(:save)
+        @game.stub(:update_card => true)
         @game.play
       end
 

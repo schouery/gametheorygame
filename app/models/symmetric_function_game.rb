@@ -18,13 +18,20 @@ class SymmetricFunctionGame < ActiveRecord::Base
     return if cards.size < self.number_of_players
     np = strategy_histogram(cards)
     cards.each do |card|
-      card.payoff = calculate(strategies_for(card), np)
-      card.save
+      update_card(card, calculate(strategies_for(card), np))
     end
     result = GameResult.new
     result.game = self
     result.cards = cards
     result.save
+  end
+
+  def update_card(card, payoff)
+    card.payoff = payoff
+    card.save
+    player = card.user
+    player.score += payoff
+    player.save
   end
   
   def strategies_percentages
