@@ -4,7 +4,8 @@ describe User do
   it { should have_one(:gift_log)}
   it { should have_many(:cards) }
   it { should have_column(:money).type(:integer) }
-  
+  it { should have_column(:score).type(:integer)}
+
   describe "calculating maximum of money gifts that can be given" do
     before(:each) do
       config = Configuration.instance

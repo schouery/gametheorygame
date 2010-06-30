@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20100610165958) do
     t.integer  "user_id"
     t.integer  "number_of_money_gifts", :default => 0
     t.integer  "number_of_card_gifts",  :default => 0
-    t.date     "money_gift_sent_on",    :default => '2010-06-27'
-    t.date     "card_gift_sent_on",     :default => '2010-06-27'
+    t.date     "money_gift_sent_on",    :default => '2010-06-30'
+    t.date     "card_gift_sent_on",     :default => '2010-06-30'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20100610165958) do
     t.boolean  "admin",                     :default => false
     t.boolean  "researcher",                :default => false
     t.integer  "money"
+    t.integer  "score",                     :default => 0,     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

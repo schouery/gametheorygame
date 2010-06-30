@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :rankings
   map.resource :configuration, :only => [:edit, :update, :show]
   map.resources :two_player_matrix_games, :member => {:statistics => :get, :remove => :get}, :except => [:index, :destroy]
   map.resources :games, :only => [:index], :collection => {:probabilities => :get, :update_probabilities => :post}

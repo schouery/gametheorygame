@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :admin, :default => false
       t.boolean :researcher, :default => false
       t.integer :money
+      t.integer :score, :default => 0, :null => false
       t.timestamps
     end
   end

@@ -1,0 +1,12 @@
+%p.title Ranking
+
+.alternating_table
+  %table
+    %tr.odd
+      %th Name
+      %th Score
+    -@users.each_with_index do |user, i|
+      %tr{:class => (i.odd? ? "odd" : "even")}
+        %td
+          %fb:name{:uid => user.facebook_id, :capitalize => 'true'}
+        %td= user.score
