@@ -57,14 +57,16 @@ describe CardDealer do
   end
       
   it "should deal for each user without full hand" do
-    users = [mock_model(User, :cards => []),
-             mock_model(User, :cards => [mock_model(Card)]),
-             mock_model(User, :cards => [mock_model(Card),mock_model(Card)])]
+    users = [mock_model(User, :hand_size => 0),
+             mock_model(User, :hand_size => 1),
+             mock_model(User, :hand_size => 2),
+             mock_model(User, :hand_size => 3)]
     User.should_receive(:find).with(:all).and_return(users)
     c = CardDealer.new
     c.should_receive(:deal_for).with(users[0])
     c.should_receive(:deal_for).with(users[1])
-    c.should_not_receive(:deal_for).with(users[0])
+    c.should_not_receive(:deal_for).with(users[3])
+    c.should_not_receive(:deal_for).with(users[4])
     c.deal
   end  
 end

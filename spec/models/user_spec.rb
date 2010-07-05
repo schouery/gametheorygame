@@ -49,5 +49,17 @@ describe User do
   end 
 
   it "should receive initial cards"
-       
+
+  it "knows it's hand size" do
+    u = User.new
+    u.cards = []
+    u.hand_size.should == 0
+    u.cards = [stub_model(Card, :played? => false)]
+    u.hand_size.should == 1
+    u.cards = [stub_model(Card, :played? => true)]
+    u.hand_size.should == 0
+    u.cards = [stub_model(Card, :played? => false), mock_model(Card, :played? => true), mock_model(Card, :played? => false)]
+    u.hand_size.should == 2
+  end
+
 end

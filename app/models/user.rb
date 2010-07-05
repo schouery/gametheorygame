@@ -34,5 +34,12 @@ class User < ActiveRecord::Base
       money_restriction < system_restriction ? money_restriction : system_restriction
     end
   end
+
+  def hand_size
+    self.cards.select do |card|
+      !card.played?
+    end.size
+  end
+
   
 end

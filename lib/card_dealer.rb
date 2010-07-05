@@ -2,10 +2,10 @@ class CardDealer
 
   def deal
     User.find(:all).each do |user|
-      deal_for(user) if user.cards.size < Configuration[:hand_limit]
+      deal_for(user) if user.hand_size < Configuration[:hand_limit]
     end
   end
-  
+
   def deal_for(user)
     game = select_game
     number = rand(game.number_of_players) + 1
