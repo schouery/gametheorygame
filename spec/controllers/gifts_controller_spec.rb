@@ -1,25 +1,25 @@
 require 'spec_helper'
+require 'controllers/controller_stub'
 
 describe GiftsController do
-
-  before(:each) do
-    controller.stub!(:ensure_application_is_installed_by_facebook_user)
-    Configuration.stub(:[]).with(:starting_money).and_return(100)
-    @current_user = mock_model(User, :id => 1, :to_i => 1, :facebook_id => 100, :admin? => true)
-    controller.stub!(:current_user).and_return(@current_user)
-    @session = mock(Facebooker::Session, :user => stub(Facebooker::User, :id => 0))
-    controller.stub!(:facebook_session).and_return @session
-    controller.stub!(:set_current_user => true)    
+  include ControllerStub
+  before (:each) do
+    basic_controller_stub
   end
 
   describe "GET index" do
-    it "lists all player's green cards as @cards" do
+    it "lists all player's green cards as @cards and player's not used items as @items" do
       card1 = mock_model(Card, :can_send? => true)
       card2 = mock_model(Card, :can_send? => true)
       card3 = mock_model(Card, :can_send? => false)
+      item1 = mock_model(Item, :used => false)
+      item2 = mock_model(Item, :used => false)
+      item3 = mock_model(Item, :used => true)
       @current_user.stub(:cards => [card1, card2, card3])
+      @current_user.stub(:items => [item1, item2, item3])
       get :index
       assigns[:cards].should == [card1, card2]
+      assigns[:items].should == [item1, item2]
     end
   end
   
@@ -191,6 +191,91 @@ describe GiftsController do
         mock_card = mock_model(Card, :gift_for => @current_user.facebook_id + 1)
         Card.stub(:find => mock_card)
         get :receive_card, :id => 1      
+        response.should redirect_to cards_url
+      end
+    end
+
+  end
+
+  describe "GET item" do
+    
+    it "assigns the item as @item if it can be sended" do
+      mock_item = mock_model(Item, :can_send_as_gift? => true)
+      Item.should_receive(:find).with("1").and_return(mock_item)
+      get :item, :id => 1
+      assigns[:item].should == mock_item
+    end
+    
+    it "redirects to gifts_url if it can't send the item and warns the player" do
+      mock_item = mock_model(Item, :can_send_as_gift? => false, :gift_error => "Error")
+      Item.should_receive(:find).with("1").and_return(mock_item)
+      get :item, :id => 1
+      response.should redirect_to gifts_url
+      flash[:notice].should == "Error"
+    end
+    
+  end
+  
+  describe "POST send_item" do
+    describe "with a permited item" do
+      it "sends the item" do
+        mock_item = mock_model(Item)
+        Item.should_receive(:find).with("10").and_return(mock_item)
+        mock_item.should_receive(:send_as_gift).with(@current_user, 101).and_return(true)
+        post :send_item, :id => 10, :ids => [101]
+      end
+        
+      it "redirect to index" do
+        mock_item = mock_model(Item, :send_as_gift => true)
+        Item.stub(:find => mock_item)
+        post :send_item, :id => 10, :ids => [101]
+        response.should redirect_to gifts_url
+      end
+    end
+    
+    describe "with a forbidden item" do
+      it "redirect to index and warns the player for a item that can't be sended" do
+        mock_item = mock_model(Item, :send_as_gift => false, :gift_error => "Error")
+        Item.stub(:find => mock_item)
+        post :send_item, :id => 10, :ids => [101]
+        response.should redirect_to gifts_url
+        flash[:notice].should == "Error"
+      end
+    end
+    
+  end
+  
+  describe "GET receive_item" do
+    
+    describe "with sucess" do
+      it "gives the player the item if he has this gift" do
+        mock_item = mock_model(Item, :gift_for => @current_user.facebook_id)
+        Item.should_receive(:find).with("1").and_return(mock_item)
+        mock_item.should_receive(:user=).with(@current_user)
+        mock_item.should_receive(:gift_for=).with(nil)
+        mock_item.should_receive(:save)
+        get :receive_item, :id => 1      
+      end
+
+      it "should redirect to cards_url" do
+        mock_item = mock_model(Item, :user= => true, :save => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
+        Item.stub(:find => mock_item)
+        get :receive_item, :id => 1      
+        response.should redirect_to cards_url
+      end  
+    end
+
+    describe "falling" do
+      it "shouldn't give the gift if this is not the player who has it" do
+        mock_item = mock_model(Item, :gift_for => @current_user.facebook_id + 1)
+        Item.stub(:find => mock_item)
+        get :receive_item, :id => 1      
+      end
+  
+      it "should redirect to cards_url" do
+        mock_item = mock_model(Item, :gift_for => @current_user.facebook_id + 1)
+        Item.stub(:find => mock_item)
+        get :receive_item, :id => 1      
         response.should redirect_to cards_url
       end
     end

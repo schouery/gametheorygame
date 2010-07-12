@@ -1,0 +1,28 @@
+%p.title 
+  Listing Item Sets
+  (
+  = link_to 'New Item Set', new_item_set_path
+  )
+
+.alternating_table
+  %table
+    - i = 1
+    %tr{:class => (i.even? ? "even" : "odd")}
+      - i += 1
+      %th Name
+      %th Bonus Type
+      %th Item Types
+      %th 
+      %th
+      %th
+
+    - @item_sets.each do |item_set|
+      %tr{:class => (i.even? ? "even" : "odd")}
+        - i += 1
+        %td=h item_set.name
+        %td=h item_set.bonus_type.gsub(/_/," ").capitalize
+        %td= link_to 'Item Types', item_set_item_types_path(item_set)
+        %td= link_to 'Show', item_set
+        %td= link_to 'Edit', edit_item_set_path(item_set)
+        %td= link_to 'Destroy', item_set, :confirm => 'Are you sure?', :method => :delete
+

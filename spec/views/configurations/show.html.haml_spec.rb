@@ -14,8 +14,11 @@ describe "/configurations/show.html.haml" do
     response.should contain(@configuration.researcher_can_invite_researcher.to_s)
     response.should contain(@configuration.card_gift_limit.to_s)
     response.should contain(@configuration.money_gift_limit.to_s)
-    response.should contain(@configuration.hand_limit.to_s)
+    response.should contain(@configuration.item_gift_limit.to_s)
     response.should contain(@configuration.starting_money.to_s)
     response.should contain(@configuration.starting_cards.to_s)
+    response.should contain(@configuration.starting_cards_per_hour.to_s)
+    response.should contain(@configuration.starting_hand_limit.to_s)
+    response.should contain(@configuration.item_probability.to_s)
   end
 end

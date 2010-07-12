@@ -195,10 +195,10 @@ describe TwoPlayerMatrixGame do
       card2 = mock_model(Card, :strategy => @strategies_player_1[1])
       card3 = mock_model(Card, :strategy => @strategies_player_2[0])
       card4 = mock_model(Card, :strategy => @strategies_player_2[1])
-      [[mock_model(GameResult, :cards => [card1, card3])]*freq[0],
-      [mock_model(GameResult, :cards => [card1, card4])]*freq[1],
-      [mock_model(GameResult, :cards => [card2, card3])]*freq[2],
-      [mock_model(GameResult, :cards => [card2, card4])]*freq[3]].flatten
+      [[mock_model(GameResult, :sorted_cards => [card1, card3])]*freq[0],
+      [mock_model(GameResult, :sorted_cards => [card1, card4])]*freq[1],
+      [mock_model(GameResult, :sorted_cards => [card2, card3])]*freq[2],
+      [mock_model(GameResult, :sorted_cards => [card2, card4])]*freq[3]].flatten
     end
     
     it "should respond to results_matrix" do
@@ -227,5 +227,48 @@ describe TwoPlayerMatrixGame do
     
   end
 
-  it "should test update_game_score"
+  describe "updating game score" do
+    before(:each) do
+      @payoff = 15
+      @player = mock_model(User, :id => 1)
+      @game = TwoPlayerMatrixGame.new
+    end
+    it "having a game score" do
+      initial = 10
+      game_score = mock_model(GameScore, :score => initial)
+      @game.game_scores.should_receive(:find_by_user_id).with(@player.id).and_return(game_score)
+      game_score.should_receive(:score=).with(@payoff + initial)
+      game_score.should_receive(:save)
+      @game.update_game_score(@payoff, @player)
+    end
+  
+    it "without havig a game score" do
+      initial = 0  
+      game_score = mock_model(GameScore, :score => 0)
+      @game.game_scores.should_receive(:find_by_user_id).with(@player.id).and_return(nil)
+      GameScore.should_receive(:new).and_return(game_score)
+      game_score.should_receive(:user=).with(@player)
+      game_score.should_receive(:game=).with(@game)
+      game_score.should_receive(:score=).with(@payoff + initial)
+      game_score.should_receive(:save)
+      @game.update_game_score(@payoff, @player)
+    end
+  end
+  
+  it "has two players" do
+    TwoPlayerMatrixGame.new.number_of_players.should == 2
+  end
+  
+  it "knows the strategies for the players" do
+    game = TwoPlayerMatrixGame.new
+    lines_strategies = mock(Array)
+    columns_strategies = mock(Array)
+    game.stub(:lines_strategies => lines_strategies)
+    game.stub(:columns_strategies => columns_strategies)
+    game.strategies_for_player(1).should == lines_strategies
+    game.strategies_for_player(2).should == columns_strategies
+    game.strategies_for_player(3).should == nil
+    game.strategies_for_player(0).should == nil
+  end
+  
 end

@@ -1,10 +1,10 @@
 class CardsController < ApplicationController
   load_and_authorize_resource
+  
   def index
     all_cards = Card.find(:all, :conditions => {:user_id => current_user.id})
-    @cards = all_cards.find_all do |card|
-      !card.played?
-    end
+    @cards = all_cards.find_all { |card| !card.played? } unless all_cards.nil?
+    @items = Item.find(:all, :conditions => {:user_id => current_user.id, :used => false})
   end
 
   def played_cards

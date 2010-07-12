@@ -1,0 +1,15 @@
+%p.title Editing item_type
+
+- form_for([@item_set, @item_type]) do |f|
+  = f.error_messages
+
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    = f.submit 'Update'
+
+= link_to 'Show', [@item_set, @item_type]
+|
+= link_to 'Back', item_set_item_types_path(@item_set)

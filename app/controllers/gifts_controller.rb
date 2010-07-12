@@ -4,6 +4,9 @@ class GiftsController < ApplicationController
     @cards = current_user.cards.select do |card|
       card.can_send?
     end
+    @items = current_user.items.select do |item|
+      !item.used
+    end
   end
   
   def card
@@ -28,6 +31,32 @@ class GiftsController < ApplicationController
       card.user = current_user
       card.gift_for = nil
       card.save
+    end
+    redirect_to(cards_url)
+  end
+
+  def item
+    @item = Item.find(params[:id])
+    if !@item.can_send_as_gift?(current_user)
+      flash[:notice] = @item.gift_error
+      redirect_to(gifts_url)
+    end
+  end
+  
+  def send_item
+    item = Item.find(params[:id])
+    if !item.send_as_gift(current_user, params[:ids][0].to_i)
+      flash[:notice] = item.gift_error
+    end
+    redirect_to(gifts_url)
+  end
+  
+  def receive_item
+    item = Item.find(params[:id])
+    if item.gift_for == current_user.facebook_id
+      item.user = current_user
+      item.gift_for = nil
+      item.save
     end
     redirect_to(cards_url)
   end

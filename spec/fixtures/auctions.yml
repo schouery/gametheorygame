@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  item_id: 1
+  end_date: 2010-07-10 08:54:17
+  reserve_price: 1
+  bid: 1
+  bidder_id: 1
+
+two:
+  user_id: 1
+  item_id: 1
+  end_date: 2010-07-10 08:54:17
+  reserve_price: 1
+  bid: 1
+  bidder_id: 1

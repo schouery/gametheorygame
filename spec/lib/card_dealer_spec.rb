@@ -5,16 +5,8 @@ describe CardDealer do
   it "should respond to self.deal" do
     CardDealer.new.should respond_to :deal
   end
-  
-  before(:each) do
-    config = Configuration.instance
-    config.hand_limit = 2
-    config.save
-  end
-    
+      
   describe "selecting game" do
-   
-    it "should be responsability of a game model? or card?"
    
     it "should work for one game" do
       game = mock_model(SymmetricFunctionGame, :weight => 1)
@@ -53,14 +45,14 @@ describe CardDealer do
     c.should_receive(:select_game).and_return(game)
     c.should_receive(:rand).with(3).and_return(2)
     Card.should_receive(:create).with(:user => user, :game => game, :player_number => 3)
-    c.deal_for(user)
+    c.game_for(user)
   end
       
   it "should deal for each user without full hand" do
-    users = [mock_model(User, :hand_size => 0),
-             mock_model(User, :hand_size => 1),
-             mock_model(User, :hand_size => 2),
-             mock_model(User, :hand_size => 3)]
+    users = [mock_model(User, :hand_size => 0, :hand_limit => 1, :cards_per_hour => 1),
+             mock_model(User, :hand_size => 1, :hand_limit => 2, :cards_per_hour => 1),
+             mock_model(User, :hand_size => 2, :hand_limit => 2, :cards_per_hour => 1),
+             mock_model(User, :hand_size => 3, :hand_limit => 2, :cards_per_hour => 1)]
     User.should_receive(:find).with(:all).and_return(users)
     c = CardDealer.new
     c.should_receive(:deal_for).with(users[0])
@@ -68,5 +60,42 @@ describe CardDealer do
     c.should_not_receive(:deal_for).with(users[3])
     c.should_not_receive(:deal_for).with(users[4])
     c.deal
+  end
+  
+  it "should deal according to cards_per_hour" do
+    user = mock_model(User, :hand_size => 0, :hand_limit => 2, :cards_per_hour => 2)
+    User.should_receive(:find).with(:all).and_return([user])
+    c = CardDealer.new
+    c.should_receive(:deal_for).with(user).twice
+    c.deal
+  end  
+  
+  it "should create a item for a user" do
+    c = CardDealer.new
+    user = mock_model(User)
+    item_types = [mock_model(ItemType),mock_model(ItemType),mock_model(ItemType)]
+    ItemType.should_receive(:all).and_return(item_types)
+    c.should_receive(:rand).with(3).and_return(1)
+    Item.should_receive(:create).with(:user => user, :item_type => item_types[1])
+    c.item_for(user)
+  end
+  
+  describe "dealing for a user" do
+    it "should create a item if the rand is less than item probability" do
+      c = CardDealer.new
+      user = mock_model(User)
+      Configuration.stub(:[]).with(:item_probability).and_return(0.1)
+      c.should_receive(:rand).and_return(0.05)
+      c.should_receive(:item_for).with(user)
+      c.deal_for(user)
+    end
+    it "should create a card if the rand is more than item probability" do
+      c = CardDealer.new
+      user = mock_model(User)
+      Configuration.stub(:[]).with(:item_probability).and_return(0.1)
+      c.should_receive(:rand).and_return(0.2)
+      c.should_receive(:game_for).with(user)
+      c.deal_for(user)
+    end
   end  
 end

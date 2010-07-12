@@ -1,17 +1,12 @@
 require 'spec_helper'
+require 'controllers/controller_stub'
 
 describe CardsController do
+  include ControllerStub
 
-  before(:each) do
-    Configuration.stub(:[]).with(:starting_money).and_return(100)
-    controller.stub!(:ensure_application_is_installed_by_facebook_user)
-    @current_user = mock_model(User, :id => 1, :to_i => 1, :admin? => true)
-    controller.stub!(:current_user).and_return(@current_user)
-    @session = mock(Facebooker::Session, :user => @current_user)
-    controller.stub!(:facebook_session).and_return @session
-    controller.stub!(:set_current_user => true)    
+  before (:each) do
+    basic_controller_stub
   end
-
 
   def mock_card(stubs={})
     @mock_card ||= mock_model(Card, stubs)
@@ -32,9 +27,19 @@ describe CardsController do
       card_played = mock_model(Card, :played? => true)
       card_not_played = mock_model(Card, :played? => false)
       Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([card_played, card_not_played])
+      Item.stub(:find).and_return(nil)
       get :index
       assigns[:cards].should == [card_not_played]
     end
+    
+    it "assigns all player's not used items as @items" do
+      items = [mock_model(Item), mock_model(Item)]
+      Card.stub(:find).and_return(nil)
+      Item.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :used => false}).and_return(items)
+      get :index
+      assigns[:items].should == items
+    end
+    
   end
 
   describe "GET edit" do

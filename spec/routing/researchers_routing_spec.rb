@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe ResearchersController do
   describe "routing" do
-
     it "recognizes and generates #confirm" do
       { :get => "/researchers/confirm" }.should route_to(:controller => "researchers", :action => "confirm") 
     end

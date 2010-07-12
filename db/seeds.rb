@@ -1,5 +1,5 @@
 [User, SymmetricFunctionGame, SymmetricFunctionGameStrategy, TwoPlayerMatrixGame, TwoPlayerMatrixGameStrategy, TwoPlayerMatrixGamePayoff,
-SymmetricFunctionGameStrategy, Card, GameResult, GiftLog, Invitation, MoneyGift].each do |table|
+SymmetricFunctionGameStrategy, Card, GameResult, GiftLog, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
   puts "Deleting #{table.to_s}"
   table.delete_all
 end
@@ -107,3 +107,21 @@ games.each do |game|
   game.user = admin
   game.save!
 end
+
+puts "Creating Items Types and Sets"
+houses = [
+  ItemType.create!(:name => "Beach House"),
+  ItemType.create!(:name => "City House"),
+  ItemType.create!(:name => "Country House")
+]
+
+ItemSet.create!(:name => "Houses", :item_types => houses, :bonus_type => "cards_per_hour")
+
+cars = [
+  ItemType.create!(:name => "Small Car"),
+  ItemType.create!(:name => "Medium Car"),
+  ItemType.create!(:name => "Large Car"),
+  ItemType.create!(:name => "F1 Racing Car")
+]
+
+ItemSet.create!(:name => "Cars", :item_types => cars, :bonus_type => "hand_limit")

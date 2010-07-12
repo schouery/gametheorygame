@@ -10,13 +10,23 @@
         %td.name
           The Game Theory Game
           .version
-            (alpha)
+            (beta)
         %td.info
           %a{:href => 'http://gametheorygame.lighthouseapp.com/projects/55160/home', :target => '_blank'} 
             Report a Bug
-        %td.info
-          payoff:
-          =current_user.money
+        %td
+          .stats
+            %table
+              %tr
+                %td Money:
+                %td= current_user.money
+              %tr
+                %td Hand Limit:
+                %td= current_user.hand_limit
+              %tr
+                %td Cards Per Hour:
+                %td= current_user.cards_per_hour
+          
     #menubar
       =render :partial => 'shared/menu'
     #content

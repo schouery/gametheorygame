@@ -1,0 +1,22 @@
+%p.title 
+  New Auction for
+  = @item.item_type.name
+
+%p
+  %b
+    It will end at
+    = @auction.end_date
+  
+- form_for(@auction) do |f|
+  = f.error_messages
+  = f.hidden_field :item_id
+  = f.hidden_field :end_date
+  
+  %p
+    = f.label :reserve_price
+    = f.text_field :reserve_price
+
+  %p
+    = f.submit 'Create'
+
+= link_to 'Back', item_path(@item)

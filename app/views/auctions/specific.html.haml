@@ -1,0 +1,21 @@
+%p.title
+  Listing auctions for
+  = @item_type.name
+
+
+.alternating_table
+  %table
+    %tr.odd
+      %th Item
+      %th End date
+      %th Reserve price
+      %th Bid
+      %th Make a Bid
+
+    - @auctions.each_with_index do |auction, i|
+      %tr{:class => (i.odd? ? "odd" : "even")}
+        %td=h auction.item.item_type.name
+        %td=h auction.end_date
+        %td=h auction.reserve_price
+        %td=h auction.bid
+        %td= link_to 'Bid', edit_auction_path(auction)

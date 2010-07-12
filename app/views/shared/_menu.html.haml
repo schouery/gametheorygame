@@ -2,6 +2,12 @@
   %li
     =link_to "My Cards", cards_path
   %li
+    =link_to "My Items", items_path
+  %li
+    =link_to "My Auctions", active_auctions_path
+  %li
+    =link_to "Auctions", auctions_path
+  %li
     =link_to "Cards Played", played_cards_cards_path
   %li
     =link_to "Ranking", rankings_path
@@ -11,6 +17,9 @@
     =link_to "Gifts", gifts_path
   %li
     =link_to "Manual", manual_path
+  %li
+    =link_to "Item Sets", item_sets_path
+    
   -if can? :read, Configuration.instance      
     %li
       =link_to "Config", configuration_path

@@ -202,11 +202,35 @@ describe SymmetricFunctionGame do
                               mock_model(GameResult, :cards => [@card1, @card2])]
         @game.strategies_percentages.should == {@strategy1 => 3.0/8, @strategy2 => 5.0/8}
       end
-
-
-    end
-    
+    end    
   end
     
-  it "should test update_game_score"
+  describe "updating game score" do
+    before(:each) do
+      @payoff = 15
+      @player = mock_model(User, :id => 1)
+      @game = SymmetricFunctionGame.new
+    end
+    it "having a game score" do
+      initial = 10
+      game_score = mock_model(GameScore, :score => initial)
+      @game.game_scores.should_receive(:find_by_user_id).with(@player.id).and_return(game_score)
+      game_score.should_receive(:score=).with(@payoff + initial)
+      game_score.should_receive(:save)
+      @game.update_game_score(@payoff, @player)
+    end
+  
+    it "without havig a game score" do
+      initial = 0  
+      game_score = mock_model(GameScore, :score => 0)
+      @game.game_scores.should_receive(:find_by_user_id).with(@player.id).and_return(nil)
+      GameScore.should_receive(:new).and_return(game_score)
+      game_score.should_receive(:user=).with(@player)
+      game_score.should_receive(:game=).with(@game)
+      game_score.should_receive(:score=).with(@payoff + initial)
+      game_score.should_receive(:save)
+      @game.update_game_score(@payoff, @player)
+    end
+  end
+  
 end

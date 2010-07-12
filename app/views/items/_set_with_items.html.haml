@@ -1,0 +1,29 @@
+%div
+  %p
+    %b= item_set.name
+    (
+    %b Bonus Type:    
+    =h item_set.bonus_type.gsub(/_/," ").capitalize      
+    )
+  .alternating_table
+    %table
+      %tr.odd
+        %th 
+          Items from Set:
+          = item_set.name
+        %th Use your items
+        %th Sell your items 
+        %th Buy a new item
+      - i = 0
+      - hash.each_pair do |item_type, item|
+        - i += 1
+        %tr{:class => (i.even? ? "odd" : "even")}
+          %td{:class => item_class(item)}
+            = item_type.name
+          %td
+            = link_to "Use", use_item_path(item) unless item.nil? || item.used
+          %td
+            = link_to "Sell", new_item_auction_path(item) unless item.nil? || item.used
+          %td
+            = link_to "Buy", specific_auction_path(item_type) if item.nil?
+            

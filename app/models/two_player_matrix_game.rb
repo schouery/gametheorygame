@@ -141,8 +141,8 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     lines.size.times {counter << Array.new(columns.size, 0)}    
     sum = self.game_results.size
     self.game_results.each do |result|
-      i = lines.index(result.cards[0].strategy)
-      j = columns.index(result.cards[1].strategy)
+      i = lines.index(result.sorted_cards[0].strategy)
+      j = columns.index(result.sorted_cards[1].strategy)
       counter[i][j] += 1.0/sum
     end
     counter

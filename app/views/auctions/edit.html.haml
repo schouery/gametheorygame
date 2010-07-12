@@ -1,0 +1,16 @@
+%p= @auction.item.item_type.name
+%p= @auction.end_date
+%p= @auction.reserve_price
+
+- form_for(@auction) do |f|
+  = f.error_messages
+  %p
+    = f.label :bid
+    = f.text_field :bid
+    
+  %p
+    = f.submit 'Update'
+
+= link_to 'Show', @auction
+|
+= link_to 'Back', auctions_path

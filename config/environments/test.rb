@@ -38,4 +38,4 @@ config.gem 'spork',          :lib => false, :version => '>= 0.8.2'
 config.gem 'factory_girl',   :version => '>= 1.2.4', :source => 'http://gemcutter.org'
 config.gem 'jspec',          :lib => false, :version => '>= 4.2.0', :source => 'http://gemcutter.org'
 config.gem "remarkable_rails", :lib => false
-config.gem 'metric_fu', :version => '1.3.0', :lib => 'metric_fu'
+config.gem 'metric_fu',        :version => '>= 1.3.0', :lib => 'metric_fu'

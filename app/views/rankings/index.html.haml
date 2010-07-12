@@ -1,4 +1,13 @@
-%p.title Ranking
+%p.title Ranking Per Game
+%p
+  -TwoPlayerMatrixGame.all.each do |game|
+    = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "TwoPlayerMatrixGame"
+    %br
+  -SymmetricFunctionGame.all.each do |game|
+    = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "SymmetricFunctionGame"
+    %br
+
+%p.title Global Ranking
 
 .alternating_table
   %table
@@ -11,8 +20,3 @@
           %fb:name{:uid => user.facebook_id, :capitalize => 'true'}
         %td= user.score
 
-%ul
-  -TwoPlayerMatrixGame.all.each do |game|
-    %li= link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "TwoPlayerMatrixGame"
-  -SymmetricFunctionGame.all.each do |game|
-    %li= link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "SymmetricFunctionGame"

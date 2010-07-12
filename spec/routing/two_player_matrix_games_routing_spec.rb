@@ -34,5 +34,9 @@ describe TwoPlayerMatrixGamesController do
     it "recognizes and generates #remove" do
       { :get => "/two_player_matrix_games/1/remove" }.should route_to(:controller => "two_player_matrix_games", :action => "remove", :id => "1") 
     end
+    
+    it "recognizes and generates #destroy" do
+      { :delete => "/two_player_matrix_games/1" }.should_not be_routable
+    end
   end
 end

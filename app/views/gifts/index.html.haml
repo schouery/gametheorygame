@@ -1,17 +1,49 @@
 %p.title Gifts
 
--if current_user.gift_log.maximum_gifts_today(:card) > 0
-  .alternating_table
-    %table  
-      %tr.odd
-        %td Card
+.alternating_table
+  %table
+    - i = 1
+    %tr{:class => (i.even? ? "even" : "odd")}
+      - i += 1
+      %th Cards
+      %th
+    -if @cards.empty?
+      %tr{:class => (i.even? ? "even" : "odd")}
+        - i += 1
+        %td You don't have any card that you can send.
         %td
-      -@cards.each_with_index do |card, i|
+    -elsif current_user.gift_log.maximum_gifts_today(:card) > 0  
+      -@cards.each do |card|
         %tr{:class => (i.even? ? "even" : "odd")}
+          - i += 1
           %td= card.game.name
           %td= link_to "Send", card_gift_path(card)
--else
-  %p You can't send more cards today.
+    -else
+      %tr{:class => (i.even? ? "even" : "odd")}
+        - i += 1
+        %td You can't send more cards today.
+        %td
+
+    %tr{:class => (i.even? ? "even" : "odd")}
+      - i += 1
+      %th Items
+      %th
+    -if @items.empty?
+      %tr{:class => (i.even? ? "even" : "odd")}
+        - i += 1
+        %td You don't have any item that you can send.
+        %td
+    -elsif current_user.gift_log.maximum_gifts_today(:item) > 0
+      -@items.each do |item|
+        %tr{:class => (i.even? ? "even" : "odd")}
+          - i += 1
+          %td= item.item_type.name
+          %td= link_to "Send", item_gift_path(item)
+    -else
+      %tr{:class => (i.even? ? "even" : "odd")}
+        - i += 1
+        %td You can't send more items today.
+        %td
 
 %p
   = link_to "Send Money to your friends", money_gifts_path

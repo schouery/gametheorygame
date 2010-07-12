@@ -63,12 +63,6 @@ describe Card do
     c.save
   end
       
-  # if !card.can_send_gift?(current_user)
-  # if !card.send_gift(current_user, params[:ids[0]].to_i)
-  #   flash[:notice] = card.gift_error
-  # end
-  
-  
   describe "sending as gift" do
     before(:each) do
       @card = Card.new

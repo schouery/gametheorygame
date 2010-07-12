@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :items
   has_many :cards
   has_many :game_scores
   has_one :gift_log
-  before_create :default_money
+  before_create :defaults  
   before_save :create_gift_log
   after_create :receive_cards 
 
@@ -16,8 +17,10 @@ class User < ActiveRecord::Base
   def create_gift_log
     self.gift_log = GiftLog.new if self.gift_log.nil?
   end
-
-  def default_money
+  
+  def defaults
+    self.hand_limit = Configuration[:starting_hand_limit] unless self.hand_limit
+    self.cards_per_hour = Configuration[:starting_cards_per_hour] unless self.cards_per_hour
     self.money = Configuration[:starting_money] unless self.money
   end
 
@@ -36,9 +39,9 @@ class User < ActiveRecord::Base
   end
 
   def hand_size
-    self.cards.select do |card|
-      !card.played?
-    end.size
+    items = self.items.inject(0) {|sum, item| sum += item.used ? 0 : 1}
+    cards = self.cards.inject(0) {|sum, card| sum += card.played? ? 0 : 1}
+    items + cards
   end
 
   

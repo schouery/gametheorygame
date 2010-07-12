@@ -1,15 +1,11 @@
 require 'spec_helper'
+require 'controllers/controller_stub'
 
 describe RankingsController do
+  include ControllerStub
 
-  before(:each) do
-    Configuration.stub(:[]).with(:starting_money).and_return(100)
-    controller.stub!(:ensure_application_is_installed_by_facebook_user)
-    @current_user = mock_model(User, :id => 1, :to_i => 1, :admin? => true)
-    controller.stub!(:current_user).and_return(@current_user)
-    @session = mock(Facebooker::Session, :user => @current_user)
-    controller.stub!(:facebook_session).and_return @session
-    controller.stub!(:set_current_user => true)
+  before (:each) do
+    basic_controller_stub
   end
   
   describe "GET index" do
@@ -28,11 +24,15 @@ describe RankingsController do
         stub_model(GameScore, :game_id => 1, :user_id => 2),
         stub_model(GameScore, :game_id => 1, :user_id => 3)
       ]
+      game = mock_model(SymmetricFunctionGame)
+      mock_game_score = mock_model(GameScore, :game => game)
+      GameScore.should_receive(:new).with(:game_id => "1", :game_type => "symmetric_function_game").and_return(mock_game_score)
       GameScore.should_receive(:find).with(:all, 
         :conditions => {:game_id => "1", :game_type => "symmetric_function_game"},
         :order => "score DESC").and_return(game_scores)
       get :show, :id => 1, :game_type => "symmetric_function_game"
       assigns[:game_scores].should == game_scores
+      assigns[:game].should == game
     end
   end
 

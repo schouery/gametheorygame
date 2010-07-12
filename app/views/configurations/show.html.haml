@@ -1,30 +1,42 @@
 %p.title Configurations
-%table.configuration        
-  %tr
-    %td Money gift value:
-    %td=h @configuration.money_gift_value
-  %tr
-    %td Full permissions to Researchers: 
-    %td=h @configuration.full_permissions_to_researchers
-  %tr
-    %td A Researcher can invite another researcher:
-    %td=h @configuration.researcher_can_invite_researcher
-  %tr
-    %td Card Gifts Limit per Day:
-    %td=h @configuration.card_gift_limit
-  %tr
-    %td Money Gifts Limit per Day:
-    %td=h @configuration.money_gift_limit
-  %tr
-    %td Player's Hand Size Limit:
-    %td=h @configuration.hand_limit
-  %tr
-    %td Player's Starting Money:
-    %td=h @configuration.starting_money
-  %tr
-    %td Player's Starting Card:
-    %td=h @configuration.starting_cards
-
+.alternating_table
+  %table{:style=>'text-align: left'}
+    %tr.odd
+      %th Config
+      %th Value
+    %tr.even
+      %td Money gift value:
+      %td=h @configuration.money_gift_value
+    %tr.odd
+      %td Full permissions to Researchers: 
+      %td=h @configuration.full_permissions_to_researchers
+    %tr.even
+      %td A Researcher can invite another researcher:
+      %td=h @configuration.researcher_can_invite_researcher
+    %tr.odd
+      %td Card Gifts Limit per Day:
+      %td=h @configuration.card_gift_limit
+    %tr.even
+      %td Money Gifts Limit per Day:
+      %td=h @configuration.money_gift_limit
+    %tr.odd
+      %td Item Gifts Limit per Day:
+      %td=h @configuration.item_gift_limit
+    %tr.even
+      %td Player's Starting Money:
+      %td=h @configuration.starting_money
+    %tr.odd
+      %td Player's Starting Card:
+      %td=h @configuration.starting_cards
+    %tr.even
+      %td Starting Cards Per Hour:
+      %td=h @configuration.starting_cards_per_hour
+    %tr.odd
+      %td Starting Hand Limit:
+      %td=h @configuration.starting_hand_limit
+    %tr.even
+      %td Item Probability:
+      %td=h @configuration.item_probability
 
 -if can? :update, @configuration 
   %p= link_to 'Edit', edit_configuration_path

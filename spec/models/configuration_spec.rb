@@ -32,17 +32,17 @@ describe Configuration do
   it "should have money sended in a day limit" do
     @config.should respond_to :money_gift_limit
   end
-  
-  it "should have hand limit" do
-    @config.should respond_to :hand_limit
-  end
-  
+    
   it "should have starting money" do
     @config.should respond_to :starting_money
   end
   
   it "should have starting cards" do
     @config.should respond_to :starting_cards
+  end
+
+  it "should have item probability" do
+    @config.should respond_to :item_probability
   end
   
   it "should have [] acessor" do
@@ -51,4 +51,8 @@ describe Configuration do
     @config.save
     Configuration[:money_gift_value].should == 10
   end
+  
+  # t.integer :starting_cards_per_hour, :default => 1
+  # t.integer :starting_hand_limit, :default => 10
+  #   
 end

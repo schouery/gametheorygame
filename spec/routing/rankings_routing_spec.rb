@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe RankingsController do
   describe "routing" do
-
     it "recognizes and generates #index" do
       { :get => "/rankings" }.should route_to(:controller => "rankings", :action => "index")
     end

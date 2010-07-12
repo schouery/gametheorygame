@@ -1,0 +1,23 @@
+%p.title 
+  Editing Item Set
+  (
+  = link_to 'Show', @item_set
+  |
+  = link_to 'Back', item_sets_path
+  )
+
+- form_for(@item_set) do |f|
+  = f.error_messages
+
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    Bonus: 
+    =f.radio_button :bonus_type, 'hand_limit'
+    =f.label :bonus_type, 'Hand Limit'    
+    =f.radio_button :bonus_type, 'cards_per_hour'
+    =f.label :bonus_type, 'Card Per Hour'
+  %p
+    = f.submit 'Update'
+

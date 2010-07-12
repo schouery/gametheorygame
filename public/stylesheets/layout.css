@@ -1,4 +1,4 @@
-.card, .red_card, .yellow_card, .green_card {
+.card, .red_card, .yellow_card, .green_card, .item_card {
   float: left;
   padding: 1px;
   margin: 2px;
@@ -23,7 +23,10 @@
 .green_card {
   background-color: lime; }
 
-.card a, .red_card a, .yellow_card a, .green_card a {
+.item_card {
+  background-color: blue; }
+
+.card a, .red_card a, .yellow_card a, .green_card a, .item_card a {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 12px;
   color: white;
@@ -31,7 +34,8 @@
 
 .tdcard {
   height: 125px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  width: 100px; }
 
 input, textarea, select {
   border: 1px solid #bdc7d8;
@@ -193,6 +197,15 @@ table.title {
   margin-left: auto;
   margin-right: auto; }
 
+li.item_used {
+  color: lime; }
+
+li.item_not_used {
+  color: yellow; }
+
+li.item_not_found {
+  color: red; }
+
 p, li, .configuration {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 11px;
@@ -221,3 +234,7 @@ p, li, .configuration {
   font-size: 9px;
   font-color: red;
   text-align: justify; }
+
+.stats {
+  font-size: 10px;
+  float: right; }

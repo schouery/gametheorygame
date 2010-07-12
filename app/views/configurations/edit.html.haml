@@ -28,14 +28,24 @@
       %td= f.label :money_gift_limit, "Money Gifts Limit per Day:"
       %td= f.text_field :money_gift_limit
     %tr
-      %td= f.label :hand_limit, "Player's Hand Size Limit:"
-      %td= f.text_field :hand_limit
+      %td= f.label :item_gift_limit, "Item Gifts Limit per Day:"
+      %td= f.text_field :item_gift_limit      
     %tr
       %td= f.label :starting_money, "Player's Starting Money:"
       %td= f.text_field :starting_money
     %tr
       %td= f.label :starting_cards, "Player's Starting Cards:"
       %td= f.text_field :starting_cards
-    
+    %tr
+      %td= f.label :starting_cards_per_hour, "Starting Cards Per Hour:"
+      %td= f.text_field :starting_cards_per_hour
+    %tr
+      %td= f.label :starting_hand_limit, "Starting Hand Limit:"
+      %td= f.text_field :starting_hand_limit
+
+    %tr
+      %td= f.label :item_probability, "Item Probability:"
+      %td= f.text_field :item_probability
+
     %tr
       %td= f.submit 'Update'

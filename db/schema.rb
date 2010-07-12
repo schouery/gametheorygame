@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100630183642) do
+ActiveRecord::Schema.define(:version => 20100710115417) do
+
+  create_table "auctions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "end_date"
+    t.integer  "reserve_price", :default => 0
+    t.integer  "bid",           :default => 0
+    t.integer  "bidder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
@@ -31,9 +42,12 @@ ActiveRecord::Schema.define(:version => 20100630183642) do
     t.boolean  "researcher_can_invite_researcher", :default => false
     t.integer  "card_gift_limit",                  :default => 10
     t.integer  "money_gift_limit",                 :default => 10
-    t.integer  "hand_limit",                       :default => 10
+    t.integer  "item_gift_limit",                  :default => 10
     t.integer  "starting_money",                   :default => 100
     t.integer  "starting_cards",                   :default => 4
+    t.float    "item_probability",                 :default => 0.1
+    t.integer  "starting_cards_per_hour",          :default => 1
+    t.integer  "starting_hand_limit",              :default => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,8 +72,10 @@ ActiveRecord::Schema.define(:version => 20100630183642) do
     t.integer  "user_id"
     t.integer  "number_of_money_gifts", :default => 0
     t.integer  "number_of_card_gifts",  :default => 0
-    t.date     "money_gift_sent_on",    :default => '2010-06-30'
-    t.date     "card_gift_sent_on",     :default => '2010-06-30'
+    t.integer  "number_of_item_gifts",  :default => 0
+    t.date     "money_gift_sent_on",    :default => '2010-07-11'
+    t.date     "card_gift_sent_on",     :default => '2010-07-11'
+    t.date     "item_gift_sent_on",     :default => '2010-07-11'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +83,29 @@ ActiveRecord::Schema.define(:version => 20100630183642) do
   create_table "invitations", :force => true do |t|
     t.integer  "facebook_id", :limit => 20, :null => false
     t.string   "for"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_sets", :force => true do |t|
+    t.string   "name"
+    t.string   "bonus_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "item_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "item_type_id"
+    t.integer  "user_id"
+    t.boolean  "used",         :default => false
+    t.integer  "gift_for"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -131,11 +170,13 @@ ActiveRecord::Schema.define(:version => 20100630183642) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_id", :limit => 20,                    :null => false
-    t.boolean  "admin",                     :default => false
-    t.boolean  "researcher",                :default => false
+    t.integer  "facebook_id",    :limit => 20,                    :null => false
+    t.boolean  "admin",                        :default => false
+    t.boolean  "researcher",                   :default => false
     t.integer  "money"
-    t.integer  "score",                     :default => 0,     :null => false
+    t.integer  "score",                        :default => 0,     :null => false
+    t.integer  "cards_per_hour"
+    t.integer  "hand_limit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
