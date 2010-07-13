@@ -1,8 +1,9 @@
 %p.title 
   Listing Item Sets
-  (
-  = link_to 'New Item Set', new_item_set_path
-  )
+  -if can? :create, @item_set
+    (
+    = link_to 'New Item Set', new_item_set_path
+    )
 
 .alternating_table
   %table
@@ -23,6 +24,10 @@
         %td=h item_set.bonus_type.gsub(/_/," ").capitalize
         %td= link_to 'Item Types', item_set_item_types_path(item_set)
         %td= link_to 'Show', item_set
-        %td= link_to 'Edit', edit_item_set_path(item_set)
-        %td= link_to 'Destroy', item_set, :confirm => 'Are you sure?', :method => :delete
+        %td
+          -if can? :update, item_set
+            = link_to 'Edit', edit_item_set_path(item_set)
+        %td    
+          -if can? :destroy, item_set
+            = link_to 'Destroy', item_set, :confirm => 'Are you sure?', :method => :delete
 

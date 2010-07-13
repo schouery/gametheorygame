@@ -1,10 +1,10 @@
 %p.title
   =h @item_set.name
-  (
-  = link_to 'Edit', edit_item_set_path(@item_set)
-  |
-  = link_to 'Back', item_sets_path
-  )
+  -if can? :update, @item_set
+    (
+    = link_to 'Edit', edit_item_set_path(@item_set)
+    )
+    
 %p
   %b Bonus Type:
   =h @item_set.bonus_type.gsub(/_/," ").capitalize

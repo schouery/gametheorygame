@@ -11,7 +11,7 @@ describe "/item_sets/show.html.haml" do
       :item_types => @item_types, 
       :bonus_type => "hand_limit"
     )
-    
+    @controller.stub(:can? => true)
   end
 
   it "renders attributes in <p>" do

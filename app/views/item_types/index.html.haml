@@ -1,9 +1,10 @@
 %p.title 
   Listing Item Types from
   = @item_set.name
-  (
-  = link_to 'New Item Type', new_item_set_item_type_path(@item_set)
-  )
+  -if can? :create, ItemType.new
+    (
+    = link_to 'New Item Type', new_item_set_item_type_path(@item_set)
+    )
 
 .alternating_table
   %table
@@ -17,5 +18,9 @@
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td=h item_type.name
         %td= link_to 'Show', [@item_set, item_type]
-        %td= link_to 'Edit', edit_item_set_item_type_path(@item_set, item_type)
-        %td= link_to 'Destroy', [@item_set, item_type], :confirm => 'Are you sure?', :method => :delete
+        %td
+          -if can? :update, item_type
+            = link_to 'Edit', edit_item_set_item_type_path(@item_set, item_type)
+        %td
+          -if can? :update, item_type
+            = link_to 'Destroy', [@item_set, item_type], :confirm => 'Are you sure?', :method => :delete

@@ -36,6 +36,15 @@ class Ability
   end
 
   def user_abilities(user)
+    can :user, Item do |item|
+      item.user == user
+    end
+    can :read, Item do |item|
+      item.user == user
+    end
+    can :create_auction, Item do |item|
+      item.user == user
+    end
     can :read, Card
     can :update, Card do |card| 
       card.user == user

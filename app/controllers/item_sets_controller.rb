@@ -1,23 +1,24 @@
 class ItemSetsController < ApplicationController
+  load_and_authorize_resource
   def index
     @item_sets = ItemSet.all
   end
 
   def show
-    @item_set = ItemSet.find(params[:id])
+    # @item_set = ItemSet.find(params[:id])
   end
 
   def new
-    @item_set = ItemSet.new
+    # @item_set = ItemSet.new
     @item_set.bonus_type = "hand_limit"
   end
 
   def edit
-    @item_set = ItemSet.find(params[:id])
+    # @item_set = ItemSet.find(params[:id])
   end
 
   def create
-    @item_set = ItemSet.new(params[:item_set])
+    # @item_set = ItemSet.new(params[:item_set])
     if @item_set.save
       redirect_to(@item_set, :notice => 'ItemSet was successfully created.')
     else
@@ -26,7 +27,7 @@ class ItemSetsController < ApplicationController
   end
 
   def update
-    @item_set = ItemSet.find(params[:id])
+    # @item_set = ItemSet.find(params[:id])
     if @item_set.update_attributes(params[:item_set])
       redirect_to(@item_set, :notice => 'ItemSet was successfully updated.')
     else
@@ -35,7 +36,7 @@ class ItemSetsController < ApplicationController
   end
 
   def destroy
-    @item_set = ItemSet.find(params[:id])
+    # @item_set = ItemSet.find(params[:id])
     @item_set.destroy
     redirect_to item_sets_path
   end

@@ -11,6 +11,8 @@
         %th 
           Items from Set:
           = item_set.name
+        %th Status
+          
         %th Use your items
         %th Sell your items 
         %th Buy a new item
@@ -20,6 +22,7 @@
         %tr{:class => (i.even? ? "odd" : "even")}
           %td{:class => item_class(item)}
             = item_type.name
+          %td= item_status(item)  
           %td
             = link_to "Use", use_item_path(item) unless item.nil? || item.used
           %td

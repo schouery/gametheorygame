@@ -9,4 +9,14 @@ module ItemsHelper
     end
   end
 
+  def item_status(item)
+    if item.nil?
+      "You don't have it yet."
+    elsif item.used?
+      "Used"
+    else
+      "Owned but not used"
+    end    
+  end
+
 end

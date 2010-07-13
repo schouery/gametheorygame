@@ -19,17 +19,18 @@
   Clicking in 
   %strong My Card
   in the menubar will take you to your cards. There you can see all of your cards and select
-  one of them to play, by clicking in the name. You will see three types of cards: red, yellow and green. In red
-  cards you will always loose money but accordling to your strategy (and the others) you can loose more or less
-  money. Yellow card represents games were you can both win or lose money by playing. And, finally, in Green cards
-  you always win, but again how much you will win depends on the strategies chosen by everyone playing.
+  one of them to play, by clicking in the name. You will see four types of cards: red, yellow, green and blue. In red
+  cards you will always loose money but according to your strategy (and the others) you can loose more or less
+  money. Yellow card represents games were you can both win or lose money by playing. In Green cards
+  you always win, but again how much you will win depends on the strategies chosen by everyone playing. And, finally, blue
+  cards are items, which gives you bonus when you collect a whole set of them. We you come back to items later.
 
 %p
   Every hour you will receive a new card, but you have a hand-limit of
   %strong= Configuration[:hand_limit]
   cards. After have this amount of cards, you will not gain more cards until will play, discard or send as a gift one of them.
 
-%p.title Playing a Card
+%p.title Playing a Game
 
 %p
   After clicking in a card's name, you will see a page with the game's informations and the possibility of choosing
@@ -44,6 +45,47 @@
   will show you all the cards that you have played so far, with the strategy that you chosen and the payoff that you received.
   If you click in the game name of one of this cards, you will see a page with the strategy that every player chosen and their
   payoffs.
+  
+%p.title Items
+
+%p
+  Each item is part of a set of items. Completing a set of items is a great thing: it will increase your hand's limit or the
+  number of cards you gain per hour, depending on the set you complete.
+
+%p
+  Clicking in
+  %b My Items
+  you show you all the sets of items available. There you can buy or sell a item (participating in a auction, which we explain bellow)
+  or use a item. After using a item, you can't sell it anymore, but you have to use all items from a set to gain it's bonus. And you can
+  only use a item once, that is, you can will the bonus from a set only once. 
+  
+%p
+  Clicking on a 
+  %b blue card
+  at
+  %b My Cards 
+  will show you which items do you have from the that set and allows you to use or sell that item.
+  
+%p.title Auctions
+
+%p
+  The probability of gaining a item is small. You can choose to trust your luck and wait for a complete set of items be given to you,
+  but the best is to buy items that you need and sell items that you don't need anymore. All this is done by auctions. A auction is
+  a process for selling a item, where there is a starting price called reserve price and the buyers place bids and the player how
+  placed the largest bid wins the item and pay the bids value to the seller. The auction lasts for a day.
+  
+%p
+  To place a bid you should have enough money and you will lose this money. If you win the auction you will receive the item and if
+  someone place a higher bid you will regain the money you used.
+  
+%p.title Ranking
+
+%p
+  Clicking in
+  %b Ranking
+  will show you the global ranking of the game. The ranking is calculated according to how much money you gained/lost by playing
+  games. That is, auction are not accounted for ranking purposes. You can also choose a specific game to see the ranking for that
+  game.
 
 %p.title Invite a Friend
 

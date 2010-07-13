@@ -13,6 +13,7 @@ describe "/item_types/index.html.haml" do
       )
     ]
     assigns[:item_set] = stub_model(ItemSet, :name => "Item Set")
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of item_types" do

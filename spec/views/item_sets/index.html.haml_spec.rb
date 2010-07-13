@@ -14,6 +14,7 @@ describe "/item_sets/index.html.haml" do
         :bonus_type => "cards_per_hour"
       )
     ]
+    @controller.stub(:can? => true)
   end
 
   it "renders a list of item_sets" do

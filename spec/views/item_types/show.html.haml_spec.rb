@@ -7,6 +7,7 @@ describe "/item_types/show.html.haml" do
       :name => "Item Type"
     )
     assigns[:item_set] = stub_model(ItemSet, :name => "Item Set")
+    @controller.stub(:can? => true)
   end
 
   it "renders attributes in <p>" do

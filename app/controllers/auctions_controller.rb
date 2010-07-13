@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+
   def index
     @auctions = Auction.all.select do |auction|
       auction.end_date.future?
@@ -20,6 +21,7 @@ class AuctionsController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
+    authorize! :create_auction, @item
     if !@item.auction.nil?
       redirect_to cards_path, :notice => 'This item is already in auction.'
     elsif @item.user != current_user
@@ -38,6 +40,7 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(params[:auction])
     @item = @auction.item
+    authorize! :create_auction, @item
     @auction.user = @item.user
     if @auction.save
       @item.user = nil

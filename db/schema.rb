@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20100710115417) do
     t.integer  "number_of_money_gifts", :default => 0
     t.integer  "number_of_card_gifts",  :default => 0
     t.integer  "number_of_item_gifts",  :default => 0
-    t.date     "money_gift_sent_on",    :default => '2010-07-11'
-    t.date     "card_gift_sent_on",     :default => '2010-07-11'
-    t.date     "item_gift_sent_on",     :default => '2010-07-11'
+    t.date     "money_gift_sent_on",    :default => '2010-07-13'
+    t.date     "card_gift_sent_on",     :default => '2010-07-13'
+    t.date     "item_gift_sent_on",     :default => '2010-07-13'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -170,11 +170,11 @@ ActiveRecord::Schema.define(:version => 20100710115417) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_id",    :limit => 20,                    :null => false
-    t.boolean  "admin",                        :default => false
-    t.boolean  "researcher",                   :default => false
+    t.integer  "facebook_id",    :limit => 8,                    :null => false
+    t.boolean  "admin",                       :default => false
+    t.boolean  "researcher",                  :default => false
     t.integer  "money"
-    t.integer  "score",                        :default => 0,     :null => false
+    t.integer  "score",                       :default => 0,     :null => false
     t.integer  "cards_per_hour"
     t.integer  "hand_limit"
     t.datetime "created_at"
