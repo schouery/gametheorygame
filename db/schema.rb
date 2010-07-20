@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20100710115417) do
     t.integer  "number_of_money_gifts", :default => 0
     t.integer  "number_of_card_gifts",  :default => 0
     t.integer  "number_of_item_gifts",  :default => 0
-    t.date     "money_gift_sent_on",    :default => '2010-07-13'
-    t.date     "card_gift_sent_on",     :default => '2010-07-13'
-    t.date     "item_gift_sent_on",     :default => '2010-07-13'
+    t.date     "money_gift_sent_on",    :default => '2010-07-19'
+    t.date     "card_gift_sent_on",     :default => '2010-07-19'
+    t.date     "item_gift_sent_on",     :default => '2010-07-19'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
