@@ -1,16 +1,9 @@
 class TwoPlayerMatrixGame < ActiveRecord::Base
-  belongs_to :user
-  validates_presence_of :name, :description, :color
-  validates_inclusion_of :color, :in => %w( red green yellow )
+  include GameTheory::BaseGame
   has_many :strategies, :class_name => "TwoPlayerMatrixGameStrategy", :foreign_key => "game_id", :dependent => :destroy
   has_many :payoffs, :class_name => "TwoPlayerMatrixGamePayoff", :foreign_key => "game_id", :dependent => :destroy
   accepts_nested_attributes_for :strategies
   accepts_nested_attributes_for :payoffs
-  has_many :cards, :as => :game
-  has_many :game_scores, :as => :game
-  has_many :game_results, :as => :game
-  validates_numericality_of :weight, :only_integer => true, :greater_than => 0
-
   before_create :associate_payoffs
 
   def number_of_players
@@ -57,10 +50,6 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     end
   end
   
-  def played_cards
-    self.cards.find_all { |card| !card.strategy.nil? && card.payoff.nil? }
-  end
-
   def play
     cards = played_cards
     players_cards = []
@@ -77,26 +66,6 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
     result.cards = players_cards
     result.game = self
     result.save
-  end
-
-  def update_card(card, payoff)
-    card.payoff = payoff
-    card.save
-    player = card.user
-    player.score += payoff
-    player.save
-    update_game_score(payoff, player)
-  end
-
-  def update_game_score(payoff, player)
-    game_score = self.game_scores.find_by_user_id(player.id)
-    if game_score.nil?
-      game_score = GameScore.new
-      game_score.user = player
-      game_score.game = self
-    end
-    game_score.score += payoff
-    game_score.save
   end
     
   def payoff_matrix
@@ -152,9 +121,8 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
  private  
   def sorted_payoffs(lines, columns)
     self.payoffs.sort do |a, b|
-      if lines.index(a.strategy1) < lines.index(b.strategy1)
-        -1
-      elsif lines.index(a.strategy1) == lines.index(b.strategy1) && columns.index(a.strategy2) < columns.index(b.strategy2)
+      if (lines.index(a.strategy1) < lines.index(b.strategy1)) || 
+         (lines.index(a.strategy1) == lines.index(b.strategy1) && columns.index(a.strategy2) < columns.index(b.strategy2))
         -1
       elsif lines.index(a.strategy1) == lines.index(b.strategy1) && columns.index(a.strategy2) == columns.index(b.strategy2)
         0
@@ -163,5 +131,4 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
       end
     end  
   end
-  
 end

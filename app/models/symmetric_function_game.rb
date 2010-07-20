@@ -1,19 +1,10 @@
 class SymmetricFunctionGame < ActiveRecord::Base
-  has_many :cards, :as => :game
-  has_many :game_scores, :as => :game
-  has_many :game_results, :as => :game
-  belongs_to :user
-  validates_presence_of :name, :description, :function, :color, :number_of_players
+  include GameTheory::BaseGame
+  validates_presence_of :function, :number_of_players
   validates_numericality_of :number_of_players, :only_integer => true, :greater_than => 0
-  validates_inclusion_of :color, :in => ["red", "green", "yellow"]
   has_many :strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id
   accepts_nested_attributes_for :strategies
-  validates_numericality_of :weight, :only_integer => true, :greater_than => 0
-  
-  def played_cards
-    self.cards.find_all { |card| !card.strategy.nil? && card.payoff.nil? }
-  end
-
+    
   def play
     cards = played_cards
     return if cards.size < self.number_of_players
@@ -25,26 +16,6 @@ class SymmetricFunctionGame < ActiveRecord::Base
     result.game = self
     result.cards = cards
     result.save
-  end
-
-  def update_card(card, payoff)
-    card.payoff = payoff
-    card.save
-    player = card.user
-    player.score += payoff
-    player.save
-    update_game_score(payoff, player)
-  end
-
-  def update_game_score(payoff, player)
-    game_score = self.game_scores.find_by_user_id(player.id)
-    if game_score.nil?
-      game_score = GameScore.new
-      game_score.user = player
-      game_score.game = self
-    end
-    game_score.score += payoff
-    game_score.save
   end
 
   def strategies_percentages
@@ -59,7 +30,6 @@ class SymmetricFunctionGame < ActiveRecord::Base
   end
 
  private
-
   def calculate(st, np)
     eval(self.function)
   end
@@ -77,5 +47,4 @@ class SymmetricFunctionGame < ActiveRecord::Base
       (self.strategies[i] == card.strategy) ? 1 : 0;
     end
   end
-  
 end

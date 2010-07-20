@@ -5,3 +5,9 @@
 
 == License
   Release under Gnu Public License version 3.
+  
+== Defining a new type of Game
+include GameTheory::BaseGame
+has_many :strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id
+def play
+  def strategies_percentages

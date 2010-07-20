@@ -8,6 +8,7 @@ RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require File.join(File.dirname(__FILE__), '../lib/card_dealer')
+require File.join(File.dirname(__FILE__), '../lib/base_game')
 
 Rails::Initializer.run do |config|
   # Forgery Protection não funciona bem no Facebook
