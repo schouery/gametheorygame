@@ -12,10 +12,7 @@ class SymmetricFunctionGame < ActiveRecord::Base
     cards.each do |card|
       update_card(card, calculate(strategies_for(card), np))
     end
-    result = GameResult.new
-    result.game = self
-    result.cards = cards
-    result.save
+    create_game_results(cards)
   end
 
   def strategies_percentages

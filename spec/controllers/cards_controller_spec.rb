@@ -14,22 +14,18 @@ describe CardsController do
 
   describe "GET played_cards" do
     it "assigns all player's played cards as @cards" do
-      card_played = mock_model(Card, :played? => true)
-      card_not_played = mock_model(Card, :played? => false)
-      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([card_played, card_not_played])
+      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :played => true}).and_return([mock_card])
       get :played_cards
-      assigns[:cards].should == [card_played]      
+      assigns[:cards].should == [mock_card]
     end
   end
 
   describe "GET index" do
     it "assigns all player's not played cards as @cards" do
-      card_played = mock_model(Card, :played? => true)
-      card_not_played = mock_model(Card, :played? => false)
-      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return([card_played, card_not_played])
+      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :played => false}).and_return([mock_card])
       Item.stub(:find).and_return(nil)
       get :index
-      assigns[:cards].should == [card_not_played]
+      assigns[:cards].should == [mock_card]
     end
     
     it "assigns all player's not used items as @items" do
@@ -64,12 +60,13 @@ describe CardsController do
             
       it "updates the requested card" do
         Card.should_receive(:find).with("37").and_return(mock_card(:played? => false))
+        mock_card.should_receive(:played=).with(true)
         mock_card.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :card => {:these => 'params'}
       end
       
       it "tell the card's game to play" do
-        card = mock_card(:update_attributes => true, :played? => false)
+        card = mock_card(:update_attributes => true, :played? => false, :played= => true)
         Card.should_receive(:find).with("37").and_return(card)
         game = mock_model(SymmetricFunctionGame)
         card.should_receive(:game).and_return(game)
@@ -79,7 +76,7 @@ describe CardsController do
 
       it "redirects to the symmetric_function_game" do
         Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true,
-         :game => mock_model(SymmetricFunctionGame, :play => true), :played? => false))
+         :game => mock_model(SymmetricFunctionGame, :play => true), :played? => false, :played= => true))
         put :update, :id => "37"
         response.should redirect_to(cards_url)
       end
@@ -88,19 +85,19 @@ describe CardsController do
     describe "with invalid params" do
         
       it "updates the requested card" do
-        Card.should_receive(:find).with("37").and_return(mock_card(:played? => false))
+        Card.should_receive(:find).with("37").and_return(mock_card(:played? => false, :played= => true))
         mock_card.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :card => {:these => 'params'}
       end
     
       it "assigns the card as @card" do
-        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false, :played? => false))
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false, :played? => false, :played= => true))
         put :update, :id => "37"
         assigns[:card].should equal(mock_card)
       end
     
       it "re-renders the 'edit' template" do
-        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false, :played? => false))
+        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => false, :played? => false, :played= => true))
         put :update, :id => "37"
         response.should render_template('edit')
       end

@@ -10,6 +10,7 @@ class CreateCards < ActiveRecord::Migration
       t.integer :player_number, :default => 0
       t.integer :game_result_id
       t.integer :gift_for
+      t.boolean :played, :default => false
       
       t.timestamps
     end

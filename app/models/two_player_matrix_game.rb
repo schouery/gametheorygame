@@ -52,20 +52,15 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   
   def play
     cards = played_cards
-    players_cards = []
-    2.times do |i|
-      players_cards << cards.find {|card| card.player_number == i+1}
-    end
+    players_cards = Array.new(2) do |i|
+      cards.find {|card| card.player_number == i+1}
+    end    
     return if players_cards[0].nil? || players_cards[1].nil?
-    payoff = self.payoffs.find(:first) do |p|
-      p.strategy1.id == players_cards[0].strategy.id && p.strategy2.id == players_cards[1].strategy.id
-    end
+    payoff = self.payoffs.find(:first, :conditions => {:strategy1_id => players_cards[0].strategy.id, 
+                                                       :strategy2_id => players_cards[1].strategy.id})
     update_card(players_cards[0], payoff.payoff_player_1)
     update_card(players_cards[1], payoff.payoff_player_2)
-    result = GameResult.new
-    result.cards = players_cards
-    result.game = self
-    result.save
+    create_game_results(players_cards)
   end
     
   def payoff_matrix

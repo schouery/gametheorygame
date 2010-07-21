@@ -70,7 +70,7 @@ describe User do
     1.upto(3) do |i|
       config.starting_cards = i
       config.save
-      u = User.new(:facebook_id => 1)
+      u = User.new(:facebook_id => i)
       mock_card_dealer = mock_model(CardDealer)
       CardDealer.should_receive(:new).and_return(mock_card_dealer)
       mock_card_dealer.should_receive(:deal_for).with(u).exactly(i)

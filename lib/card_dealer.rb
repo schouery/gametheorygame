@@ -24,7 +24,7 @@ class CardDealer
     
   def select_game
     games ||= SymmetricFunctionGame.find(:all, :conditions => {:removed => false}) + 
-               TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false})
+              TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false})
     weight_sum = games.inject(0) { |acc, game| acc += game.weight }
     result = rand(weight_sum)
     games.find {|game| (result -= game.weight) < 0}

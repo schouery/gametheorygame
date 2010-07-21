@@ -14,22 +14,15 @@ describe Card do
     c = Card.new
     c.game = mock_model(SymmetricFunctionGame, :color => "green")
     c.can_send?.should == true
-    c.strategy = mock_model(SymmetricFunctionGameStrategy)
+    c.played = true
     c.can_send?.should == false
     c.game = mock_model(SymmetricFunctionGame, :color => "red")
-    c.strategy = nil
+    c.played = false
     c.can_send?.should == false
-    c.strategy = mock_model(SymmetricFunctionGameStrategy)
+    c.played = true
     c.can_send?.should == false
   end
-  
-  it "should know if it was played" do
-    c = Card.new
-    c.played?.should == false
-    c.strategy = mock_model(SymmetricFunctionGameStrategy)
-    c.played?.should == true
-  end
-  
+    
   it "should change the player's money if payoff is positive" do
     mock_user = mock_model(User, :money => 15)
     c = Card.new(:user => mock_user)
@@ -72,7 +65,6 @@ describe Card do
       @gift_log.stub(:maximum_gifts_today).with(:card).and_return(1)
       @card.user = @current_user
       @card.game = @green_game
-      @card.strategy = nil
     end
 
     it "can be sended if it is a green game, it was not played and the user can send it" do
@@ -108,7 +100,7 @@ describe Card do
     end
     
     it "can't be sended if it was played" do
-      @card.strategy = mock_model(SymmetricFunctionGameStrategy)
+      @card.played = true
       @card.can_send_as_gift?(@current_user).should == false
       @card.gift_error.should == "You can't send this card!"
     end
@@ -125,8 +117,5 @@ describe Card do
       @card.gift_for.should be_nil
       @card.gift_error.should == "You can't send this card!"
     end
-    
-  end    
-    
-    
+  end        
 end

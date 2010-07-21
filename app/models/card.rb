@@ -4,7 +4,6 @@ class Card < ActiveRecord::Base
   belongs_to :strategy, :polymorphic => true
   belongs_to :game_result
   after_save :give_money_to_player
-
   attr_reader :gift_error
   
   def give_money_to_player
@@ -14,16 +13,12 @@ class Card < ActiveRecord::Base
     end
   end
   
-  def played?
-    !self.strategy.nil?
-  end
-  
   def can_send?
-    !self.game.nil? && self.game.color == "green" && !played? 
+    !self.game.nil? && self.game.color == "green" && !self.played? 
   end
 
   def can_send_as_gift?(user)
-    if self.game.nil? || self.game.color != "green" || played? || self.user != user
+    if self.game.nil? || self.game.color != "green" || self.played? || self.user != user
       @gift_error = "You can't send this card!"
       false
     elsif user.gift_log.maximum_gifts_today(:card) <= 0
@@ -45,5 +40,4 @@ class Card < ActiveRecord::Base
       return false
     end
   end
-  
 end

@@ -39,5 +39,12 @@ module GameTheory
       game_score.score += payoff
       game_score.save
     end
+    
+    def create_game_results(cards)
+      result = GameResult.new
+      result.cards = cards
+      result.game = self
+      result.save
+    end
   end
 end

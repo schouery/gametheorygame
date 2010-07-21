@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  # Lists all games as @games
   def index
     @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false}) +
              SymmetricFunctionGame.find(:all, :conditions => {:removed => false})

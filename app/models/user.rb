@@ -39,9 +39,13 @@ class User < ActiveRecord::Base
   end
 
   def hand_size
-    items = self.items.inject(0) {|sum, item| sum += item.used ? 0 : 1}
-    cards = self.cards.inject(0) {|sum, card| sum += card.played? ? 0 : 1}
-    items + cards
+    items = self.items.select {|item| !item.used}
+    cards = self.cards.select {|card| !card.played?}
+    items.size + cards.size
+    # 
+    # items = self.items.inject(0) {|sum, item| sum += item.used ? 0 : 1}
+    # cards = self.cards.inject(0) {|sum, card| sum += card.played? ? 0 : 1}
+    # items + cards
   end
 
   
