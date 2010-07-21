@@ -36,21 +36,6 @@ polute4 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => pol
 not_polute4 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game4)
 games << polution_game4
 
-polution_game4 = SymmetricFunctionGame.create!(
-  :name => "Polution Game for 4 players", 
-  :description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
-  the number of poluting players and a aditional fee of 3 if you choose to not polute. For example, two players
-  decide to polute and the other decide to not polute. Then the players that decided to polute pays 2 and the players
-  that decided to not polute pays 5.",
-  :number_of_players => 4,
-  :color => "red",
-  :function => "-np[0] - 3*st[1]"
-)
-
-polute4 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game4)
-not_polute4 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game4)
-games << polution_game4
-
 polution_game6 = SymmetricFunctionGame.create!(
   :name => "Polution Game for 6 players", 
   :description => "This is the Polution Game for 6 players, you can choose to polute or not. Every player pays
