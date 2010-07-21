@@ -4,39 +4,32 @@ class ItemSetsController < ApplicationController
     @item_sets = ItemSet.all
   end
 
-  def show
-    # @item_set = ItemSet.find(params[:id])
-  end
-
   def new
-    # @item_set = ItemSet.new
     @item_set.bonus_type = "hand_limit"
   end
 
   def edit
-    # @item_set = ItemSet.find(params[:id])
   end
 
   def create
-    # @item_set = ItemSet.new(params[:item_set])
     if @item_set.save
-      redirect_to(@item_set, :notice => 'ItemSet was successfully created.')
+      flash[:notice] = 'ItemSet was successfully created.'
+      redirect_to item_set_item_types_path(@item_set)
     else
       render :action => "new"
     end
   end
 
   def update
-    # @item_set = ItemSet.find(params[:id])
     if @item_set.update_attributes(params[:item_set])
-      redirect_to(@item_set, :notice => 'ItemSet was successfully updated.')
+      flash[:notice] = 'ItemSet was successfully updated.'
+      redirect_to item_set_item_types_path(@item_set)
     else
       render :action => "edit"
     end
   end
 
-  def destroy
-    # @item_set = ItemSet.find(params[:id])
+  def delete
     @item_set.destroy
     redirect_to item_sets_path
   end

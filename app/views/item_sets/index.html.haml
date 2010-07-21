@@ -13,7 +13,6 @@
       %th Name
       %th Bonus Type
       %th Item Types
-      %th 
       %th
       %th
 
@@ -23,11 +22,10 @@
         %td=h item_set.name
         %td=h item_set.bonus_type.gsub(/_/," ").capitalize
         %td= link_to 'Item Types', item_set_item_types_path(item_set)
-        %td= link_to 'Show', item_set
         %td
           -if can? :update, item_set
             = link_to 'Edit', edit_item_set_path(item_set)
         %td    
           -if can? :destroy, item_set
-            = link_to 'Destroy', item_set, :confirm => 'Are you sure?', :method => :delete
+            = link_to 'Destroy', delete_item_set_path(item_set)
 

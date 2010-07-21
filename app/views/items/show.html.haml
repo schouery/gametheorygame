@@ -1,6 +1,8 @@
 %p.title
   = @item_type.name
   (
+  = link_to "Back", cards_path
+  |
   = link_to "Use", use_item_path(@item)
   |
   = link_to "Sell", new_item_auction_path(@item)

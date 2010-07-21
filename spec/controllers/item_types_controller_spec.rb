@@ -41,14 +41,6 @@ describe ItemTypesController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested item_type as @item_type" do
-      find_one("37", mock_item_type)
-      get :show, :id => "37", :item_set_id => "1"
-      assigns[:item_type].should equal(mock_item_type)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new item_type as @item_type" do
       build
@@ -79,7 +71,7 @@ describe ItemTypesController do
         build
         mock_item_type.stub(:save => true)
         post :create, :item_type => {}, :item_set_id => "1"
-        response.should redirect_to(item_set_item_type_url(mock_item_set, mock_item_type))
+        response.should redirect_to(item_set_item_types_url(mock_item_set))
       end
     end
 
@@ -119,7 +111,7 @@ describe ItemTypesController do
       it "redirects to the item_type" do
         find_one("1", mock_item_type(:update_attributes => true))
         put :update, :id => "1", :item_set_id => "1"
-        response.should redirect_to(item_set_item_type_url(mock_item_set, mock_item_type))
+        response.should redirect_to(item_set_item_types_url(mock_item_set))
       end
     end
 
@@ -145,16 +137,16 @@ describe ItemTypesController do
 
   end
 
-  describe "DELETE destroy" do
+  describe "GET delete" do
     it "destroys the requested item_type" do
       find_one("37", mock_item_type)
       mock_item_type.should_receive(:destroy)
-      delete :destroy, :id => "37", :item_set_id => "1"
+      get :delete, :id => "37", :item_set_id => "1"
     end
 
     it "redirects to the item_types list" do
       find_one("1", mock_item_type(:destroy => true))
-      delete :destroy, :id => "1", :item_set_id => "1"
+      get :delete, :id => "1", :item_set_id => "1"
       response.should redirect_to(item_set_item_types_url)
     end
   end

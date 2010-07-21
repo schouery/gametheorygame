@@ -18,7 +18,7 @@ describe ResearchersController do
       { :get => "/researchers/new" }.should route_to(:controller => "researchers", :action => "new")
     end
     
-    it "recognizes and generates #edit" do
+    it "should not recognize #edit" do
       { :get => "/researchers/1/edit" }.should_not be_routable
     end
     
@@ -26,15 +26,15 @@ describe ResearchersController do
       { :post => "/researchers" }.should route_to(:controller => "researchers", :action => "create")
     end
     
-    it "recognizes and generates #update" do
+    it "should not recognize #update" do
       { :put => "/researchers/1" }.should_not be_routable
     end
 
-    it "recognizes and generates #show" do
+    it "should not recognize #show" do
       { :get => "/researchers/1" }.should_not be_routable
     end
 
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/researchers/1" }.should_not be_routable
     end
   end

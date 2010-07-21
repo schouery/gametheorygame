@@ -20,14 +20,6 @@ describe ItemSetsController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested item_set as @item_set" do
-      ItemSet.stub(:find).with("37").and_return(mock_item_set)
-      get :show, :id => "37"
-      assigns[:item_set].should equal(mock_item_set)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new item_set as @item_set" do
       ItemSet.stub(:new).and_return(mock_item_set(:bonus_type= => true))
@@ -56,7 +48,7 @@ describe ItemSetsController do
       it "redirects to the created item_set" do
         ItemSet.stub(:new).and_return(mock_item_set(:save => true))
         post :create, :item_set => {}
-        response.should redirect_to(item_set_url(mock_item_set))
+        response.should redirect_to(item_set_item_types_url(mock_item_set))
       end
     end
 
@@ -94,7 +86,7 @@ describe ItemSetsController do
       it "redirects to the item_set" do
         ItemSet.stub(:find).and_return(mock_item_set(:update_attributes => true))
         put :update, :id => "1"
-        response.should redirect_to(item_set_url(mock_item_set))
+        response.should redirect_to(item_set_item_types_url(mock_item_set))
       end
     end
 
@@ -120,16 +112,16 @@ describe ItemSetsController do
 
   end
 
-  describe "DELETE destroy" do
+  describe "GET delete" do
     it "destroys the requested item_set" do
       ItemSet.should_receive(:find).with("37").and_return(mock_item_set)
       mock_item_set.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      get :delete, :id => "37"
     end
 
     it "redirects to the item_sets list" do
       ItemSet.stub(:find).and_return(mock_item_set(:destroy => true))
-      delete :destroy, :id => "1"
+      get :delete, :id => "37"
       response.should redirect_to(item_sets_url)
     end
   end

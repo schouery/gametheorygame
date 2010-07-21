@@ -10,6 +10,23 @@ class GamesController < ApplicationController
     end
   end
   
+  def inactive
+    @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => true}) +
+             SymmetricFunctionGame.find(:all, :conditions => {:removed => true})
+    authorize! :read, @games
+  end
+  
+  def activate
+    if params[:type] == 'symmetric_function_game'
+      @game = SymmetricFunctionGame.find(params[:id])
+    else
+      @game = TwoPlayerMatrixGame.find(params[:id])
+    end
+    @game.removed = false
+    @game.save
+    redirect_to games_url
+  end
+    
   def probabilities
     @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false}) +
              SymmetricFunctionGame.find(:all, :conditions => {:removed => false})

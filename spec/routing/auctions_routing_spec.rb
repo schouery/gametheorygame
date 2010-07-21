@@ -34,7 +34,7 @@ describe AuctionsController do
       { :put => "/auctions/1" }.should route_to(:controller => "auctions", :action => "update", :id => "1") 
     end
     
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/auctions/1" }.should_not be_routable
     end
   end

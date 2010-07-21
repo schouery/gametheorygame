@@ -2,7 +2,7 @@
 @import "forms"
 @import "two_player_matrix_game"
 @import "alternating_table"
-!page_width = 756px
+!page_width = 740px
 
 body
   margin: 0
@@ -16,7 +16,18 @@ table.title
   .name
     font-size: 20px
     width: 250px 
-
+    
+    a
+      color: #333333
+      &:link
+        text-decoration: none
+      &:visited
+        text-decoration: none
+      &:hover
+        text-decoration: underline
+      &:active
+        text-decoration: underline
+    
   .info
     font-size: 15px
     text-align: right
@@ -98,11 +109,18 @@ p, li, .configuration
   font-weight: bold
 
 .help
-  width: 300px
-  font-size: 9px
+  width: !page_width
+  font-size: 10px
   font-color: #f00
   text-align: justify
 
 .stats
   font-size: 10px
   float: right
+
+.configuration
+  margin-left: auto
+  margin-right: auto
+  
+td.center
+  text-align: center

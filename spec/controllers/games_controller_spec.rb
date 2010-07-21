@@ -59,4 +59,33 @@ describe GamesController do
       response.should redirect_to games_url
     end
   end
+  
+  describe "GET inactive" do
+    it "assigns all inactive games as @games" do
+      symmetric_function_games = [mock_model(SymmetricFunctionGame), mock_model(SymmetricFunctionGame)]
+      two_player_matrix_games = [mock_model(TwoPlayerMatrixGame), mock_model(TwoPlayerMatrixGame)]
+      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions => {:removed => true}).and_return(symmetric_function_games)
+      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions => {:removed => true}).and_return(two_player_matrix_games)
+      get :inactive
+      assigns[:games].should == two_player_matrix_games + symmetric_function_games
+    end
+  end
+  
+  describe "GET activate" do
+    it "marks the game as not removed if it is a symmetric function game" do
+      symmetric_function_game = mock_model(SymmetricFunctionGame)
+      SymmetricFunctionGame.should_receive(:find).with('1').and_return(symmetric_function_game)
+      symmetric_function_game.should_receive(:removed=).with(false)
+      symmetric_function_game.should_receive(:save)
+      get :activate, :id => '1', :type => 'symmetric_function_game'
+    end
+    it "marks the game as not removed if it is a symmetric function game" do
+      two_player_matrix_game = mock_model(TwoPlayerMatrixGame)
+      TwoPlayerMatrixGame.should_receive(:find).with('1').and_return(two_player_matrix_game)
+      two_player_matrix_game.should_receive(:removed=).with(false)
+      two_player_matrix_game.should_receive(:save)
+      get :activate, :id => '1', :type => 'two_player_matrix_game'
+    end
+    
+  end
 end

@@ -1,4 +1,8 @@
-%p.title Editing configuration
+%p.title 
+  Editing configuration
+  (
+  = link_to "Back", configuration_path
+  )
 
 -form_for(@configuration) do |f|
   = f.error_messages

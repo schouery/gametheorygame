@@ -1,4 +1,13 @@
-%p.title=h @symmetric_function_game.name
+%p.title
+  =h @symmetric_function_game.name
+  (
+  -if can? :update, @symmetric_function_game
+    = link_to 'Edit', edit_symmetric_function_game_path(@symmetric_function_game)
+    |
+  = link_to 'Statistics', statistics_symmetric_function_game_path(@symmetric_function_game)
+  |  
+  = link_to 'Back', games_path
+  )
 
 %p
   Description:
@@ -22,7 +31,3 @@
   Function:
   =h @symmetric_function_game.function
 
--if can? :update, @symmetric_function_game
-  = link_to 'Edit', edit_symmetric_function_game_path(@symmetric_function_game)
-  |
-= link_to 'Back', games_path

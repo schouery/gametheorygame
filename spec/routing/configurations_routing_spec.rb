@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ConfigurationsController do
   describe "routing" do
-    it "recognizes and generates #new" do
+    it "should not recognize #new" do
       { :get => "/configuration/new" }.should_not be_routable
     end
 
@@ -14,7 +14,7 @@ describe ConfigurationsController do
       { :get => "/configuration/edit" }.should route_to(:controller => "configurations", :action => "edit")
     end
 
-    it "recognizes and generates #create" do
+    it "should not recognize #create" do
       { :post => "/configuration" }.should_not be_routable
     end
 
@@ -22,7 +22,7 @@ describe ConfigurationsController do
       { :put => "/configuration" }.should route_to(:controller => "configurations", :action => "update") 
     end
 
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/configuration/1" }.should_not be_routable
     end
   end

@@ -6,7 +6,7 @@ describe SymmetricFunctionGamesController do
       { :get => "/symmetric_function_games/1/statistics" }.should route_to(:controller => "symmetric_function_games", :action => "statistics", :id => "1")
     end
     
-    it "recognizes and generates #index" do
+    it "should not recognize #index" do
       { :get => "/symmetric_function_games" }.should_not be_routable
     end
 
@@ -34,7 +34,7 @@ describe SymmetricFunctionGamesController do
       { :get => "/symmetric_function_games/1/remove" }.should route_to(:controller => "symmetric_function_games", :action => "remove", :id => "1") 
     end
     
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/symmetric_function_games/1" }.should_not be_routable
     end
   end

@@ -1,9 +1,11 @@
-=render @partial
-
-%p
-  = link_to 'Back', cards_url
+%p.title
+  =h @card.game.name
+  (
+  = link_to 'Back', cards_path
   -if can? :destroy, @card
     |
-    =link_to 'Discard', discard_card_path(@card), :confirm => 'Are you sure?'
+    =link_to 'Discard', discard_card_path(@card), :confirm => 'Are you sure?'    
+  )
+=render @partial
 
 

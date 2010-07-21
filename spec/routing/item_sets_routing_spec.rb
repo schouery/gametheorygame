@@ -10,8 +10,8 @@ describe ItemSetsController do
       { :get => "/item_sets/new" }.should route_to(:controller => "item_sets", :action => "new")
     end
 
-    it "recognizes and generates #show" do
-      { :get => "/item_sets/1" }.should route_to(:controller => "item_sets", :action => "show", :id => "1")
+    it "should not recognize #show" do
+      { :get => "/item_sets/1" }.should_not be_routable
     end
 
     it "recognizes and generates #edit" do
@@ -26,8 +26,13 @@ describe ItemSetsController do
       { :put => "/item_sets/1" }.should route_to(:controller => "item_sets", :action => "update", :id => "1") 
     end
 
-    it "recognizes and generates #destroy" do
-      { :delete => "/item_sets/1" }.should route_to(:controller => "item_sets", :action => "destroy", :id => "1") 
+    it "should not recognize #destroy" do
+      { :delete => "/item_sets/1" }.should_not be_routable
     end
+
+    it "recognizes and generates #delete" do
+      { :get => "/item_sets/1/delete" }.should route_to(:controller => "item_sets", :action => "delete", :id => "1") 
+    end
+    
   end
 end

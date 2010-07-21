@@ -12,15 +12,13 @@
       %th Name
       %th
       %th
-      %th
 
     - @item_types.each_with_index do |item_type, i|
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td=h item_type.name
-        %td= link_to 'Show', [@item_set, item_type]
         %td
           -if can? :update, item_type
             = link_to 'Edit', edit_item_set_item_type_path(@item_set, item_type)
         %td
           -if can? :update, item_type
-            = link_to 'Destroy', [@item_set, item_type], :confirm => 'Are you sure?', :method => :delete
+            = link_to 'Destroy', delete_item_set_item_type_path(@item_set, item_type), :confirm => 'Are you sure?', :method => :delete

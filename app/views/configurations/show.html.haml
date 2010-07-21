@@ -1,4 +1,10 @@
-%p.title Configurations
+%p.title 
+  Configurations
+  -if can? :update, @configuration 
+    (
+    = link_to 'Edit', edit_configuration_path
+    )
+
 .alternating_table
   %table{:style=>'text-align: left'}
     %tr.odd
@@ -37,6 +43,3 @@
     %tr.even
       %td Item Probability:
       %td=h @configuration.item_probability
-
--if can? :update, @configuration 
-  %p= link_to 'Edit', edit_configuration_path

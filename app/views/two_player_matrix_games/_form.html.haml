@@ -16,6 +16,12 @@
     =f.radio_button :color, 'green'
     =f.label :color, 'Green' 
 
+  %p
+    Payoff Matrix:
   = render 'edit_matrix', :f => f
+  %p.help
+    You should enter the labels for the strategies for the first player on the first column and for the second player on the
+    first line. Then you should enter the payoffs in each cell, knowing that the field on the bottom left side if for player one
+    and the field on the top right side is for player two.
   %p
     = f.submit submit_label

@@ -42,27 +42,27 @@ describe GiftsController do
       { :get => "/gifts" }.should route_to(:controller => "gifts", :action => "index")
     end
     
-    it "recognizes and generates #new" do
+    it "should not recognize #new" do
       { :get => "/gifts/new" }.should_not be_routable
     end
     
-    it "recognizes and generates #edit" do
+    it "should not recognize #edit" do
       { :get => "/gifts/1/edit" }.should_not be_routable
     end
     
-    it "recognizes and generates #create" do
+    it "should not recognize #create" do
       { :post => "/gifts" }.should_not be_routable
     end
     
-    it "recognizes and generates #update" do
+    it "should not recognize #update" do
       { :put => "/gifts/1" }.should_not be_routable
     end
 
-    it "recognizes and generates #show" do
+    it "should not recognize #show" do
       { :get => "/gifts/1" }.should_not be_routable
     end
 
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/gifts/1" }.should_not be_routable
     end
   end

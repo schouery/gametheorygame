@@ -3,11 +3,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items, :only => [:index, :show], :member => {:use => :get} do |item|
     item.resources :auctions, :only => [:new]
   end
-  map.resources :item_sets, :has_many => :item_types
+  map.resources :item_sets, :except => [:destroy, :show], :member => {:delete => :get} do |item_set|
+    item_set.resources :item_types, :except => [:destroy, :show], :member => {:delete => :get}
+  end
   map.resources :rankings, :only => [:index, :show]
   map.resource  :configuration, :only => [:edit, :update, :show]
   map.resources :two_player_matrix_games, :member => {:statistics => :get, :remove => :get}, :except => [:index, :destroy]
-  map.resources :games, :only => [:index], :collection => {:probabilities => :get, :update_probabilities => :post}
+  map.resources :games, :only => [:index], :collection => {:probabilities => :get, :update_probabilities => :post, :inactive => :get}, :member => {:activate => :get}
   map.resources :invitations
   map.resources :cards, :collection => {:played_cards => :get}, :only => [:index, :edit, :update], :member => {:result => :get, :discard => :get}
   map.resources :symmetric_function_games, :member => {:statistics => :get, :remove => :get}, :except => [:index, :destroy]
@@ -18,5 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.facebook_root '', :controller => :cards
   map.with_options :controller => 'info' do |info|
     info.manual 'manual', :action => 'manual'
+    info.admin_manual 'admin_manual', :action => 'admin_manual'
+    info.researcher_manual 'researcher_manual', :action => 'researcher_manual'
   end    
 end

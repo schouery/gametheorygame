@@ -1,5 +1,5 @@
 = render 'shared/multi_friend_selector', :options => {:next_action => send_item_gift_url(@item),              |
-  :button_name => 'Send a Item',                                                                              |
+  :button_name => 'Item',                                                                                     |
   :actiontext => "Send a #{@item.item_type.name}",                                                            |
   :path_for_invitation => canvas_url_for(:controller => "gifts", :action => "receive_item", :id => @item.id), |
   :content => 'You gained a new item!',                                                                       |

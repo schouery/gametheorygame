@@ -14,19 +14,19 @@ describe ItemsController do
       { :get => "/items/1" }.should route_to(:controller => "items", :action => "show", :id => "1")
     end
 
-    it "recognizes and generates #edit" do
+    it "should not recognize #edit" do
       { :get => "/items/1/edit" }.should_not be_routable
     end
 
-    it "recognizes and generates #create" do
+    it "should not recognize #create" do
       { :post => "/items" }.should_not be_routable
     end
 
-    it "recognizes and generates #update" do
+    it "should not recognize #update" do
       { :put => "/items/1" }.should_not be_routable
     end
 
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/items/1" }.should_not be_routable
     end
   end

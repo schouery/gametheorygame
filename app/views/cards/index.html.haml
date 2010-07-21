@@ -1,12 +1,13 @@
--@cards.each do |card|
-  %div{:class => card.game.color + "_card"}
-    %table
-      %tr
-        %td.tdcard
-          =link_to card.game.name, edit_card_path(card)
--@items.each do |item|
-  .item_card
-    %table
-      %tr
-        %td.tdcard
-          =link_to item.item_type.name, item
+.cards
+  -@cards.each do |card|
+    %div{:class => card.game.color + "_card"}
+      %table
+        %tr
+          %td.tdcard
+            =link_to card.game.name, edit_card_path(card)
+  -@items.each do |item|
+    .item_card
+      %table
+        %tr
+          %td.tdcard
+            =link_to item.item_type.name, item

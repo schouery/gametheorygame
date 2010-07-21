@@ -1,8 +1,13 @@
+.cards {
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .card, .red_card, .yellow_card, .green_card, .item_card {
   float: left;
   padding: 1px;
   margin: 2px;
-  width: 100px;
+  width: 95px;
   height: 125px;
   text-align: center;
   /* border-radius */
@@ -110,7 +115,7 @@ button.next, button.cancel {
   padding: 1px; }
 
 .alternating_table table {
-  width: 750px;
+  width: 740px;
   text-align: center; }
 
 .alternating_table th.name_heading {
@@ -154,17 +159,27 @@ body {
 
 table.title {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-  width: 756px;
+  width: 740px;
   color: #333333; }
   table.title .name {
     font-size: 20px;
     width: 250px; }
+    table.title .name a {
+      color: #333333; }
+      table.title .name a:link {
+        text-decoration: none; }
+      table.title .name a:visited {
+        text-decoration: none; }
+      table.title .name a:hover {
+        text-decoration: underline; }
+      table.title .name a:active {
+        text-decoration: underline; }
   table.title .info {
     font-size: 15px;
     text-align: right; }
 
 #menubar {
-  width: 756px;
+  width: 740px;
   border-style: solid;
   border-width: 1px;
   margin-left: auto;
@@ -193,7 +208,7 @@ table.title {
 
 #content {
   padding: 0px;
-  width: 756px;
+  width: 740px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -230,11 +245,18 @@ p, li, .configuration {
   font-weight: bold; }
 
 .help {
-  width: 300px;
-  font-size: 9px;
+  width: 740px;
+  font-size: 10px;
   font-color: red;
   text-align: justify; }
 
 .stats {
   font-size: 10px;
   float: right; }
+
+.configuration {
+  margin-left: auto;
+  margin-right: auto; }
+
+td.center {
+  text-align: center; }

@@ -1,6 +1,9 @@
 %p.title
   Statistics for
   = @two_player_matrix_game.name
+  (
+  = link_to 'Back', games_path
+  )
 
 .two_player_matrix_game
   %p
@@ -20,4 +23,4 @@
             %td{:id => j+2}
               ="#{value * 100}%"
               
-%p= link_to 'Back', games_path
+

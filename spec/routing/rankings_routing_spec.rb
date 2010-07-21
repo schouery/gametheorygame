@@ -6,15 +6,15 @@ describe RankingsController do
       { :get => "/rankings" }.should route_to(:controller => "rankings", :action => "index")
     end
 
-    it "recognizes and generates #edit" do
+    it "should not recognize #edit" do
       { :get => "/rankings/1/edit" }.should_not be_routable
     end
 
-    it "recognizes and generates #create" do
+    it "should not recognize #create" do
       { :post => "/rankings" }.should_not be_routable
     end
 
-    it "recognizes and generates #update" do
+    it "should not recognize #update" do
       { :put => "/rankings/1" }.should_not be_routable
     end
 
@@ -22,7 +22,7 @@ describe RankingsController do
       { :get => "/rankings/1" }.should route_to(:controller => "rankings", :action => "show", :id => "1")
     end
 
-    it "recognizes and generates #destroy" do
+    it "should not recognize #destroy" do
       { :delete => "/rankings/1" }.should_not be_routable
     end
 

@@ -14,7 +14,7 @@ describe CardsController do
       { :get => "/cards" }.should route_to(:controller => "cards", :action => "index")
     end
     
-    it "recognizes and generates #new" do
+    it "should not recognize #new" do
       { :get => "/cards/new" }.should_not be_routable
     end
     
@@ -22,7 +22,7 @@ describe CardsController do
       { :get => "/cards/1/edit" }.should route_to(:controller => "cards", :action => "edit", :id => "1")
     end
     
-    it "recognizes and generates #create" do
+    it "should not recognize #create" do
       { :post => "/cards" }.should_not be_routable
     end
     
@@ -30,7 +30,7 @@ describe CardsController do
       { :put => "/cards/1" }.should route_to(:controller => "cards", :action => "update", :id => "1")
     end
 
-    it "recognizes and generates #show" do
+    it "should not recognize #show" do
       { :get => "/cards/1" }.should_not be_routable
     end
 

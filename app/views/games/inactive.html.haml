@@ -1,0 +1,12 @@
+%p.title
+  Inactive Games
+  (
+  =link_to "Back", games_path
+  )
+  
+.alternating_table
+  %table  
+    -@games.each_with_index do |game, i|
+      %tr{:class => (i.even? ? "odd" : "even")}
+        %td= game.name
+        %td= link_to 'Activate', activate_game_path(game), :type => game.class.to_s.underscore
