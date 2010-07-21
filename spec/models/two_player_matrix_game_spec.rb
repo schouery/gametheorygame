@@ -22,10 +22,10 @@ describe TwoPlayerMatrixGame do
                             mock_model(TwoPlayerMatrixGameStrategy, :player_number => 1, :id=>2)]
     @strategies_player_2 = [mock_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>3),
                             mock_model(TwoPlayerMatrixGameStrategy, :player_number => 2, :id=>4)]
-    @payoffs = [mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[0]),
-                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[1]),
-                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[0]),
-                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[1])]                          
+    @payoffs = [mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[0], :line_position => 0, :column_position => 0),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[0], :strategy2 => @strategies_player_2[1], :line_position => 0, :column_position => 1),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[0], :line_position => 1, :column_position => 0),
+                mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => @strategies_player_1[1], :strategy2 => @strategies_player_2[1], :line_position => 1, :column_position => 1)]                          
   end
   
   describe "getting strategies and payoffs" do
@@ -62,7 +62,7 @@ describe TwoPlayerMatrixGame do
   it "should be able to associate payoffs to strategies by position" do
     @strategies_player_1.each_with_index {|strategy, i| strategy.stub(:number => i)}
     @strategies_player_2.each_with_index {|strategy, i| strategy.stub(:number => i)}
-    payoffs = [mock_model(TwoPlayerMatrixGamePayoff,  :strategy1 => nil, :strategy2 => nil),
+    payoffs = [ mock_model(TwoPlayerMatrixGamePayoff,  :strategy1 => nil, :strategy2 => nil),
                 mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil),
                 mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil),
                 mock_model(TwoPlayerMatrixGamePayoff, :strategy1 => nil, :strategy2 => nil)]

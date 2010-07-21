@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(:version => 20100720160514) do
     t.string   "game_type"
     t.integer  "strategy_id"
     t.string   "strategy_type"
-    t.integer  "player_number",  :default => 0
+    t.integer  "player_number",               :default => 0
     t.integer  "game_result_id"
-    t.integer  "gift_for"
-    t.boolean  "played",         :default => false
+    t.integer  "gift_for",       :limit => 8
+    t.boolean  "played",                      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,12 +48,9 @@ ActiveRecord::Schema.define(:version => 20100720160514) do
   add_index "cards", ["user_id"], :name => "index_cards_on_user_id"
 
   create_table "configurations", :force => true do |t|
-    t.integer  "money_gift_value",                 :default => 1
+    t.integer  "money_gift_value",                 :default => 10
     t.boolean  "full_permissions_to_researchers",  :default => false
     t.boolean  "researcher_can_invite_researcher", :default => false
-    t.integer  "card_gift_limit",                  :default => 10
-    t.integer  "money_gift_limit",                 :default => 10
-    t.integer  "item_gift_limit",                  :default => 10
     t.integer  "starting_money",                   :default => 100
     t.integer  "starting_cards",                   :default => 4
     t.float    "item_probability",                 :default => 0.1
@@ -84,22 +81,8 @@ ActiveRecord::Schema.define(:version => 20100720160514) do
   add_index "game_scores", ["game_id", "game_type"], :name => "index_game_scores_on_game_id_and_game_type"
   add_index "game_scores", ["user_id"], :name => "index_game_scores_on_user_id"
 
-  create_table "gift_logs", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "number_of_money_gifts", :default => 0
-    t.integer  "number_of_card_gifts",  :default => 0
-    t.integer  "number_of_item_gifts",  :default => 0
-    t.date     "money_gift_sent_on",    :default => '2010-07-20'
-    t.date     "card_gift_sent_on",     :default => '2010-07-20'
-    t.date     "item_gift_sent_on",     :default => '2010-07-20'
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "gift_logs", ["user_id"], :name => "index_gift_logs_on_user_id", :unique => true
-
   create_table "invitations", :force => true do |t|
-    t.integer  "facebook_id", :limit => 20, :null => false
+    t.integer  "facebook_id", :limit => 8, :null => false
     t.string   "for"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -126,8 +109,8 @@ ActiveRecord::Schema.define(:version => 20100720160514) do
   create_table "items", :force => true do |t|
     t.integer  "item_type_id"
     t.integer  "user_id"
-    t.boolean  "used",         :default => false
-    t.integer  "gift_for"
+    t.boolean  "used",                      :default => false
+    t.integer  "gift_for",     :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20100720160514) do
   add_index "items", ["user_id"], :name => "index_items_on_user_id"
 
   create_table "money_gifts", :force => true do |t|
-    t.integer  "facebook_id"
+    t.integer  "facebook_id", :limit => 8
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"

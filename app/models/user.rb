@@ -2,9 +2,7 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :cards
   has_many :game_scores
-  has_one :gift_log
   before_create :defaults  
-  before_save :create_gift_log
   after_create :receive_cards 
 
   def receive_cards
@@ -12,10 +10,6 @@ class User < ActiveRecord::Base
     Configuration[:starting_cards].times do 
       card_dealer.deal_for(self)
     end
-  end
-
-  def create_gift_log
-    self.gift_log = GiftLog.new if self.gift_log.nil?
   end
   
   def defaults
@@ -29,23 +23,13 @@ class User < ActiveRecord::Base
   end
   
   def max_money_gifts
-    if self.money < 0
-      0
-    else
-      money_restriction = self.money / Configuration[:money_gift_value]
-      system_restriction = self.gift_log.maximum_gifts_today(:money)
-      money_restriction < system_restriction ? money_restriction : system_restriction
-    end
+    self.money < 0 ? 0 : self.money / Configuration[:money_gift_value]
   end
 
   def hand_size
     items = self.items.select {|item| !item.used}
     cards = self.cards.select {|card| !card.played?}
     items.size + cards.size
-    # 
-    # items = self.items.inject(0) {|sum, item| sum += item.used ? 0 : 1}
-    # cards = self.cards.inject(0) {|sum, card| sum += card.played? ? 0 : 1}
-    # items + cards
   end
 
   

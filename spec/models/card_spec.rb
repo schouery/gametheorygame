@@ -60,9 +60,7 @@ describe Card do
     before(:each) do
       @card = Card.new
       @green_game = mock_model(SymmetricFunctionGame, :color => "green")
-      @gift_log = mock_model(GiftLog)
-      @current_user = mock_model(User, :gift_log => @gift_log)
-      @gift_log.stub(:maximum_gifts_today).with(:card).and_return(1)
+      @current_user = mock_model(User)
       @card.user = @current_user
       @card.game = @green_game
     end
@@ -91,12 +89,6 @@ describe Card do
       @card.user = mock_model(User)
       @card.can_send_as_gift?(@current_user).should == false
       @card.gift_error.should == "You can't send this card!"
-    end
-    
-    it "can't be sended if the user can't send more cards today" do
-      @gift_log.stub(:maximum_gifts_today).with(:card).and_return(0)
-      @card.can_send_as_gift?(@current_user).should == false
-      @card.gift_error.should == "You can't send more cards today."
     end
     
     it "can't be sended if it was played" do

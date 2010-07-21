@@ -4,9 +4,6 @@ class CreateConfigurations < ActiveRecord::Migration
       t.integer :money_gift_value, :default => 10
       t.boolean :full_permissions_to_researchers, :default => false
       t.boolean :researcher_can_invite_researcher, :default => false
-      t.integer :card_gift_limit, :default => 10
-      t.integer :money_gift_limit, :default => 10
-      t.integer :item_gift_limit, :default => 10
       t.integer :starting_money, :default => 100
       t.integer :starting_cards, :default => 4
       t.float   :item_probability, :default => 0.1

@@ -31,20 +31,13 @@ describe Item do
   describe "sending as a gift" do
     before(:each) do
       @item = Item.new
-      @gift_log = mock_model(GiftLog)
-      @current_user = mock_model(User, :gift_log => @gift_log)
-      @gift_log.stub(:maximum_gifts_today).with(:item).and_return(1)
+      @current_user = mock_model(User)
       @item.user = @current_user
     end    
     it "can't be sended if it's not a item from current user" do
       @item.user = mock_model(User)
       @item.can_send_as_gift?(@current_user).should be_false
       @item.gift_error.should == "You can't send this item!"
-    end
-    it "can't be sended if the maximum for item gifts for today has reached" do
-      @gift_log.stub(:maximum_gifts_today).with(:item).and_return(0)
-      @item.can_send_as_gift?(@current_user).should be_false
-      @item.gift_error.should == "You can't send more items today."
     end
     it "can't be sended if it's used" do
       @item.used = true

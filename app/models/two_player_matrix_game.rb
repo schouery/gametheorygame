@@ -116,11 +116,8 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
  private  
   def sorted_payoffs(lines, columns)
     self.payoffs.sort do |a, b|
-      if (lines.index(a.strategy1) < lines.index(b.strategy1)) || 
-         (lines.index(a.strategy1) == lines.index(b.strategy1) && columns.index(a.strategy2) < columns.index(b.strategy2))
+      if a.line_position < b.line_position || (a.line_position == b.line_position && a.column_position < b.column_position)
         -1
-      elsif lines.index(a.strategy1) == lines.index(b.strategy1) && columns.index(a.strategy2) == columns.index(b.strategy2)
-        0
       else
         1
       end

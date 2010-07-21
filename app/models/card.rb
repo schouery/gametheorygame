@@ -21,9 +21,6 @@ class Card < ActiveRecord::Base
     if self.game.nil? || self.game.color != "green" || self.played? || self.user != user
       @gift_error = "You can't send this card!"
       false
-    elsif user.gift_log.maximum_gifts_today(:card) <= 0
-      @gift_error = "You can't send more cards today."
-      false
     else
       @gift_error = ""
       true

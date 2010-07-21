@@ -16,7 +16,6 @@ class AddIndexes < ActiveRecord::Migration
     add_index :two_player_matrix_game_payoffs, :strategy2_id
     add_index :game_results, [:game_id, :game_type]
     add_index :money_gifts, :facebook_id
-    add_index :gift_logs, :user_id, :unique => true
     add_index :game_scores, :user_id
     add_index :game_scores, [:game_id, :game_type]
     add_index :item_types, :item_set_id
@@ -45,7 +44,6 @@ class AddIndexes < ActiveRecord::Migration
     remove_index :two_player_matrix_game_payoffs, :strategy2_id
     remove_index :game_results, [:game_id, :game_type]
     remove_index :money_gifts, :facebook_id
-    remove_index :gift_logs, :user_id
     remove_index :game_scores, :user_id
     remove_index :game_scores, [:game_id, :game_type]
     remove_index :item_types, :item_set_id

@@ -17,9 +17,6 @@ class Item < ActiveRecord::Base
     if self.user != user || self.used
       @gift_error = "You can't send this item!"
       false
-    elsif user.gift_log.maximum_gifts_today(:item) <= 0
-      @gift_error = "You can't send more items today."
-      false
     else
       @gift_error = ""
       true

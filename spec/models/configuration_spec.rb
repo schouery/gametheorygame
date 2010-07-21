@@ -24,15 +24,7 @@ describe Configuration do
   it "should have boolean field researcher_can_invite_researcher" do
     @config.should respond_to :researcher_can_invite_researcher
   end
-  
-  it "should have card sended in a day limit" do
-    @config.should respond_to :card_gift_limit
-  end
-  
-  it "should have money sended in a day limit" do
-    @config.should respond_to :money_gift_limit
-  end
-    
+      
   it "should have starting money" do
     @config.should respond_to :starting_money
   end
@@ -51,8 +43,13 @@ describe Configuration do
     @config.save
     Configuration[:money_gift_value].should == 10
   end
+
+  it "should have starting cards per hour" do
+    @config.should respond_to :starting_cards_per_hour
+  end
   
-  # t.integer :starting_cards_per_hour, :default => 1
-  # t.integer :starting_hand_limit, :default => 10
-  #   
+  it "should have starting hand limit" do
+    @config.should respond_to :starting_hand_limit
+  end
+
 end

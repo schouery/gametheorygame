@@ -1,5 +1,5 @@
 [User, SymmetricFunctionGame, SymmetricFunctionGameStrategy, TwoPlayerMatrixGame, TwoPlayerMatrixGameStrategy, TwoPlayerMatrixGamePayoff,
-SymmetricFunctionGameStrategy, Card, GameResult, GiftLog, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
+SymmetricFunctionGameStrategy, Card, GameResult, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
   puts "Deleting #{table.to_s}"
   table.delete_all
 end
@@ -65,10 +65,10 @@ s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 2)
 s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 2)
 bs.strategies = [s1,s2,s3,s4]
-p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 6, :payoff_player_2 => 5)
-p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 1, :payoff_player_2 => 1)
-p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => 0, :payoff_player_2 => 0)
-p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 5, :payoff_player_2 => 6)
+p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 6, :payoff_player_2 => 5, :line_position => 0, :column_position => 0)
+p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 1, :payoff_player_2 => 1, :line_position => 0, :column_position => 1)
+p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => 0, :payoff_player_2 => 0, :line_position => 1, :column_position => 0)
+p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 5, :payoff_player_2 => 6, :line_position => 1, :column_position => 1)
 bs.payoffs = [p1,p2,p3,p4]
 bs.save!
 games << bs
@@ -79,15 +79,15 @@ mp = TwoPlayerMatrixGame.create!(
   have the same result and player two wants that the coins have different results.",
   :color => "yellow"
 )
-s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head', :player_number => 1)
+s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 1)
 s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 1)
-s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head', :player_number => 2)
+s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 2)
 s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 2)
 mp.strategies = [s1,s2,s3,s4]
-p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 10, :payoff_player_2 => -10)
-p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -10, :payoff_player_2 => 10)
-p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -10, :payoff_player_2 => 10)
-p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 10, :payoff_player_2 => -10)
+p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 10, :payoff_player_2 => -10, :line_position => 0, :column_position => 0)
+p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -10, :payoff_player_2 => 10, :line_position => 0, :column_position => 1)
+p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -10, :payoff_player_2 => 10, :line_position => 1, :column_position => 0)
+p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => 10, :payoff_player_2 => -10, :line_position => 1, :column_position => 1)
 mp.payoffs = [p1,p2,p3,p4]
 mp.save!
 games << mp
@@ -104,10 +104,10 @@ s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 2)
 s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 2)
 pd.strategies = [s1,s2,s3,s4]
-p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -6, :payoff_player_2 => -6)
-p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 0, :payoff_player_2 => -9)
-p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -9, :payoff_player_2 => 0)
-p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => -3, :payoff_player_2 => -3)
+p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -6, :payoff_player_2 => -6, :line_position => 0, :column_position => 0)
+p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 0,  :payoff_player_2 => -9, :line_position => 0, :column_position => 1)
+p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -9,  :payoff_player_2 => 0, :line_position => 1, :column_position => 0)
+p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => -3, :payoff_player_2 => -3, :line_position => 1, :column_position => 1)
 pd.payoffs = [p1,p2,p3,p4]
 pd.save!
 games << pd
@@ -123,10 +123,10 @@ s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 1)
 s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'A', :player_number => 2)
 s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 2)
 congestion.strategies = [s1,s2,s3,s4]
-p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -5, :payoff_player_2 => -5)
-p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -1, :payoff_player_2 => -2)
-p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -2, :payoff_player_2 => -1)
-p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => -6, :payoff_player_2 => -6)
+p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -5, :payoff_player_2 => -5, :line_position => 0, :column_position => 0)
+p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -1, :payoff_player_2 => -2, :line_position => 0, :column_position => 1)
+p3 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s3, :payoff_player_1 => -2, :payoff_player_2 => -1, :line_position => 1, :column_position => 0)
+p4 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s2, :strategy2 => s4, :payoff_player_1 => -6, :payoff_player_2 => -6, :line_position => 1, :column_position => 1)
 congestion.payoffs = [p1,p2,p3,p4]
 congestion.save!
 games << congestion
