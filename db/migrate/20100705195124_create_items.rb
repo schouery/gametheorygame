@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :item_type_id
       t.integer :user_id
       t.boolean :used, :default => false
-      t.integer :gift_for
+      t.integer :gift_for, :limit => 8
       
       t.timestamps
     end

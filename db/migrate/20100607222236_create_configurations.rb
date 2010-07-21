@@ -1,7 +1,7 @@
 class CreateConfigurations < ActiveRecord::Migration
   def self.up
     create_table :configurations do |t|
-      t.integer :money_gift_value, :default => 1
+      t.integer :money_gift_value, :default => 10
       t.boolean :full_permissions_to_researchers, :default => false
       t.boolean :researcher_can_invite_researcher, :default => false
       t.integer :card_gift_limit, :default => 10

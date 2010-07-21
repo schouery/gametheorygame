@@ -19,6 +19,7 @@ module ApplicationHelper
       :showborder=> options[:showborder],
       :email_invite => options[:email_invite]}
     @options_for_selector[:exclude_ids] = options[:exclude_ids] if !options[:exclude_ids].nil?
+    @options_for_selector[:import_external_friends] = 'false'
   end
   
   def friend_defaults
