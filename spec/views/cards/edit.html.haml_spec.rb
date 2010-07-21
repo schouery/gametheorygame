@@ -5,11 +5,17 @@ describe "/cards/edit.html.haml" do
 
   before(:each) do
     @strategies = [
-    stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy1", :id => 1),
-    stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy2", :id => 2)
+      stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Polute", :id => 1),
+      stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Not Polute", :id => 2)    
     ]
-    @symmetric_function_game = Factory.stub(:symmetric_function_game)
-    @symmetric_function_game.stub!(:strategies => @strategies)
+    @symmetric_function_game = stub_model(SymmetricFunctionGame, 
+      :name => "Polution Game for 4",
+      :description => "Polution Game, you should choose between polute or not.",
+      :number_of_players => "4",
+      :strategies => @strategies,
+      :color => "red",
+      :function => "np[0] + 3*st[1]"
+    )
     assigns[:card] = @card = stub_model(Card, :new_record? => false, :game => @symmetric_function_game)
     assigns[:partial] = "symmetric_function_games/card"
     @controller.stub(:can? => true)
