@@ -15,16 +15,16 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px; }
 
 .red_card {
-  background-color: red; }
+  background-color: #db001c; }
 
 .yellow_card {
-  background-color: yellow; }
+  background-color: #ffd700; }
 
 .green_card {
-  background-color: lime; }
+  background-color: #2fae00; }
 
 .item_card {
-  background-color: blue; }
+  background-color: #000abf; }
 
 .card a, .red_card a, .yellow_card a, .green_card a, .item_card a {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
