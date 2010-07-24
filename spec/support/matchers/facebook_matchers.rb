@@ -1,7 +1,6 @@
 Spec::Matchers.define :have_multi_friend_selector_with do |options|
   match do |actual|
     exclude = options[:exclude_ids].nil? ? "" : " exclude_ids='#{options[:exclude_ids]}'" 
-    #exclude = ""
     expected = "
     <fb:serverfbml.*>
       <script type='text/fbml'>

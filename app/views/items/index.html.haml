@@ -1,3 +1,3 @@
 %p.title Listing Items
--@user_sets.each_pair do |item_set, hash|
-  = render 'set_with_items',  :hash => hash, :item_set => item_set
+-@user_sets.each_pair do |item_set, item_types|
+  = render 'set_with_items',  :item_types => item_types, :item_set => item_set

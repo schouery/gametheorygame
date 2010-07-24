@@ -6,14 +6,14 @@ describe "/items/index.html.haml" do
   before(:each) do
     @user_sets = assigns[:user_sets] = {
       stub_model(ItemSet, :name => "Item Set 1", :bonus_type => "hand_limit") => {
-        stub_model(ItemType, :name => "Item Type 1") => stub_model(Item, :used => false),
-        stub_model(ItemType, :name => "Item Type 2") => stub_model(Item, :used => true),
-        stub_model(ItemType, :name => "Item Type 3") => nil
+        stub_model(ItemType, :name => "Item Type 1") => [stub_model(Item, :used => false)],
+        stub_model(ItemType, :name => "Item Type 2") => [stub_model(Item, :used => true)],
+        stub_model(ItemType, :name => "Item Type 3") => []
       },
       stub_model(ItemSet, :name => "Item Set 2", :bonus_type => "cards_per_hour") => {
-        stub_model(ItemType, :name => "Item Type 4") => stub_model(Item, :used => true),
-        stub_model(ItemType, :name => "Item Type 5") => nil,
-        stub_model(ItemType, :name => "Item Type 6") => stub_model(Item, :used => false)
+        stub_model(ItemType, :name => "Item Type 4") => [stub_model(Item, :used => true)],
+        stub_model(ItemType, :name => "Item Type 5") => [],
+        stub_model(ItemType, :name => "Item Type 6") => [stub_model(Item, :used => false)]
       }
     }
   end

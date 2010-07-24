@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/configurations/edit.html.haml" do
-  include ConfigurationsHelper
   
   before(:each) do
     assigns[:configuration] = @configuration = Configuration.instance    

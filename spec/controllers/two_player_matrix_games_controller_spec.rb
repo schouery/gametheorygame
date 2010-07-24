@@ -38,7 +38,7 @@ describe TwoPlayerMatrixGamesController do
 
   describe "GET edit" do
     it "assigns the requested two_player_matrix_game as @two_player_matrix_game" do
-      TwoPlayerMatrixGame.stub(:find).with("37").and_return(mock_two_player_matrix_game(:fill_positions => true))
+      TwoPlayerMatrixGame.stub(:find).with("37").and_return(mock_two_player_matrix_game)
       get :edit, :id => "37"
       assigns[:two_player_matrix_game].should equal(mock_two_player_matrix_game)
     end
@@ -64,7 +64,7 @@ describe TwoPlayerMatrixGamesController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved two_player_matrix_game as @two_player_matrix_game" do
         TwoPlayerMatrixGame.stub(:new).with({'these' => 'params'}).and_return(mock_two_player_matrix_game(:save => false,
-         :associate_payoffs => true, :user= => true))
+            :associate_payoffs => true, :user= => true))
         post :create, :two_player_matrix_game => {:these => 'params'}
         assigns[:two_player_matrix_game].should equal(mock_two_player_matrix_game)
       end

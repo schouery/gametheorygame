@@ -163,7 +163,7 @@ table.title {
   color: #333333; }
   table.title .name {
     font-size: 20px;
-    width: 250px; }
+    width: 350px; }
     table.title .name a {
       color: #333333; }
       table.title .name a:link {
@@ -226,6 +226,11 @@ p, li, .configuration {
   font-size: 11px;
   color: #333333; }
 
+.formError {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  color: red; }
+
 .version {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 9px;
@@ -254,9 +259,51 @@ p, li, .configuration {
   font-size: 10px;
   float: right; }
 
+td.manuals {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 10px; }
+  td.manuals a {
+    padding: 2px;
+    color: #0000aa; }
+    td.manuals a:link {
+      text-decoration: none; }
+    td.manuals a:visited {
+      text-decoration: none; }
+    td.manuals a:hover {
+      text-decoration: underline; }
+    td.manuals a:active {
+      text-decoration: underline; }
+
 .configuration {
   margin-left: auto;
   margin-right: auto; }
 
 td.center {
   text-align: center; }
+
+a.remove {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  color: red; }
+  a.remove:link {
+    text-decoration: none; }
+  a.remove:visited {
+    text-decoration: none; }
+  a.remove:hover {
+    text-decoration: underline; }
+  a.remove:active {
+    text-decoration: underline; }
+
+.errorExplanation p, .errorExplanation li {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 9px;
+  color: #333333; }
+.errorExplanation h2 {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 12px;
+  color: red; }
+
+.notice {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  color: red; }

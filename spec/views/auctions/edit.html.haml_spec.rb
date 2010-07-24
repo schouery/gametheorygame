@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/auctions/edit.html.haml" do
-  include AuctionsHelper
 
   before(:each) do
     @date = 10.minutes.from_now

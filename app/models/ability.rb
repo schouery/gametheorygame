@@ -11,7 +11,7 @@ class Ability
     end
   end
 
- private  
+  private
  
   def manage_games
     games = [SymmetricFunctionGame, TwoPlayerMatrixGame]
@@ -22,10 +22,11 @@ class Ability
     end
   end
   
-  def researcher_abilities(user)
+  def researcher_abilities(user)     
     manage_games
     can :read, :all
     can :create, Invitation 
+    can :researcher_manual, nil
     can :remove_researcher, User do |researcher|
       researcher == user
     end
@@ -36,9 +37,6 @@ class Ability
   end
 
   def user_abilities(user)
-    can :user, Item do |item|
-      item.user == user
-    end
     can :read, Item do |item|
       item.user == user
     end
@@ -47,7 +45,7 @@ class Ability
     end
     can :read, Card
     can :update, Card do |card| 
-      card.user == user
+      card.user == user && !card.played?
     end
     can :destroy, Card do |card|
       card.game.color != "red" && card.user == user

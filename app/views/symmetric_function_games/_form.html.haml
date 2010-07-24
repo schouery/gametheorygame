@@ -20,7 +20,7 @@
     =f.label :color, 'Green' 
 
   -f.fields_for :strategies do |builder|  
-    =render "strategy_fields", :f => builder, :last => false
+    =render "strategy_fields", :f => builder
 
   %p= link_to_add_fields "Add Strategy", f, :strategies
 

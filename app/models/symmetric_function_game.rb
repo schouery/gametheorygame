@@ -3,16 +3,14 @@ class SymmetricFunctionGame < ActiveRecord::Base
   validates_presence_of :function, :number_of_players
   validates_numericality_of :number_of_players, :only_integer => true, :greater_than => 0
   has_many :strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id
-  accepts_nested_attributes_for :strategies
-    
+  accepts_nested_attributes_for :strategies, :allow_destroy => true
+           
   def play
-    cards = played_cards
+    cards = cards_with_uniq_users(played_cards)
     return if cards.size < self.number_of_players
     np = strategy_histogram(cards)
-    cards.each do |card|
-      update_card(card, calculate(strategies_for(card), np))
-    end
-    create_game_results(cards)
+    cards.each {|card| card.play(calculate(strategies_for(card), np))}
+    GameResult.create(:cards => cards, :game => self)
   end
 
   def strategies_percentages
@@ -26,22 +24,22 @@ class SymmetricFunctionGame < ActiveRecord::Base
     histogram
   end
 
- private
+  private
   def calculate(st, np)
     eval(self.function)
   end
 
   def strategy_histogram(cards)
-    Array.new(self.strategies.size) do |i|
+    Array.new(self.strategies.size) do |index|
       cards.inject(0) do |acc, card|
-        acc += (self.strategies[i] == card.strategy) ? 1 : 0;  
+        acc += (self.strategies[index] == card.strategy) ? 1 : 0;  
       end
     end    
   end
 
   def strategies_for(card)
-    Array.new(self.strategies.size) do |i|
-      (self.strategies[i] == card.strategy) ? 1 : 0;
+    Array.new(self.strategies.size) do |index|
+      (self.strategies[index] == card.strategy) ? 1 : 0;
     end
   end
 end

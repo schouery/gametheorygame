@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/auctions/specific.html.haml" do
-  include AuctionsHelper
 
   before(:each) do
     assigns[:item_type] = @item_type = stub_model(ItemType, :name => "Item Type 1")
@@ -15,10 +14,10 @@ describe "/auctions/specific.html.haml" do
         :bid => 20
       ),
       stub_model(Auction,
-      :item => stub_model(Item, :item_type => @item_type),
-      :end_date => @date2,
-      :reserve_price => 30,
-      :bid => 40
+        :item => stub_model(Item, :item_type => @item_type),
+        :end_date => @date2,
+        :reserve_price => 30,
+        :bid => 40
       )
     ]
   end

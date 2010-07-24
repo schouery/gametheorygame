@@ -8,8 +8,21 @@
   %body
     %table.title
       %tr
-        %td.name
-          =link_to 'The Game Theory Game', facebook_root_path
+        %td
+          %table
+            %tr
+              %td.name=link_to 'The Game Theory Game', facebook_root_path
+            %tr
+              %td.manuals
+                =link_to "Privacy Policy", policy_path
+                |
+                =link_to "Manual", manual_path
+                -if can? :researcher_manual, nil
+                  | 
+                  =link_to "Researcher Manual", admin_manual_path
+                -if can? :admin_manual, nil 
+                  |
+                  =link_to "Admin Manual", admin_manual_path          
         %td
           .stats
             %table
@@ -22,10 +35,11 @@
               %tr
                 %td Cards Per Hour:
                 %td= current_user.cards_per_hour
+
           
     #menubar
       =render :partial => 'shared/menu'
     #content
-      %p= flash[:notice]
+      %p.notice= flash[:notice]
       =yield
     =xfbml_start

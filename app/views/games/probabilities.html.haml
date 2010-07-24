@@ -11,12 +11,13 @@
       %th Color
       %th Number of Players
       %th Weight
-    -@games.each do |@game|
+    -@games.each do |game|
       %tr
-        %td= @game.name
-        %td.center= @game.color
-        %td.center= @game.number_of_players
-        -fields_for "#{@game.class.to_s.underscore}[]", @game do |f|
+        %td= game.name
+        %td.center= game.color
+        %td.center= game.number_of_players
+        -fields_for "#{game.class.to_s.underscore}[]", game do |f|
           %td= f.text_field :weight, :size => "10"
+          %td= error_message_on game, 'weight'
     %tr
       %td= submit_tag 'Update'

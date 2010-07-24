@@ -10,8 +10,8 @@ describe CardDealer do
    
     it "should work for one game" do
       game = mock_model(SymmetricFunctionGame, :weight => 1)
-      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([game])
-      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([])
+      SymmetricFunctionGame.should_receive(:not_removed).and_return([game])
+      TwoPlayerMatrixGame.should_receive(:not_removed).and_return([])
       c = CardDealer.new
       c.should_receive(:rand).with(1).and_return(0)
       c.select_game.should == game
@@ -20,8 +20,8 @@ describe CardDealer do
     it "should work for two games" do
       game1 = mock_model(SymmetricFunctionGame, :weight => 1)
       game2 = mock_model(SymmetricFunctionGame, :weight => 1)
-      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([game1, game2])
-      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([])
+      SymmetricFunctionGame.should_receive(:not_removed).and_return([game1, game2])
+      TwoPlayerMatrixGame.should_receive(:not_removed).and_return([])
       c = CardDealer.new
       c.should_receive(:rand).with(2).and_return(1)
       c.select_game.should == game2
@@ -30,8 +30,8 @@ describe CardDealer do
     it "should work with different weights" do
       game1 = mock_model(SymmetricFunctionGame, :weight => 3, :number_of_players => 2)
       game2 = mock_model(TwoPlayerMatrixGame, :weight => 7, :number_of_players => 2)
-      SymmetricFunctionGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([game1])
-      TwoPlayerMatrixGame.should_receive(:find).with(:all, :conditions => {:removed => false}).and_return([game2])
+      SymmetricFunctionGame.should_receive(:not_removed).and_return([game1])
+      TwoPlayerMatrixGame.should_receive(:not_removed).and_return([game2])
       c = CardDealer.new
       c.should_receive(:rand).with(10).and_return(3)
       c.select_game.should == game2
@@ -50,9 +50,9 @@ describe CardDealer do
       
   it "should deal for each user without full hand" do
     users = [mock_model(User, :hand_size => 0, :hand_limit => 1, :cards_per_hour => 1),
-             mock_model(User, :hand_size => 1, :hand_limit => 2, :cards_per_hour => 1),
-             mock_model(User, :hand_size => 2, :hand_limit => 2, :cards_per_hour => 1),
-             mock_model(User, :hand_size => 3, :hand_limit => 2, :cards_per_hour => 1)]
+      mock_model(User, :hand_size => 1, :hand_limit => 2, :cards_per_hour => 1),
+      mock_model(User, :hand_size => 2, :hand_limit => 2, :cards_per_hour => 1),
+      mock_model(User, :hand_size => 3, :hand_limit => 2, :cards_per_hour => 1)]
     User.should_receive(:find).with(:all).and_return(users)
     c = CardDealer.new
     c.should_receive(:deal_for).with(users[0])

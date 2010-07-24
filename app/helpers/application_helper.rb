@@ -24,56 +24,21 @@ module ApplicationHelper
   
   def friend_defaults
     @friend_defaults = {:showborder => 'false',
-                        :button => 'Accept',
-                        :condensed => 'false',
-                        :max => '20',
-                        :invite => 'true',
-                        :email_invite => 'false'
-                        }    
-  end
-
-  def link_to_add_fields(name, f, association)  
-    new_object = f.object.class.reflect_on_association(association).klass.new  
-    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|  
-      render(association.to_s.singularize + "_fields", :f => builder, :last => true)
-    end  
-    link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"))  
-  end
-
-  def link_to_add_column(f)  
-    name = "Add"
-    new_payoff = TwoPlayerMatrixGamePayoff.new
-    new_strategy = TwoPlayerMatrixGameStrategy.new
-    payoff_fields = f.fields_for(:payoffs, new_payoff, :child_index => "new_payoff") do |builder|  
-      render("payoff_fields", :f => builder)
-    end  
-    strategy_fields = f.fields_for(:strategies, new_strategy, :child_index => "new_strategy") do |builder|
-      render("strategy_fields", :f => builder)
-    end  
-    link_to_function(name, h("add_column(this, \"#{escape_javascript(strategy_fields)}\", \"#{escape_javascript(payoff_fields)}\")"))  
-  end
-
-  def link_to_add_line(f)  
-    name = "Add"
-    new_payoff = TwoPlayerMatrixGamePayoff.new
-    new_strategy = TwoPlayerMatrixGameStrategy.new
-    payoff_fields = f.fields_for(:payoffs, new_payoff, :child_index => "new_payoff") do |builder|  
-      render("payoff_fields", :f => builder)
-    end  
-    strategy_fields = f.fields_for(:strategies, new_strategy, :child_index => "new_strategy") do |builder|
-      render("strategy_fields", :f => builder)
-    end  
-    link_to_function(name, h("add_line(this, \"#{escape_javascript(strategy_fields)}\", \"#{escape_javascript(payoff_fields)}\")"))  
-  end
-  
-  def link_to(name, options = {}, html_options = {})
-      html_options[:href] = "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
-      html_options[:target] = "_top"      
-      super(name, options, html_options)
+      :button => 'Accept',
+      :condensed => 'false',
+      :max => '20',
+      :invite => 'true',
+      :email_invite => 'false'
+    }
   end
   
   def canvas_url_for(options = {})
     "http://apps.facebook.com/" + FACEBOOKER['canvas_page_name'] + url_for(options)
   end
-  
+
+  def link_to(name, options = {}, html_options = {})
+    html_options[:href] = canvas_url_for(options)
+    html_options[:target] = "_top"
+    super(name, options, html_options)
+  end    
 end

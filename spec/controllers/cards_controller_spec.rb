@@ -12,9 +12,19 @@ describe CardsController do
     @mock_card ||= mock_model(Card, stubs)
   end
 
+  describe "GET result" do
+    it "assigns the requested card as @card" do
+      Card.should_receive(:find).with("1").and_return(mock_card)
+      get :result, :id => "1"
+      assigns[:card].should == mock_card
+    end
+  end
+
   describe "GET played_cards" do
     it "assigns all player's played cards as @cards" do
-      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :played => true}).and_return([mock_card])
+      played = mock(Array)
+      Card.stub(:played).and_return(played)
+      played.stub(:all, :conditions => {:user_id => @current_user.id}).and_return([mock_card])
       get :played_cards
       assigns[:cards].should == [mock_card]
     end
@@ -22,7 +32,9 @@ describe CardsController do
 
   describe "GET index" do
     it "assigns all player's not played cards as @cards" do
-      Card.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :played => false}).and_return([mock_card])
+      not_played = mock(Array)
+      Card.stub(:not_played).and_return(not_played)
+      not_played.stub(:all).with(:conditions => {:user_id => @current_user.id}).and_return([mock_card])
       Item.stub(:find).and_return(nil)
       get :index
       assigns[:cards].should == [mock_card]
@@ -30,8 +42,10 @@ describe CardsController do
     
     it "assigns all player's not used items as @items" do
       items = [mock_model(Item), mock_model(Item)]
-      Card.stub(:find).and_return(nil)
-      Item.stub(:find).with(:all, :conditions => {:user_id => @current_user.id, :used => false}).and_return(items)
+      Card.stub(:not_played).and_return(mock(Array, :all => []))
+      not_used = mock(Array)
+      Item.stub(:not_used).and_return(not_used)
+      not_used.stub(:all).with(:conditions => {:user_id => @current_user.id}).and_return(items)
       get :index
       assigns[:items].should == items
     end
@@ -43,7 +57,6 @@ describe CardsController do
       Card.stub(:find).with("37").and_return(mock_card(:game_type => "SomeGame", :played? => false))
       get :edit, :id => "37"
       assigns[:card].should equal(mock_card)
-      assigns[:partial].should == "some_games/card"
     end
     
     it "redirects to card_url if the card was already played" do
@@ -76,7 +89,7 @@ describe CardsController do
 
       it "redirects to the symmetric_function_game" do
         Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true,
-         :game => mock_model(SymmetricFunctionGame, :play => true), :played? => false, :played= => true))
+            :game => mock_model(SymmetricFunctionGame, :play => true), :played? => false, :played= => true))
         put :update, :id => "37"
         response.should redirect_to(cards_url)
       end
@@ -101,15 +114,7 @@ describe CardsController do
         put :update, :id => "37"
         response.should render_template('edit')
       end
-    end
-    
-    describe "with played card" do
-      it "should redirect to cards_url" do
-        Card.should_receive(:find).with("37").and_return(mock_card(:update_attributes => true, :played? => true))
-        put :update, :id => "37"
-        response.should redirect_to cards_url
-      end
-    end
+    end    
   end
     
   describe "GET discard" do

@@ -18,8 +18,7 @@ describe ResearchersController do
 
   describe "GET index" do
     it "assigns all researcher's that whom are not administrators as @researchers" do
-      # User.should_receive(:find).with(:first, :conditions=>{:facebook_id=>1})
-      User.should_receive(:find).with(:all, :conditions => {:admin => false, :researcher => true}).and_return([mock_user])
+      User.should_receive(:researchers).and_return([mock_user])
       get :index
       assigns[:researchers].should == [mock_user]
     end
@@ -28,10 +27,10 @@ describe ResearchersController do
   describe "GET new" do
     it "assigns all researchers and admins that are friends of the user as @exclude_ids" do
       @session.user.stub(:friends_with_this_app => [
-        stub(Facebooker::User, :id => 1),
-        stub(Facebooker::User, :id => 2),
-        stub(Facebooker::User, :id => 3),
-        stub(Facebooker::User, :id => 4)])
+          stub(Facebooker::User, :id => 1),
+          stub(Facebooker::User, :id => 2),
+          stub(Facebooker::User, :id => 3),
+          stub(Facebooker::User, :id => 4)])
       User.stub(:find).with(:first, :conditions => {:facebook_id => 1}).and_return(mock_model(User, :admin? => false, :researcher? => false))
       User.stub(:find).with(:first, :conditions => {:facebook_id => 2}).and_return(mock_model(User, :admin? => true, :researcher? => false))
       User.stub(:find).with(:first, :conditions => {:facebook_id => 3}).and_return(mock_model(User, :admin? => false, :researcher? => true))      
@@ -41,61 +40,26 @@ describe ResearchersController do
     end
   end
 
-  describe "GET confirm" do
-        
-    describe "having an invitation" do
-    
-      it "should search for @current_user invitation" do
-        conditions = {:facebook_id => @current_user.facebook_id, :for => 'researcher'}
-        Invitation.should_receive(:find).with(:first, :conditions => conditions).and_return(mock_invitation(:destroy => true))
-        @current_user.stub(:researcher= => true, :save => true)
-        get :confirm
-      end
-            
-      it "should make the @current_user a researcher" do
-        Invitation.stub(:find => mock_invitation(:destroy => true))
-        @current_user.should_receive(:researcher=).with(true)
-        @current_user.should_receive(:save)
-        get :confirm
-      end
-      
-      it "should delete the invitation after making the user a researcher" do
-        Invitation.stub(:find => mock_invitation)
-        @current_user.stub(:researcher= => true, :save => true)
-        mock_invitation.should_receive(:destroy)
-        get :confirm        
-      end
-      
-      it "should notice the user that he is now a researcher" do
-        Invitation.stub(:find => mock_invitation(:destroy => true))
-        @current_user.stub(:researcher= => true, :save => true)
-        get :confirm
-        flash[:notice].should == 'You are now a Researcher!'
-      end
-
-      it "redirects to cards_url" do
-        Invitation.stub(:find => mock_invitation(:destroy => true))
-        @current_user.stub(:researcher= => true, :save => true)
-        get :confirm
-        response.should redirect_to(cards_url)
-      end
-      
+  describe "GET confirm" do    
+    it "should search for @current_user invitation" do
+      conditions = {:facebook_id => @current_user.facebook_id, :for => 'researcher'}
+      Invitation.should_receive(:find).with(:first, :conditions => conditions).and_return(mock_invitation)
+      mock_invitation.should_receive(:promote).with(@current_user)
+      @current_user.stub(:researcher= => true, :save => true)
+      get :confirm
     end
-    
-    describe "not having an invitation" do
-      
-      it "should notice the user that he is now a researcher" do
-        Invitation.stub(:find => nil)
-        get :confirm
-        flash[:notice].should == 'You need a invitation to be a Researcher!'
-      end
-
-      it "redirects to cards_url" do
-        Invitation.stub(:find => nil)
-        get :confirm
-        response.should redirect_to(cards_url)
-      end
+          
+    it "should notice the user that he is now a researcher" do
+      Invitation.stub(:find => mock_invitation(:promote => true))
+      get :confirm
+      flash[:notice].should == 'You are now a Researcher!'
     end
+
+    it "redirects to cards_url" do
+      Invitation.stub(:find => mock_invitation(:promote => true))
+      get :confirm
+      response.should redirect_to(cards_url)
+    end      
   end
 
   describe "POST create" do

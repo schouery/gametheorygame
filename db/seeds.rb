@@ -1,5 +1,5 @@
 [User, SymmetricFunctionGame, SymmetricFunctionGameStrategy, TwoPlayerMatrixGame, TwoPlayerMatrixGameStrategy, TwoPlayerMatrixGamePayoff,
-SymmetricFunctionGameStrategy, Card, GameResult, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
+  SymmetricFunctionGameStrategy, Card, GameResult, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
   puts "Deleting #{table.to_s}"
   table.delete_all
 end
@@ -169,10 +169,10 @@ food_business = [
 ItemSet.create!(:name => "Food Business", :item_types => food_business, :bonus_type => "hand_limit")
 
 technologies = [
-    ItemType.create!(:name => "Cell Phone"),
-    ItemType.create!(:name => "MP3 Player"),
-    ItemType.create!(:name => "Notebook"),
-    ItemType.create!(:name => "Desktop Computer"),
-    ItemType.create!(:name => "GPS")
+  ItemType.create!(:name => "Cell Phone"),
+  ItemType.create!(:name => "MP3 Player"),
+  ItemType.create!(:name => "Notebook"),
+  ItemType.create!(:name => "Desktop Computer"),
+  ItemType.create!(:name => "GPS")
 ]
 ItemSet.create!(:name => "Technologies", :item_types => technologies, :bonus_type => "cards_per_hour")

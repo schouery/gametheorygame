@@ -14,9 +14,8 @@ describe GiftsController do
       card3 = mock_model(Card, :can_send? => false)
       item1 = mock_model(Item, :used => false)
       item2 = mock_model(Item, :used => false)
-      item3 = mock_model(Item, :used => true)
       @current_user.stub(:cards => [card1, card2, card3])
-      @current_user.stub(:items => [item1, item2, item3])
+      @current_user.stub(:items => mock(Array, :not_used => [item1, item2]))
       get :index
       assigns[:cards].should == [card1, card2]
       assigns[:items].should == [item1, item2]
@@ -70,45 +69,30 @@ describe GiftsController do
   end
 
   describe "GET receive_money" do
-    describe "with sucess" do
-      it "gives the player the correct amount of money if he has this gift" do
-        mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
-        MoneyGift.should_receive(:find).with(:first, :conditions => {:facebook_id => @current_user.facebook_id}).and_return(mock_gift)
-        @current_user.stub(:money => 100)
-        @current_user.should_receive(:money=).with(450)
-        @current_user.should_receive(:save)
-        get :receive_money, :id => @current_user.facebook_id      
-      end
-      
-      it "destroys the gift" do
-        mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350)
-        MoneyGift.stub(:find => mock_gift)
-        @current_user.stub(:money => 100, :money= => true, :save => true)
-        mock_gift.should_receive(:destroy)
-        get :receive_money, :id => 1            
-        response.should redirect_to cards_url
-      end
-    
-      it "should redirect to cards_url" do
-        mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
-        MoneyGift.stub(:find => mock_gift)
-        @current_user.stub(:money => 100, :money= => true, :save => true)
-        get :receive_money, :id => 1            
-        response.should redirect_to cards_url
-      end
-      
+    it "gives the player the correct amount of money if he has this gift" do
+      mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
+      MoneyGift.should_receive(:find).with(:first, :conditions => {:facebook_id => @current_user.facebook_id}).and_return(mock_gift)
+      @current_user.stub(:money => 100)
+      @current_user.should_receive(:money=).with(450)
+      @current_user.should_receive(:save)
+      get :receive_money, :id => @current_user.facebook_id      
     end
-    describe "falling" do
-      it "shouldn't give the gift if this is not the player who has it" do
-        MoneyGift.should_receive(:find).with(:first, :conditions => {:facebook_id => @current_user.facebook_id}).and_return(nil)
-        get :receive_money, :id => 1      
-      end
+  
+    it "destroys the gift" do
+      mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350)
+      MoneyGift.stub(:find => mock_gift)
+      @current_user.stub(:money => 100, :money= => true, :save => true)
+      mock_gift.should_receive(:destroy)
+      get :receive_money, :id => 1            
+      response.should redirect_to cards_url
+    end
 
-      it "should redirect to cards_url" do
-        MoneyGift.stub(:find => nil)
-        get :receive_money, :id => 1            
-        response.should redirect_to cards_url
-      end
+    it "should redirect to cards_url" do
+      mock_gift = mock_model(MoneyGift, :facebook_id => @current_user.facebook_id, :value => 350, :destroy => true)
+      MoneyGift.stub(:find => mock_gift)
+      @current_user.stub(:money => 100, :money= => true, :save => true)
+      get :receive_money, :id => 1            
+      response.should redirect_to cards_url
     end
   end
 

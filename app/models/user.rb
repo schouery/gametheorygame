@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :game_scores
   before_create :defaults  
   after_create :receive_cards 
+  named_scope :ordered_by_score, :order => "score DESC"
+  named_scope :researchers, :conditions => {:admin => false, :researcher => true}
 
   def receive_cards
     card_dealer = CardDealer.new
@@ -27,10 +29,8 @@ class User < ActiveRecord::Base
   end
 
   def hand_size
-    items = self.items.select {|item| !item.used}
+    items = self.items.select {|item| !item.used?}
     cards = self.cards.select {|card| !card.played?}
     items.size + cards.size
-  end
-
-  
+  end  
 end

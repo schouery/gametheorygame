@@ -110,4 +110,17 @@ describe Card do
       @card.gift_error.should == "You can't send this card!"
     end
   end        
+  
+  it "should know how to be played" do
+    game = mock_model(TwoPlayerMatrixGame)
+    user = mock_model(User, :score => 15)
+    card = Card.new(:user => user, :game => game)
+    card.should_receive(:save)
+    user.should_receive(:score=).with(25)
+    user.should_receive(:save)
+    GameScore.should_receive(:update_game_score).with(game, 10, user)
+    card.play(10)
+    card.payoff.should == 10
+  end
+  
 end

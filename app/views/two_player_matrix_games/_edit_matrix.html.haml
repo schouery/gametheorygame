@@ -4,13 +4,13 @@
     -@two_player_matrix_game.columns_strategies.each_with_index do |strategy, i|
       %td{:id => i+2}
         -f.fields_for :strategies, strategy  do |builder|
-          = render "strategy_fields", :f => builder  
+          = render "strategy_fields", :f => builder, :is_line => false
     %td= link_to_add_column(f)    
   -@two_player_matrix_game.payoff_matrix.each_with_index do |columns_payoffs, i|
     %tr.master{:id => i+2}
       %td{:id => 1}
         -f.fields_for :strategies, @two_player_matrix_game.lines_strategies[i]  do |builder|
-          = render "strategy_fields", :f => builder  
+          = render "strategy_fields", :f => builder, :is_line => true
       -columns_payoffs.each_with_index do |payoff, j|
         %td{:id => j+2}
           -f.fields_for :payoffs, payoff  do |builder|

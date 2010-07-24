@@ -23,11 +23,9 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install  
   config.gem 'haml', :lib => false, :version => '>= 2.2.22'
-  # config.gem 'facebooker', :version => '>= 1.0.67'
   config.gem 'javan-whenever', :lib =>false, :soruce => 'http://gems.github.com'
   config.gem "cancan"
   config.gem "acts_as_singleton"
-  config.gem "newrelic_rpm"
     
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

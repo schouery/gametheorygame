@@ -1,5 +1,4 @@
 class AuctionsController < ApplicationController
-
   #Lists all auctions with future end_date as @auctions
   def index
     @auctions = Auction.all.select do |auction|
@@ -11,17 +10,17 @@ class AuctionsController < ApplicationController
   #* @item_type is the ItemType with id equal to params[:id]
   #* @auctions are the auctions from this @item_type with future end_date
   def specific
-    @item_type = ItemType.find(params[:id]) 
-    items = @item_type.items.select do |item|
-      !item.auction.nil? && item.auction.end_date.future?
+    @item_type = ItemType.find(params[:id])
+    @auctions = @item_type.items.map(&:auction).select do |auction|
+      !auction.nil? && auction.end_date.future?
     end
-    @auctions = items.collect {|item| item.auction }
   end
 
   #Lists all auctions with future end_date from current_user as @auctions
   def active
-    all_actions = Auction.find_all_by_user_id(current_user.id)
-    @auctions = all_actions.select {|auction| auction.end_date.future?}
+    @auctions = Auction.find_all_by_user_id(current_user.id).select do |auction|
+      auction.end_date.future?
+    end
   end
 
   #Creates a new auction for the item given by item_id
@@ -31,12 +30,8 @@ class AuctionsController < ApplicationController
     authorize! :create_auction, @item
     if !@item.auction.nil?
       redirect_to cards_path, :notice => 'This item is already in auction.'
-    elsif @item.user != current_user
-      redirect_to cards_path, :notice => "This item isn't yours."
     else
-      @auction = Auction.new
-      @auction.end_date = 1.day.from_now
-      @auction.item = @item      
+      @auction = Auction.new(:end_date => 1.day.from_now, :item => @item)
     end
   end
 
@@ -67,7 +62,7 @@ class AuctionsController < ApplicationController
     if @auction.make_a_bid(params[:auction], current_user)
       redirect_to auctions_path, :notice => 'Auction was successfully updated.'
     else
-      flash[:notice] = @auction.error unless @auction.error.nil?
+      flash[:notice] = @auction.error
       render :action => "edit"
     end
   end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/item_types/edit.html.haml" do
-  include ItemTypesHelper
 
   before(:each) do
     assigns[:item_type] = @item_type = stub_model(ItemType,

@@ -10,8 +10,8 @@ describe "/gifts/card.html.haml" do
     render
     response.should contain "Send a Game 1 Card"
     response.body.should have_multi_friend_selector_with(:action => "gifts/1/send_card",
-    :url_for_invite => "http://apps.facebook.com/gametheorygamedev/gifts/1/receive_card",
-    :invite? => false,
-    :max => '1')
+      :url_for_invite => "http://apps.facebook.com/gametheorygamedev/gifts/1/receive_card",
+      :invite? => false,
+      :max => '1')
   end
 end

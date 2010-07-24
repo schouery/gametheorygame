@@ -1,21 +1,18 @@
 module ItemsHelper
-  def item_class(item)
-    if item.nil?
-      "item_not_found"
-    elsif item.used?
-      "item_used"
-    else
-      "item_not_used"
+
+  def not_used(items)
+    items.find do |item|
+      !item.used?
     end
   end
-
-  def item_status(item)
-    if item.nil?
+  
+  def items_status(items)    
+    if items.empty?
       "You don't have it yet."
-    elsif item.used?
-      "Used"
+    elsif items.all? {|item| !item.used?}
+      "#{pluralize(items.size, 'item')} not used"
     else
-      "Owned but not used"
+      "1 item used and #{pluralize(items.size-1, 'item')} not used"
     end    
   end
 

@@ -45,7 +45,7 @@ class ItemTypesController < ApplicationController
     redirect_to(item_set_item_types_url)
   end
   
- private
+  private
   def find_item_set
     @item_set = ItemSet.find(params[:item_set_id])
   end

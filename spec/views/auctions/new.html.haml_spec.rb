@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe "/auctions/new.html.haml" do
-  include AuctionsHelper
 
   before(:each) do
     @date = 10.minutes.from_now
     @item = assigns[:item] = stub_model(Item, :item_type => stub_model(ItemType, :name => "Item Type"))
     assigns[:auction] = stub_model(Auction, 
-    :new_record? => true,
-    :end_date => @date)
+      :new_record? => true,
+      :end_date => @date)
   end
 
   it "renders new auction form" do

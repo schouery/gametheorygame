@@ -1,12 +1,9 @@
 class GiftsController < ApplicationController
 
   def index
-    @cards = current_user.cards.select do |card|
-      card.can_send?
-    end
-    @items = current_user.items.select do |item|
-      !item.used
-    end
+    user = current_user
+    @cards = user.cards.select {|card| card.can_send? }
+    @items = user.items.not_used
   end
   
   def card
@@ -65,15 +62,8 @@ class GiftsController < ApplicationController
   end
 
   def send_money
-    ids = params[:ids]
-    user = current_user
-    value = Configuration[:money_gift_value]
-    if user.max_money_gifts > ids.size
-      ids.each do |id|
-        MoneyGift.create(:facebook_id => id, :value => value)
-      end
-      user.money -= ids.size * value
-      user.save
+    if current_user.max_money_gifts > params[:ids].size
+      MoneyGift.create_for(params[:ids], current_user)
       redirect_to(gifts_url)
     else
       flash[:notice] = "Action failed: You can't send so many gifts"
@@ -82,15 +72,10 @@ class GiftsController < ApplicationController
   end
   
   def receive_money
-    user = current_user
-    facebook_id = user.facebook_id
-    money = MoneyGift.find(:first, :conditions => {:facebook_id => facebook_id})
-    if !money.nil? && facebook_id == money.facebook_id
-      user.money += money.value
-      user.save
-      money.destroy
-    end
+    money = MoneyGift.find(:first, :conditions => {:facebook_id => current_user.facebook_id})
+    current_user.money += money.value
+    current_user.save
+    money.destroy
     redirect_to(cards_url)
   end
-  
 end

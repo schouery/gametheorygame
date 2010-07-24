@@ -27,7 +27,7 @@ describe "/cards/edit.html.haml" do
     response.should have_tag("form[action=#{card_path(@card)}][method=post]") do
       @strategies.each do |strategy|
         with_tag("input#card_strategy_id_#{strategy.id}[name=?][type=?][value=?]",
-        "card[strategy_id]", "radio", strategy.id)      
+          "card[strategy_id]", "radio", strategy.id)
       end
     end
   end

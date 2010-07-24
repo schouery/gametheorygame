@@ -20,7 +20,7 @@
       %th Player
       %th Strategy
       %th Payoff
-    -@card.game_result.sorted_cards.each_with_index do |card, i|
+    -@card.game_result.cards.sorted_by_player_number.each_with_index do |card, i|
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td=i+1
         %td=card.strategy.label

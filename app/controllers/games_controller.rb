@@ -1,26 +1,19 @@
 class GamesController < ApplicationController
+
   # Lists all games as @games
   def index
-    @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false}) +
-             SymmetricFunctionGame.find(:all, :conditions => {:removed => false})
+    @games = Games.collect_results {|specific_games| specific_games.not_removed }
     authorize! :read, @games
-    @paths = {}
-    @games.each do |game|
-      @paths[game] = "/" + game.class.to_s.underscore.pluralize + "/"
-    end
   end
   
   def inactive
-    @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => true}) +
-             SymmetricFunctionGame.find(:all, :conditions => {:removed => true})
+    @games = Games.collect_results {|specific_games| specific_games.removed }    
     authorize! :read, @games
   end
   
   def activate
-    if params[:type] == 'symmetric_function_game'
-      @game = SymmetricFunctionGame.find(params[:id])
-    else
-      @game = TwoPlayerMatrixGame.find(params[:id])
+    @game = Games.collect_from_specific_game(params[:type]) do |specific_games|
+      specific_games.find(params[:id])
     end
     @game.removed = false
     @game.save
@@ -28,21 +21,20 @@ class GamesController < ApplicationController
   end
     
   def probabilities
-    @games = TwoPlayerMatrixGame.find(:all, :conditions => {:removed => false}) +
-             SymmetricFunctionGame.find(:all, :conditions => {:removed => false})
+    @games = Games.collect_results {|specific_games| specific_games.not_removed}
     authorize! :update, @games         
   end
   
   def update_probabilities
-    game_types = [TwoPlayerMatrixGame, SymmetricFunctionGame]
-    game_types.each do |type|
-      params[type.to_s.underscore.to_sym].each_pair do |key, hash|
-        instance = type.send(:find, key)
-        logger.info instance.inspect
-        instance.update_attributes(hash)
-      end
+    @games = Games.collect_results do |specific_games|
+      key = specific_games.to_sym
+      specific_games.update(params[key].keys, params[key].values)
     end
-    redirect_to(games_url)
+    if @games.all? {|game| game.valid?}  
+      flash[:notice] = 'Game Weights updated.'
+      redirect_to(games_url)
+    else
+      render 'probabilities'
+    end
   end
-  
 end

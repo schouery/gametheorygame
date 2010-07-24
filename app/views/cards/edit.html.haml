@@ -6,6 +6,6 @@
     |
     =link_to 'Discard', discard_card_path(@card), :confirm => 'Are you sure?'    
   )
-=render @partial
+=render @card.game.path + "/card"
 
 

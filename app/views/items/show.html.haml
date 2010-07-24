@@ -2,10 +2,6 @@
   = @item_type.name
   (
   = link_to "Back", cards_path
-  |
-  = link_to "Use", use_item_path(@item)
-  |
-  = link_to "Sell", new_item_auction_path(@item)
   )  
-= render 'set_with_items',  :hash => @item_set.items_for(current_user), :item_set => @item_set
+= render 'set_with_items',  :item_types => @item_set.items_for(current_user), :item_set => @item_set
 

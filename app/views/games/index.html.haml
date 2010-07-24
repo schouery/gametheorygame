@@ -5,9 +5,12 @@
   -if can? :change_probabilities, nil
     |
     = link_to "Probabilities", probabilities_games_path
+  -if can? :destroy, SymmetricFunctionGame.new
+    |
+    = link_to "Inactive", inactive_games_path
 
 .alternating_table
   %table  
     -@games.each_with_index do |game, i|
       %tr{:class => (i.even? ? "odd" : "even")}
-        =render @paths[game] + "game", :game => game
+        =render game.path + "game", :game => game

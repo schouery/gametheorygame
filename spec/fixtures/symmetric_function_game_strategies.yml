@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  label: MyString
-  symmetric_function_game_id: 1
-
-two:
-  label: MyString
-  symmetric_function_game_id: 1

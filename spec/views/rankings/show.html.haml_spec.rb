@@ -13,11 +13,11 @@ describe "/rankings/show.html.haml" do
   it "renders the users and their score" do
     render
     response.should contain("Game")
-    response.body.should =~ /<fb:name capitalize='true' uid='1'><\/fb:name>/
+    response.body.should =~ /<fb:name capitalize='true' linked='false' uid='1'><\/fb:name>/
     response.should have_text(/10/)
-    response.body.should =~ /<fb:name capitalize='true' uid='2'><\/fb:name>/
+    response.body.should =~ /<fb:name capitalize='true' linked='false' uid='2'><\/fb:name>/
     response.should have_text(/5/)
-    response.body.should =~ /<fb:name capitalize='true' uid='3'><\/fb:name>/
+    response.body.should =~ /<fb:name capitalize='true' linked='false' uid='3'><\/fb:name>/
     response.should have_text(/-2/)
   end
 

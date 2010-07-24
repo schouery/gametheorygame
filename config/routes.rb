@@ -22,5 +22,6 @@ ActionController::Routing::Routes.draw do |map|
     info.manual 'manual', :action => 'manual'
     info.admin_manual 'admin_manual', :action => 'admin_manual'
     info.researcher_manual 'researcher_manual', :action => 'researcher_manual'
+    info.policy 'policy', :action => 'policy'
   end    
 end

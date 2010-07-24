@@ -10,5 +10,5 @@
     -@game_scores.each_with_index do |game_score, i|
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td
-          %fb:name{:uid => game_score.user.facebook_id, :capitalize => 'true'}
+          %fb:name{:uid => game_score.user.facebook_id, :capitalize => 'true', :linked => 'false'}
         %td= game_score.score

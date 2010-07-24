@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/auctions/index.html.haml" do
-  include AuctionsHelper
 
   before(:each) do
     @date1 = 5.minutes.from_now
@@ -14,10 +13,10 @@ describe "/auctions/index.html.haml" do
         :bid => 20
       ),
       stub_model(Auction,
-      :item => stub_model(Item, :item_type => stub_model(ItemType, :name => "Item Type 2")),
-      :end_date => @date2,
-      :reserve_price => 30,
-      :bid => 40
+        :item => stub_model(Item, :item_type => stub_model(ItemType, :name => "Item Type 2")),
+        :end_date => @date2,
+        :reserve_price => 30,
+        :bid => 40
       )
     ]
   end

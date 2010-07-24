@@ -9,9 +9,9 @@ describe "/cards/index.html.haml" do
     @item_type1 = stub_model(ItemType, :name => "Item Type 1")
     @item_type2 = stub_model(ItemType, :name => "Item Type 2")
     assigns[:cards] = [stub_model(Card, :game => @game1),
-                       stub_model(Card, :game => @game2)]
+      stub_model(Card, :game => @game2)]
     assigns[:items] = [stub_model(Item, :item_type => @item_type1),
-                       stub_model(Item, :item_type => @item_type2)]                   
+      stub_model(Item, :item_type => @item_type2)]
     @controller.stub(:can? => true)
   end
 

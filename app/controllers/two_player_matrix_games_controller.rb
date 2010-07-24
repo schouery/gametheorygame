@@ -9,7 +9,6 @@ class TwoPlayerMatrixGamesController < ApplicationController
   end
 
   def edit
-    @two_player_matrix_game.fill_positions
   end
 
   def create

@@ -7,11 +7,11 @@
 .strategy_chooser 
   %p
     Choose your strategy:
-    -form_for(@card) do |f|
-      =f.error_messages
-      %p 
-        -@card.game.strategies.each do |strategy|
-          =f.hidden_field :strategy_type, :value => strategy.class.to_s
-          =f.radio_button :strategy_id, strategy.id
-          =f.label :strategy_id, strategy.label
-      =f.submit 'Play'
+  = error_message_on @card, 'strategy'
+  -form_for(@card) do |f|
+    %p 
+      -@card.game.strategies.each do |strategy|
+        =f.hidden_field :strategy_type, :value => strategy.class.to_s
+        =f.radio_button :strategy_id, strategy.id
+        =f.label :strategy_id, strategy.label
+    =f.submit 'Play'

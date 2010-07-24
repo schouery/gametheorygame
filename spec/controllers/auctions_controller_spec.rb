@@ -27,8 +27,8 @@ describe AuctionsController do
   describe "GET index" do
     it "assigns all auctions as @auctions" do
       all_auctions = [mock_model(Auction, :end_date => mock(DateTime, :future? => false)),
-                      mock_model(Auction, :end_date => mock(DateTime, :future? => true)),
-                      mock_model(Auction, :end_date => mock(DateTime, :future? => false))]
+        mock_model(Auction, :end_date => mock(DateTime, :future? => true)),
+        mock_model(Auction, :end_date => mock(DateTime, :future? => false))]
       Auction.stub(:find).with(:all).and_return(all_auctions)
       get :index
       assigns[:auctions].should == [all_auctions[1]]
@@ -39,11 +39,11 @@ describe AuctionsController do
     it "assigns all auctions as @auctions" do
       ItemType.should_receive(:find).with("1").and_return(mock_item_type)
       auctions = [mock_model(Auction, :end_date => mock(DateTime, :future? => false)),
-                  mock_model(Auction, :end_date => mock(DateTime, :future? => true))]
+        mock_model(Auction, :end_date => mock(DateTime, :future? => true))]
       mock_item_type.stub(:items => [
-        mock_model(Item, :auction => auctions[0]),
-        mock_model(Item, :auction => auctions[1]),
-        mock_model(Item, :auction => nil)])
+          mock_model(Item, :auction => auctions[0]),
+          mock_model(Item, :auction => auctions[1]),
+          mock_model(Item, :auction => nil)])
       get :specific, :id => "1"
       assigns[:auctions].should == [auctions[1]]
       assigns[:item_type].should == mock_item_type
@@ -53,8 +53,8 @@ describe AuctionsController do
   describe "GET active" do
     it "assigns all auctions as @auctions" do
       all_auctions = [mock_model(Auction, :end_date => mock(DateTime, :future? => false)),
-                      mock_model(Auction, :end_date => mock(DateTime, :future? => true)),
-                      mock_model(Auction, :end_date => mock(DateTime, :future? => false))]
+        mock_model(Auction, :end_date => mock(DateTime, :future? => true)),
+        mock_model(Auction, :end_date => mock(DateTime, :future? => false))]
       Auction.stub(:find).with(:all, :conditions => {:user_id => @current_user.id}).and_return(all_auctions)
       get :active
       assigns[:auctions].should == [all_auctions[1]]
@@ -66,8 +66,6 @@ describe AuctionsController do
     it "assigns a new auction as @auction and the item as @item" do
       Item.should_receive(:find).with("1").and_return(mock_item(:auction => nil, :user => @current_user))
       Auction.stub(:new).and_return(mock_auction)
-      mock_auction.should_receive(:end_date=)
-      mock_auction.should_receive(:item=).with(mock_item)
       get :new, :item_id => "1"
       assigns[:auction].should equal(mock_auction)
       assigns[:item].should equal(mock_item)
@@ -75,11 +73,6 @@ describe AuctionsController do
     
     it "redirects to cards_path if the item can't be auctioned" do
       Item.should_receive(:find).with("1").and_return(mock_item(:auction => mock_auction))
-      get :new, :item_id => "1"
-      response.should redirect_to cards_path
-    end
-    it "redirects to cards_path if the user doesn't have this item" do
-      Item.should_receive(:find).with("1").and_return(mock_item(:auction => nil, :user => mock_model(User)))
       get :new, :item_id => "1"
       response.should redirect_to cards_path
     end

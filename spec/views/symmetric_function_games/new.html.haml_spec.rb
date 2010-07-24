@@ -6,7 +6,7 @@ describe "/symmetric_function_games/new.html.haml" do
   before(:each) do
     strategy = stub_model(SymmetricFunctionGameStrategy, :new_record? => true, :label => "Strategy")
     assigns[:symmetric_function_game] = stub_model(SymmetricFunctionGame, :new_record? => true,
-    :strategies => [strategy, strategy])
+      :strategies => [strategy, strategy])
   end
 
   it "renders new symmetric_function_game form" do
@@ -19,7 +19,7 @@ describe "/symmetric_function_games/new.html.haml" do
 
       [0,1].each do |i|
         with_tag("input#symmetric_function_game_strategies_attributes_#{i}_label[name=?]",
-        "symmetric_function_game[strategies_attributes][#{i}][label]")      
+          "symmetric_function_game[strategies_attributes][#{i}][label]")
       end
 
       ["red", "green", "yellow"].each do |color|

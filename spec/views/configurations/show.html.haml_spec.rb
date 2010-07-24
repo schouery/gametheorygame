@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/configurations/show.html.haml" do
-  include ConfigurationsHelper
   before(:each) do
     assigns[:configuration] = @configuration = Configuration.instance
     @controller.stub(:can? => true)

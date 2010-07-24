@@ -12,9 +12,9 @@ describe "/researchers/index.html.haml" do
 
   it "renders a list of symmetric_function_games" do
     render    
-    response.body.should =~ /<fb:name capitalize='true' uid='1'><\/fb:name>/
+    response.body.should =~ /<fb:name capitalize='true' linked='false' uid='1'><\/fb:name>/
     response.should have_tag("a[href=?]",'http://apps.facebook.com/gametheorygamedev/researchers/10/remove')
-    response.body.should =~ /<fb:name capitalize='true' uid='2'><\/fb:name>/
+    response.body.should =~ /<fb:name capitalize='true' linked='false' uid='2'><\/fb:name>/
     response.should have_tag("a[href=?]",'http://apps.facebook.com/gametheorygamedev/researchers/20/remove')
   end
 end

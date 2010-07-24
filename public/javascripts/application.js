@@ -1,46 +1,45 @@
-function remove_fields(link) {  
-    $(link).prev("input[type=hidden]").val("1");  
-    $(link).closest(".fields").hide();  
-}  
-  
 function add_fields(link, association, content) {  
-    var new_id = new Date().getTime();  
-    var regexp = new RegExp("new_" + association, "g");  
-    $(link).parent().before(content.replace(regexp, new_id));  
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().before(content.replace(regexp, new_id));
 }
 
 function number_of_columns() {
   var columns = 0;
-  $("tr.master").first().children().each(function(index) {columns += 1});
+  $("tr.master").first().children().each(function(index) {
+    columns += 1
+    });
   return columns;
 }
 
 function number_of_lines() {
   var lines = 0;
-  $("tr.master").each(function(index) {lines += 1});      
+  $("tr.master").each(function(index) {
+    lines += 1
+    });
   return lines;
 }
 
 function add_column(link, strategy, payoff) {
-    var new_id = new Date().getTime();  
-    var regexp_payoff = new RegExp("new_payoff", "g");  
-    var regexp_strategy = new RegExp("new_strategy", "g");
-    var columns = number_of_columns();
-    var lines = number_of_lines();
-    $("tr.master").each( function(index) {
-      if (index == 0) {
-        $(this).children().last().prev().after("<td>" + strategy.replace(regexp_strategy, new_id) + "</td>");
-        $(this).children().last().prev().find("input.number").val(columns - 2);
-        $(this).children().last().prev().find("input.player_number").val(2);
-      } else {
-        if (index < lines-1) {
-          new_id += 1;
-          $(this).children().last().after("<td>" + payoff.replace(regexp_payoff, new_id) + "</td>");
-          $(this).children().last().find("input.line").val(index-1);
-          $(this).children().last().find("input.column").val(columns-2);
-        }
+  var new_id = new Date().getTime();
+  var regexp_payoff = new RegExp("new_payoff", "g");
+  var regexp_strategy = new RegExp("new_strategy", "g");
+  var columns = number_of_columns();
+  var lines = number_of_lines();
+  $("tr.master").each( function(index) {
+    if (index == 0) {
+      $(this).children().last().prev().after("<td>" + strategy.replace(regexp_strategy, new_id) + "</td>");
+      $(this).children().last().prev().find("input.number").val(columns - 2);
+      $(this).children().last().prev().find("input.player_number").val(2);
+    } else {
+      if (index < lines-1) {
+        new_id += 1;
+        $(this).children().last().after("<td>" + payoff.replace(regexp_payoff, new_id) + "</td>");
+        $(this).children().last().find("input.line").val(index-1);
+        $(this).children().last().find("input.column").val(columns-2);
       }
-    });
+    }
+  });
 }
  
 function add_line(link, strategy, payoff) {

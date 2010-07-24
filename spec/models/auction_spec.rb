@@ -17,7 +17,7 @@ describe Auction do
     end
     it "without a bidder" do
       @user.items.should_receive(:<<).with(@item)
-      @auction.end
+      @auction.finish
     end
     it "with a bidder" do
       bidder = mock_model(User, :items => [])
@@ -26,20 +26,20 @@ describe Auction do
       bidder.items.should_receive(:<<).with(@item)
       bidder.should_receive(:save)
       @user.should_receive(:money=).with(15)
-      @auction.end
+      @auction.finish
     end
   end
   
   it "knows how to finish all auctions" do
     all_auctions = [mock_model(Auction, :end_date => mock(DateTime, :past? => false)),
-                    mock_model(Auction, :end_date => mock(DateTime, :past? => true)),
-                    mock_model(Auction, :end_date => mock(DateTime, :past? => false)),
-                    mock_model(Auction, :end_date => mock(DateTime, :past? => true))]
+      mock_model(Auction, :end_date => mock(DateTime, :past? => true)),
+      mock_model(Auction, :end_date => mock(DateTime, :past? => false)),
+      mock_model(Auction, :end_date => mock(DateTime, :past? => true))]
     Auction.should_receive(:all).and_return(all_auctions)
-    all_auctions[0].should_not_receive(:end)
-    all_auctions[1].should_receive(:end)
-    all_auctions[2].should_not_receive(:end)
-    all_auctions[3].should_receive(:end)
+    all_auctions[0].should_not_receive(:finish)
+    all_auctions[1].should_receive(:finish)
+    all_auctions[2].should_not_receive(:finish)
+    all_auctions[3].should_receive(:finish)
     Auction.finish_all
   end
   

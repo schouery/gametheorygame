@@ -6,7 +6,7 @@ class Auction < ActiveRecord::Base
   validates_numericality_of :bid, :only_integer => true, :greater_than_or_equal_to => 0
   attr_reader :error
   
-  def end
+  def finish
     if self.bidder.nil?
       self.user.items << self.item
     else
@@ -20,7 +20,7 @@ class Auction < ActiveRecord::Base
 
   def self.finish_all
     self.all.each do |auction|
-      auction.end if auction.end_date.past?
+      auction.finish if auction.end_date.past?
     end
   end
 
@@ -45,18 +45,18 @@ class Auction < ActiveRecord::Base
 
   def can_bid?(value, user)
     @error = if value > user.money
-                "Not enough money."
-             elsif user == self.user
-                "You can't bid on your own auction."
-             elsif self.bid >= value
-                "You should increase the bid."
-             elsif self.end_date.past?
-                "This Auction has ended."
-             elsif self.reserve_price > value
-                "Your bid should be greater or equal to the reserve price."
-             else
-               nil
-             end
+      "Not enough money."
+    elsif user == self.user
+      "You can't bid on your own auction."
+    elsif self.bid >= value
+      "You should increase the bid."
+    elsif self.end_date.past?
+      "This Auction has ended."
+    elsif self.reserve_price > value
+      "Your bid should be greater or equal to the reserve price."
+    else
+      nil
+    end
     @error.nil?
   end
   

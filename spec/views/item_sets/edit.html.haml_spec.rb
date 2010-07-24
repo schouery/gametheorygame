@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/item_sets/edit.html.haml" do
-  include ItemSetsHelper
 
   before(:each) do
     assigns[:item_set] = @item_set = stub_model(ItemSet, :new_record? => false)

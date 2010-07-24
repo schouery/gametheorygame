@@ -10,13 +10,13 @@ describe "/two_player_matrix_games/statistics.html.haml" do
     movies_1 = stub_model(TwoPlayerMatrixGame, :label => "Movies", :player_number => 1)
     movies_2 = stub_model(TwoPlayerMatrixGame, :label => "Movies", :player_number => 2)
     @payoff_1 = stub_model(TwoPlayerMatrixGamePayoff, :strategy_1 => soccer_1, :strategy_2 => soccer_2, 
-                                                     :payoff_player_1 => 6, :payoff_player_2 => 5)
+      :payoff_player_1 => 6, :payoff_player_2 => 5)
     @payoff_2 = stub_model(TwoPlayerMatrixGamePayoff, :strategy_1 => movies_1, :strategy_2 => soccer_2, 
-                                                    :payoff_player_1 => 0, :payoff_player_2 => 0)
+      :payoff_player_1 => 0, :payoff_player_2 => 0)
     @payoff_3 = stub_model(TwoPlayerMatrixGamePayoff, :strategy_1 => soccer_1, :strategy_2 => movies_1, 
-                                                    :payoff_player_1 => 1, :payoff_player_2 => 1)
+      :payoff_player_1 => 1, :payoff_player_2 => 1)
     @payoff_4 = stub_model(TwoPlayerMatrixGamePayoff, :strategy_1 => movies_1, :strategy_2 => movies_2, 
-                                                    :payoff_player_1 => 5, :payoff_player_2 => 6)
+      :payoff_player_1 => 5, :payoff_player_2 => 6)
     @card1 = stub_model(Card, :strategy => @soccer1)
     @card2 = stub_model(Card, :strategy => @movies1)
     @card3 = stub_model(Card, :strategy => @soccer2)

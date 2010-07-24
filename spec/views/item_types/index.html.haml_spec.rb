@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/item_types/index.html.haml" do
-  include ItemTypesHelper
 
   before(:each) do
     assigns[:item_types] = [

@@ -1,22 +1,25 @@
 class ItemSet < ActiveRecord::Base
-  has_many :item_types
+  has_many :item_types, :dependent => :destroy
 
   def items_for(user)
-    hash = {}
+    items = Item.find(:all, :conditions => ['user_id = ? AND item_types.item_set_id = ?', user.id, self.id], :include => :item_type)
+    item_types = {}
     self.item_types.each do |item_type|
-      hash[item_type] = item_type.items.find(:first, :conditions => {:user_id => user.id})
+      item_types[item_type] = items.find_all {|item| item.item_type == item_type}
     end
-    hash
-  end
-
-  def self.sets_for(user)
-    hash = {}
-    self.all.each do |item_set|
-      hash[item_set] = item_set.items_for(user)
-    end
-    hash
+    item_types
   end
   
+  def self.sets_for(user)
+    item_types = Item.group_by_item_type(user)
+    item_sets = Hash.new
+    item_types.each_pair do |item_type, items|
+      item_sets[item_type.item_set] ||= Hash.new
+      item_sets[item_type.item_set][item_type] = items
+    end  
+    item_sets
+  end
+    
   def has_full_set(user)
     count = 0
     self.item_types.each do |item_type|

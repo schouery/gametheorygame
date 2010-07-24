@@ -17,16 +17,15 @@
         %th Sell your items 
         %th Buy a new item
       - i = 0
-      - hash.each_pair do |item_type, item|
+      - item_types.each_pair do |item_type, items|
         - i += 1
         %tr{:class => (i.even? ? "odd" : "even")}
-          %td{:class => item_class(item)}
-            = item_type.name
-          %td= item_status(item)  
+          %td= item_type.name
+          %td= items_status(items)  
           %td
-            = link_to "Use", use_item_path(item) unless item.nil? || item.used
+            = link_to "Use", use_item_path(not_used(items)) unless items.empty? || items.any? {|item| item.used}
           %td
-            = link_to "Sell", new_item_auction_path(item) unless item.nil? || item.used
+            = link_to "Sell", new_item_auction_path(not_used(items)) unless items.empty? || items.all? {|item| item.used}
           %td
-            = link_to "Buy", specific_auction_path(item_type) if item.nil?
+            = link_to "Buy", specific_auction_path(item_type) if items.empty?
             

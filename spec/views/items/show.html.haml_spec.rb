@@ -8,9 +8,9 @@ describe "/items/show.html.haml" do
     @item_set = assigns[:item_set] = stub_model(ItemSet, :name => "Item Set 1", :bonus_type => "hand_limit")
     @item_set.should_receive(:items_for).and_return(
       {
-        stub_model(ItemType, :name => "Item Type 1") => @item,
-        stub_model(ItemType, :name => "Item Type 2") => stub_model(Item, :used => true),
-        stub_model(ItemType, :name => "Item Type 3") => nil
+        stub_model(ItemType, :name => "Item Type 1") => [@item],
+        stub_model(ItemType, :name => "Item Type 2") => [stub_model(Item, :used => true)],
+        stub_model(ItemType, :name => "Item Type 3") => []
       }
     )
   end

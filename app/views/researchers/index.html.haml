@@ -13,7 +13,7 @@
     -@researchers.each_with_index do |researcher, i|
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td
-          %fb:name{:uid => researcher.facebook_id, :capitalize => 'true'}
+          %fb:name{:uid => researcher.facebook_id, :capitalize => 'true', :linked => 'false'}
         %td  
           - if can? :remove_researcher, researcher
             = link_to 'Remove',  remove_researcher_path(researcher), :confirm => 'Are you sure?'

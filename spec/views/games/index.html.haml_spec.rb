@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 describe "/games/index.html.haml" do
-  include GamesHelper
 
   before(:each) do
     @games = assigns[:games] = [stub_model(SymmetricFunctionGame, :name => "Polution Game for 4", :id => 1),
-              stub_model(SymmetricFunctionGame, :name => "Polution Game for 6", :id => 2),
-              stub_model(TwoPlayerMatrixGame, :name => "Prisioner's Dilemma", :id => 3),
-              stub_model(TwoPlayerMatrixGame, :name => "Battle of Sexes", :id => 4)]
+      stub_model(SymmetricFunctionGame, :name => "Polution Game for 6", :id => 2),
+      stub_model(TwoPlayerMatrixGame, :name => "Prisioner's Dilemma", :id => 3),
+      stub_model(TwoPlayerMatrixGame, :name => "Battle of Sexes", :id => 4)]
     assigns[:paths] = {
       @games[0] => "/symmetric_function_games/",
       @games[1] => "/symmetric_function_games/",

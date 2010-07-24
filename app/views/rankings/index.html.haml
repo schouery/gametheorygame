@@ -1,10 +1,7 @@
 %p.title Ranking Per Game
 %p
-  -TwoPlayerMatrixGame.all.each do |game|
-    = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "TwoPlayerMatrixGame"
-    %br
-  -SymmetricFunctionGame.all.each do |game|
-    = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => "SymmetricFunctionGame"
+  -@games.each do |game|
+    = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => game.class.to_s
     %br
 
 %p.title Global Ranking
@@ -17,6 +14,6 @@
     -@users.each_with_index do |user, i|
       %tr{:class => (i.odd? ? "odd" : "even")}
         %td
-          %fb:name{:uid => user.facebook_id, :capitalize => 'true'}
+          %fb:name{:uid => user.facebook_id, :capitalize => 'true', :linked => 'false'}
         %td= user.score
 
