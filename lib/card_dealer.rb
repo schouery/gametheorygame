@@ -1,5 +1,4 @@
 class CardDealer
-
   def deal
     User.find(:all).each do |user|
       user.cards_per_hour.times do
@@ -36,6 +35,5 @@ class CardDealer
     return if item_types.empty?
     item_type = item_types[rand(item_types.size)]
     Item.create(:user => user, :item_type => item_type)
-  end
-      
+  end   
 end

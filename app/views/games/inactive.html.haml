@@ -9,4 +9,6 @@
     -@games.each_with_index do |game, i|
       %tr{:class => (i.even? ? "odd" : "even")}
         %td= game.name
-        %td= link_to 'Activate', activate_game_path(game), :type => game.class.to_s.underscore, :confirm => 'Are you sure?'
+        %td
+          -if can? :remove, game
+            = link_to 'Activate', :controller => "games", :action => "activate", :id => game.id, :type =>game.class.to_s.underscore

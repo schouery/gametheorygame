@@ -42,7 +42,7 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
         :strategy2_id => players_cards[1].strategy.id})
     players_cards[0].play(payoff.payoff_player_1)
     players_cards[1].play(payoff.payoff_player_2)
-    GameResult.create(:cards => cards, :game => self)
+    GameResult.create(:cards => players_cards, :game => self)
   end
     
   def payoff_matrix

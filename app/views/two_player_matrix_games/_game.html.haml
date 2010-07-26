@@ -3,4 +3,4 @@
 %td=link_to "Statistics", statistics_two_player_matrix_game_path(game)
 %td
   -if can? :remove, game
-    = link_to 'Destroy', remove_two_player_matrix_game_path(game), :confirm => "Are you sure?"
+    = link_to 'Deactivate', remove_two_player_matrix_game_path(game), :confirm => "Are you sure?"

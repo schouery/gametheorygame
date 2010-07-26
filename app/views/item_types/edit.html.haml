@@ -1,4 +1,10 @@
-%p.title Editing item_type
+%p.title 
+  Editing item_type
+  (
+  = link_to 'Show', [@item_set, @item_type]
+  |
+  = link_to 'Back', item_set_item_types_path(@item_set)
+  )
 
 - form_for([@item_set, @item_type]) do |f|
   = f.error_messages
@@ -9,7 +15,3 @@
 
   %p
     = f.submit 'Update'
-
-= link_to 'Show', [@item_set, @item_type]
-|
-= link_to 'Back', item_set_item_types_path(@item_set)

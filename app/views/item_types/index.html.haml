@@ -4,6 +4,8 @@
   -if can? :create, ItemType.new
     (
     = link_to 'New Item Type', new_item_set_item_type_path(@item_set)
+    |
+    = link_to 'Back', item_sets_path
     )
 
 .alternating_table

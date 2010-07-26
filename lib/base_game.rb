@@ -1,30 +1,38 @@
-#   
-# if params[:type] == 'symmetric_function_game'
-#   @game = SymmetricFunctionGame.find(params[:id])
-# else
-#   @game = TwoPlayerMatrixGame.find(params[:id])
-# end
-
-
 class Games
+  def self.load_models
+    if !@@models_loaded
+      Dir.glob(RAILS_ROOT+'/app/models/*.rb').each {|file| require file unless f =~ /ability/}
+      @@models_loaded = true
+    end
+  end
+
+  def self.each_specific_game
+    load_models
+    @@game_classes.each do |game_class|
+      yield(game_class)
+    end
+  end
+  
   def self.collect_results
-    @game_classes.inject([]) do |sum, game_class|
+    load_models
+    @@game_classes.inject([]) do |sum, game_class|
       sum += yield(game_class)
     end
   end
   
-  def self.register(game_class)
-    @game_classes ||= []
-    @game_classes << game_class
-    @game_classes.uniq!
-  end
-  
   def self.collect_from_specific_game(type)
-    specific_games = @game_classes.find {|game_class| game_class.to_rails_s == type}
+    load_models
+    specific_games = @@game_classes.find {|game_class| game_class.to_rails_s == type}
     yield(specific_games)
   end
-
+  
+  def self.register(game_class)
+    @@game_classes ||= []
+    @@game_classes << game_class
+    @@game_classes.uniq!
+  end
 end
+
 module GameTheory
   module BaseGame
     def self.included(base)

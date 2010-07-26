@@ -1,6 +1,15 @@
-%p= @auction.item.item_type.name
-%p= @auction.end_date
-%p= @auction.reserve_price
+%p.title
+  Auction for
+  = @auction.item.item_type.name
+  (
+  = link_to 'Back', auctions_path
+  )
+%p
+  It will end at
+  = @auction.end_date
+%p
+  Reserve price:
+  = @auction.reserve_price
 
 - form_for(@auction) do |f|
   = f.error_messages
@@ -11,6 +20,3 @@
   %p
     = f.submit 'Update'
 
-= link_to 'Show', @auction
-|
-= link_to 'Back', auctions_path

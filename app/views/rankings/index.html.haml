@@ -2,7 +2,7 @@
 %p
   -@games.each do |game|
     = link_to game.name, :controller => "rankings", :action => :show, :id => game.id, :game_type => game.class.to_s
-    %br
+    |
 
 %p.title Global Ranking
 

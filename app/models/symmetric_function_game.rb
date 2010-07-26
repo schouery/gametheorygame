@@ -15,6 +15,7 @@ class SymmetricFunctionGame < ActiveRecord::Base
 
   def strategies_percentages
     sum = self.number_of_players * self.game_results.size
+    puts sum
     histogram = Hash.new(0)
     self.game_results.each do |result|
       result.cards.each do |card|

@@ -1,4 +1,8 @@
-%p.title New item_type
+%p.title
+  New item_type
+  (
+  = link_to 'Back', item_set_item_types_path(@item_set)
+  )
 
 - form_for([@item_set, @item_type]) do |f|
   = f.error_messages
@@ -9,4 +13,3 @@
   %p
     = f.submit 'Create'
 
-= link_to 'Back', item_set_item_types_path(@item_set)

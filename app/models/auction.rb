@@ -7,6 +7,7 @@ class Auction < ActiveRecord::Base
   attr_reader :error
   
   def finish
+    p self
     if self.bidder.nil?
       self.user.items << self.item
     else

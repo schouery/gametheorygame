@@ -1,15 +1,14 @@
 class GiftsController < ApplicationController
 
   def index
-    user = current_user
-    @cards = user.cards.select {|card| card.can_send? }
-    @items = user.items.not_used
+    @cards = current_user.cards.select {|card| card.can_send_as_gift?(current_user) }
+    @items = current_user.items.not_used
   end
   
   def card
     @card = Card.find(params[:id])
     if !@card.can_send_as_gift?(current_user)
-      flash[:notice] = @card.gift_error
+      flash[:notice] = "You can't send this card!"
       redirect_to(gifts_url)
     end
   end
@@ -17,7 +16,7 @@ class GiftsController < ApplicationController
   def send_card
     card = Card.find(params[:id])
     if !card.send_as_gift(current_user, params[:ids][0].to_i)
-      flash[:notice] = card.gift_error
+      flash[:notice] = "You can't send this card!"
     end
     redirect_to(gifts_url)
   end
@@ -27,7 +26,7 @@ class GiftsController < ApplicationController
     if card.gift_for == current_user.facebook_id
       card.user = current_user
       card.gift_for = nil
-      card.save
+      card.save_without_validation
     end
     redirect_to(cards_url)
   end

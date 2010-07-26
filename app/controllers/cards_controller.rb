@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   
   #Lists all game cards (as @cards) and item cards (as @items) of the current_user that wasn't used yet.
   def index
@@ -14,10 +14,14 @@ class CardsController < ApplicationController
 
   #Define @card to the card with id equal to params[:id].
   def result
+    @card = Card.find(params[:id])
+    authorize! :read, @card
   end
 
   #Destroy a card.
   def discard
+    @card = Card.find(params[:id])
+    authorize! :delete, @card
     @card.destroy
     redirect_to(cards_url)
   end
@@ -25,11 +29,15 @@ class CardsController < ApplicationController
   #Used to play a card.
   #It defines @card to the card with id equal to params[:id]
   def edit
+    @card = Card.find(params[:id])
+    authorize! :update, @card
     redirect_to(cards_url) if @card.played?
   end
 
   #Updates a card with the choosen strategy for the game.
   def update
+    @card = Card.find(params[:id])
+    authorize! :update, @card
     @card.played = true    
     if @card.update_attributes(params[:card])
       @card.game.play

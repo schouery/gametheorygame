@@ -13,31 +13,31 @@ class Ability
 
   private
  
-  def manage_games
-    games = [SymmetricFunctionGame, TwoPlayerMatrixGame]
-    games.each do |game|
-      can :create, game
-      can :statistics, game
-      can :remove, game
+  def manage_games(user)
+    Games.each_specific_game do |game_class|
+      can :create, game_class
+      can :statistics, game_class
+      can :remove, game_class do |game|
+        game.user == user
+      end 
     end
   end
-  
+    
   def researcher_abilities(user)     
-    manage_games
-    can :read, :all
-    can :create, Invitation 
+    manage_games(user)
+    can :invite_researcher, User if Configuration[:researcher_can_invite_researcher]
     can :researcher_manual, nil
     can :remove_researcher, User do |researcher|
       researcher == user
     end
-    can :invite_researcher, User if Configuration[:researcher_can_invite_researcher]
-    can :manage, :card do |card|
-      card.user == user
-    end
+    user_abilities(user)
   end
 
   def user_abilities(user)
     can :read, Item do |item|
+      item.user == user
+    end
+    can :use, Item do |item|
       item.user == user
     end
     can :create_auction, Item do |item|
@@ -47,7 +47,7 @@ class Ability
     can :update, Card do |card| 
       card.user == user && !card.played?
     end
-    can :destroy, Card do |card|
+    can :delete, Card do |card|
       card.game.color != "red" && card.user == user
     end
   end

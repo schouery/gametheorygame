@@ -1,7 +1,9 @@
 %p.title 
   New Auction for
   = @item.item_type.name
-
+  (
+  = link_to 'Back', item_path(@item)
+  )
 %p
   %b
     It will end at
@@ -18,5 +20,3 @@
 
   %p
     = f.submit 'Create'
-
-= link_to 'Back', item_path(@item)

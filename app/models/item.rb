@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :item_type
-  has_one :auction
+  has_one :auction, :dependent => :destroy
   named_scope :not_used, :conditions => {:used => false}, :include => :item_type
   
   attr_reader :gift_error

@@ -4,7 +4,6 @@ class Card < ActiveRecord::Base
   belongs_to :strategy, :polymorphic => true
   belongs_to :game_result
   after_save :give_money_to_player
-  attr_reader :gift_error
   validates_presence_of :strategy, :on => :update
   named_scope :not_played, :conditions => {:played => false}, :include => :game
   named_scope :played, :conditions => {:played => true}, :include => [:strategy, :game]
@@ -18,25 +17,15 @@ class Card < ActiveRecord::Base
     end
   end
   
-  def can_send?
-    !self.game.nil? && self.game.color == "green" && !self.played? 
-  end
-
   def can_send_as_gift?(user)
-    if self.game.nil? || self.game.color != "green" || self.played? || self.user != user
-      @gift_error = "You can't send this card!"
-      false
-    else
-      @gift_error = ""
-      true
-    end
+    self.game.color == "green" && !self.played? && self.user == user
   end
   
   def send_as_gift(user, to_user)
     if can_send_as_gift?(user)
       self.user = nil
       self.gift_for = to_user
-      save
+      self.save_without_validation
       return true
     else
       return false
