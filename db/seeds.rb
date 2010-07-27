@@ -1,3 +1,4 @@
+ADMIN_ID = 1542875245
 [User, SymmetricFunctionGame, SymmetricFunctionGameStrategy, TwoPlayerMatrixGame, TwoPlayerMatrixGameStrategy, TwoPlayerMatrixGamePayoff,
   SymmetricFunctionGameStrategy, Card, GameResult, Invitation, MoneyGift, ItemSet, ItemType, Item].each do |table|
   puts "Deleting #{table.to_s}"
@@ -132,7 +133,7 @@ congestion.save!
 games << congestion
 
 puts "Creating Users"
-admin = User.create!(:facebook_id => 1542875245, :admin => true, :researcher => true)#schouery@gmail.com
+admin = User.create!(:facebook_id => ADMIN_ID, :admin => true, :researcher => true)#schouery@gmail.com
 
 puts "Setting game ownership to admin"
 games.each do |game|

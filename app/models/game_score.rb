@@ -1,7 +1,8 @@
 class GameScore < ActiveRecord::Base
   belongs_to :user
   belongs_to :game, :polymorphic => true
-  named_scope :sorted, lambda {|game_id, game_type| {:conditions => {:game_id => game_id, :game_type => game_type},
+  named_scope :sorted, lambda {|game_id, game_type| {
+      :conditions => {:game_id => game_id, :game_type => game_type},
       :order => "score DESC"}}
   
   def self.update_game_score(game, payoff, player)

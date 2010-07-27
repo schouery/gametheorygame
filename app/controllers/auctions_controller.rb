@@ -1,3 +1,4 @@
+#Controller related to Auctions .
 class AuctionsController < ApplicationController
   #Lists all auctions with future end_date as @auctions
   def index
@@ -40,7 +41,7 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:id])
   end
 
-  #Saves a auction on the databse
+  #Saves a auction on the databse and redirects to cards_path
   def create
     @auction = Auction.new(params[:auction])
     @item = @auction.item
@@ -55,7 +56,7 @@ class AuctionsController < ApplicationController
     end
   end
 
-  #Saves the updates of auction on the database
+  #Saves the updates of auction on the database  and redirects to cards_path.
   #Used for making bids on the auction
   def update
     @auction = Auction.find(params[:id])

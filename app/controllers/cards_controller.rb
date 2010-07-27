@@ -1,7 +1,8 @@
+#Controller for Card actions
 class CardsController < ApplicationController
-  # load_and_authorize_resource
   
-  #Lists all game cards (as @cards) and item cards (as @items) of the current_user that wasn't used yet.
+  #Lists all game cards (as @cards) and item cards (as @items) of the
+  #current_user that wasn't used yet.
   def index
     @cards = Card.not_played.all(:conditions => {:user_id => current_user.id})
     @items = Item.not_used.all(:conditions => {:user_id => current_user.id})
@@ -18,12 +19,12 @@ class CardsController < ApplicationController
     authorize! :read, @card
   end
 
-  #Destroy a card.
+  #Destroy a card and redirects to cards_path
   def discard
     @card = Card.find(params[:id])
     authorize! :delete, @card
     @card.destroy
-    redirect_to(cards_url)
+    redirect_to(cards_path)
   end
   
   #Used to play a card.
@@ -31,10 +32,11 @@ class CardsController < ApplicationController
   def edit
     @card = Card.find(params[:id])
     authorize! :update, @card
-    redirect_to(cards_url) if @card.played?
+    redirect_to(cards_path) if @card.played?
   end
 
-  #Updates a card with the choosen strategy for the game.
+  #Updates a card with the choosen strategy for the game  and redirects to
+  #cards_path.
   def update
     @card = Card.find(params[:id])
     authorize! :update, @card
@@ -42,7 +44,7 @@ class CardsController < ApplicationController
     if @card.update_attributes(params[:card])
       @card.game.play
       flash[:notice] = 'Card was successfully updated.'
-      redirect_to(cards_url)
+      redirect_to(cards_path)
     else
       render :action => "edit"
     end

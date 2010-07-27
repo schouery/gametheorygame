@@ -1,7 +1,9 @@
 class TwoPlayerMatrixGame < ActiveRecord::Base
   include GameTheory::BaseGame
-  has_many :strategies, :class_name => "TwoPlayerMatrixGameStrategy", :foreign_key => "game_id", :dependent => :destroy
-  has_many :payoffs, :class_name => "TwoPlayerMatrixGamePayoff", :foreign_key => "game_id", :dependent => :destroy
+  has_many :strategies, :class_name => "TwoPlayerMatrixGameStrategy",
+    :foreign_key => "game_id", :dependent => :destroy
+  has_many :payoffs, :class_name => "TwoPlayerMatrixGamePayoff",
+    :foreign_key => "game_id", :dependent => :destroy
   accepts_nested_attributes_for :strategies, :allow_destroy => true
   accepts_nested_attributes_for :payoffs, :allow_destroy => true
   before_create :associate_payoffs
@@ -20,8 +22,12 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   
   def associate_payoffs
     self.payoffs.each do |payoff|
-      payoff.strategy1 = self.lines_strategies.find {|strategy| strategy.number == payoff.line_position } if payoff.strategy1.nil?
-      payoff.strategy2 = self.columns_strategies.find {|strategy| strategy.number == payoff.column_position } if payoff.strategy2.nil?
+      payoff.strategy1 = self.lines_strategies.find do |strategy|
+        strategy.number == payoff.line_position
+      end if payoff.strategy1.nil?
+      payoff.strategy2 = self.columns_strategies.find do |strategy|
+        strategy.number == payoff.column_position
+      end if payoff.strategy2.nil?
     end
   end
   
@@ -38,8 +44,9 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   def play
     players_cards = valid_cards
     return if players_cards.nil?
-    payoff = self.payoffs.find(:first, :conditions => {:strategy1_id => players_cards[0].strategy.id, 
-        :strategy2_id => players_cards[1].strategy.id})
+    payoff = self.payoffs.find(:first,
+      :conditions => {:strategy1_id => players_cards[0].strategy.id,
+      :strategy2_id => players_cards[1].strategy.id})
     players_cards[0].play(payoff.payoff_player_1)
     players_cards[1].play(payoff.payoff_player_2)
     GameResult.create(:cards => players_cards, :game => self)
@@ -80,11 +87,14 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   end
 
   def results_matrix
-    counter = create_matrix(self.lines_strategies.size, self.columns_strategies.size, 0)
+    counter = create_matrix(self.lines_strategies.size,
+      self.columns_strategies.size, 0)
     sum = self.game_results.size
     self.game_results.each do |result|
       sorted_cards = result.cards.sorted_by_player_number
-      counter[sorted_cards[0].strategy.number][sorted_cards[1].strategy.number] += 1.0/sum
+      line = sorted_cards[0].strategy.number
+      column = sorted_cards[1].strategy.number
+      counter[line][column] += 1.0/sum
     end
     counter
   end
@@ -92,11 +102,17 @@ class TwoPlayerMatrixGame < ActiveRecord::Base
   private
   def valid_cards
     cards = played_cards
-    player_1_cards = cards_with_uniq_users(cards.select {|card| card.player_number == 1})
-    player_2_cards = cards_with_uniq_users(cards.select {|card| card.player_number == 2})
+    player_1_cards = cards_with_uniq_users(cards.select do |card|
+        card.player_number == 1
+      end)
+    player_2_cards = cards_with_uniq_users(cards.select do |card|
+        card.player_number == 2
+      end)
     player_1_cards.each do |player_1_card|
       player_2_cards.each do |player_2_card|
-        return [player_1_card, player_2_card] if player_1_card.user != player_2_card.user
+        if player_1_card.user != player_2_card.user
+          return [player_1_card, player_2_card]
+        end
       end
     end
     return nil

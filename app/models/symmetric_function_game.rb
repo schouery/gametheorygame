@@ -1,8 +1,10 @@
 class SymmetricFunctionGame < ActiveRecord::Base
   include GameTheory::BaseGame
   validates_presence_of :function, :number_of_players
-  validates_numericality_of :number_of_players, :only_integer => true, :greater_than => 0
-  has_many :strategies, :class_name => "SymmetricFunctionGameStrategy", :dependent => :destroy, :foreign_key => :game_id
+  validates_numericality_of :number_of_players, :only_integer => true,
+    :greater_than => 0
+  has_many :strategies, :class_name => "SymmetricFunctionGameStrategy",
+    :dependent => :destroy, :foreign_key => :game_id
   accepts_nested_attributes_for :strategies, :allow_destroy => true
            
   def play
@@ -15,7 +17,6 @@ class SymmetricFunctionGame < ActiveRecord::Base
 
   def strategies_percentages
     sum = self.number_of_players * self.game_results.size
-    puts sum
     histogram = Hash.new(0)
     self.game_results.each do |result|
       result.cards.each do |card|

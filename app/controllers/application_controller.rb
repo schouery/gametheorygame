@@ -1,6 +1,7 @@
-#The ApplicationController is the base class for the whole hierarchy of controllers in the system.
-#It makes sure that the user is authenticated to Facebook and defines the value of current_user as
-#the User logged in on Facebook.
+#The ApplicationController is the base class for the whole hierarchy of
+#controllers in the system. It makes sure that the user is authenticated to 
+#Facebook and defines the value of current_user as the User logged in on
+#Facebook.
 class ApplicationController < ActionController::Base
   #Include all helpers
   helper :all

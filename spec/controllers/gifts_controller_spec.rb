@@ -9,9 +9,9 @@ describe GiftsController do
 
   describe "GET index" do
     it "lists all player's green cards as @cards and player's not used items as @items" do
-      card1 = mock_model(Card, :can_send? => true)
-      card2 = mock_model(Card, :can_send? => true)
-      card3 = mock_model(Card, :can_send? => false)
+      card1 = mock_model(Card, :can_send_as_gift? => true)
+      card2 = mock_model(Card, :can_send_as_gift? => true)
+      card3 = mock_model(Card, :can_send_as_gift? => false)
       item1 = mock_model(Item, :used => false)
       item2 = mock_model(Item, :used => false)
       @current_user.stub(:cards => [card1, card2, card3])
@@ -106,11 +106,11 @@ describe GiftsController do
     end
     
     it "redirects to gifts_url if it can't send the card and warns the player" do
-      mock_card = mock_model(Card, :can_send_as_gift? => false, :gift_error => "Error")
+      mock_card = mock_model(Card, :can_send_as_gift? => false)
       Card.should_receive(:find).with("1").and_return(mock_card)
       get :card, :id => 1
       response.should redirect_to gifts_url
-      flash[:notice].should == "Error"
+      flash[:notice].should == "You can't send this card!"
     end
     
   end
@@ -134,11 +134,11 @@ describe GiftsController do
     
     describe "with a forbidden card" do
       it "redirect to index and warns the player for a card that can't be sended" do
-        mock_card = mock_model(Card, :send_as_gift => false, :gift_error => "Error")
+        mock_card = mock_model(Card, :send_as_gift => false)
         Card.stub(:find => mock_card)
         post :send_card, :id => 10, :ids => [101]
         response.should redirect_to gifts_url
-        flash[:notice].should == "Error"
+        flash[:notice].should == "You can't send this card!"
       end
     end
     
@@ -152,12 +152,12 @@ describe GiftsController do
         Card.should_receive(:find).with("1").and_return(mock_card)
         mock_card.should_receive(:user=).with(@current_user)
         mock_card.should_receive(:gift_for=).with(nil)
-        mock_card.should_receive(:save)
+        mock_card.should_receive(:save_without_validation)
         get :receive_card, :id => 1      
       end
 
       it "should redirect to cards_url" do
-        mock_card = mock_model(Card, :user= => true, :save => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
+        mock_card = mock_model(Card, :user= => true, :save_without_validation => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
         Card.stub(:find => mock_card)
         get :receive_card, :id => 1      
         response.should redirect_to cards_url

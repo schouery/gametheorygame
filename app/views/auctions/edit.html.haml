@@ -8,8 +8,9 @@
   It will end at
   = @auction.end_date
 %p
-  Reserve price:
-  = @auction.reserve_price
+  Your bid should be greater than:
+  = minimum_bid(@auction)
+
 
 - form_for(@auction) do |f|
   = f.error_messages
@@ -18,5 +19,5 @@
     = f.text_field :bid
     
   %p
-    = f.submit 'Update'
+    = f.submit 'Make the bid'
 

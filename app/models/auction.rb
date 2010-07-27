@@ -2,12 +2,13 @@ class Auction < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
   belongs_to :bidder, :class_name => "User", :foreign_key => "bidder_id"
-  validates_numericality_of :reserve_price, :only_integer => true, :greater_than_or_equal_to => 0
-  validates_numericality_of :bid, :only_integer => true, :greater_than_or_equal_to => 0
+  validates_numericality_of :reserve_price, :only_integer => true,
+    :greater_than_or_equal_to => 0
+  validates_numericality_of :bid, :only_integer => true,
+    :greater_than_or_equal_to => 0
   attr_reader :error
   
   def finish
-    p self
     if self.bidder.nil?
       self.user.items << self.item
     else

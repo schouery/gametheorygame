@@ -2,7 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.admin? || (user.researcher? && Configuration[:full_permissions_to_researchers])
+    if user.admin? || (user.researcher? &&
+          Configuration[:full_permissions_to_researchers])
       can :manage, :all
     elsif user.researcher?
       researcher_abilities(user)

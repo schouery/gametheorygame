@@ -37,7 +37,8 @@ class Item < ActiveRecord::Base
   
   def self.group_by_item_type(user)
     item_types = ItemType.to_hash
-    items = Item.find(:all, :conditions => {:user_id => user.id}, :include => {:item_type => :item_set})
+    items = Item.find(:all, :conditions => {:user_id => user.id},
+      :include => {:item_type => :item_set})
     items.each do |item|
       item_types[item.item_type] ||= []
       item_types[item.item_type] << item

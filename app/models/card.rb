@@ -6,7 +6,8 @@ class Card < ActiveRecord::Base
   after_save :give_money_to_player
   validates_presence_of :strategy, :on => :update
   named_scope :not_played, :conditions => {:played => false}, :include => :game
-  named_scope :played, :conditions => {:played => true}, :include => [:strategy, :game]
+  named_scope :played, :conditions => {:played => true},
+    :include => [:strategy, :game]
   named_scope :sorted_by_player_number, :order => :player_number
   named_scope :without_payoff, :conditions => {:payoff => nil}
   
