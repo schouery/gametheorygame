@@ -26,9 +26,9 @@ describe AuctionsController do
 
   describe "GET index" do
     it "assigns all auctions as @auctions" do
-      all_auctions = [mock_model(Auction, :end_date => mock(DateTime, :future? => false)),
-        mock_model(Auction, :end_date => mock(DateTime, :future? => true)),
-        mock_model(Auction, :end_date => mock(DateTime, :future? => false))]
+      all_auctions = [mock_model(Auction, :end_date => mock(DateTime, :future? => false), :user => mock_model(User)),
+        mock_model(Auction, :end_date => mock(DateTime, :future? => true), :user => mock_model(User)),
+        mock_model(Auction, :end_date => mock(DateTime, :future? => true), :user => @current_user)]
       Auction.stub(:find).with(:all).and_return(all_auctions)
       get :index
       assigns[:auctions].should == [all_auctions[1]]
