@@ -3,6 +3,9 @@
   http://www.ime.usp.br/~schouery
   schouery@gmail.com
 
+==Documentation
+  You can find the RDoc for this application on doc/app/index.htm
+
 == LICENSE:
   (The MIT License)
 

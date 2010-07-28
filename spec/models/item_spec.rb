@@ -37,16 +37,13 @@ describe Item do
     it "can't be sended if it's not a item from current user" do
       @item.user = mock_model(User)
       @item.can_send_as_gift?(@current_user).should be_false
-      @item.gift_error.should == "You can't send this item!"
     end
     it "can't be sended if it's used" do
       @item.used = true
       @item.can_send_as_gift?(@current_user).should be_false
-      @item.gift_error.should == "You can't send this item!"
     end
     it "otherwise it can be sended" do
       @item.can_send_as_gift?(@current_user).should be_true
-      @item.gift_error.should == ""
     end
     
     it "should save the changes on sending" do
@@ -59,7 +56,6 @@ describe Item do
       @item.send_as_gift(mock_model(User), 1).should be_false
       @item.user.should == @current_user
       @item.gift_for.should be_nil
-      @item.gift_error.should == "You can't send this item!"
     end
   end
 end

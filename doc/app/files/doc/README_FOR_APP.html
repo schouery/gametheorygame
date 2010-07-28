@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README_FOR_APP</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README_FOR_APP</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doc/README_FOR_APP
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Jul 27 20:01:07 -0300 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>AUTHOR:</h2>
+<pre>
+  Rafael Crivellari Saliba Schouery
+  http://www.ime.usp.br/~schouery
+  schouery@gmail.com
+</pre>
+<h2>Documentation</h2>
+<pre>
+  You can find the RDoc for this application on doc/app/index.htm
+</pre>
+<h2>LICENSE:</h2>
+<pre>
+  (The MIT License)
+
+  Copyright (c) 2010 Rafael Crivellari Saliba Schouery
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the &quot;Software&quot;), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+  Release under MIT Gnu Public License version 3.
+</pre>
+<h2>INSTALL</h2>
+<pre>
+  The install process is almost equal to any Ruby on Rails application. You can find
+  a hand full of tutorials on how run a Ruby on Rails application. But this is a
+  application that runs inside Facebook, so you need to config somethings. You should
+  take a look at http://developers.facebook.com/docs/guides/canvas/ and
+  the file vendor/plugins/facebooker/README.rdoc.
+
+  You can run rake db:seed to generate a sort of models to your system. You shoul edit
+  the file db/seeds.rb and change ADMIN_ID to your id on Facebook.
+</pre>
+<h2>database.yml</h2>
+<pre>
+  For security reasons, we don't include a database.yml file on the project.
+  Below you find a exemple of such file. You should put it on the config folder.
+
+  development:
+    adapter: sqlite3
+    database: db/development.sqlite3
+    pool: 5
+    timeout: 5000
+
+  test: &amp;TEST
+    adapter: sqlite3
+    database: db/test.sqlite3
+    pool: 5
+    timeout: 5000
+
+  production:
+    adapter: sqlite3
+    database: db/production.sqlite3
+    pool: 5
+    timeout: 5000
+</pre>
+<h2>facebooker.yml</h2>
+<pre>
+  For the same reasons that above, we don't include a facebooker.yml file on the project.
+  Below you find a exemple of such file. You should put it on the config folder.
+  You can find more information on Facebooker in vendor/plugins/facebooker/README.rdoc.
+
+  development:
+    api_key: &lt;API-KEY&gt;
+    secret_key: &lt;SECRET-KEY&gt;
+    canvas_page_name: &lt;CANVAS-PAGE-NAME&gt;
+    callback_url: &lt;YOUR-SERVER-URL&gt;
+    pretty_errors: true
+    set_asset_host_to_callback_url: true
+
+  test:
+    api_key: &lt;API-KEY&gt;
+    secret_key: &lt;SECRET-KEY&gt;
+    canvas_page_name: &lt;CANVAS-PAGE-NAME&gt;
+    callback_url: &lt;YOUR-SERVER-URL&gt;
+    set_asset_host_to_callback_url: true
+
+  production:
+    api_key: &lt;API-KEY&gt;
+    secret_key: &lt;SECRET-KEY&gt;
+    canvas_page_name: &lt;CANVAS-PAGE-NAME&gt;
+    callback_url: &lt;YOUR-SERVER-URL&gt;
+    set_asset_host_to_callback_url: true
+</pre>
+<h2>Defining a new type of Game</h2>
+<pre>
+  You should use as example the class SymmetricFunctionGame. In your new model, you should include
+  GameTheory::BaseGame. This will define some relations with Card, GameScore, GameResult and User.
+  Your model should respond to:
+  *user_id: identifies the creator of the game
+  *name: the game name
+  *description: the game description
+  *color: the color of cards from this game, should be something between &quot;green&quot;, &quot;red&quot; and &quot;yellow&quot;
+  *weight: weight of the game when dealing a card
+  *removed: indication if the game is inactive
+
+  Your module should respond to play. The method play should find the cards that can be played and calculate
+  the payoff for this cards. You should call card.play(payoff) in each of it and at the end create a
+  GameResult with GameResult.create(:cards =&gt; cards, :game =&gt; self).
+
+  Please, note that each card has an strategy, so you should define a model for the strategies of your game.
+  Take a look at SymmetricFunctionGameStrategy for a example.
+
+  Besides the traditional views, is necessary to create two partials: _card.html.haml and _game.html.haml.
+  The first is used when editing a card for this game and the second is used as a row in the game list.
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

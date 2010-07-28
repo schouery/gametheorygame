@@ -62,7 +62,7 @@ describe GiftsController do
       it "renders money and flashs a notice" do
         post :send_money, :ids => [1, 2]
         response.should render_template('money')
-        flash[:notice].should == "Action failed: You can't send so many gifts"
+        flash[:notice].should == "You can't send so many gifts"
       end
     end
     
@@ -191,11 +191,11 @@ describe GiftsController do
     end
     
     it "redirects to gifts_url if it can't send the item and warns the player" do
-      mock_item = mock_model(Item, :can_send_as_gift? => false, :gift_error => "Error")
+      mock_item = mock_model(Item, :can_send_as_gift? => false)
       Item.should_receive(:find).with("1").and_return(mock_item)
       get :item, :id => 1
       response.should redirect_to gifts_url
-      flash[:notice].should == "Error"
+      flash[:notice].should == "You can't send this item!"
     end
     
   end
@@ -219,11 +219,11 @@ describe GiftsController do
     
     describe "with a forbidden item" do
       it "redirect to index and warns the player for a item that can't be sended" do
-        mock_item = mock_model(Item, :send_as_gift => false, :gift_error => "Error")
+        mock_item = mock_model(Item, :send_as_gift => false)
         Item.stub(:find => mock_item)
         post :send_item, :id => 10, :ids => [101]
         response.should redirect_to gifts_url
-        flash[:notice].should == "Error"
+        flash[:notice].should == "You can't send this item!"
       end
     end
     

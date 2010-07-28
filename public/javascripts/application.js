@@ -1,9 +1,11 @@
+//Adds fields on the form, used for SymmetricFunctionGame
 function add_fields(link, association, content) {  
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
+//Counts the number of columns on the table
 function number_of_columns() {
   var columns = 0;
   $("tr.master").first().children().each(function(index) {
@@ -12,6 +14,7 @@ function number_of_columns() {
   return columns;
 }
 
+//Counts the number of lines on the table
 function number_of_lines() {
   var lines = 0;
   $("tr.master").each(function(index) {
@@ -20,6 +23,8 @@ function number_of_lines() {
   return lines;
 }
 
+//Adds a column with strategies and payoffs on a table of the
+//TwoPlayerMatrixGame
 function add_column(link, strategy, payoff) {
   var new_id = new Date().getTime();
   var regexp_payoff = new RegExp("new_payoff", "g");
@@ -41,7 +46,9 @@ function add_column(link, strategy, payoff) {
     }
   });
 }
- 
+
+//Adds a line with strategies and payoffs on a table of the
+//TwoPlayerMatrixGame
 function add_line(link, strategy, payoff) {
   var new_id = new Date().getTime();  
   var regexp_payoff = new RegExp("new_payoff", "g");  

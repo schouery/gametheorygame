@@ -1,3 +1,4 @@
+#Strategy for SymmetricFunctionGame
 class SymmetricFunctionGameStrategy < ActiveRecord::Base
   validates_presence_of :label
   belongs_to :game, :class_name => "SymmetricFunctionGame",

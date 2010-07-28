@@ -42,7 +42,7 @@ class GiftsController < ApplicationController
   def item
     @item = Item.find(params[:id])
     if !@item.can_send_as_gift?(current_user)
-      flash[:notice] = @item.gift_error
+      flash[:notice] = "You can't send this item!"
       redirect_to(gifts_path)
     end
   end
@@ -51,7 +51,7 @@ class GiftsController < ApplicationController
   def send_item
     item = Item.find(params[:id])
     if !item.send_as_gift(current_user, params[:ids][0].to_i)
-      flash[:notice] = item.gift_error
+      flash[:notice] = "You can't send this item!"
     end
     redirect_to(gifts_path)
   end
@@ -78,7 +78,7 @@ class GiftsController < ApplicationController
       MoneyGift.create_for(params[:ids], current_user)
       redirect_to(gifts_path)
     else
-      flash[:notice] = "Action failed: You can't send so many gifts"
+      flash[:notice] = "You can't send so many gifts"
       render :money
     end
   end

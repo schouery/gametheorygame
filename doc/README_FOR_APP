@@ -1,2 +1,112 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+== AUTHOR:
+  Rafael Crivellari Saliba Schouery
+  http://www.ime.usp.br/~schouery
+  schouery@gmail.com
+
+==Documentation
+  You can find the RDoc for this application on doc/app/index.htm
+
+== LICENSE:
+  (The MIT License)
+
+  Copyright (c) 2010 Rafael Crivellari Saliba Schouery
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+  Release under MIT Gnu Public License version 3.
+    
+== INSTALL
+
+  The install process is almost equal to any Ruby on Rails application. You can find
+  a hand full of tutorials on how run a Ruby on Rails application. But this is a
+  application that runs inside Facebook, so you need to config somethings. You should 
+  take a look at http://developers.facebook.com/docs/guides/canvas/ and 
+  the file vendor/plugins/facebooker/README.rdoc.
+
+  You can run rake db:seed to generate a sort of models to your system. You shoul edit
+  the file db/seeds.rb and change ADMIN_ID to your id on Facebook.
+
+== database.yml
+  For security reasons, we don't include a database.yml file on the project.
+  Below you find a exemple of such file. You should put it on the config folder.
+
+  development:
+    adapter: sqlite3
+    database: db/development.sqlite3
+    pool: 5
+    timeout: 5000
+
+  test: &TEST
+    adapter: sqlite3
+    database: db/test.sqlite3
+    pool: 5
+    timeout: 5000
+
+  production:
+    adapter: sqlite3
+    database: db/production.sqlite3
+    pool: 5
+    timeout: 5000
+
+== facebooker.yml
+  For the same reasons that above, we don't include a facebooker.yml file on the project. 
+  Below you find a exemple of such file. You should put it on the config folder.
+  You can find more information on Facebooker in vendor/plugins/facebooker/README.rdoc. 
+
+  development:
+    api_key: <API-KEY>
+    secret_key: <SECRET-KEY>
+    canvas_page_name: <CANVAS-PAGE-NAME>
+    callback_url: <YOUR-SERVER-URL>
+    pretty_errors: true
+    set_asset_host_to_callback_url: true
+
+  test:
+    api_key: <API-KEY>
+    secret_key: <SECRET-KEY>
+    canvas_page_name: <CANVAS-PAGE-NAME>
+    callback_url: <YOUR-SERVER-URL>
+    set_asset_host_to_callback_url: true
+
+  production:
+    api_key: <API-KEY>
+    secret_key: <SECRET-KEY>
+    canvas_page_name: <CANVAS-PAGE-NAME>
+    callback_url: <YOUR-SERVER-URL>
+    set_asset_host_to_callback_url: true
+  
+== Defining a new type of Game
+  You should use as example the class SymmetricFunctionGame. In your new model, you should include
+  GameTheory::BaseGame. This will define some relations with Card, GameScore, GameResult and User.
+  Your model should respond to:
+  *user_id: identifies the creator of the game
+  *name: the game name
+  *description: the game description
+  *color: the color of cards from this game, should be something between "green", "red" and "yellow"
+  *weight: weight of the game when dealing a card
+  *removed: indication if the game is inactive
+
+  Your module should respond to play. The method play should find the cards that can be played and calculate
+  the payoff for this cards. You should call card.play(payoff) in each of it and at the end create a
+  GameResult with GameResult.create(:cards => cards, :game => self).
+
+  Please, note that each card has an strategy, so you should define a model for the strategies of your game.
+  Take a look at SymmetricFunctionGameStrategy for a example.
+
+  Besides the traditional views, is necessary to create two partials: _card.html.haml and _game.html.haml.
+  The first is used when editing a card for this game and the second is used as a row in the game list.
