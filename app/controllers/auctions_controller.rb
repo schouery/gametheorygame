@@ -3,7 +3,7 @@ class AuctionsController < ApplicationController
   #Lists all auctions with future end_date as @auctions
   def index
     @auctions = Auction.all.select do |auction|
-      auction.end_date.future?
+      auction.end_date.future? && auction.user != current_user
     end
   end
   
