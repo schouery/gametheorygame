@@ -10,7 +10,7 @@ class CardsController < ApplicationController
 
   #Lists all game cards played by current_user as @cards.
   def played_cards
-    @cards = Card.played.all(:conditions => {:user_id => current_user.id})
+    @cards = Card.played.all(:conditions => {:user_id => current_user.id}).reverse
   end
 
   #Define @card to the card with id equal to params[:id].

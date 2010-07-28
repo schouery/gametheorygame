@@ -8,8 +8,6 @@ class Card < ActiveRecord::Base
   belongs_to :strategy, :polymorphic => true
   #GameResult associated to this card when it was played
   belongs_to :game_result
-  #After been played, gives money to player
-  after_save :give_money_to_player
   #Garantees that the strategy is chosen on playing
   validates_presence_of :strategy, :on => :update
   named_scope :not_played, :conditions => {:played => false}, :include => :game
@@ -17,14 +15,6 @@ class Card < ActiveRecord::Base
     :include => [:strategy, :game]
   named_scope :sorted_by_player_number, :order => :player_number
   named_scope :without_payoff, :conditions => {:payoff => nil}
-
-  #Gives this payoff to user
-  def give_money_to_player
-    if self.payoff
-      self.user.money += self.payoff 
-      self.user.save
-    end
-  end
 
   #Verifies if it can be sended. A card can be sended if the game color is
   #green, this card was not played and user is the owner of this card
@@ -46,12 +36,14 @@ class Card < ActiveRecord::Base
     end
   end
 
-  #Plays this card, saving the payoff and updating the score for the player.
+  #Plays this card, saving the payoff and updating the score and 
+  #the money of the player.
   def play(payoff)
     self.payoff = payoff
     self.save
     player = self.user
     player.score += payoff
+    player.money += payoff
     player.save
     GameScore.update_game_score(self.game, payoff, player)
   end
