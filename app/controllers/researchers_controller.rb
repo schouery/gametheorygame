@@ -4,7 +4,7 @@ class ResearchersController < ApplicationController
   #Lists all users that are researchers as @researchers
   def index
     @researchers = User.researchers
-    authorize! :read, @researchers
+    authorize! :read, User.new
   end
 
   #Assigns @exclude_ids as all users that are admins or researchers
