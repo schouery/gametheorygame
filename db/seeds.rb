@@ -9,11 +9,11 @@ puts "Creating Games"
 games = []
 
 election_2 = SymmetricFunctionGame.create!(
-  :name => "Election Game for 5 player and 2 candidates", 
+  :name => "Election Game for 3 player and 2 candidates", 
   :description => "In this game, you can vote in candidate A or candidate B in a election. If you vote in
   the winner (that is, the candidate with most votes), then you will receive $10, but you vote for
   the looser, you don't gain anything.",
-  :number_of_players => 5,
+  :number_of_players => 3,
   :color => "red",
   :function => "(st[0] == 1 && np[0] > np[1]) || (st[1] == 1 && np[1] > np[0]) ? 10 : 0"
 )
@@ -22,8 +22,8 @@ cA = SymmetricFunctionGameStrategy.create!(:label => "Candidate A", :game => ele
 cB = SymmetricFunctionGameStrategy.create!(:label => "Candidate B", :game => election_2)
 games << election_2
 
-polution_game4 = SymmetricFunctionGame.create!(
-  :name => "Polution Game for 4 players", 
+polution_game = SymmetricFunctionGame.create!(
+  :name => "Polution Game", 
   :description => "This is the Polution Game for 4 players, you can choose to polute or not. Every player pays
   the number of poluting players and a aditional fee of 3 if you choose to not polute. For example, two players
   decide to polute and the other decide to not polute. Then the players that decided to polute pays 2 and the players
@@ -33,24 +33,9 @@ polution_game4 = SymmetricFunctionGame.create!(
   :function => "-np[0] - 3*st[1]"
 )
 
-polute4 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game4)
-not_polute4 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game4)
-games << polution_game4
-
-polution_game6 = SymmetricFunctionGame.create!(
-  :name => "Polution Game for 6 players", 
-  :description => "This is the Polution Game for 6 players, you can choose to polute or not. Every player pays
-  the number of poluting players and a aditional fee of 3 if you choose to not polute. For example, two players
-  decide to polute and the other decide to not polute. Then the players that decided to polute pays 2 and the players
-  that decided to not polute pays 5.",
-  :number_of_players => 6,  
-  :color => "red",
-  :function => "-np[0] - 3*st[1]"
-)
-
-polute6 = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game6)
-not_polute6 = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game6)
-games << polution_game6
+polute = SymmetricFunctionGameStrategy.create!(:label => "Polute", :game => polution_game)
+not_polute = SymmetricFunctionGameStrategy.create!(:label => "Not Polute", :game => polution_game)
+games << polution_game
 
 bs = TwoPlayerMatrixGame.create!(
   :name => "Battle of Sexes",
@@ -61,10 +46,10 @@ bs = TwoPlayerMatrixGame.create!(
   and how much you will gain.",
   :color => "green"
 )
-s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 1)
-s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 1)
-s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 2)
-s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 2)
+s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 1, :number => 1)
+s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 1, :number => 2)
+s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Soccer', :player_number => 2, :number => 1)
+s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Movie', :player_number => 2, :number => 2)
 bs.strategies = [s1,s2,s3,s4]
 p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 6, :payoff_player_2 => 5, :line_position => 0, :column_position => 0)
 p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 1, :payoff_player_2 => 1, :line_position => 0, :column_position => 1)
@@ -80,10 +65,10 @@ mp = TwoPlayerMatrixGame.create!(
   have the same result and player two wants that the coins have different results.",
   :color => "yellow"
 )
-s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 1)
-s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 1)
-s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 2)
-s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 2)
+s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 1, :number => 1)
+s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 1, :number => 2)
+s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Head',  :player_number => 2, :number => 1)
+s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Tails', :player_number => 2, :number => 2)
 mp.strategies = [s1,s2,s3,s4]
 p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => 10, :payoff_player_2 => -10, :line_position => 0, :column_position => 0)
 p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -10, :payoff_player_2 => 10, :line_position => 0, :column_position => 1)
@@ -100,10 +85,10 @@ pd = TwoPlayerMatrixGame.create!(
   certain amount as a fee.",
   :color => "red"
 )
-s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 1)
-s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 1)
-s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 2)
-s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 2)
+s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 1, :number => 1)
+s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 1, :number => 2)
+s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'Confess', :player_number => 2, :number => 1)
+s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'Not Confess', :player_number => 2, :number => 2)
 pd.strategies = [s1,s2,s3,s4]
 p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -6, :payoff_player_2 => -6, :line_position => 0, :column_position => 0)
 p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => 0,  :payoff_player_2 => -9, :line_position => 0, :column_position => 1)
@@ -119,10 +104,10 @@ congestion = TwoPlayerMatrixGame.create!(
   congested, so if and your opponent choose the same route, you both lose more money.",
   :color => "red"
 )
-s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'A', :player_number => 1)
-s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 1)
-s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'A', :player_number => 2)
-s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 2)
+s1 = TwoPlayerMatrixGameStrategy.create!(:label => 'A', :player_number => 1, :number => 1)
+s2 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 1, :number => 2)
+s3 = TwoPlayerMatrixGameStrategy.create!(:label => 'A', :player_number => 2, :number => 1)
+s4 = TwoPlayerMatrixGameStrategy.create!(:label => 'B', :player_number => 2, :number => 2)
 congestion.strategies = [s1,s2,s3,s4]
 p1 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s3, :payoff_player_1 => -5, :payoff_player_2 => -5, :line_position => 0, :column_position => 0)
 p2 = TwoPlayerMatrixGamePayoff.create!(:strategy1 => s1, :strategy2 => s4, :payoff_player_1 => -1, :payoff_player_2 => -2, :line_position => 0, :column_position => 1)
