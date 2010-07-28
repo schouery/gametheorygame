@@ -20,6 +20,7 @@ class Ability
   #Adds games permissions, they are equal to every game class
   def manage_games(user)
     Games.each_specific_game do |game_class|
+      can :read, game_class
       can :create, game_class
       can :statistics, game_class
       can :remove, game_class do |game|
@@ -29,15 +30,14 @@ class Ability
   end
 
   #Permissions for Researchers
-  def researcher_abilities(user)   
-    can :read, :all  
+  def researcher_abilities(user)         
+    user_abilities(user)
     manage_games(user)
     can :invite_researcher, User if Configuration[:researcher_can_invite_researcher]
     can :researcher_manual, nil
     can :remove_researcher, User do |researcher|
       researcher == user
     end
-    user_abilities(user)
   end
 
   #Permissions for Users
