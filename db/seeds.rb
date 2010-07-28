@@ -117,15 +117,6 @@ congestion.payoffs = [p1,p2,p3,p4]
 congestion.save!
 games << congestion
 
-puts "Creating Users"
-admin = User.create!(:facebook_id => ADMIN_ID, :admin => true, :researcher => true)#schouery@gmail.com
-
-puts "Setting game ownership to admin"
-games.each do |game|
-  game.user = admin
-  game.save!
-end
-
 puts "Creating Items Types and Sets"
 houses = [
   ItemType.create!(:name => "Beach House"),
@@ -162,3 +153,12 @@ technologies = [
   ItemType.create!(:name => "GPS")
 ]
 ItemSet.create!(:name => "Technologies", :item_types => technologies, :bonus_type => "cards_per_hour")
+
+puts "Creating Users"
+admin = User.create!(:facebook_id => ADMIN_ID, :admin => true, :researcher => true)#schouery@gmail.com
+
+puts "Setting game ownership to admin"
+games.each do |game|
+  game.user = admin
+  game.save!
+end
