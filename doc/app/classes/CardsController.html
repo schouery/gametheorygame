@@ -94,12 +94,12 @@ Controller for <a href="Card.html">Card</a> actions
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000128">discard</a>&nbsp;&nbsp;
-      <a href="#M000129">edit</a>&nbsp;&nbsp;
-      <a href="#M000125">index</a>&nbsp;&nbsp;
-      <a href="#M000126">played_cards</a>&nbsp;&nbsp;
-      <a href="#M000127">result</a>&nbsp;&nbsp;
-      <a href="#M000130">update</a>&nbsp;&nbsp;
+      <a href="#M000127">discard</a>&nbsp;&nbsp;
+      <a href="#M000128">edit</a>&nbsp;&nbsp;
+      <a href="#M000124">index</a>&nbsp;&nbsp;
+      <a href="#M000125">played_cards</a>&nbsp;&nbsp;
+      <a href="#M000126">result</a>&nbsp;&nbsp;
+      <a href="#M000129">update</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -121,11 +121,11 @@ Controller for <a href="Card.html">Card</a> actions
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000128" class="method-detail">
-        <a name="M000128"></a>
+      <div id="method-M000127" class="method-detail">
+        <a name="M000127"></a>
 
         <div class="method-heading">
-          <a href="#M000128" class="method-signature">
+          <a href="#M000127" class="method-signature">
           <span class="method-name">discard</span><span class="method-args">()</span>
           </a>
         </div>
@@ -135,8 +135,8 @@ Controller for <a href="Card.html">Card</a> actions
 Destroy a card and redirects to cards_path
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000128-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000128-source">
+            onclick="toggleCode('M000127-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000127-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 23</span>
 23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">discard</span>
@@ -150,11 +150,11 @@ Destroy a card and redirects to cards_path
         </div>
       </div>
 
-      <div id="method-M000129" class="method-detail">
-        <a name="M000129"></a>
+      <div id="method-M000128" class="method-detail">
+        <a name="M000128"></a>
 
         <div class="method-heading">
-          <a href="#M000129" class="method-signature">
+          <a href="#M000128" class="method-signature">
           <span class="method-name">edit</span><span class="method-args">()</span>
           </a>
         </div>
@@ -165,8 +165,8 @@ Used to play a card. It defines @card to the card with id equal to
 params[:id]
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000129-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000129-source">
+            onclick="toggleCode('M000128-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000128-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 32</span>
 32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
@@ -179,11 +179,11 @@ params[:id]
         </div>
       </div>
 
-      <div id="method-M000125" class="method-detail">
-        <a name="M000125"></a>
+      <div id="method-M000124" class="method-detail">
+        <a name="M000124"></a>
 
         <div class="method-heading">
-          <a href="#M000125" class="method-signature">
+          <a href="#M000124" class="method-signature">
           <span class="method-name">index</span><span class="method-args">()</span>
           </a>
         </div>
@@ -194,8 +194,8 @@ Lists all game cards (as @cards) and item cards (as @items) of the
 current_user that wasn&#8216;t used yet.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000125-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000125-source">
+            onclick="toggleCode('M000124-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000124-source">
 <pre>
    <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 6</span>
 6:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
@@ -207,11 +207,11 @@ current_user that wasn&#8216;t used yet.
         </div>
       </div>
 
-      <div id="method-M000126" class="method-detail">
-        <a name="M000126"></a>
+      <div id="method-M000125" class="method-detail">
+        <a name="M000125"></a>
 
         <div class="method-heading">
-          <a href="#M000126" class="method-signature">
+          <a href="#M000125" class="method-signature">
           <span class="method-name">played_cards</span><span class="method-args">()</span>
           </a>
         </div>
@@ -221,23 +221,23 @@ current_user that wasn&#8216;t used yet.
 Lists all game cards played by current_user as @cards.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000126-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000126-source">
+            onclick="toggleCode('M000125-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000125-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 12</span>
 12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">played_cards</span>
-13:     <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">played</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>})
+13:     <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">played</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>}).<span class="ruby-identifier">reverse</span>
 14:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000127" class="method-detail">
-        <a name="M000127"></a>
+      <div id="method-M000126" class="method-detail">
+        <a name="M000126"></a>
 
         <div class="method-heading">
-          <a href="#M000127" class="method-signature">
+          <a href="#M000126" class="method-signature">
           <span class="method-name">result</span><span class="method-args">()</span>
           </a>
         </div>
@@ -247,8 +247,8 @@ Lists all game cards played by current_user as @cards.
 Define @card to the card with id equal to params[:id].
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000127-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000127-source">
+            onclick="toggleCode('M000126-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000126-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 17</span>
 17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">result</span>
@@ -260,11 +260,11 @@ Define @card to the card with id equal to params[:id].
         </div>
       </div>
 
-      <div id="method-M000130" class="method-detail">
-        <a name="M000130"></a>
+      <div id="method-M000129" class="method-detail">
+        <a name="M000129"></a>
 
         <div class="method-heading">
-          <a href="#M000130" class="method-signature">
+          <a href="#M000129" class="method-signature">
           <span class="method-name">update</span><span class="method-args">()</span>
           </a>
         </div>
@@ -275,8 +275,8 @@ Updates a card with the choosen strategy for the game and redirects to
 cards_path.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000130-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000130-source">
+            onclick="toggleCode('M000129-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000129-source">
 <pre>
     <span class="ruby-comment cmt"># File app/controllers/cards_controller.rb, line 40</span>
 40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>

@@ -93,10 +93,10 @@ href="ItemSet.html">ItemSet</a> the user receives a bonus.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000099">apply_bonus</a>&nbsp;&nbsp;
-      <a href="#M000098">has_full_set</a>&nbsp;&nbsp;
-      <a href="#M000096">items_for</a>&nbsp;&nbsp;
-      <a href="#M000097">sets_for</a>&nbsp;&nbsp;
+      <a href="#M000098">apply_bonus</a>&nbsp;&nbsp;
+      <a href="#M000097">has_full_set</a>&nbsp;&nbsp;
+      <a href="#M000095">items_for</a>&nbsp;&nbsp;
+      <a href="#M000096">sets_for</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -118,11 +118,11 @@ href="ItemSet.html">ItemSet</a> the user receives a bonus.
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000097" class="method-detail">
-        <a name="M000097"></a>
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
 
         <div class="method-heading">
-          <a href="#M000097" class="method-signature">
+          <a href="#M000096" class="method-signature">
           <span class="method-name">sets_for</span><span class="method-args">(user)</span>
           </a>
         </div>
@@ -130,11 +130,11 @@ href="ItemSet.html">ItemSet</a> the user receives a bonus.
         <div class="method-description">
           <p>
 Returns a hash where the keys are all item sets and the values are hashs
-like the one returned in <a href="ItemSet.html#M000096">items_for</a>
+like the one returned in <a href="ItemSet.html#M000095">items_for</a>
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000097-source">
+            onclick="toggleCode('M000096-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000096-source">
 <pre>
     <span class="ruby-comment cmt"># File app/models/item_set.rb, line 22</span>
 22:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sets_for</span>(<span class="ruby-identifier">user</span>)
@@ -153,11 +153,11 @@ like the one returned in <a href="ItemSet.html#M000096">items_for</a>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000099" class="method-detail">
-        <a name="M000099"></a>
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
 
         <div class="method-heading">
-          <a href="#M000099" class="method-signature">
+          <a href="#M000098" class="method-signature">
           <span class="method-name">apply_bonus</span><span class="method-args">(user)</span>
           </a>
         </div>
@@ -167,8 +167,8 @@ like the one returned in <a href="ItemSet.html#M000096">items_for</a>
 Apply a bonus to the user
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000099-source">
+            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000098-source">
 <pre>
     <span class="ruby-comment cmt"># File app/models/item_set.rb, line 45</span>
 45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">apply_bonus</span>(<span class="ruby-identifier">user</span>)
@@ -181,11 +181,11 @@ Apply a bonus to the user
         </div>
       </div>
 
-      <div id="method-M000098" class="method-detail">
-        <a name="M000098"></a>
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
 
         <div class="method-heading">
-          <a href="#M000098" class="method-signature">
+          <a href="#M000097" class="method-signature">
           <span class="method-name">has_full_set</span><span class="method-args">(user)</span>
           </a>
         </div>
@@ -195,8 +195,8 @@ Apply a bonus to the user
 Check to see if the user has this whole set as used items
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000098-source">
+            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000097-source">
 <pre>
     <span class="ruby-comment cmt"># File app/models/item_set.rb, line 33</span>
 33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_full_set</span>(<span class="ruby-identifier">user</span>)
@@ -214,11 +214,11 @@ Check to see if the user has this whole set as used items
         </div>
       </div>
 
-      <div id="method-M000096" class="method-detail">
-        <a name="M000096"></a>
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
 
         <div class="method-heading">
-          <a href="#M000096" class="method-signature">
+          <a href="#M000095" class="method-signature">
           <span class="method-name">items_for</span><span class="method-args">(user)</span>
           </a>
         </div>
@@ -230,8 +230,8 @@ items owned by user and which have the specific item type, but it is
 restricted to item types on this item set
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000096-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000096-source">
+            onclick="toggleCode('M000095-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000095-source">
 <pre>
     <span class="ruby-comment cmt"># File app/models/item_set.rb, line 9</span>
  9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">items_for</span>(<span class="ruby-identifier">user</span>)

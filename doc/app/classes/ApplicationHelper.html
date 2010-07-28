@@ -87,10 +87,10 @@ application.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000147">canvas_url_for</a>&nbsp;&nbsp;
-      <a href="#M000146">generate_options_for_friend_selector</a>&nbsp;&nbsp;
-      <a href="#M000148">link_to</a>&nbsp;&nbsp;
-      <a href="#M000145">xfbml_start</a>&nbsp;&nbsp;
+      <a href="#M000146">canvas_url_for</a>&nbsp;&nbsp;
+      <a href="#M000145">generate_options_for_friend_selector</a>&nbsp;&nbsp;
+      <a href="#M000147">link_to</a>&nbsp;&nbsp;
+      <a href="#M000144">xfbml_start</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -112,11 +112,11 @@ application.
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000147" class="method-detail">
-        <a name="M000147"></a>
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
 
         <div class="method-heading">
-          <a href="#M000147" class="method-signature">
+          <a href="#M000146" class="method-signature">
           <span class="method-name">canvas_url_for</span><span class="method-args">(options = {})</span>
           </a>
         </div>
@@ -129,8 +129,8 @@ local server. It&#8216;s used because Rails will set the url_for to the
 local server, not application path on Facebook.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000147-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000147-source">
+            onclick="toggleCode('M000146-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000146-source">
 <pre>
     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 35</span>
 35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">canvas_url_for</span>(<span class="ruby-identifier">options</span> = {})
@@ -142,11 +142,11 @@ local server, not application path on Facebook.
         </div>
       </div>
 
-      <div id="method-M000146" class="method-detail">
-        <a name="M000146"></a>
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
 
         <div class="method-heading">
-          <a href="#M000146" class="method-signature">
+          <a href="#M000145" class="method-signature">
           <span class="method-name">generate_options_for_friend_selector</span><span class="method-args">(options = {})</span>
           </a>
         </div>
@@ -157,8 +157,8 @@ It assigns @options_for_request_form and @options_for_selecot according to
 options. Is used for configurating the multi-friend-selector.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000146-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000146-source">
+            onclick="toggleCode('M000145-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000145-source">
 <pre>
     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 13</span>
 13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate_options_for_friend_selector</span>(<span class="ruby-identifier">options</span> = {})
@@ -184,24 +184,24 @@ options. Is used for configurating the multi-friend-selector.
         </div>
       </div>
 
-      <div id="method-M000148" class="method-detail">
-        <a name="M000148"></a>
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
 
         <div class="method-heading">
-          <a href="#M000148" class="method-signature">
+          <a href="#M000147" class="method-signature">
           <span class="method-name">link_to</span><span class="method-args">(name, options = {}, html_options = {})</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Rewrites <a href="ApplicationHelper.html#M000148">link_to</a> to use <a
-href="ApplicationHelper.html#M000147">canvas_url_for</a> and set the target
+Rewrites <a href="ApplicationHelper.html#M000147">link_to</a> to use <a
+href="ApplicationHelper.html#M000146">canvas_url_for</a> and set the target
 to _top. In this way, links will continue inside Facebook.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000148-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000148-source">
+            onclick="toggleCode('M000147-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000147-source">
 <pre>
     <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 42</span>
 42:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">html_options</span> = {})
@@ -214,11 +214,11 @@ to _top. In this way, links will continue inside Facebook.
         </div>
       </div>
 
-      <div id="method-M000145" class="method-detail">
-        <a name="M000145"></a>
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
 
         <div class="method-heading">
-          <a href="#M000145" class="method-signature">
+          <a href="#M000144" class="method-signature">
           <span class="method-name">xfbml_start</span><span class="method-args">()</span>
           </a>
         </div>
@@ -228,8 +228,8 @@ to _top. In this way, links will continue inside Facebook.
 Javascript that starts the XFBML from Facebook
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000145-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000145-source">
+            onclick="toggleCode('M000144-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000144-source">
 <pre>
    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 5</span>
 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">xfbml_start</span>
