@@ -63,14 +63,14 @@ describe User do
     u.cards = []
     u.items = []
     u.hand_size.should == 0
-    u.cards = [stub_model(Card, :played? => false)]
-    u.items = [stub_model(Item, :used? => false)]
+    u.stub(:cards => [stub_model(Card, :played? => false)])
+    u.stub :items => [stub_model(Item, :used? => false)]
     u.hand_size.should == 2
-    u.cards = [stub_model(Card, :played? => true)]
-    u.items = [stub_model(Item, :used? => true)]
+    u.stub :cards => [stub_model(Card, :played? => true)]
+    u.stub :items => [stub_model(Item, :used? => true)]
     u.hand_size.should == 0
-    u.cards = [stub_model(Card, :played? => false), mock_model(Card, :played? => true), mock_model(Card, :played? => false)]
-    u.items = [stub_model(Item, :used? => true), mock_model(Item, :used? => false), mock_model(Item, :used? => true)]
+    u.stub :cards => [stub_model(Card, :played? => false), mock_model(Card, :played? => true), mock_model(Card, :played? => false)]
+    u.stub :items => [stub_model(Item, :used? => true), mock_model(Item, :used? => false), mock_model(Item, :used? => true)]
     u.hand_size.should == 3
   end
 

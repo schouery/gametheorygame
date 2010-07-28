@@ -29,7 +29,7 @@ describe InvitationsController do
   describe "POST create" do
     it "redirects to card_url" do
       post :create, :ids => [1]
-      response.should redirect_to(cards_url)
+      response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
     end
   end
 

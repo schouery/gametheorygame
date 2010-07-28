@@ -84,7 +84,7 @@ describe GiftsController do
       @current_user.stub(:money => 100, :money= => true, :save => true)
       mock_gift.should_receive(:destroy)
       get :receive_money, :id => 1            
-      response.should redirect_to cards_url
+      response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
     end
 
     it "should redirect to cards_url" do
@@ -92,7 +92,7 @@ describe GiftsController do
       MoneyGift.stub(:find => mock_gift)
       @current_user.stub(:money => 100, :money= => true, :save => true)
       get :receive_money, :id => 1            
-      response.should redirect_to cards_url
+      response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
     end
   end
 
@@ -160,7 +160,7 @@ describe GiftsController do
         mock_card = mock_model(Card, :user= => true, :save_without_validation => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
         Card.stub(:find => mock_card)
         get :receive_card, :id => 1      
-        response.should redirect_to cards_url
+        response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
       end  
     end
 
@@ -175,7 +175,7 @@ describe GiftsController do
         mock_card = mock_model(Card, :gift_for => @current_user.facebook_id + 1)
         Card.stub(:find => mock_card)
         get :receive_card, :id => 1      
-        response.should redirect_to cards_url
+        response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
       end
     end
 
@@ -245,7 +245,7 @@ describe GiftsController do
         mock_item = mock_model(Item, :user= => true, :save => true, :gift_for= => true, :gift_for => @current_user.facebook_id)
         Item.stub(:find => mock_item)
         get :receive_item, :id => 1      
-        response.should redirect_to cards_url
+        response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
       end  
     end
 
@@ -260,7 +260,7 @@ describe GiftsController do
         mock_item = mock_model(Item, :gift_for => @current_user.facebook_id + 1)
         Item.stub(:find => mock_item)
         get :receive_item, :id => 1      
-        response.should redirect_to cards_url
+        response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
       end
     end
 

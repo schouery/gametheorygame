@@ -1,8 +1,8 @@
 #Represents a user of the system.
 class User < ActiveRecord::Base
-  has_many :items
-  has_many :cards
-  has_many :game_scores
+  has_many :items, :dependent => :destroy
+  has_many :cards#, :dependent => :destroy
+  has_many :game_scores, :dependent => :destroy
   before_create :defaults  
   after_create :receive_cards 
   named_scope :ordered_by_score, :order => "score DESC"

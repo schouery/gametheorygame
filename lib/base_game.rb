@@ -52,9 +52,9 @@ module GameTheory
     def self.included(base)
       Games.register(base)
       base.extend(ClassMethods)  
-      base.has_many :cards, :as => :game
-      base.has_many :game_scores, :as => :game
-      base.has_many :game_results, :as => :game
+      base.has_many :cards, :as => :game, :dependent => :destroy
+      base.has_many :game_scores, :as => :game, :dependent => :destroy
+      base.has_many :game_results, :as => :game, :dependent => :destroy
       base.belongs_to :user
       base.validates_presence_of :name, :description, :color
       base.validates_inclusion_of :color, :in => ["red", "green", "yellow"]

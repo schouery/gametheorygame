@@ -58,7 +58,7 @@ describe ResearchersController do
     it "redirects to cards_url" do
       Invitation.stub(:find => mock_invitation(:promote => true))
       get :confirm
-      response.should redirect_to(cards_url)
+      response.should redirect_to(:controller => "cards", :action => "index", :bypass_canvas => true)
     end      
   end
 
