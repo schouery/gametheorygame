@@ -19,7 +19,7 @@
   -if can? :read, Configuration.instance      
     %li
       =link_to "Config", configuration_path
-  -if can? :read, TwoPlayerMatrixGame.new      
+  -if can? :read, TwoPlayerMatrixGame.new(:user => current_user)      
     %li
       = link_to "Games", games_path, :canvas => true
   -if can? :read, User.new

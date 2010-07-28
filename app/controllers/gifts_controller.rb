@@ -28,6 +28,7 @@ class GiftsController < ApplicationController
   end
 
   #Gives a card to the current_user and redirects to cards_path
+  #bypassing canvas (to avoid nested frames)
   def receive_card
     card = Card.find(params[:id])
     if card.gift_for == current_user.facebook_id
@@ -35,7 +36,8 @@ class GiftsController < ApplicationController
       card.gift_for = nil
       card.save_without_validation
     end
-    redirect_to(cards_path)
+    redirect_to(:action => "index", :controller => "cards", 
+      :bypass_canvas => true)
   end
 
   #Assign @item as the requested item, used for sending a item
@@ -57,6 +59,7 @@ class GiftsController < ApplicationController
   end
 
   #Gives a item to the current_user and redirects to cards_path
+  #bypassing canvas (to avoid nested frames)
   def receive_item
     item = Item.find(params[:id])
     if item.gift_for == current_user.facebook_id
@@ -64,7 +67,8 @@ class GiftsController < ApplicationController
       item.gift_for = nil
       item.save
     end
-    redirect_to(cards_path)
+    redirect_to(:action => "index", :controller => "cards", 
+      :bypass_canvas => true)
   end
 
   #Money action, used to select friends to receive money gifts
@@ -83,13 +87,15 @@ class GiftsController < ApplicationController
     end
   end
 
-  #Receive a money gift and redirects to cards_path
+  #Receive a money gift and redirects to cards_path bypassing canvas
+  #(to avoid nested frames)
   def receive_money
     money = MoneyGift.find(:first,
       :conditions => {:facebook_id => current_user.facebook_id})
     current_user.money += money.value
     current_user.save
     money.destroy
-    redirect_to(cards_path)
+    redirect_to(:action => "index", :controller => "cards", 
+      :bypass_canvas => true)
   end
 end

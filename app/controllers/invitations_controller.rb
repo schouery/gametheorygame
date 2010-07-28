@@ -14,10 +14,12 @@ class InvitationsController < ApplicationController
       user.friends_with_this_app.map(&:id).join(",")
   end
 
-  #Informs the user that the invitation was sended and redirects to cards_url.
+  #Informs the user that the invitation was sended and redirects to cards_url
+  #bypassing canvas (to avoid nested frames)
   def create
     flash[:notice] = 'Invitation was successfully sended.'
-    redirect_to(cards_path)
+    redirect_to(:action => "index", :controller => "cards", 
+      :bypass_canvas => true)
   end
 
 end

@@ -1,13 +1,28 @@
-%p.title Researcher's Manual
-/ bla e leia também o user
-%p.title Researcher's list and quitting from being a researcher
+%p.title 
+  Researcher's Manual
+
+%p  
+  This is the manual for researchers. A researcher is a user that creates games on the system and whom can 
+  view the statistics for the games. We strongly suggest that you read the
+  =link_to "User Manual", manual_path
+  first.
+  
+%p.title 
+  Researcher's list and quitting from being a researcher
+
 %p
   Clicking on
   %strong Researchers
   will take you to a list of the current researchers of the system. If you want to stop being a researcher,
-  you can 
+  you can click on
+  %strong Remove
+  in front of your name.
   
-%p.title Creating Two Player Matrix Games
+-if Configuration[:researcher_can_invite_researcher]
+  %p You can invite another researcher by clicking in Invite.
+  
+%p.title
+  Creating Two Player Matrix Games
 %p
   A Two Player Matrix Games is a game with two players where the set of strategies are finite and the payoffs
   are given by a matrix. 
@@ -30,7 +45,8 @@
   player and the right most is the payoff of line player. You can add more lines or columns by clicking in
   %strong Add.
   
-%p.title Creating Symmetric Function Games
+%p.title
+  Creating Symmetric Function Games
 %p
   A Symmetric Function Game is a game where all player have the same finite set of strategies and the payoff
   is given by a function equal to all users.
@@ -54,7 +70,8 @@
   st. np[i] indicates the number of players that chosen the strategy i and st[i] is one if the player
   has chosen the strategy i and zero otherwise. You should note that the strategies indexes starts at 0.
     
-%p.title Managing games
+%p.title
+  Managing games
 %p
   At the page
   %strong Games
@@ -72,7 +89,8 @@
   link there, then you can change the game specification. Note that you can edit a game 
   if you the it's owner.
   
-%p.title Viewing game statistics
+%p.title
+  Viewing game statistics
 %p
   If you click in
   %strong Statistics
@@ -86,29 +104,3 @@
 %p
   If it is a Two Player Matrix Game, then you will see a matrix where each cell informs you of the percentage
   of time that a result occurred.
-
-%p.title Viewing system configuration  
-%p
-  You can view the system configuration in the page 
-  %strong Config.
-  
-  This are the system configuration options:
-    %ul
-      %li 
-        Money gift value: Amount of money a user sends to a friend when choosing to send a money gift.
-      %li 
-        Full permissions to Researchers: If set to true, then the researchers have the same permissions as a
-        admin.
-      %li 
-        A Researcher can invite another researcher: If set to true, then a researcher can invite a friend to be
-        a researcher.
-      %li 
-        Player's Starting Money: how much money the player starts with.
-      %li 
-        Player's Starting Card: how many cards the player starts with.
-      %li 
-        Starting Cards Per Hour: how many cards a player gains by hour if he does not have any bonus.
-      %li 
-        Starting Hand Limit: the limit of the hand of a player wihout any bonus.
-      %li 
-        Item Probability: the probability of a item card be deal to a user.

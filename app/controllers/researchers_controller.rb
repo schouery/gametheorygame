@@ -27,13 +27,14 @@ class ResearchersController < ApplicationController
   end
 
   #Marks the current user as researcher if he has a invitation and redirects to
-  #cards_path
+  #cards_path bypassing canvas (to avoid nested frames)
   def confirm
     invitation = Invitation.find(:first, :conditions => {
         :facebook_id => current_user.facebook_id, :for => 'researcher'})
     invitation.promote(current_user)
     flash[:notice] = 'You are now a Researcher!'
-    redirect_to(cards_path)
+    redirect_to(:action => "index", :controller => "cards", 
+      :bypass_canvas => true)
   end
 
   #Remove the requested user and redirects to cards_path if the current_user

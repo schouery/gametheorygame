@@ -29,7 +29,8 @@ class Ability
   end
 
   #Permissions for Researchers
-  def researcher_abilities(user)     
+  def researcher_abilities(user)   
+    can :read, :all  
     manage_games(user)
     can :invite_researcher, User if Configuration[:researcher_can_invite_researcher]
     can :researcher_manual, nil

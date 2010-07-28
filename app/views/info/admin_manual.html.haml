@@ -1,9 +1,84 @@
 %p.title Adminstrator's Manual
-/ bla e leia também os outros manuais
-/ full permission
+%p
+  The adminstrator has full permission on the system and is responsible to configure the system. You
+  should read first the
+  =link_to "User's Manual", manual_path
+  and them the
+  =link_to "Researcher's Manual", researcher_manual_path
+  to understand all the system. Note that, you, as a administrator, should ignore the warnings that you
+  should be the owner or creator of something in those manuals.
+
 %p.title Inviting new Researchers
-/ bla sobre user types
-%p.title Changing system configuration
-/ Leia researcher manual
+%p  
+  You can invite a new researcher by clicking in
+  %strong Researchers
+  and then on
+  %strong Invite.
+  
 %p.title Changing games probabilities
-%p.title Items, ItemTypes and ItemSets
+%p
+  You can change the chance of a user receive a specific game. This is useful to make the game more or less
+  changeling. You should go to the
+  %strong Games
+  page and then click on
+  %strong Probabilities.
+  There you will see the list of all active games and you can put more weight on those that you want to be
+  more often draw by players.
+
+%p.title Items, Item Types and Item Sets
+%p
+  Players will receive Items from time to time. A Item has one Item Type, which define it's name. That is,
+  by creating a new Item Type, you will make the users (eventually) receive a Item it that Item Type. On
+  the other hand, Item Types are part of a Item Set which has a name and a bonus type. When a user uses
+  all the Items from a Item Set, he gain the bonus. 
+%p  
+  You can only create Item Types associated with a Item Set. For creating a new Item Type, you should click
+  on
+  %strong Item Sets
+  and choose a Item Set (you can create a new one, if you want, see more on that bellow). Then click on
+  %strong Item Types.
+  In that page, you can click on 
+  %strong New Item Type
+  or instead click on
+  %strong Edit
+  or
+  %strong Destroy
+  to edit or destroy a existing Item Type (note that, destroy a Item Type will destroy all Items of this
+  Item Type). If you clicked on New Item Type, then you will see a page asking
+  for the name of the new Item type.
+%p  
+  You can create a new Item Set by clicking on
+  %strong Item Sets
+  and then on
+  %strong New Item Set.
+  You should choose a name for this Item Set and a bonus type, where Hand Limit raises the user's hand limit
+  by one and Card Per Hour raises the number of cards that the user receives per hour by one.
+
+%p.title Viewing and editing system configuration  
+%p
+  You can view the system configuration in the page 
+  %strong Config
+  and edit them by clicking on
+  %strong Edit.
+%p  
+  This are the system configuration options:
+  %ul
+    %li 
+      Money gift value: Amount of money a user sends to a friend when choosing to send a money gift.
+    %li 
+      Full permissions to Researchers: If set to true, then the researchers have the same permissions as a
+      admin.
+    %li 
+      A Researcher can invite another researcher: If set to true, then a researcher can invite a friend to be
+      a researcher.
+    %li 
+      Player's Starting Money: how much money the player starts with.
+    %li 
+      Player's Starting Card: how many cards the player starts with.
+    %li 
+      Starting Cards Per Hour: how many cards a player gains by hour if he does not have any bonus.
+    %li 
+      Starting Hand Limit: the limit of the hand of a player wihout any bonus.
+    %li 
+      Item Probability: the probability of a item card be deal to a user.
+      
