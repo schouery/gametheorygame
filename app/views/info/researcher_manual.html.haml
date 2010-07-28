@@ -1,0 +1,114 @@
+%p.title Researcher's Manual
+/ bla e leia também o user
+%p.title Researcher's list and quitting from being a researcher
+%p
+  Clicking on
+  %strong Researchers
+  will take you to a list of the current researchers of the system. If you want to stop being a researcher,
+  you can 
+  
+%p.title Creating Two Player Matrix Games
+%p
+  A Two Player Matrix Games is a game with two players where the set of strategies are finite and the payoffs
+  are given by a matrix. 
+%p
+  You can create a new Two Player Matrix Game by clicking in
+  %strong New Two Players Matrix Game
+  in the
+  %strong Games
+  page.
+  
+%p  
+  You will be presented with a page that contains some fields. You should enter the name of the game, it's
+  description, the number of the players and the color (remember: red are games with negative payoff, green with
+  positive payoff and yellow games that have positive and negative payoffs).
+%p
+  You will see a matrix on the bottom of the page. You will see four big fields (on the first column and the
+  first line) and eight smaller fields on the middle. The big fields are the strategies labels for each
+  column and line and the smaller fields are the payoff for the players. You should note that, in a specific
+  pair of line and column strategy you have two smaller fields. The left most is the payoff of the column
+  player and the right most is the payoff of line player. You can add more lines or columns by clicking in
+  %strong Add.
+  
+%p.title Creating Symmetric Function Games
+%p
+  A Symmetric Function Game is a game where all player have the same finite set of strategies and the payoff
+  is given by a function equal to all users.
+
+%p  
+  You can create a new Symmetric Function Game by clicking in
+  %strong New Symmetric Function Game
+  in the
+  %strong Games
+  page.
+
+%p  
+  You will be presented with a page that contains some fields. You should enter the name of the game, it's
+  description, the number of the players and the color (remember: red are games with negative payoff, green with
+  positive payoff and yellow games that have positive and negative payoffs). You should put a label on the
+  first and second strategy and you can add more strategy by clicking in
+  %strong Add Strategy.
+
+%p  
+  At least, you should put a valid Ruby code in the function field. You can use two predefined arrays: np and
+  st. np[i] indicates the number of players that chosen the strategy i and st[i] is one if the player
+  has chosen the strategy i and zero otherwise. You should note that the strategies indexes starts at 0.
+    
+%p.title Managing games
+%p
+  At the page
+  %strong Games
+  you can view the specification of a game, view it's statistics (more on that later) or deactivate a game
+  (if you are it's owner). Clicking on
+  %strong Inactive
+  will list all games that are currently inactive. You can click on
+  %strong Activate
+  if you are the game's owner to reactivate the game.
+%p
+  Clicking in
+  %strong Show
+  on a game's line, you take you to a page where you can see the game information. If you click on the
+  %strong Edit
+  link there, then you can change the game specification. Note that you can edit a game 
+  if you the it's owner.
+  
+%p.title Viewing game statistics
+%p
+  If you click in
+  %strong Statistics
+  in the
+  %strong Games
+  page or in a specific game page, you will see the statistics for this game. 
+%p  
+  If it is a Symmetric Function
+  Game, then you will see the percentage of times that the users chosen a specific strategy when playing this
+  game.
+%p
+  If it is a Two Player Matrix Game, then you will see a matrix where each cell informs you of the percentage
+  of time that a result occurred.
+
+%p.title Viewing system configuration  
+%p
+  You can view the system configuration in the page 
+  %strong Config.
+  
+  This are the system configuration options:
+    %ul
+      %li 
+        Money gift value: Amount of money a user sends to a friend when choosing to send a money gift.
+      %li 
+        Full permissions to Researchers: If set to true, then the researchers have the same permissions as a
+        admin.
+      %li 
+        A Researcher can invite another researcher: If set to true, then a researcher can invite a friend to be
+        a researcher.
+      %li 
+        Player's Starting Money: how much money the player starts with.
+      %li 
+        Player's Starting Card: how many cards the player starts with.
+      %li 
+        Starting Cards Per Hour: how many cards a player gains by hour if he does not have any bonus.
+      %li 
+        Starting Hand Limit: the limit of the hand of a player wihout any bonus.
+      %li 
+        Item Probability: the probability of a item card be deal to a user.
