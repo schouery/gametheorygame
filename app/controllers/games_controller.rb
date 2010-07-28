@@ -4,13 +4,13 @@ class GamesController < ApplicationController
   # Lists all games as @games
   def index
     @games = Games.collect_results {|specific_games| specific_games.not_removed}
-    authorize! :read, @games
+    authorize! :read, TwoPlayerMatrixGame.new
   end
 
   # Lists all removed games as @games
   def inactive
     @games = Games.collect_results {|specific_games| specific_games.removed}    
-    authorize! :read, @games
+    authorize! :read, TwoPlayerMatrixGame.new
   end
 
   # Activates a specific game and redirects to games_path
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
   # Lists all games as @games
   def probabilities
     @games = Games.collect_results {|specific_games| specific_games.not_removed}
-    authorize! :update, @games         
+    authorize! :update, TwoPlayerMatrixGame.new(:user => current_user)
   end
 
   #Update the weight of all games and redirects to games_path
