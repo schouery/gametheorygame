@@ -33,6 +33,7 @@ class Ability
   def researcher_abilities(user)         
     user_abilities(user)
     manage_games(user)
+    can :read, User
     can :invite_researcher, User if Configuration[:researcher_can_invite_researcher]
     can :researcher_manual, nil
     can :remove_researcher, User do |researcher|
